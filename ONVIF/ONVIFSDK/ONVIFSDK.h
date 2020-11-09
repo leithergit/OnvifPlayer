@@ -47,6 +47,166 @@ enum PTZ_Flag
 	PTZ_Flag_ZOOM = 2
 };
 
+
+struct Image_Capabilities
+{
+	std::vector<char* >__any;
+	bool* ImageStabilization;		/* optional attribute */
+	char* __anyAttribute;			/* optional attribute */
+};
+
+enum BacklightCompensationMode
+{
+	BacklightCompensationMode__OFF = 0,
+	BacklightCompensationMode__ON = 1
+};
+struct BacklightCompensation
+{
+	BacklightCompensationMode nMode;
+	float* fLevel;
+};
+
+enum ExposureMode
+{
+	ExposureMode__AUTO = 0,
+	ExposureMode__MANUAL = 1
+};
+
+enum ExposurePriority
+{
+	ExposurePriority__LowNoise = 0,
+	ExposurePriority__FrameRate = 1
+};
+struct RangeRectangle
+{
+	float* fBottom;	/* optional attribute */
+	float* fTop;		/* optional attribute */
+	float* fRight;	/* optional attribute */
+	float* fLeft;	/* optional attribute */
+};
+struct Exposure
+{
+	ExposureMode		Mode;	/* required element of type tt:ExposureMode */
+	ExposurePriority* Priority;	/* optional element of type tt:ExposurePriority */
+	RangeRectangle* Window;	/* optional element of type tt:Rectangle */
+	float* fMinExposureTime;	/* optional element of type xsd:float */
+	float* fMaxExposureTime;	/* optional element of type xsd:float */
+	float* fMinGain;	/* optional element of type xsd:float */
+	float* fMaxGain;	/* optional element of type xsd:float */
+	float* fMinIris;	/* optional element of type xsd:float */
+	float* fMaxIris;	/* optional element of type xsd:float */
+	float* fExposureTime;	/* optional element of type xsd:float */
+	float* fGain;	/* optional element of type xsd:float */
+	float* fIris;	/* optional element of type xsd:float */
+};
+
+enum AutoFocusMode
+{
+	AutoFocusMode__AUTO = 0,
+	AutoFocusMode__MANUAL = 1
+};
+struct OnvifExtension
+{
+	std::vector<char* >__any;
+};
+struct FocusConfiguration
+{
+	AutoFocusMode AutoFocusMode;	/* required element of type tt:AutoFocusMode */
+	float* fDefaultSpeed;	/* optional element of type xsd:float */
+	float* fNearLimit;	/* optional element of type xsd:float */
+	float* fFarLimit;	/* optional element of type xsd:float */
+	OnvifExtension* pExtension;	/* optional element of type tt:FocusConfiguration20Extension */
+	char* __anyAttribute;	/* optional attribute */
+};
+enum IrCutFilterMode
+{
+	IrCutFilterMode__ON = 0,
+	IrCutFilterMode__OFF = 1,
+	IrCutFilterMode__AUTO = 2
+};
+
+enum WideDynamicMode
+{
+	WideDynamicMode__OFF = 0,
+	WideDynamicMode__ON = 1
+};
+
+struct WideDynamicRange
+{
+	WideDynamicMode Mode;	/* required element of type tt:WideDynamicMode */
+	float* fLevel;	/* optional element of type xsd:float */
+};
+
+enum WhiteBalanceMode
+{
+	WhiteBalanceMode__AUTO = 0,
+	WhiteBalanceMode__MANUAL = 1
+};
+
+struct WhiteBalance
+{
+	WhiteBalanceMode Mode;			/* required element of type tt:WhiteBalanceMode */
+	float* fCrGain;					/* optional element of type xsd:float */
+	float* fCbGain;					/* optional element of type xsd:float */
+	OnvifExtension* pExtension;	/* optional element of type tt:WhiteBalance20Extension */
+	char* __anyAttribute;			/* optional attribute */
+};
+
+enum ImageStabilizationMode
+{
+	ImageStabilizationMode__OFF = 0,
+	ImageStabilizationMode__ON = 1,
+	ImageStabilizationMode__AUTO = 2,
+	ImageStabilizationMode__Extended = 3
+};
+
+struct ImageStabilization
+{
+	ImageStabilizationMode Mode;	/* required element of type tt:ImageStabilizationMode */
+	float* fLevel;	/* optional element of type xsd:float */
+	OnvifExtension* pExtension;	/* optional element of type tt:ImageStabilizationExtension */
+	char* __anyAttribute;	/* optional attribute */
+};
+
+struct IrCutFilterAutoAdjustment
+{
+	std::string BoundaryType;	/* required element of type xsd:string */
+	float* fBoundaryOffset;	/* optional element of type xsd:float */
+	LONG64* ResponseTime;	/* optional element of type xsd:duration */
+	OnvifExtension* Extension;	/* optional element of type tt:IrCutFilterAutoAdjustmentExtension */
+	char* __anyAttribute;	/* optional attribute */
+};
+
+struct ImagingSettingsExtensionEx
+{
+public:
+	std::vector<IrCutFilterAutoAdjustment* >IrCutFilterAutoAdjustment;	/* optional element of type tt:IrCutFilterAutoAdjustment */
+	OnvifExtension* pExtension;											/* optional element of type tt:ImagingSettingsExtension203 */
+};
+
+struct ImagingSettingsExtension
+{
+	std::vector<char* >__any;
+	ImageStabilization* pImageStabilization;	/* optional element of type tt:ImageStabilization */
+	ImagingSettingsExtensionEx* pExtension;	/* optional element of type tt:ImagingSettingsExtension202 */
+};
+
+struct ImagingSettings
+{
+	BacklightCompensation* pBacklightCompensation;	/* optional element of type tt:BacklightCompensation20 */
+	float* Brightness;								/* optional element of type xsd:float */
+	float* ColorSaturation;							/* optional element of type xsd:float */
+	float* Contrast;								/* optional element of type xsd:float */
+	Exposure* pExposure;								/* optional element of type tt:Exposure20 */
+	FocusConfiguration* pFocus;						/* optional element of type tt:FocusConfiguration20 */
+	enum IrCutFilterMode* IrCutFilter;				/* optional element of type tt:IrCutFilterMode */
+	float* Sharpness;								/* optional element of type xsd:float */
+	WideDynamicRange* pWideDynamicRange;				/* optional element of type tt:WideDynamicRange20 */
+	WhiteBalance* pWhiteBalance;						/* optional element of type tt:WhiteBalance20 */
+	ImagingSettingsExtension* pExtension;			/* optional element of type tt:ImagingSettingsExtension20 */
+	char* __anyAttribute;							/* optional attribute */
+};
+
 class  ONVIFLIB_API CONVIFClient
 {
 public:
@@ -85,10 +245,15 @@ public:
 
 	bool GetPresets();
 
+	int GetImageCapabilities(Image_Capabilities& Capabilities);
+
+	int SetImageSetting(const char* szVideoSourceToken, ImagingSettings& ImagingSettings, bool bForcePersistence = false);
+
+	int GetImageSetting(const char* szVideoSourceToken, ImagingSettings** ppImagingSettings);
+
 	const OnvifClientDevice* GetDevicePtr();
 	const OnvifClientMedia* GetMediaPtr();
 	const OnvifClientPTZ* GetPtzPtr();
-	const OnvifClientImage* GetImagePtr();
 public:
 	_trt__GetProfilesResponse* m_Profiles = nullptr;
 	/*_tptz__GetPresetsResponse*/
@@ -96,6 +261,7 @@ public:
 
 private:
 	void CreateOnvifClient();
+	bool CreateImageClient();
 	char* m_strCameraIP = nullptr;
 	char* m_strAccount = nullptr;
 	char* m_strPassword = nullptr;

@@ -5,12 +5,12 @@
 
 #include "IPCPlaySDK.h"
 #include "Stat.h"
-#include "./rtsp/rtsp.h"
+#include "../rtsp/rtsp.h"
 #include "TimeUtility.h"
 #include "DialogChart.h"
 
 #pragma component(browser, off, references)
-#include "./onvifsdk/ONVIFLib.h"
+#include "../Public/onvifsdk/ONVIFLib.h"
 #pragma component(browser, on, references)
 
 using namespace  std;

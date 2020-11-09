@@ -44,9 +44,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)d</TargetName>
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -122,33 +124,20 @@ copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK
     <ClInclude Include="include\onvifclientdevice.h" />
     <ClInclude Include="include\onvifclientmedia.h" />
     <ClInclude Include="onvifgen\soapDeviceBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapDeviceBindingService.h" />
     <ClInclude Include="onvifgen\soapDeviceIOBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapDeviceIOBindingService.h" />
     <ClInclude Include="onvifgen\soapDisplayBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapDisplayBindingService.h" />
     <ClInclude Include="onvifgen\soapH.h" />
     <ClInclude Include="onvifgen\soapImagingBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapImagingBindingService.h" />
     <ClInclude Include="onvifgen\soapMediaBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapMediaBindingService.h" />
     <ClInclude Include="onvifgen\soapPTZBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapPTZBindingService.h" />
     <ClInclude Include="onvifgen\soapPullPointSubscriptionBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapPullPointSubscriptionBindingService.h" />
     <ClInclude Include="onvifgen\soapReceiverBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapReceiverBindingService.h" />
     <ClInclude Include="onvifgen\soapRecordingBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapRecordingBindingService.h" />
     <ClInclude Include="onvifgen\soapRemoteDiscoveryBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapRemoteDiscoveryBindingService.h" />
     <ClInclude Include="onvifgen\soapReplayBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapReplayBindingService.h" />
     <ClInclude Include="onvifgen\soapSearchBindingProxy.h" />
-    <ClInclude Include="onvifgen\soapSearchBindingService.h" />
     <ClInclude Include="onvifgen\soapStub.h" />
     <ClInclude Include="onvifgen\soapwsddProxy.h" />
-    <ClInclude Include="onvifgen\soapwsddService.h" />
     <ClInclude Include="ONVIFSDK\OnvifClientImage.h" />
     <ClInclude Include="ONVIFSDK\ONVIFSDK.h" />
     <ClInclude Include="ONVIFSDK\resource.h" />
@@ -170,33 +159,20 @@ copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK
     <ClCompile Include="onvifgen\nsmap.cpp" />
     <ClCompile Include="onvifgen\soapC.cpp" />
     <ClCompile Include="onvifgen\soapDeviceBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapDeviceBindingService.cpp" />
     <ClCompile Include="onvifgen\soapDeviceIOBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapDeviceIOBindingService.cpp" />
     <ClCompile Include="onvifgen\soapDisplayBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapDisplayBindingService.cpp" />
     <ClCompile Include="onvifgen\soapImagingBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapImagingBindingService.cpp" />
     <ClCompile Include="onvifgen\soapMediaBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapMediaBindingService.cpp" />
     <ClCompile Include="onvifgen\soapPTZBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapPTZBindingService.cpp" />
     <ClCompile Include="onvifgen\soapPullPointSubscriptionBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapPullPointSubscriptionBindingService.cpp" />
     <ClCompile Include="onvifgen\soapReceiverBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapReceiverBindingService.cpp" />
     <ClCompile Include="onvifgen\soapRecordingBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapRecordingBindingService.cpp" />
     <ClCompile Include="onvifgen\soapRemoteDiscoveryBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapRemoteDiscoveryBindingService.cpp" />
     <ClCompile Include="onvifgen\soapReplayBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapReplayBindingService.cpp" />
     <ClCompile Include="onvifgen\soapSearchBindingProxy.cpp" />
-    <ClCompile Include="onvifgen\soapSearchBindingService.cpp" />
     <ClCompile Include="onvifgen\soapwsddProxy.cpp" />
-    <ClCompile Include="onvifgen\soapwsddService.cpp" />
     <ClCompile Include="ONVIFSDK\dllmain.cpp" />
-    <ClCompile Include="ONVIFSDK\ONVIFClient.cpp" />
+    <ClCompile Include="ONVIFSDK\ONVIFSDK.cpp" />
     <ClCompile Include="ONVIFSDK\ONVIFClientDevice.cpp" />
     <ClCompile Include="ONVIFSDK\OnvifClientImage.cpp" />
     <ClCompile Include="ONVIFSDK\ONVIFClientMedia.cpp" />
@@ -204,18 +180,6 @@ copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK
     <ClCompile Include="ONVIFSDK\stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="onvifgen\DeviceBinding.nsmap" />
-    <None Include="onvifgen\DeviceIOBinding.nsmap" />
-    <None Include="onvifgen\DisplayBinding.nsmap" />
-    <None Include="onvifgen\ImagingBinding.nsmap" />
-    <None Include="onvifgen\MediaBinding.nsmap" />
-    <None Include="onvifgen\PTZBinding.nsmap" />
-    <None Include="onvifgen\PullPointSubscriptionBinding.nsmap" />
-    <None Include="onvifgen\ReceiverBinding.nsmap" />
-    <None Include="onvifgen\RecordingBinding.nsmap" />
-    <None Include="onvifgen\RemoteDiscoveryBinding.nsmap" />
-    <None Include="onvifgen\ReplayBinding.nsmap" />
-    <None Include="onvifgen\SearchBinding.nsmap" />
     <None Include="onvifgen\wsdd.nsmap" />
   </ItemGroup>
   <ItemGroup>

@@ -4,22 +4,22 @@
 #include "stdafx.h"
 
 #ifdef _ONVIF_STATIC
-#include "../ONVIFSDK/onvifLIB.h"
+#include "../Public/ONVIFSDK/onvifLIB.h"
 #ifdef _DEBUG
-#pragma comment(lib,"../3rdparty/openssl-1.0.1g/lib/libeay32MTd.lib")
-#pragma comment(lib,"../3rdparty/openssl-1.0.1g/lib/ssleay32MTd.lib")
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/libeay32MTd.lib")
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/ssleay32MTd.lib")
 #pragma comment(lib,"../ONVIFSDK/ONVIFLIBD.lib")
 #else
-#pragma comment(lib,"../3rdparty/openssl-1.0.1g/lib/libeay32MT.lib")
-#pragma comment(lib,"../3rdparty/openssl-1.0.1g/lib/ssleay32MT.lib")
-#pragma comment(lib,"../ONVIFSDK/ONVIFLIB.lib")
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/libeay32MT.lib")
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/ssleay32MT.lib")
+#pragma comment(lib,"../Public/ONVIFSDK/ONVIFLIB.lib")
 #endif
 #else
-#include "../ONVIFSDK/ONVIFSDK.h"
+#include "../Public/ONVIFSDK/ONVIFSDK.h"
 #ifdef _DEBUG
-#pragma comment(lib,"../ONVIFSDK/ONVIFSDKD.lib")
+#pragma comment(lib,"../Public/ONVIFSDK/ONVIFSDKD.lib")
 #else
-#pragma comment(lib,"../ONVIFSDK/ONVIFSDK.lib")
+#pragma comment(lib,"../Public/ONVIFSDK/ONVIFSDK.lib")
 #endif
 #endif
 
@@ -85,13 +85,13 @@ int _tmain(int argc, _TCHAR* argv[])
 		//{ "192.168.10.53", "admin", "Admin12345" },
 		/*{ "192.168.10.54", "admin", "Admin12345" },*/
 		// Axis
-		{ "192.168.10.10", "root", "pass" },
+		//{ "192.168.10.10", "root", "pass" },
 		//{ "192.168.10.15", "root", "pass" },
 		//{ "192.168.10.194", "root", "pass" },
 		//{ "192.168.2.11", "root", "pass" }
 		//{ "192.168.2.17", "root", "pass" },
-		//{ "192.168.20.227", "root", "Pass1234" },
-		//{ "192.168.10.42", "root", "pass" }
+		{ "192.168.20.227", "root", "Pass1234" },
+		//{ "192.168.10.42", "root", "pass" },
 		//{ "192.168.10.44", "root", "pass" }
 	};
 
@@ -254,15 +254,15 @@ int _tmain(int argc, _TCHAR* argv[])
 			// try to move the camera
 			float x = 0.0f, y = 0.0f, z = 0.1f;
 			PTZStatus PTstatus = PTZStatus::PTZ_Unknown, Zstatus = PTZ_Unknown;
-			// 
-			// 			if (pClient->GetStatus(x, y, z, PTstatus, Zstatus))
-			// 				cout << "Camera " << IP << " Current Position = [" << x << "," << y << "," << z << "]" << endl;
-			// 			else
-			// 				cout << "Camera " << IP << " Failed in  GetStatus!" << endl;
-			// 
-			// 			int nSpeed = 25;
-			// 			PTZCommand nCommandArray[] = { TITLT_UP, TITLT_DOWN, PTZ_IN, PTZ_OUT };
-			// 
+
+			if (pClient->GetStatus(x, y, z, PTstatus, Zstatus))
+				cout << "Camera " << IP << " Current Position = [" << x << "," << y << "," << z << "]" << endl;
+			else
+				cout << "Camera " << IP << " Failed in  GetStatus!" << endl;
+
+			int nSpeed = 25;
+			PTZCommand nCommandArray[] = { TITLT_UP, TITLT_DOWN, PTZ_IN, PTZ_OUT };
+			// 			cout << "***********Now we will test ONVIF PTZ Moving**************" << endl;
 			// 			char* szCommandArray[] = { "TITLT_UP", "TITLT_DOWN", "PTZ_IN", "PTZ_OUT" };
 			// 			long long nTimeOut = 3600;
 			// 			int nSoapStatus = SOAP_OK;
@@ -272,21 +272,31 @@ int _tmain(int argc, _TCHAR* argv[])
 			// 				nSoapStatus = pClient->ContinueMove(nCommandArray[i], nSpeed, nTimeOut);
 			// 				Sleep(5000);
 			// 			}
-			// 				 
+			// 
 			// 			pClient->Stop();
-			float fZoom[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f };
-			for (int nIndex = 0; nIndex < sizeof(fZoom) / sizeof(float); nIndex++)
-				if (pClient->AbsoluteMove(x, y, fZoom[nIndex], 50))
-				{
-					if (pClient->GetStatus(x, y, z, PTstatus, Zstatus))
-						cout << "Camera " << IP << " turn to Position = [" << x << "," << y << "," << z << "]" << endl;
-					else
-						cout << "Camera " << IP << " Failed in  GetStatus!" << endl;
-					Sleep(2000);
-				}
-				else
-					cout << "Camera " << IP << " Failed in AbsoluteMove,it May not support the sepecified PTZ Operation!" << endl;
+			// 			float fZoom[] = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f };
+			// 			for (int nIndex = 0; nIndex < sizeof(fZoom) / sizeof(float); nIndex++)
+			// 				if (pClient->AbsoluteMove(x, y, fZoom[nIndex], 50))
+			// 				{
+			// 					if (pClient->GetStatus(x, y, z, PTstatus, Zstatus))
+			// 						cout << "Camera " << IP << " turn to Position = [" << x << "," << y << "," << z << "]" << endl;
+			// 					else
+			// 						cout << "Camera " << IP << " Failed in  GetStatus!" << endl;
+			// 					Sleep(2000);
+			// 				}
+			// 				else
+			// 					cout << "Camera " << IP << " Failed in AbsoluteMove,it May not support the sepecified PTZ Operation!" << endl;
+
 			cout << "***********Now we will test ONVIF Image Setting Test**************" << endl;
+			char* szExposureMode[] = { "AUTO","MANUAL" };
+			char* szBacklightCompensationMode[] = { "BacklightCompensationMode__OFF", "BacklightCompensationMode__ON" };
+			char* szExposurePriority[] = { "Priority LowNoise",  "Priority FrameRate" };
+			char* szAutoFocusMode[] = { "AutoFocusMode__AUTO","AutoFocusMode__MANUAL" };
+			char* szIrCutFilterMode[] = { "IrCutFilterMode__ON","IrCutFilterMode__OFF", "IrCutFilterMode__AUTO" };
+			char* szWideDynamicMode[] = { "WideDynamicMode__OFF", "WideDynamicMode__ON" };
+			char* szWhiteBalanceMode[] = { "WhiteBalanceMode__AUTO", "WhiteBalanceMode__MANUAL" };
+			char* szImageStabilizationMode[] = { "ImageStabilizationMode__OFF", "ImageStabilizationMode__ON","ImageStabilizationMode__AUTO","ImageStabilizationMode__Extended" };
+#ifdef _ONVIF_STATIC
 			pClient->CreateImageClient();
 			OnvifClientImage* pOnvifImage = (OnvifClientImage*)pClient->GetImagePtr();
 			_timg__GetServiceCapabilitiesResponse ImageCapabilitiesResponse;
@@ -308,47 +318,38 @@ int _tmain(int argc, _TCHAR* argv[])
 			timg__GetImagingSettings.VideoSourceToken = strVideoSourceToken;
 			_timg__GetImagingSettingsResponse ImagingSettingsResponse;
 
-			char* szExposureMode[] = { "AUTO","MANUAL" };
-			char* szBacklightCompensationMode[] = { "BacklightCompensationMode__OFF", "BacklightCompensationMode__ON" };
-			char* szExposurePriority[] = { "Priority LowNoise",  "Priority FrameRate" };
-			char* szAutoFocusMode[] = { "AutoFocusMode__AUTO","AutoFocusMode__MANUAL" };
-			char* szIrCutFilterMode[] = { "IrCutFilterMode__ON","IrCutFilterMode__OFF", "IrCutFilterMode__AUTO" };
-			char* szWideDynamicMode[] = { "WideDynamicMode__OFF", "WideDynamicMode__ON" };
-			char* szWhiteBalanceMode[] = { "WhiteBalanceMode__AUTO", "WhiteBalanceMode__MANUAL" };
-			char* szImageStabilizationMode[] = { "ImageStabilizationMode__OFF", "ImageStabilizationMode__ON","ImageStabilizationMode__AUTO","ImageStabilizationMode__Extended" };
-
 			nResult = pOnvifImage->GetImagingSettings(&timg__GetImagingSettings, &ImagingSettingsResponse);
-			if (nResult == SOAP_OK && ImagingSettingsResponse.ImagingSettings)
+			if (nResult == SOAP_OK && pIS)
 			{
-				if (ImagingSettingsResponse.ImagingSettings->BacklightCompensation)
+				if (pIS->BacklightCompensation)
 				{
-					cout << "Backlight Compensation Level = " << ImagingSettingsResponse.ImagingSettings->BacklightCompensation->Level << endl;
-					cout << "BacklightCompensation Mode = " << szBacklightCompensationMode[ImagingSettingsResponse.ImagingSettings->BacklightCompensation->Mode];
+					cout << "Backlight Compensation Level = " << pIS->BacklightCompensation->Level << endl;
+					cout << "BacklightCompensation Mode = " << szBacklightCompensationMode[pIS->BacklightCompensation->Mode];
 				}
 				else
 					cout << "Setting BacklightCompensation is not supported!" << endl;
 
-				if (ImagingSettingsResponse.ImagingSettings->Brightness)
-					cout << "Setting Brightness = " << *(ImagingSettingsResponse.ImagingSettings->Brightness) << endl;
+				if (pIS->Brightness)
+					cout << "Setting Brightness = " << *(pIS->Brightness) << endl;
 				else
 					cout << "Setting Brightness it not supported!" << endl;
 
-				if (ImagingSettingsResponse.ImagingSettings->ColorSaturation)
-					cout << "ColorSaturation = " << *(ImagingSettingsResponse.ImagingSettings->ColorSaturation) << endl;
+				if (pIS->ColorSaturation)
+					cout << "ColorSaturation = " << *(pIS->ColorSaturation) << endl;
 				else
 					cout << "Setting ColorSaturation is not supported!" << endl;
 
-				if (ImagingSettingsResponse.ImagingSettings->Contrast)
-					cout << "Contrast = " << *(ImagingSettingsResponse.ImagingSettings->Contrast) << endl;
+				if (pIS->Contrast)
+					cout << "Contrast = " << *(pIS->Contrast) << endl;
 				else
 					cout << "Setting Contrast is not supported!" << endl;
 
-				if (ImagingSettingsResponse.ImagingSettings->Exposure)
+				if (pIS->Exposure)
 				{
-					tt__Exposure20* Exposure = ImagingSettingsResponse.ImagingSettings->Exposure;
+					tt__Exposure20* Exposure = pIS->Exposure;
 					tt__Rectangle* Window = Exposure->Window;
 
-					cout << "ExposureMode = " << szExposureMode[ImagingSettingsResponse.ImagingSettings->Exposure->Mode] << endl;
+					cout << "ExposureMode = " << szExposureMode[pIS->Exposure->Mode] << endl;
 
 					if (Exposure->Priority)
 					{
@@ -401,7 +402,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			_timg__SetImagingSettings timg__SetImagingSettings;
 			timg__SetImagingSettings.VideoSourceToken = strVideoSourceToken;
 			timg__SetImagingSettings.ForcePersistence = false;		// 是否永久保存，若为true,则目标设置备重启后也会继续生效，否则重启后失效
-			timg__SetImagingSettings.ImagingSettings = ImagingSettingsResponse.ImagingSettings;
+			timg__SetImagingSettings.ImagingSettings = pIS;
 			_timg__SetImagingSettingsResponse timg__SetImagingSettingsResponse;
 			nResult = pOnvifImage->SetImagingSettings(&timg__SetImagingSettings, &timg__SetImagingSettingsResponse);
 			if (nResult == SOAP_OK)
@@ -639,6 +640,116 @@ int _tmain(int argc, _TCHAR* argv[])
 			//_timg__Stop timg__Stop;
 			//_timg__StopResponse timg__StopResponse;
 			//nResult = pOnvifImage->Stop(&timg__Stop, &timg__StopResponse);
+#else
+			Image_Capabilities ic;
+			int nResult = pClient->GetImageCapabilities(ic);
+
+			if (nResult == SOAP_OK)
+			{
+				// 是否有图像稳定系统，如防防抖功能
+				cout << "ImageStabilization = " << ic.ImageStabilization << endl;
+
+				cout << "Image Capabilities Items size = " << ic.__any.size() << endl;
+				int nIndex = 0;
+				for each (auto var in ic.__any)
+					cout << "Item[" << nIndex << "] = " << var << endl;
+			}
+
+			std::string strVideoSourceToken = pClient->m_Profiles->Profiles[0]->VideoSourceConfiguration->SourceToken;
+			ImagingSettings* pIS = nullptr;
+
+			nResult = pClient->GetImageSetting(strVideoSourceToken.c_str(), &pIS);
+			if (nResult == SOAP_OK && pIS)
+			{
+				if (pIS->pBacklightCompensation)
+				{
+					cout << "Backlight Compensation Level = " << pIS->pBacklightCompensation->Level << endl;
+					cout << "BacklightCompensation Mode = " << szBacklightCompensationMode[pIS->pBacklightCompensation->Mode];
+				}
+				else
+					cout << "Setting BacklightCompensation is not supported!" << endl;
+
+				if (pIS->Brightness)
+					cout << "Setting Brightness = " << *(pIS->Brightness) << endl;
+				else
+					cout << "Setting Brightness it not supported!" << endl;
+
+				if (pIS->ColorSaturation)
+					cout << "ColorSaturation = " << *(pIS->ColorSaturation) << endl;
+				else
+					cout << "Setting ColorSaturation is not supported!" << endl;
+
+				if (pIS->Contrast)
+					cout << "Contrast = " << *(pIS->Contrast) << endl;
+				else
+					cout << "Setting Contrast is not supported!" << endl;
+
+				if (pIS->Exposure)
+				{
+					Exposure* pExposure = pIS->pExposure;
+					RangeRectangle* pWindow = pExposure->pWindow;
+
+					cout << "ExposureMode = " << szExposureMode[pIS->Exposure->Mode] << endl;
+
+					if (pExposure->Priority)
+					{
+						cout << "ExposurePriority=" << szExposurePriority[*(pExposure->Priority)] << endl;
+					}
+					if (pExposure->Window)
+					{
+						cout << "Exposure Window :left = " << *pWindow->left << endl;
+						cout << "Exposure Window :top = " << *pWindow->top << endl;
+						cout << "Exposure Window :right = " << *pWindow->right << endl;
+						cout << "Exposure Window :bottom = " << *pWindow->bottom << endl;
+					}
+
+					cout << "ExposureMode=" << szExposureMode[pExposure->Mode] << endl;
+
+					if (pExposure->ExposureTime)
+						cout << "ExposureTime = " << *(pExposure->ExposureTime) << endl;
+
+					if (pExposure->MinExposureTime)
+						cout << "MinExposureTime = " << *(pExposure->MinExposureTime) << endl;
+
+					if (pExposure->MaxExposureTime)
+						cout << "MaxExposureTime = " << *(pExposure->MaxExposureTime) << endl;
+
+					if (pExposure->Gain)
+						cout << "ExposureGain = " << *(pExposure->Gain) << endl;
+
+					if (pExposure->MaxGain)
+						cout << "ExposureMaxGain = " << *(pExposure->MaxGain) << endl;
+
+					if (pExposure->MinGain)
+						cout << "ExposureMinGain = " << *(pExposure->MinGain) << endl;
+
+					if (pExposure->MaxGain)
+						cout << "ExposureMaxIris = " << *(pExposure->MaxGain) << endl;
+
+					if (pExposure->Iris)
+						cout << "ExposureIris = " << *(pExposure->Iris) << endl;
+
+					if (pExposure->MaxIris)
+						cout << "ExposureMaxIris = " << *(pExposure->MaxIris) << endl;
+
+					if (pExposure->MinIris)
+						cout << "ExposureMaxIris = " << *(pExposure->MinIris) << endl;
+				}
+				else
+					cout << "Setting Exposure is not supported!" << endl;
+			}
+
+			//_timg__SetImagingSettings timg__SetImagingSettings;
+			//timg__SetImagingSettings.VideoSourceToken = strVideoSourceToken;
+			//timg__SetImagingSettings.ForcePersistence = false;		// 是否永久保存，若为true,则目标设置备重启后也会继续生效，否则重启后失效
+			//timg__SetImagingSettings.ImagingSettings = pIS;
+			//_timg__SetImagingSettingsResponse timg__SetImagingSettingsResponse;
+			//nResult = pOnvifImage->SetImagingSettings(&timg__SetImagingSettings, &timg__SetImagingSettingsResponse);
+			//if (nResult == SOAP_OK)
+			//	cout << "Succeed in Setimage Settings!" << endl;
+			//else
+			//	cout << "Failed in Setimage Settings!" << endl;
+#endif
 
 		}
 		catch (std::exception e)

@@ -44,26 +44,27 @@ public:
     CVideoWidget *frame;
     QVBoxLayout *verticalLayout_11;
     QGroupBox *groupBox_8;
-    QGridLayout *gridLayout_7;
+    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_53;
+    QLabel *labelFirstIP;
+    QIPAddress *FirstIP;
+    QLabel *labelCount;
+    QLineEdit *CameraCount;
     QHBoxLayout *horizontalLayout_51;
     QLabel *labelLastIP;
     QIPAddress *LastIP;
+    QSpacerItem *horizontalSpacer_2;
+    QHBoxLayout *horizontalLayout_56;
+    QLabel *label_Password_2;
+    QLineEdit *lineEdit_Account;
+    QSpacerItem *horizontalSpacer_3;
+    QLabel *label_Password;
+    QLineEdit *lineEdit_Password;
     QHBoxLayout *horizontalLayout_52;
     QPushButton *ButtonAdd;
     QPushButton *ButtonSelectAll;
     QPushButton *ButtonDeselectAll;
     QPushButton *ButtonDel;
-    QHBoxLayout *horizontalLayout_53;
-    QLabel *labelFirstIP;
-    QIPAddress *FirstIP;
-    QHBoxLayout *horizontalLayout_54;
-    QHBoxLayout *horizontalLayout_55;
-    QLabel *labelCount;
-    QLineEdit *CameraCount;
-    QSpacerItem *horizontalSpacer_9;
-    QHBoxLayout *horizontalLayout_56;
-    QLabel *labelCameraType;
-    QComboBox *comboBoxCameraType;
     QTableWidget *tableWidgetCamera;
     QHBoxLayout *horizontalLayout_57;
     QLineEdit *lineEdit_Configure;
@@ -192,68 +193,13 @@ public:
         sizePolicy1.setHeightForWidth(groupBox_8->sizePolicy().hasHeightForWidth());
         groupBox_8->setSizePolicy(sizePolicy1);
         groupBox_8->setMinimumSize(QSize(250, 0));
-        gridLayout_7 = new QGridLayout(groupBox_8);
-        gridLayout_7->setSpacing(6);
-        gridLayout_7->setContentsMargins(11, 11, 11, 11);
-        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
-        gridLayout_7->setHorizontalSpacing(2);
-        gridLayout_7->setContentsMargins(6, 3, 6, 3);
-        horizontalLayout_51 = new QHBoxLayout();
-        horizontalLayout_51->setSpacing(3);
-        horizontalLayout_51->setObjectName(QString::fromUtf8("horizontalLayout_51"));
-        labelLastIP = new QLabel(groupBox_8);
-        labelLastIP->setObjectName(QString::fromUtf8("labelLastIP"));
-        sizePolicy1.setHeightForWidth(labelLastIP->sizePolicy().hasHeightForWidth());
-        labelLastIP->setSizePolicy(sizePolicy1);
-        labelLastIP->setMinimumSize(QSize(50, 0));
-
-        horizontalLayout_51->addWidget(labelLastIP);
-
-        LastIP = new QIPAddress(groupBox_8);
-        LastIP->setObjectName(QString::fromUtf8("LastIP"));
-
-        horizontalLayout_51->addWidget(LastIP);
-
-
-        gridLayout_7->addLayout(horizontalLayout_51, 1, 0, 1, 1);
-
-        horizontalLayout_52 = new QHBoxLayout();
-        horizontalLayout_52->setSpacing(3);
-        horizontalLayout_52->setObjectName(QString::fromUtf8("horizontalLayout_52"));
-        ButtonAdd = new QPushButton(groupBox_8);
-        ButtonAdd->setObjectName(QString::fromUtf8("ButtonAdd"));
-        ButtonAdd->setMinimumSize(QSize(0, 25));
-        ButtonAdd->setMaximumSize(QSize(35, 26));
-
-        horizontalLayout_52->addWidget(ButtonAdd);
-
-        ButtonSelectAll = new QPushButton(groupBox_8);
-        ButtonSelectAll->setObjectName(QString::fromUtf8("ButtonSelectAll"));
-        ButtonSelectAll->setMinimumSize(QSize(0, 25));
-        ButtonSelectAll->setMaximumSize(QSize(80, 26));
-        ButtonSelectAll->setAutoDefault(false);
-
-        horizontalLayout_52->addWidget(ButtonSelectAll);
-
-        ButtonDeselectAll = new QPushButton(groupBox_8);
-        ButtonDeselectAll->setObjectName(QString::fromUtf8("ButtonDeselectAll"));
-        ButtonDeselectAll->setMinimumSize(QSize(0, 25));
-        ButtonDeselectAll->setMaximumSize(QSize(80, 26));
-
-        horizontalLayout_52->addWidget(ButtonDeselectAll);
-
-        ButtonDel = new QPushButton(groupBox_8);
-        ButtonDel->setObjectName(QString::fromUtf8("ButtonDel"));
-        ButtonDel->setMinimumSize(QSize(0, 25));
-        ButtonDel->setMaximumSize(QSize(35, 26));
-
-        horizontalLayout_52->addWidget(ButtonDel);
-
-
-        gridLayout_7->addLayout(horizontalLayout_52, 3, 0, 1, 1);
-
+        verticalLayout_4 = new QVBoxLayout(groupBox_8);
+        verticalLayout_4->setSpacing(2);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_53 = new QHBoxLayout();
-        horizontalLayout_53->setSpacing(3);
+        horizontalLayout_53->setSpacing(2);
         horizontalLayout_53->setObjectName(QString::fromUtf8("horizontalLayout_53"));
         labelFirstIP = new QLabel(groupBox_8);
         labelFirstIP->setObjectName(QString::fromUtf8("labelFirstIP"));
@@ -276,15 +222,6 @@ public:
 
         horizontalLayout_53->addWidget(FirstIP);
 
-
-        gridLayout_7->addLayout(horizontalLayout_53, 0, 0, 1, 1);
-
-        horizontalLayout_54 = new QHBoxLayout();
-        horizontalLayout_54->setSpacing(3);
-        horizontalLayout_54->setObjectName(QString::fromUtf8("horizontalLayout_54"));
-        horizontalLayout_55 = new QHBoxLayout();
-        horizontalLayout_55->setSpacing(3);
-        horizontalLayout_55->setObjectName(QString::fromUtf8("horizontalLayout_55"));
         labelCount = new QLabel(groupBox_8);
         labelCount->setObjectName(QString::fromUtf8("labelCount"));
         sizePolicy2.setHeightForWidth(labelCount->sizePolicy().hasHeightForWidth());
@@ -292,7 +229,7 @@ public:
         labelCount->setMinimumSize(QSize(35, 0));
         labelCount->setMaximumSize(QSize(35, 16777215));
 
-        horizontalLayout_55->addWidget(labelCount);
+        horizontalLayout_53->addWidget(labelCount);
 
         CameraCount = new QLineEdit(groupBox_8);
         CameraCount->setObjectName(QString::fromUtf8("CameraCount"));
@@ -302,41 +239,110 @@ public:
         sizePolicy3.setHeightForWidth(CameraCount->sizePolicy().hasHeightForWidth());
         CameraCount->setSizePolicy(sizePolicy3);
         CameraCount->setMinimumSize(QSize(25, 0));
-        CameraCount->setMaximumSize(QSize(50, 16777215));
+        CameraCount->setMaximumSize(QSize(35, 16777215));
 
-        horizontalLayout_55->addWidget(CameraCount);
+        horizontalLayout_53->addWidget(CameraCount);
 
 
-        horizontalLayout_54->addLayout(horizontalLayout_55);
+        verticalLayout_4->addLayout(horizontalLayout_53);
 
-        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalLayout_51 = new QHBoxLayout();
+        horizontalLayout_51->setSpacing(2);
+        horizontalLayout_51->setObjectName(QString::fromUtf8("horizontalLayout_51"));
+        labelLastIP = new QLabel(groupBox_8);
+        labelLastIP->setObjectName(QString::fromUtf8("labelLastIP"));
+        sizePolicy1.setHeightForWidth(labelLastIP->sizePolicy().hasHeightForWidth());
+        labelLastIP->setSizePolicy(sizePolicy1);
+        labelLastIP->setMinimumSize(QSize(50, 0));
 
-        horizontalLayout_54->addItem(horizontalSpacer_9);
+        horizontalLayout_51->addWidget(labelLastIP);
+
+        LastIP = new QIPAddress(groupBox_8);
+        LastIP->setObjectName(QString::fromUtf8("LastIP"));
+
+        horizontalLayout_51->addWidget(LastIP);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_51->addItem(horizontalSpacer_2);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_51);
 
         horizontalLayout_56 = new QHBoxLayout();
-        horizontalLayout_56->setSpacing(3);
+        horizontalLayout_56->setSpacing(2);
         horizontalLayout_56->setObjectName(QString::fromUtf8("horizontalLayout_56"));
-        labelCameraType = new QLabel(groupBox_8);
-        labelCameraType->setObjectName(QString::fromUtf8("labelCameraType"));
+        label_Password_2 = new QLabel(groupBox_8);
+        label_Password_2->setObjectName(QString::fromUtf8("label_Password_2"));
+        label_Password_2->setMinimumSize(QSize(50, 0));
 
-        horizontalLayout_56->addWidget(labelCameraType);
+        horizontalLayout_56->addWidget(label_Password_2);
 
-        comboBoxCameraType = new QComboBox(groupBox_8);
-        comboBoxCameraType->addItem(QString());
-        comboBoxCameraType->addItem(QString());
-        comboBoxCameraType->addItem(QString());
-        comboBoxCameraType->addItem(QString());
-        comboBoxCameraType->addItem(QString());
-        comboBoxCameraType->setObjectName(QString::fromUtf8("comboBoxCameraType"));
-        comboBoxCameraType->setMinimumSize(QSize(80, 0));
+        lineEdit_Account = new QLineEdit(groupBox_8);
+        lineEdit_Account->setObjectName(QString::fromUtf8("lineEdit_Account"));
+        sizePolicy3.setHeightForWidth(lineEdit_Account->sizePolicy().hasHeightForWidth());
+        lineEdit_Account->setSizePolicy(sizePolicy3);
+        lineEdit_Account->setMinimumSize(QSize(25, 0));
+        lineEdit_Account->setMaximumSize(QSize(80, 16777215));
 
-        horizontalLayout_56->addWidget(comboBoxCameraType);
+        horizontalLayout_56->addWidget(lineEdit_Account);
+
+        horizontalSpacer_3 = new QSpacerItem(20, 0, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_56->addItem(horizontalSpacer_3);
+
+        label_Password = new QLabel(groupBox_8);
+        label_Password->setObjectName(QString::fromUtf8("label_Password"));
+
+        horizontalLayout_56->addWidget(label_Password);
+
+        lineEdit_Password = new QLineEdit(groupBox_8);
+        lineEdit_Password->setObjectName(QString::fromUtf8("lineEdit_Password"));
+        sizePolicy3.setHeightForWidth(lineEdit_Password->sizePolicy().hasHeightForWidth());
+        lineEdit_Password->setSizePolicy(sizePolicy3);
+        lineEdit_Password->setMinimumSize(QSize(25, 0));
+        lineEdit_Password->setMaximumSize(QSize(80, 16777215));
+        lineEdit_Password->setEchoMode(QLineEdit::PasswordEchoOnEdit);
+
+        horizontalLayout_56->addWidget(lineEdit_Password);
 
 
-        horizontalLayout_54->addLayout(horizontalLayout_56);
+        verticalLayout_4->addLayout(horizontalLayout_56);
+
+        horizontalLayout_52 = new QHBoxLayout();
+        horizontalLayout_52->setSpacing(2);
+        horizontalLayout_52->setObjectName(QString::fromUtf8("horizontalLayout_52"));
+        ButtonAdd = new QPushButton(groupBox_8);
+        ButtonAdd->setObjectName(QString::fromUtf8("ButtonAdd"));
+        ButtonAdd->setMinimumSize(QSize(0, 25));
+        ButtonAdd->setMaximumSize(QSize(40, 26));
+
+        horizontalLayout_52->addWidget(ButtonAdd);
+
+        ButtonSelectAll = new QPushButton(groupBox_8);
+        ButtonSelectAll->setObjectName(QString::fromUtf8("ButtonSelectAll"));
+        ButtonSelectAll->setMinimumSize(QSize(0, 25));
+        ButtonSelectAll->setMaximumSize(QSize(80, 26));
+        ButtonSelectAll->setAutoDefault(false);
+
+        horizontalLayout_52->addWidget(ButtonSelectAll);
+
+        ButtonDeselectAll = new QPushButton(groupBox_8);
+        ButtonDeselectAll->setObjectName(QString::fromUtf8("ButtonDeselectAll"));
+        ButtonDeselectAll->setMinimumSize(QSize(0, 25));
+        ButtonDeselectAll->setMaximumSize(QSize(80, 26));
+
+        horizontalLayout_52->addWidget(ButtonDeselectAll);
+
+        ButtonDel = new QPushButton(groupBox_8);
+        ButtonDel->setObjectName(QString::fromUtf8("ButtonDel"));
+        ButtonDel->setMinimumSize(QSize(0, 25));
+        ButtonDel->setMaximumSize(QSize(40, 26));
+
+        horizontalLayout_52->addWidget(ButtonDel);
 
 
-        gridLayout_7->addLayout(horizontalLayout_54, 2, 0, 1, 1);
+        verticalLayout_4->addLayout(horizontalLayout_52);
 
 
         verticalLayout_11->addWidget(groupBox_8);
@@ -866,7 +872,7 @@ public:
         verticalLayout_10->setSpacing(2);
         verticalLayout_10->setContentsMargins(11, 11, 11, 11);
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
-        verticalLayout_10->setContentsMargins(6, 2, 6, 2);
+        verticalLayout_10->setContentsMargins(2, 2, 2, 2);
         horizontalLayout_48 = new QHBoxLayout();
         horizontalLayout_48->setSpacing(3);
         horizontalLayout_48->setObjectName(QString::fromUtf8("horizontalLayout_48"));
@@ -971,11 +977,12 @@ public:
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         rtspPlayerClass->setStatusBar(statusBar);
 #if QT_CONFIG(shortcut)
-        labelLastIP->setBuddy(LastIP);
         labelFirstIP->setBuddy(FirstIP);
         labelCount->setBuddy(CameraCount);
-        labelCameraType->setBuddy(comboBoxCameraType);
-        label_Profile->setBuddy(comboBox_Presets);
+        labelLastIP->setBuddy(LastIP);
+        label_Password_2->setBuddy(lineEdit_Account);
+        label_Password->setBuddy(lineEdit_Password);
+        label_Profile->setBuddy(comboBox_Profile);
         labelSpeed->setBuddy(spinBoxSpeed);
         label_Preset->setBuddy(comboBox_Presets);
         Protocol->setBuddy(comboBoxProtocol);
@@ -998,20 +1005,15 @@ public:
     {
         rtspPlayerClass->setWindowTitle(QCoreApplication::translate("rtspPlayerClass", "rtspPlayer", nullptr));
         groupBox_8->setTitle(QCoreApplication::translate("rtspPlayerClass", "Camera Manager", nullptr));
+        labelFirstIP->setText(QCoreApplication::translate("rtspPlayerClass", "First IP", nullptr));
+        labelCount->setText(QCoreApplication::translate("rtspPlayerClass", "&Count:", nullptr));
         labelLastIP->setText(QCoreApplication::translate("rtspPlayerClass", "Last IP", nullptr));
+        label_Password_2->setText(QCoreApplication::translate("rtspPlayerClass", "Account", nullptr));
+        label_Password->setText(QCoreApplication::translate("rtspPlayerClass", "Password", nullptr));
         ButtonAdd->setText(QCoreApplication::translate("rtspPlayerClass", "&Add", nullptr));
         ButtonSelectAll->setText(QCoreApplication::translate("rtspPlayerClass", "&SelectAll", nullptr));
         ButtonDeselectAll->setText(QCoreApplication::translate("rtspPlayerClass", "&DeselectAll", nullptr));
         ButtonDel->setText(QCoreApplication::translate("rtspPlayerClass", "&Del", nullptr));
-        labelFirstIP->setText(QCoreApplication::translate("rtspPlayerClass", "First IP", nullptr));
-        labelCount->setText(QCoreApplication::translate("rtspPlayerClass", "&Count:", nullptr));
-        labelCameraType->setText(QCoreApplication::translate("rtspPlayerClass", "&Type:", nullptr));
-        comboBoxCameraType->setItemText(0, QCoreApplication::translate("rtspPlayerClass", "Axis", nullptr));
-        comboBoxCameraType->setItemText(1, QCoreApplication::translate("rtspPlayerClass", "HKVision", nullptr));
-        comboBoxCameraType->setItemText(2, QCoreApplication::translate("rtspPlayerClass", "Panasonic", nullptr));
-        comboBoxCameraType->setItemText(3, QCoreApplication::translate("rtspPlayerClass", "Palco", nullptr));
-        comboBoxCameraType->setItemText(4, QCoreApplication::translate("rtspPlayerClass", "Orlaco", nullptr));
-
         QTableWidgetItem *___qtablewidgetitem = tableWidgetCamera->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("rtspPlayerClass", "CameraIP", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidgetCamera->horizontalHeaderItem(1);

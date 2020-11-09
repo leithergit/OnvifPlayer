@@ -12,17 +12,28 @@
 
 #pragma comment(lib,"./ipcplaysdk/x86/debug/ipcplaysdk.lib")
 #pragma comment(lib,"./libcurl/libcurl.lib")
-#ifdef _DEBUG
 #pragma comment(lib,"./debug/RTSP.lib")
-#pragma comment(lib,"./onvifsdk/ONVIFlibd.lib")
-#pragma comment(lib,"./onvifsdk/openssl-1.0.1g/lib/libeay32MTd.lib")
-#pragma comment(lib,"./onvifsdk/openssl-1.0.1g/lib/ssleay32MTd.lib")
+
+#ifdef _ONVIF_STATIC
+#include "../Public/ONVIFSDK/onvifLIB.h"
+#ifdef _DEBUG
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/libeay32MTd.lib")
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/ssleay32MTd.lib")
+#pragma comment(lib,"../ONVIFSDK/ONVIFLIBD.lib")
 #else
-#pragma comment(lib,"./release/RTSP.lib")
-#pragma comment(lib,"./onvifsdk/ONVIFlib.lib")
-#pragma comment(lib,"./onvifsdk/openssl-1.0.1g/lib/libeay32MT.lib")
-#pragma comment(lib,"./onvifsdk/openssl-1.0.1g/lib/ssleay32MT.lib")
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/libeay32MT.lib")
+#pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/ssleay32MT.lib")
+#pragma comment(lib,"../Public/ONVIFSDK/ONVIFLIB.lib")
 #endif
+#else
+#include "../Public/ONVIFSDK/ONVIFSDK.h"
+#ifdef _DEBUG
+#pragma comment(lib,"../Public/ONVIFSDK/ONVIFSDKD.lib")
+#else
+#pragma comment(lib,"../Public/ONVIFSDK/ONVIFSDK.lib")
+#endif
+#endif
+
 
 void* AllocOnvifClient(const char* strIP, const char* strAccount, const char* strPassword)
 {

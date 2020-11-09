@@ -43,13 +43,15 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>./Include;./ipcplaysdk;./libcurl;./MulMonitor;./ONVIFSDK;./ONVIFSDK/include;./ONVIFSDK/gsoap/runtime;./ONVIFSDK/onvifgen;./ONVIFSDK/3rdparty/openssl-1.0.1g/include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MARKUP_STL;_STD_SMARTPTR;WITH_OPENSSL;WITH_DOM;WITH_PURE_VIRTUAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MARKUP_STL;_STD_SMARTPTR;WITH_OPENSSL;WITH_DOM;WITH_PURE_VIRTUAL;_ONVIF_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>.\ONVIFSDK\openssl-1.0.1g\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -61,6 +63,9 @@
       <AdditionalLibraryDirectories>.\ONVIFSDK\openssl-1.0.1g\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>_ONVIF_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="QtSettings">
     <QtInstall>QT5.15(x86)</QtInstall>

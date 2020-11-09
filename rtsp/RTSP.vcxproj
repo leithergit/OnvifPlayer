@@ -52,11 +52,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_SVAC|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
@@ -65,7 +65,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.;../Include;.\UsageEnvironment;.\BasicUsageEnvironment;.\groupsock;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;../rtspPlayer/Include;.\UsageEnvironment;.\BasicUsageEnvironment;.\groupsock;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;WIN32;NDEBUG;RTSP_LIB;_STD_SMARTPTR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
@@ -86,7 +86,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.;../Include;.\UsageEnvironment;.\BasicUsageEnvironment;.\groupsock;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;../rtspPlayer/Include;.\UsageEnvironment;.\BasicUsageEnvironment;.\groupsock;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;WIN32;RTSP_LIB;_STD_SMARTPTR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
@@ -126,7 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Include\TimeUtility.cpp" />
+    <ClCompile Include="..\rtspPlayer\Include\TimeUtility.cpp" />
     <ClCompile Include="Base64.cpp" />
     <ClCompile Include="base641.cpp" />
     <ClCompile Include="BasicUDPSource.cpp" />
@@ -180,7 +180,7 @@
     <ClCompile Include="VideoRTPSink.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Include\TimeUtility.h" />
+    <ClInclude Include="..\rtspPlayer\Include\TimeUtility.h" />
     <ClInclude Include="Base64.hh" />
     <ClInclude Include="base641.h" />
     <ClInclude Include="BasicUDPSource.hh" />

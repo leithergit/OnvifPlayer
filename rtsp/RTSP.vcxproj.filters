@@ -184,9 +184,6 @@
     <ClCompile Include="rtsp.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Include\TimeUtility.cpp">
-      <Filter>inc</Filter>
-    </ClCompile>
     <ClCompile Include="JPEGVideoRTPSink.cpp">
       <Filter>Source Files\live555</Filter>
     </ClCompile>
@@ -198,6 +195,9 @@
     </ClCompile>
     <ClCompile Include="VideoRTPSink.cpp">
       <Filter>Source Files\live555</Filter>
+    </ClCompile>
+    <ClCompile Include="..\rtspPlayer\Include\TimeUtility.cpp">
+      <Filter>inc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -342,9 +342,6 @@
     <ClInclude Include="rtsp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Include\TimeUtility.h">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="JPEGVideoRTPSink.hh">
       <Filter>Source Files\live555</Filter>
     </ClInclude>
@@ -355,6 +352,9 @@
       <Filter>Source Files\live555</Filter>
     </ClInclude>
     <ClInclude Include="Stat.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\rtspPlayer\Include\TimeUtility.h">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
