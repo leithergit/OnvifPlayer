@@ -1,0 +1,6 @@
+LIBRARY	"RTSP"
+EXPORTS
+	rtsp_login
+	rtsp_play
+	rtsp_setCallback
+	rtsp_stop

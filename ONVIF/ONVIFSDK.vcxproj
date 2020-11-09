@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5210B885-5C8C-4059-8C9B-28FF05016EBA}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ONVIFLIB</RootNamespace>
+    <ProjectName>ONVIFSDK</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ONVIFLIB_EXPORTS;WITH_OPENSSL;WITH_DOM;WITH_PURE_VIRTUAL;_CRT_SECURE_NO_WARNINGS;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;_ZOO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\gsoap\runtime;.\onvifgen\;.\include\;.\3rdparty\openssl-1.0.1g\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>.\3rdparty\openssl-1.0.1g\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32MTd.lib;ssleay32MTd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy  $(TargetPath)  $(SolutionDir)public\ONVIFSDK 
+copy /y $(TargetPath)  $(SolutionDir)public\ONVIFSDK 
+echo copy $(TargetDir)$(TargetName).lib  $(SolutionDir)public\ONVIFSDK 
+copy /y $(TargetDir)$(TargetName).lib  $(SolutionDir)public\ONVIFSDK 
+echo  copy $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK 
+copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK 
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ONVIFLIB_EXPORTS;WITH_OPENSSL;WITH_DOM;WITH_PURE_VIRTUAL;_CRT_SECURE_NO_WARNINGS;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>.\gsoap\runtime;.\onvifgen\;.\include\;.\3rdparty\openssl-1.0.1g\include</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>.\3rdparty\openssl-1.0.1g\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32MT.lib;ssleay32MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy  $(TargetPath)  $(SolutionDir)public\ONVIFSDK 
+copy /y $(TargetPath)  $(SolutionDir)public\ONVIFSDK 
+echo copy $(TargetDir)$(TargetName).lib  $(SolutionDir)public\ONVIFSDK 
+copy /y $(TargetDir)$(TargetName).lib  $(SolutionDir)public\ONVIFSDK 
+echo  copy $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK 
+copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK 
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gsoap\runtime\duration.h" />
+    <ClInclude Include="gsoap\runtime\httpda.h" />
+    <ClInclude Include="gsoap\runtime\md5evp.h" />
+    <ClInclude Include="gsoap\runtime\mecevp.h" />
+    <ClInclude Include="gsoap\runtime\smdevp.h" />
+    <ClInclude Include="gsoap\runtime\stdsoap2.h" />
+    <ClInclude Include="gsoap\runtime\threads.h" />
+    <ClInclude Include="gsoap\runtime\wsaapi.h" />
+    <ClInclude Include="gsoap\runtime\wsseapi.h" />
+    <ClInclude Include="include\onvifclientdevice.h" />
+    <ClInclude Include="include\onvifclientmedia.h" />
+    <ClInclude Include="onvifgen\soapDeviceBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapDeviceBindingService.h" />
+    <ClInclude Include="onvifgen\soapDeviceIOBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapDeviceIOBindingService.h" />
+    <ClInclude Include="onvifgen\soapDisplayBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapDisplayBindingService.h" />
+    <ClInclude Include="onvifgen\soapH.h" />
+    <ClInclude Include="onvifgen\soapImagingBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapImagingBindingService.h" />
+    <ClInclude Include="onvifgen\soapMediaBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapMediaBindingService.h" />
+    <ClInclude Include="onvifgen\soapPTZBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapPTZBindingService.h" />
+    <ClInclude Include="onvifgen\soapPullPointSubscriptionBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapPullPointSubscriptionBindingService.h" />
+    <ClInclude Include="onvifgen\soapReceiverBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapReceiverBindingService.h" />
+    <ClInclude Include="onvifgen\soapRecordingBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapRecordingBindingService.h" />
+    <ClInclude Include="onvifgen\soapRemoteDiscoveryBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapRemoteDiscoveryBindingService.h" />
+    <ClInclude Include="onvifgen\soapReplayBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapReplayBindingService.h" />
+    <ClInclude Include="onvifgen\soapSearchBindingProxy.h" />
+    <ClInclude Include="onvifgen\soapSearchBindingService.h" />
+    <ClInclude Include="onvifgen\soapStub.h" />
+    <ClInclude Include="onvifgen\soapwsddProxy.h" />
+    <ClInclude Include="onvifgen\soapwsddService.h" />
+    <ClInclude Include="ONVIFSDK\OnvifClientImage.h" />
+    <ClInclude Include="ONVIFSDK\ONVIFSDK.h" />
+    <ClInclude Include="ONVIFSDK\resource.h" />
+    <ClInclude Include="ONVIFSDK\SocketUtils.h" />
+    <ClInclude Include="ONVIFSDK\stdafx.h" />
+    <ClInclude Include="ONVIFSDK\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="gsoap\runtime\dom.cpp" />
+    <ClCompile Include="gsoap\runtime\duration.c" />
+    <ClCompile Include="gsoap\runtime\httpda.c" />
+    <ClCompile Include="gsoap\runtime\md5evp.c" />
+    <ClCompile Include="gsoap\runtime\mecevp.c" />
+    <ClCompile Include="gsoap\runtime\smdevp.c" />
+    <ClCompile Include="gsoap\runtime\stdsoap2.cpp" />
+    <ClCompile Include="gsoap\runtime\threads.c" />
+    <ClCompile Include="gsoap\runtime\wsaapi.c" />
+    <ClCompile Include="gsoap\runtime\wsseapi.cpp" />
+    <ClCompile Include="onvifgen\nsmap.cpp" />
+    <ClCompile Include="onvifgen\soapC.cpp" />
+    <ClCompile Include="onvifgen\soapDeviceBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapDeviceBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapDeviceIOBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapDeviceIOBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapDisplayBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapDisplayBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapImagingBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapImagingBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapMediaBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapMediaBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapPTZBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapPTZBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapPullPointSubscriptionBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapPullPointSubscriptionBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapReceiverBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapReceiverBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapRecordingBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapRecordingBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapRemoteDiscoveryBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapRemoteDiscoveryBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapReplayBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapReplayBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapSearchBindingProxy.cpp" />
+    <ClCompile Include="onvifgen\soapSearchBindingService.cpp" />
+    <ClCompile Include="onvifgen\soapwsddProxy.cpp" />
+    <ClCompile Include="onvifgen\soapwsddService.cpp" />
+    <ClCompile Include="ONVIFSDK\dllmain.cpp" />
+    <ClCompile Include="ONVIFSDK\ONVIFClient.cpp" />
+    <ClCompile Include="ONVIFSDK\ONVIFClientDevice.cpp" />
+    <ClCompile Include="ONVIFSDK\OnvifClientImage.cpp" />
+    <ClCompile Include="ONVIFSDK\ONVIFClientMedia.cpp" />
+    <ClCompile Include="ONVIFSDK\ONVIFClientPTZ.cpp" />
+    <ClCompile Include="ONVIFSDK\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="onvifgen\DeviceBinding.nsmap" />
+    <None Include="onvifgen\DeviceIOBinding.nsmap" />
+    <None Include="onvifgen\DisplayBinding.nsmap" />
+    <None Include="onvifgen\ImagingBinding.nsmap" />
+    <None Include="onvifgen\MediaBinding.nsmap" />
+    <None Include="onvifgen\PTZBinding.nsmap" />
+    <None Include="onvifgen\PullPointSubscriptionBinding.nsmap" />
+    <None Include="onvifgen\ReceiverBinding.nsmap" />
+    <None Include="onvifgen\RecordingBinding.nsmap" />
+    <None Include="onvifgen\RemoteDiscoveryBinding.nsmap" />
+    <None Include="onvifgen\ReplayBinding.nsmap" />
+    <None Include="onvifgen\SearchBinding.nsmap" />
+    <None Include="onvifgen\wsdd.nsmap" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ONVIFSDK\ONVIFSDK.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

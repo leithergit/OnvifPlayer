@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ONVIFSDK_Sample", "ONVIFSDK_Sample.vcxproj", "{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_Static|Win32 = Debug_Static|Win32
+		Debug|Win32 = Debug|Win32
+		Release_Static|Win32 = Release_Static|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Debug_Static|Win32.ActiveCfg = Debug_Static|Win32
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Debug_Static|Win32.Build.0 = Debug_Static|Win32
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Debug|Win32.Build.0 = Debug|Win32
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Release_Static|Win32.ActiveCfg = Release_Static|Win32
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Release_Static|Win32.Build.0 = Release_Static|Win32
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Release|Win32.ActiveCfg = Release|Win32
+		{7ECF0EFD-2818-4CBA-93F7-0757EEC29FC3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19B80BAF-6E09-4733-92E3-8A9E3107BAC9}
+	EndGlobalSection
+EndGlobal

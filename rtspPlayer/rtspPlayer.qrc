@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/rtspPlayer">
+        <file>Resources/ipcoffline.png</file>
+        <file>Resources/ipcOnline.png</file>
+        <file>Resources/arrow-down-3.ico</file>
+        <file>Resources/arrow-left-3.ico</file>
+        <file>Resources/arrow-right-3.ico</file>
+        <file>Resources/arrow-up-3.ico</file>
+        <file>Resources/go-home-4.ico</file>
+        <file>Resources/rtspPlayer.ico</file>
+        <file>Resources/zoom-in-3.ico</file>
+        <file>Resources/zoom-out-3.ico</file>
+        <file>Resources/arrow-leftdown-3.ico</file>
+        <file>Resources/arrow-leftup-3.ico</file>
+        <file>Resources/arrow-Rightdown-3.ico</file>
+        <file>Resources/arrow-rightup-3.ico</file>
+        <file>Resources/edit-4.ico</file>
+        <file>Resources/edit-add-2.ico</file>
+        <file>Resources/edit-delete-5.ico</file>
+        <file>Resources/go-jump-3.ico</file>
+        <file>Resources/dialog-no-2.ico</file>
+        <file>Resources/dialog-ok-2.ico</file>
+    </qresource>
+</RCC>
