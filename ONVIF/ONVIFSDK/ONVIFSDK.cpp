@@ -121,6 +121,7 @@ CONVIFClient::~CONVIFClient()
 	SafeDelete(OnvifClientMedia, m_pMedia);
 	/*shared_ptr<OnvifClientPTZ>*/
 	SafeDelete(OnvifClientPTZ, m_pPTZClient);
+	SafeDelete(OnvifClientImage, m_pOnvifImage);
 }
 
 bool CONVIFClient::CheckIPAddress(const char* szAddress)
@@ -177,6 +178,8 @@ bool CONVIFClient::CreatePTZClient()
 {
 	if (!m_pOnvifDevice || !m_pMedia || !m_Profiles)
 		return false;
+	if (m_pPTZClient)
+		return true;
 
 	string strPTZUrl;
 	if (!m_pOnvifDevice->GetPTZUrl(strPTZUrl))
@@ -250,6 +253,16 @@ const char* CONVIFClient::GetMediaStreamUrl(char* szProfileToken)
 		return StreamUriResponse.MediaUri->Uri.c_str();
 }
 
+int CONVIFClient::GetVideoSourceConfigure(char *szVideoConfigSourceToken, _trt__GetVideoSourceConfigurationResponse &GetVideoSourceConfigResponse)
+{
+	if (m_pMedia)
+	{
+		return m_pMedia->GetVideoSourceConfiguration(GetVideoSourceConfigResponse, szVideoConfigSourceToken);
+	}
+	else
+		return -1;
+}
+
 int CONVIFClient::GetImageCapabilities(Image_Capabilities& Capabilities)
 {
 	if (!m_pOnvifImage)
@@ -262,13 +275,13 @@ int CONVIFClient::GetImageCapabilities(Image_Capabilities& Capabilities)
 
 	if (nResult == SOAP_OK && ImageCapabilitiesResponse.Capabilities)
 	{
-		Capabilities.ImageStabilization = ImageCapabilitiesResponse.Capabilities->ImageStabilization;
+		Capabilities.pBoolImageStabilization = ImageCapabilitiesResponse.Capabilities->ImageStabilization;
 		if (ImageCapabilitiesResponse.Capabilities->__any.size())
-			Capabilities.__any = ImageCapabilitiesResponse.Capabilities->__any;
+			Capabilities.vecAny = ImageCapabilitiesResponse.Capabilities->__any;
 		if (ImageCapabilitiesResponse.Capabilities->__anyAttribute)
-			Capabilities.__anyAttribute = ImageCapabilitiesResponse.Capabilities->__anyAttribute;
+			Capabilities.szAnyAttribute = ImageCapabilitiesResponse.Capabilities->__anyAttribute;
 		else
-			Capabilities.__anyAttribute = nullptr;
+			Capabilities.szAnyAttribute = nullptr;
 		return nResult;
 	}
 	else
@@ -306,6 +319,9 @@ int CONVIFClient::GetImageSetting(const char* szVideoSourceToken, ImagingSetting
 	if (nResult == SOAP_OK && ImagingSettingsResponse.ImagingSettings)
 	{
 		*ppImagingSettings = (ImagingSettings*)ImagingSettingsResponse.ImagingSettings;
+
+		//soap_destroy(ImagingSettingsResponse.ImagingSettings->soap);
+		//delete ImagingSettingsResponse.ImagingSettings;
 		return nResult;
 	}
 	else

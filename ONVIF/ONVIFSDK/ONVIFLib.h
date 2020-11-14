@@ -76,6 +76,8 @@ public:
 
 	const char* GetMediaStreamUrl(int nProfile);
 
+	int GetVideoSourceConfigure(char *szVideoSourceToken, _trt__GetVideoSourceConfigurationResponse &GetVideoSourceConfigResponse);
+
 	bool CreatePTZClient();
 
 	bool CreateImageClient();

@@ -177,6 +177,8 @@ bool CONVIFClient::CreatePTZClient()
 {
 	if (!m_pOnvifDevice || !m_pMedia || !m_Profiles)
 		return false;
+	if (m_pPTZClient)
+		return true;
 
 	string strPTZUrl;
 	if (!m_pOnvifDevice->GetPTZUrl(strPTZUrl))
@@ -195,6 +197,18 @@ bool CONVIFClient::CreatePTZClient()
 
 	return true;
 }
+
+int CONVIFClient::GetVideoSourceConfigure(char *szVideoSourceToken, _trt__GetVideoSourceConfigurationResponse &GetVideoSourceConfigResponse)
+{
+	if (m_pMedia)
+	{
+		return m_pMedia->GetVideoSourceConfiguration(GetVideoSourceConfigResponse, ConfigurationToken);
+	}
+	else
+		return -1;
+}
+
+
 bool CONVIFClient::CreateImageClient()
 {
 	if (!m_pOnvifDevice || !m_pMedia || !m_Profiles)

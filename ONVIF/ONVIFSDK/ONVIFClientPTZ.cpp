@@ -41,7 +41,10 @@ OnvifClientPTZ::OnvifClientPTZ(OnvifClientDevice& device, http_da_info* pHttpInf
 OnvifClientPTZ::~OnvifClientPTZ()
 {
 	if (httpinfo)
+	{
+		http_da_release(&ptzProxy, httpinfo);
 		delete httpinfo;
+	}
 }
 
 int  OnvifClientPTZ::Initialize()

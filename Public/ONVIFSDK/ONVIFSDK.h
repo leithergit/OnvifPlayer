@@ -50,9 +50,24 @@ enum PTZ_Flag
 
 struct Image_Capabilities
 {
-	std::vector<char* >__any;
-	bool* ImageStabilization;		/* optional attribute */
-	char* __anyAttribute;			/* optional attribute */
+	char szReserve[sizeof(xsd__anyType)];
+	std::vector<char* >vecAny;
+	bool* pBoolImageStabilization;		/* optional attribute */
+	char* szAnyAttribute;			/* optional attribute */
+	//~Image_Capabilities()
+	//{
+	//	if (vecAny.size())
+	//		for (auto it = vecAny.begin();it != vecAny.end();)
+	//		 {
+	//			free(*it);
+	//			it = vecAny.erase(it);
+	//		 }
+	//	if (pBoolImageStabilization)
+	//		free(pBoolImageStabilization);
+	//	if (szAnyAttribute)
+	//		free(szAnyAttribute);
+
+	//}
 };
 
 enum BacklightCompensationMode
@@ -62,8 +77,9 @@ enum BacklightCompensationMode
 };
 struct BacklightCompensation
 {
-	BacklightCompensationMode nMode;
-	float* fLevel;
+	char szReserve[sizeof(xsd__anyType)];
+	BacklightCompensationMode enumMode;
+	float* pFloatLevel;
 };
 
 enum ExposureMode
@@ -79,25 +95,27 @@ enum ExposurePriority
 };
 struct RangeRectangle
 {
-	float* fBottom;	/* optional attribute */
-	float* fTop;		/* optional attribute */
-	float* fRight;	/* optional attribute */
-	float* fLeft;	/* optional attribute */
+	char szReserve[sizeof(xsd__anyType)];
+	float* pFloatBottom;	/* optional attribute */
+	float* pFloatTop;		/* optional attribute */
+	float* pFloatRight;	/* optional attribute */
+	float* pFloatLeft;	/* optional attribute */
 };
 struct Exposure
 {
-	ExposureMode		Mode;	/* required element of type tt:ExposureMode */
-	ExposurePriority* Priority;	/* optional element of type tt:ExposurePriority */
-	RangeRectangle* Window;	/* optional element of type tt:Rectangle */
-	float* fMinExposureTime;	/* optional element of type xsd:float */
-	float* fMaxExposureTime;	/* optional element of type xsd:float */
-	float* fMinGain;	/* optional element of type xsd:float */
-	float* fMaxGain;	/* optional element of type xsd:float */
-	float* fMinIris;	/* optional element of type xsd:float */
-	float* fMaxIris;	/* optional element of type xsd:float */
-	float* fExposureTime;	/* optional element of type xsd:float */
-	float* fGain;	/* optional element of type xsd:float */
-	float* fIris;	/* optional element of type xsd:float */
+	char szReserve[sizeof(xsd__anyType)];
+	ExposureMode		enumMode;	/* required element of type tt:ExposureMode */
+	ExposurePriority* pEnumPriority;	/* optional element of type tt:ExposurePriority */
+	RangeRectangle* pRangeWindow;	/* optional element of type tt:Rectangle */
+	float* pFloatMinExposureTime;	/* optional element of type xsd:float */
+	float* pFloatMaxExposureTime;	/* optional element of type xsd:float */
+	float* pFloatMinGain;	/* optional element of type xsd:float */
+	float* pFloatMaxGain;	/* optional element of type xsd:float */
+	float* pFloatMinIris;	/* optional element of type xsd:float */
+	float* pFloatMaxIris;	/* optional element of type xsd:float */
+	float* pFloatExposureTime;	/* optional element of type xsd:float */
+	float* pFloatGain;	/* optional element of type xsd:float */
+	float* pFloatIris;	/* optional element of type xsd:float */
 };
 
 enum AutoFocusMode
@@ -107,16 +125,18 @@ enum AutoFocusMode
 };
 struct OnvifExtension
 {
-	std::vector<char* >__any;
+	char szReserve[sizeof(xsd__anyType)];
+	std::vector<char* >vecAny;
 };
 struct FocusConfiguration
 {
-	AutoFocusMode AutoFocusMode;	/* required element of type tt:AutoFocusMode */
-	float* fDefaultSpeed;	/* optional element of type xsd:float */
-	float* fNearLimit;	/* optional element of type xsd:float */
-	float* fFarLimit;	/* optional element of type xsd:float */
-	class  FocusConfiguration20Extension* Extension;	/* optional element of type tt:FocusConfiguration20Extension */
-	char* __anyAttribute;	/* optional attribute */
+	char szReserve[sizeof(xsd__anyType)];
+	AutoFocusMode enumAutoFocusMode;	/* required element of type tt:AutoFocusMode */
+	float* pFloatDefaultSpeed;	/* optional element of type xsd:float */
+	float* pFloatNearLimit;	/* optional element of type xsd:float */
+	float* pFloatFarLimit;	/* optional element of type xsd:float */
+	OnvifExtension* pExtension;	/* optional element of type tt:FocusConfiguration20Extension */
+	char* szAnyAttribute;	/* optional attribute */
 };
 enum IrCutFilterMode
 {
@@ -133,8 +153,9 @@ enum WideDynamicMode
 
 struct WideDynamicRange
 {
-	WideDynamicMode Mode;	/* required element of type tt:WideDynamicMode */
-	float* fLevel;	/* optional element of type xsd:float */
+	char szReserve[sizeof(xsd__anyType)];
+	WideDynamicMode enumMode;	/* required element of type tt:WideDynamicMode */
+	float* pFloatLevel;	/* optional element of type xsd:float */
 };
 
 enum WhiteBalanceMode
@@ -145,11 +166,12 @@ enum WhiteBalanceMode
 
 struct WhiteBalance
 {
-	WhiteBalanceMode Mode;			/* required element of type tt:WhiteBalanceMode */
-	float* fCrGain;					/* optional element of type xsd:float */
-	float* fCbGain;					/* optional element of type xsd:float */
-	WhiteBalanceMode* Extension;	/* optional element of type tt:WhiteBalance20Extension */
-	char* __anyAttribute;			/* optional attribute */
+	char szReserve[sizeof(xsd__anyType)];
+	WhiteBalanceMode enumMode;			/* required element of type tt:WhiteBalanceMode */
+	float* pFloatCrGain;					/* optional element of type xsd:float */
+	float* pFloatCbGain;					/* optional element of type xsd:float */
+	OnvifExtension* pExtension;	/* optional element of type tt:WhiteBalance20Extension */
+	char* szAnyAttribute;			/* optional attribute */
 };
 
 enum ImageStabilizationMode
@@ -162,50 +184,55 @@ enum ImageStabilizationMode
 
 struct ImageStabilization
 {
-	ImageStabilizationMode Mode;	/* required element of type tt:ImageStabilizationMode */
-	float* fLevel;	/* optional element of type xsd:float */
-	OnvifExtension* Extension;	/* optional element of type tt:ImageStabilizationExtension */
-	char* __anyAttribute;	/* optional attribute */
+	char szReserve[sizeof(xsd__anyType)];
+	ImageStabilizationMode enumMode;	/* required element of type tt:ImageStabilizationMode */
+	float* pFloatLevel;	/* optional element of type xsd:float */
+	OnvifExtension* pExtension;	/* optional element of type tt:ImageStabilizationExtension */
+	char* szAnyAttribute;	/* optional attribute */
 };
 
 struct IrCutFilterAutoAdjustment
 {
-	std::string BoundaryType;	/* required element of type xsd:string */
-	float* BoundaryOffset;	/* optional element of type xsd:float */
-	LONG64* ResponseTime;	/* optional element of type xsd:duration */
+	char szReserve[sizeof(xsd__anyType)];
+	std::string strBoundaryType;	/* required element of type xsd:string */
+	float* pFloatBoundaryOffset;	/* optional element of type xsd:float */
+	LONG64* pLongLongResponseTime;	/* optional element of type xsd:duration */
 	OnvifExtension* Extension;	/* optional element of type tt:IrCutFilterAutoAdjustmentExtension */
-	char* __anyAttribute;	/* optional attribute */
+	char* szAnyAttribute;	/* optional attribute */
 };
 
 struct ImagingSettingsExtensionEx
 {
-public:
-	std::vector<IrCutFilterAutoAdjustment* >IrCutFilterAutoAdjustment;	/* optional element of type tt:IrCutFilterAutoAdjustment */
-	OnvifExtension* Extension;											/* optional element of type tt:ImagingSettingsExtension203 */
+	char szReserve[sizeof(xsd__anyType)];
+	std::vector<IrCutFilterAutoAdjustment* >vecIrCutFilterAutoAdjustment;	/* optional element of type tt:IrCutFilterAutoAdjustment */
+	OnvifExtension* pExtension;											/* optional element of type tt:ImagingSettingsExtension203 */
 };
 
 struct ImagingSettingsExtension
 {
-	std::vector<char* >__any;
-	ImageStabilization* ImageStabilization;	/* optional element of type tt:ImageStabilization */
-	ImagingSettingsExtensionEx* Extension;	/* optional element of type tt:ImagingSettingsExtension202 */
+	char szReserve[sizeof(xsd__anyType)];
+	std::vector<char* >vecAny;
+	ImageStabilization* pImageStabilization;	/* optional element of type tt:ImageStabilization */
+	ImagingSettingsExtensionEx* pExtension;	/* optional element of type tt:ImagingSettingsExtension202 */
 };
 
 struct ImagingSettings
 {
+	char szReserve[sizeof(xsd__anyType)];
 	BacklightCompensation* pBacklightCompensation;	/* optional element of type tt:BacklightCompensation20 */
-	float* Brightness;								/* optional element of type xsd:float */
-	float* ColorSaturation;							/* optional element of type xsd:float */
-	float* Contrast;								/* optional element of type xsd:float */
-	Exposure* pExposure;								/* optional element of type tt:Exposure20 */
+	float* pFloatBrightness;						/* optional element of type xsd:float */
+	float* pFloatColorSaturation;					/* optional element of type xsd:float */
+	float* pFloatContrast;							/* optional element of type xsd:float */
+	Exposure* pExposure;							/* optional element of type tt:Exposure20 */
 	FocusConfiguration* pFocus;						/* optional element of type tt:FocusConfiguration20 */
-	enum IrCutFilterMode* IrCutFilter;				/* optional element of type tt:IrCutFilterMode */
-	float* Sharpness;								/* optional element of type xsd:float */
-	WideDynamicRange* pWideDynamicRange;				/* optional element of type tt:WideDynamicRange20 */
-	WhiteBalance* pWhiteBalance;						/* optional element of type tt:WhiteBalance20 */
-	ImagingSettingsExtension* pExtension;			/* optional element of type tt:ImagingSettingsExtension20 */
-	char* __anyAttribute;							/* optional attribute */
+	IrCutFilterMode* pEnumIrCutFilter;				/* optional element of type tt:IrCutFilterMode */
+	float* pFloatSharpness;							/* optional element of type xsd:float */
+	WideDynamicRange* pWideDynamicRange;			/* optional element of type tt:WideDynamicRange20 */
+	WhiteBalance* pWhiteBalance;					/* optional element of type tt:WhiteBalance20 */
+	ImagingSettingsExtension* pImagingSettingsExtension;/* optional element of type tt:ImagingSettingsExtension20 */
+	char* szAnyAttribute;							/* optional attribute */
 };
+
 
 class  ONVIFLIB_API CONVIFClient
 {
@@ -250,6 +277,8 @@ public:
 	int SetImageSetting(const char* szVideoSourceToken, ImagingSettings& ImagingSettings, bool bForcePersistence = false);
 
 	int GetImageSetting(const char* szVideoSourceToken, ImagingSettings** ppImagingSettings);
+
+	int GetVideoSourceConfigure(char *szVideoSourceToken, _trt__GetVideoSourceConfigurationResponse &GetVideoSourceConfigResponse);
 
 	const OnvifClientDevice* GetDevicePtr();
 	const OnvifClientMedia* GetMediaPtr();

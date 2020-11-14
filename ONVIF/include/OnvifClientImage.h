@@ -43,6 +43,8 @@ public:
 
 private:
 	OnvifClientDevice& m_Device;
-	ImagingBindingProxy ImagingProxy;
+	//ImagingBindingProxy ImagingProxy;
 	http_da_info* httpinfo = nullptr;
+	const char *httpuserid = nullptr;
+	const char *httppasswd = nullptr;
 };

@@ -27,7 +27,7 @@ OnvifClientImage::~OnvifClientImage()
 {
 	if (httpinfo)
 	{
-		http_da_release(&ImagingProxy, httpinfo);
+		http_da_release(this, httpinfo);
 		delete httpinfo;
 	}
 }
@@ -41,7 +41,45 @@ int OnvifClientImage::GetServiceCapabilities(_timg__GetServiceCapabilitiesRespon
 /// Web service operation 'GetImagingSettings' (returns error code or SOAP_OK)
 int OnvifClientImage::GetImagingSettings(_timg__GetImagingSettings* timg__GetImagingSettings, _timg__GetImagingSettingsResponse* timg__GetImagingSettingsResponse)
 {
-	SuperHttpCall(this, __super::GetImagingSettings(NULL, NULL, timg__GetImagingSettings, timg__GetImagingSettingsResponse), nResult);
+	int nResult = 0;
+	string strUrl;
+	string strUser;
+	string strPass;
+	if (!m_Device.GetUserPasswd(strUser, strPass) || !m_Device.GetPTZUrl(strUrl))
+	{
+		Soap_Trace("%s %s:%s Error in Getting Url or User/Passsword.\n", m_Device.GetDevIP(), strClassName.c_str(), "GetImagingSettings");
+		return SOAP_ERR;
+	}
+	this->soap_endpoint = strUrl.c_str();
+	if (httpinfo)
+		http_da_restore(this, httpinfo);
+	nResult = __super::GetImagingSettings(NULL, NULL, timg__GetImagingSettings, timg__GetImagingSettingsResponse);
+	if (nResult != SOAP_OK)
+		Soap_Trace("%s %s:%s  Result = %d\tSoap Status = %d.\n", m_Device.GetDevIP(), strClassName.c_str(), "GetImagingSettings", nResult, this->status);
+	if (nResult != SOAP_OK &&
+		this->status == 401)
+	{
+		if (this->userid)
+			SOAP_FREE(nullptr, (void *)this->userid);
+		if (this->passwd)
+			SOAP_FREE(nullptr, (void *)this->passwd);
+		this->userid =  strUser.c_str();
+		this->passwd =  strPass.c_str();
+		
+		if (!httpinfo)
+		{
+			soap_register_plugin(this, http_da);
+			httpinfo = new http_da_info;
+			http_da_save(this, httpinfo, this->authrealm, this->userid, this->passwd);
+		}
+		else
+			http_da_restore(this, httpinfo);
+		nResult = __super::GetImagingSettings(NULL, NULL, timg__GetImagingSettings, timg__GetImagingSettingsResponse);
+		if (nResult != SOAP_OK)
+			Soap_Trace("%s %s:%s  Result = %d\tSoap Status = %d.\n", m_Device.GetDevIP(), strClassName.c_str(), "GetImagingSettings", nResult, this->status);
+	}
+	return nResult;
+	//SuperHttpCall(this, __super::GetImagingSettings(NULL, NULL, timg__GetImagingSettings, timg__GetImagingSettingsResponse), nResult);
 }
 
 

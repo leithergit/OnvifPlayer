@@ -1,4 +1,4 @@
-/*
+﻿/*
 	httpda.h
 
 	gSOAP HTTP Digest Authentication plugin.
@@ -126,6 +126,10 @@ struct http_da_info
   char *opaque;
   char *qop;
   char *alg;
+  http_da_info()
+  {
+	  memset(this, 0,sizeof(http_da_info));
+  }
 };
 
 void http_da_save(struct soap *soap, struct http_da_info *info, const char *realm, const char *userid, const char *passwd);

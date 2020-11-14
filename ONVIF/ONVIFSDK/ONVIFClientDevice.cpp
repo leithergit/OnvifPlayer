@@ -3,7 +3,7 @@
 
 OnvifClientDevice::OnvifClientDevice(string strIP, string strUser, string strPass, unsigned short nPort)
 	:m_strDevIP(strIP), m_strUser(strUser),
-	m_strPass(strPass), m_hasGetCap(false), deviceBindProxy(SOAP_C_UTFSTRING)
+	m_strPass(strPass), m_hasGetCap(false), DeviceBindingProxy(SOAP_C_UTFSTRING)
 {
 	char szURL[1024] = { 0 };
 	if (nPort == 80)
@@ -26,7 +26,7 @@ OnvifClientDevice::~OnvifClientDevice()
 {
 	if (httpinfo)
 	{
-		http_da_release(&deviceBindProxy, httpinfo);
+		http_da_release(this, httpinfo);
 		delete httpinfo;
 	}
 }
@@ -144,11 +144,13 @@ int OnvifClientDevice::GetCapabilities(_tds__GetCapabilitiesResponse& cap)
 	return SOAP_ERR;
 
 }
+
 int OnvifClientDevice::GetCapabilities()
 {
 	_tds__GetCapabilitiesResponse cap;
 	return GetCapabilities(cap);
 }
+
 bool OnvifClientDevice::GetMediaUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasMedia == false)
@@ -160,6 +162,7 @@ bool OnvifClientDevice::GetMediaUrl(string& strUrl)
 
 	return true;
 }
+
 bool OnvifClientDevice::GetPTZUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasPTZ == false)
@@ -171,6 +174,7 @@ bool OnvifClientDevice::GetPTZUrl(string& strUrl)
 
 	return true;
 }
+
 bool OnvifClientDevice::GetImagingUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasImaging == false)
@@ -182,6 +186,7 @@ bool OnvifClientDevice::GetImagingUrl(string& strUrl)
 
 	return true;
 }
+
 bool OnvifClientDevice::GetReceiverUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasReceiver == false)
@@ -193,6 +198,7 @@ bool OnvifClientDevice::GetReceiverUrl(string& strUrl)
 
 	return true;
 }
+
 bool OnvifClientDevice::GetRecordingUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasRecording == false)
@@ -204,6 +210,7 @@ bool OnvifClientDevice::GetRecordingUrl(string& strUrl)
 
 	return true;
 }
+
 bool OnvifClientDevice::GetSearchUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasSearch == false)
@@ -215,6 +222,7 @@ bool OnvifClientDevice::GetSearchUrl(string& strUrl)
 
 	return true;
 }
+
 bool OnvifClientDevice::GetReplayUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasReplay == false)
@@ -226,6 +234,7 @@ bool OnvifClientDevice::GetReplayUrl(string& strUrl)
 
 	return true;
 }
+
 bool OnvifClientDevice::GetEventUrl(string& strUrl)
 {
 	if (m_hasGetCap == false || m_hasEvent == false)
