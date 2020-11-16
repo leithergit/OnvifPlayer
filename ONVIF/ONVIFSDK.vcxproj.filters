@@ -120,7 +120,13 @@
     <ClInclude Include="ONVIFSDK\ONVIFSDK.h">
       <Filter>Export</Filter>
     </ClInclude>
-    <ClInclude Include="ONVIFSDK\OnvifClientImage.h">
+    <ClInclude Include="include\OnvifClientImage.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="include\onvifclientptz.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Export.h">
       <Filter>Export</Filter>
     </ClInclude>
   </ItemGroup>

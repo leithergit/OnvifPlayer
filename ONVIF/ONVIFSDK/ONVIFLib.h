@@ -76,7 +76,7 @@ public:
 
 	const char* GetMediaStreamUrl(int nProfile);
 
-	int GetVideoSourceConfigure(char *szVideoSourceToken, _trt__GetVideoSourceConfigurationResponse &GetVideoSourceConfigResponse);
+	int GetVideoSourceConfigure(char* szVideoSourceToken, _trt__GetVideoSourceConfigurationResponse& GetVideoSourceConfigResponse);
 
 	bool CreatePTZClient();
 
@@ -107,23 +107,6 @@ private:
 
 	int m_nDefaultProfile = 0;
 };
-
-//void* AllocOnvifClient(const char* strIP, const char* strAccount, const char* strPassword)
-//{
-//	CONVIFClient* pONVIFClient = new CONVIFClient(strIP, strAccount, strPassword);
-//	if (pONVIFClient)
-//		return pONVIFClient;
-//	else
-//		return nullptr;
-//}
-//
-//void FreeOnvifPTZ(void* p)
-//{
-//	if (!p)
-//		return;
-//	CONVIFClient* pONVIFClient = (CONVIFClient*)p;
-//	delete pONVIFClient;
-//}
 
 
 #endif /* __ONVIF_CLIENT__ */

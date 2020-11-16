@@ -10,7 +10,7 @@
 #include "DialogChart.h"
 
 #pragma component(browser, off, references)
-#include "../Public/onvifsdk/ONVIFLib.h"
+#include "../Public/onvifsdk/ONVIFsdk.h"
 #pragma component(browser, on, references)
 
 using namespace  std;

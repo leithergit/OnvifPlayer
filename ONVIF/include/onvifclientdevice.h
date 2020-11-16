@@ -1,4 +1,4 @@
-#ifndef __ONVIF_CLIENT_DEVICE__
+﻿#ifndef __ONVIF_CLIENT_DEVICE__
 #define __ONVIF_CLIENT_DEVICE__
 
 #include <string>
@@ -8,101 +8,113 @@
 #include <ctime>
 #include "soapStub.h"
 #include "soapDeviceBindingProxy.h"
+#include "soapPTZBindingProxy.h"
+#include "soapImagingBindingProxy.h"
+#include "soapMediaBindingProxy.h"
 #include "wsseapi.h"
 #include "httpdadefine.h"
 using namespace std;
-class  OnvifClientDevice
+class  OnvifClientDevice :public DeviceBindingProxy
+	/*,public PTZBindingProxy
+	 ,public ImagingBindingProxy
+	 ,public MediaBindingProxy*/
 {
 public:
 	Declare_ClassName(OnvifClientDevice);
-	OnvifClientDevice(string strIP, string strUser, string strPass,unsigned short nPort = 80);
+	OnvifClientDevice(string strIP, string strUser, string strPass, unsigned short nPort = 80);
 	~OnvifClientDevice();
 
-	void SaveCapabilities(_tds__GetCapabilitiesResponse &cap);
+	void SaveCapabilities(_tds__GetCapabilitiesResponse& cap);
 
-	int GetCapabilities(_tds__GetCapabilitiesResponse &cap);
-	
+	int GetCapabilities(_tds__GetCapabilitiesResponse& cap);
+
 	int GetCapabilities();
 
-	bool GetMediaUrl(string &strUrl);
+	bool GetMediaUrl(string& strUrl);
 
-	bool GetPTZUrl(string &strUrl);
+	bool GetPTZUrl(string& strUrl);
 
-	bool GetImagingUrl(string &strUrl);
+	bool GetImagingUrl(string& strUrl);
 
-	bool GetReceiverUrl(string &strUrl);
+	bool GetReceiverUrl(string& strUrl);
 
-	bool GetRecordingUrl(string &strUrl);
+	bool GetRecordingUrl(string& strUrl);
 
-	bool GetSearchUrl(string &strUrl);
+	bool GetSearchUrl(string& strUrl);
 
-	bool GetReplayUrl(string &strUrl);
+	bool GetReplayUrl(string& strUrl);
 
-	bool GetEventUrl(string &strUrl);
+	bool GetEventUrl(string& strUrl);
 
 	//Device Service Functions
-	int GetDeviceInformation(_tds__GetDeviceInformationResponse &DeviceInformationResponse);
+	int GetDeviceInformation(_tds__GetDeviceInformationResponse& Response);
 
-	int GetSystemDateAndTime(_tds__GetSystemDateAndTimeResponse &SystemDateAndTimeResponse);
+	int GetSystemSupportInformation(_tds__GetSystemSupportInformationResponse& Response);
 
-	int SetSystemDateAndTime(_tds__SetSystemDateAndTimeResponse &SetSystemDateAndTimeResponse, tt__SetDateTimeType &DateTimeType, bool DayLightSavings, tt__TimeZone &Timezone, tt__DateTime &UTCDateTime);
+	int GetSystemDateAndTime(_tds__GetSystemDateAndTimeResponse& SystemDateAndTimeResponse);
 
-	int GetHostname(_tds__GetHostnameResponse &GetHostnameResponse);
+	int SetSystemDateAndTime(_tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse, tt__SetDateTimeType& DateTimeType, bool DayLightSavings, tt__TimeZone& Timezone, tt__DateTime& UTCDateTime);
 
-	int SetHostname(_tds__SetHostnameResponse &SetHostnameResponse, string Name);
+	int GetHostname(_tds__GetHostnameResponse& GetHostnameResponse);
 
-	int GetDNS(_tds__GetDNSResponse &GetDNSResponse);
+	int SetHostname(_tds__SetHostnameResponse& SetHostnameResponse, string Name);
 
-	int SetDNS(_tds__SetDNSResponse &SetDNSResponse, bool FromDHCP, vector<string, allocator<string>> SearchDomain, vector<tt__IPAddress*, allocator<tt__IPAddress*>> &DNSManual);
+	int GetDNS(_tds__GetDNSResponse& GetDNSResponse);
 
-	int GetNTP(_tds__GetNTPResponse &GetNTPResponse);
+	int SetDNS(_tds__SetDNSResponse& SetDNSResponse, bool FromDHCP, vector<string, allocator<string>> SearchDomain, vector<tt__IPAddress*, allocator<tt__IPAddress*>>& DNSManual);
 
-	int SetNTP(_tds__SetNTPResponse &SetNTPResponse, bool FromDHCP, vector<tt__NetworkHost*, allocator<tt__NetworkHost*>> &NTPManual);
+	int GetNTP(_tds__GetNTPResponse& GetNTPResponse);
 
-	int GetDynamicDNS(_tds__GetDynamicDNSResponse &GetDynamicDNSResponse);
+	int SetNTP(_tds__SetNTPResponse& SetNTPResponse, bool FromDHCP, std::vector<tt__NetworkHost* >& NTPManual);
 
-	int SetDynamicDNS(_tds__SetDynamicDNSResponse &SetDynamicDNSResponse, tt__DynamicDNSType &Type, tt__DNSName &Name, LONG64 &durationTTL);
+	int GetDynamicDNS(_tds__GetDynamicDNSResponse& GetDynamicDNSResponse);
 
-	int GetNetworkInterfaces(_tds__GetNetworkInterfacesResponse &GetNetworkInterfacesResponse);
+	int SetDynamicDNS(_tds__SetDynamicDNSResponse& SetDynamicDNSResponse, tt__DynamicDNSType& Type, tt__DNSName& Name, LONG64& durationTTL);
 
-	int SetNetworkInterfaces(_tds__SetNetworkInterfacesResponse &SetNetworkInterfacesResponse, string InterfaceToken, tt__NetworkInterfaceSetConfiguration &NetworkInterface);
+	int GetNetworkInterfaces(_tds__GetNetworkInterfacesResponse& GetNetworkInterfacesResponse);
 
-	int GetNetworkProtocols(_tds__GetNetworkProtocolsResponse &GetNetworkProtocolsResponse);
+	int SetNetworkInterfaces(_tds__SetNetworkInterfacesResponse& SetNetworkInterfacesResponse, string InterfaceToken, tt__NetworkInterfaceSetConfiguration& NetworkInterface);
 
-	int SetNetworkProtocols(_tds__SetNetworkProtocolsResponse &SetNetworkProtocolsResponse, vector<tt__NetworkProtocol*, allocator<tt__NetworkProtocol*>> &NetworkProtocols);
+	int GetNetworkProtocols(_tds__GetNetworkProtocolsResponse& GetNetworkProtocolsResponse);
 
-	int GetNetworkDefaultGateway(_tds__GetNetworkDefaultGatewayResponse &GetNetworkDefaultGatewayResponse);
+	int SetNetworkProtocols(_tds__SetNetworkProtocolsResponse& SetNetworkProtocolsResponse, vector<tt__NetworkProtocol*, allocator<tt__NetworkProtocol*>>& NetworkProtocols);
 
-	int SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayResponse &SetNetworkDefaultGatewayResponse, vector<string, allocator<string>> &IPv4, vector<string, allocator<string>> &IPv6);
+	int GetNetworkDefaultGateway(_tds__GetNetworkDefaultGatewayResponse& GetNetworkDefaultGatewayResponse);
 
-	int SystemReboot(_tds__SystemRebootResponse &SystemRebootResponse);
+	int SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayResponse& SetNetworkDefaultGatewayResponse, vector<string, allocator<string>>& IPv4, vector<string, allocator<string>>& IPv6);
 
-	int SynchronizeDateAndTimeWithCamera(string &strUrl, string &strUser, string &strPass, _tds__SetSystemDateAndTimeResponse &SetSystemDateAndTimeResponse);
+	int SystemReboot(_tds__SystemRebootResponse& SystemRebootResponse);
 
-	int SynchronizeDateAndTimeWithCamera(_tds__SetSystemDateAndTimeResponse &SetSystemDateAndTimeResponse);
+	int SynchronizeDateAndTimeWithCamera(string& strUrl, string& strUser, string& strPass, _tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse);
 
-	bool GetUserPasswd(string &strUser, string &strPass);
+	int SynchronizeDateAndTimeWithCamera(_tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse);
 
-	bool SetUrlUserPasswd(string &strUrl, string &strUser, string &strPass);
+	bool GetUserPasswd(string& strUser, string& strPass);
 
-	bool GetUrl(string &_strUrl);
+	bool SetUrlUserPasswd(string& strUrl, string& strUser, string& strPass);
+
+	bool GetUrl(string& _strUrl);
 	/* used to find time offset inside SynchronizeDateAndTimeWithCamera()  */
 	double findDiffTime(struct tm local_sys, tt__DateTime cameraTime, bool isDST);
 
 	/* Most of this function is taken from the function 'soap_wsse_add_UsernameTokenDigest()' defined in wsseapi.cpp //
 	// Used to alter the soap request for an offset time (for authorization purposes - replay attack protection) */
-	int LocalAddUsernameTokenDigest(struct soap *soapOff, double cam_pc_offset);
+	int LocalAddUsernameTokenDigest(struct soap* soapOff, double cam_pc_offset);
 
-	http_da_info *GetHttpDa();
-	const char *GetDevIP();
-	
+	http_da_info& GetHttpDa();
+	bool& HttpdaEnabled();
+	const char* GetDevIP();
+
 private:
 	string m_strUrl;
 	string m_strUser;
 	string m_strPass;
 	string m_strDevIP;
 	bool m_hasGetCap;
-	http_da_info *httpinfo = nullptr;
+	http_da_info httpinfo;
+	bool bHttpda = false;
+	const char* httpuserid = nullptr;
+	const char* httppasswd = nullptr;
 	/* If the Device support blow service */
 	bool m_hasMedia;
 	bool m_hasPTZ;
@@ -122,7 +134,7 @@ private:
 	string m_strSearch;
 	string m_strReplay;
 	string m_strEvent;
-	DeviceBindingProxy deviceBindProxy;
+	//DeviceBindingProxy deviceBindProxy;
 };
 
 

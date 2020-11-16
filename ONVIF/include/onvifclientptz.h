@@ -13,11 +13,11 @@
 using namespace std;
 
 typedef int(__stdcall PTZBindingProxy::* PtzMemberFunc)(void* p1, void* p2);
-class  OnvifClientPTZ
+class  OnvifClientPTZ :public PTZBindingProxy
 {
 public:
 	Declare_ClassName(OnvifClientPTZ);
-	OnvifClientPTZ(OnvifClientDevice& device, http_da_info* pHttpInfo = nullptr);
+	OnvifClientPTZ(OnvifClientDevice& device );
 
 	~OnvifClientPTZ();
 
@@ -27,8 +27,6 @@ public:
 	bool m_bHasAbsoluteZoomMove;
 	bool m_bHasContinuousPTMove;
 	bool m_bHasContinuousZoomMove;
-	http_da_info* httpinfo = nullptr;
-
 public:
 	int  Initialize();
 
@@ -68,7 +66,11 @@ public:
 
 private:
 	OnvifClientDevice& m_Device;
-	PTZBindingProxy ptzProxy;
+	http_da_info httpinfo ;
+	bool bHttpda;
+	const char *httpuserid = nullptr;
+	const char *httppasswd = nullptr;
+	std::string m_strUrl;
 };
 
 #endif 

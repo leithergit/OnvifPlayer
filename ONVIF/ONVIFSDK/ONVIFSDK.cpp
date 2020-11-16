@@ -1,8 +1,5 @@
-﻿#ifdef _LIB
-#include "ONVIFLib.h"
-#else
+﻿
 #include "onvifsdk.h"
-#endif
 #include "onvifclientdevice.h"
 #include "onvifclientmedia.h"
 #include "onvifclientptz.h"
@@ -174,6 +171,101 @@ void CONVIFClient::CreateOnvifClient()
 	m_pMedia = pMedia;
 }
 
+int CONVIFClient::GetDevServices(_tds__GetServicesResponse& Response, bool bIncludeCapbilites)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	_tds__GetServices Request;
+	Request.IncludeCapability = true;
+	return m_pOnvifDevice->GetServices(&Request, &Response);
+}
+
+int	CONVIFClient::GetDevServiceCapabilities(_tds__GetServiceCapabilitiesResponse& pResponse)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	_tds__GetServiceCapabilities Request;
+	return m_pOnvifDevice->GetServiceCapabilities(&Request, &pResponse);
+}
+
+int CONVIFClient::GetDeviceInformation(_tds__GetDeviceInformationResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	return m_pOnvifDevice->GetDeviceInformation(Response);
+}
+
+int CONVIFClient::GetSystemSupportInformation(_tds__GetSystemSupportInformationResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	_tds__GetSystemSupportInformation Request;
+	return m_pOnvifDevice->GetSystemSupportInformation(Response);
+}
+
+int CONVIFClient::SetSystemDateAndTime(tt__SetDateTimeType& DateTimeType, bool DayLightSavings, tt__TimeZone& Timezone, tt__DateTime& UTCDateTime, _tds__SetSystemDateAndTimeResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	return m_pOnvifDevice->SetSystemDateAndTime(Response, DateTimeType, DayLightSavings, Timezone, UTCDateTime);
+}
+
+int CONVIFClient::GetSystemDateAndTime(_tds__GetSystemDateAndTimeResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	_tds__GetSystemDateAndTime Request;
+	return m_pOnvifDevice->GetSystemDateAndTime(Response);
+}
+
+int CONVIFClient::SetSystemFactoryDefault(enum tt__FactoryDefaultType nFactoryDefaultType, _tds__SetSystemFactoryDefaultResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	_tds__SetSystemFactoryDefault Request;
+	Request.FactoryDefault = nFactoryDefaultType;
+	return m_pOnvifDevice->SetSystemFactoryDefault(&Request, &Response);
+}
+
+int CONVIFClient::SystemReboot(_tds__SystemRebootResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	return m_pOnvifDevice->SystemReboot(Response);
+}
+
+int CONVIFClient::GetSystemLog(enum tt__SystemLogType nLogType, _tds__GetSystemLogResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	_tds__GetSystemLog Request;
+	Request.LogType = nLogType;
+	return m_pOnvifDevice->GetSystemLog(&Request, &Response);
+}
+
+int CONVIFClient::GetNTP(_tds__GetNTPResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	return m_pOnvifDevice->GetNTP(Response);
+}
+
+int CONVIFClient::SetNTP(bool FromDHCP, std::vector<tt__NetworkHost* >& NTPManual, _tds__SetNTPResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+	return m_pOnvifDevice->SetNTP(Response, FromDHCP, NTPManual);
+}
+
+int CONVIFClient::GetScopes(_tds__GetScopesResponse& Response)
+{
+	if (!m_pOnvifDevice)
+		return -1;
+
+	_tds__GetScopes  Request;
+	return m_pOnvifDevice->GetScopes(&Request, &Response);
+}
+
 bool CONVIFClient::CreatePTZClient()
 {
 	if (!m_pOnvifDevice || !m_pMedia || !m_Profiles)
@@ -186,11 +278,8 @@ bool CONVIFClient::CreatePTZClient()
 		return false;
 
 	m_strPTZUrl = _strdup(strPTZUrl.c_str());
-	http_da_info* pHttpInfo = nullptr;
-	if (m_pMedia)
-		pHttpInfo = m_pMedia->GetHttpDa();
 
-	OnvifClientPTZ* pPTZ = new OnvifClientPTZ(*m_pOnvifDevice, pHttpInfo);
+	OnvifClientPTZ* pPTZ = new OnvifClientPTZ(*m_pOnvifDevice);
 
 	if (!pPTZ)
 		return false;
@@ -209,11 +298,8 @@ bool CONVIFClient::CreateImageClient()
 		return false;
 
 	m_strPTZUrl = _strdup(strPTZUrl.c_str());
-	http_da_info* pHttpInfo = nullptr;
-	if (m_pMedia)
-		pHttpInfo = m_pMedia->GetHttpDa();
 
-	OnvifClientImage* pImage = new OnvifClientImage(*m_pOnvifDevice, pHttpInfo);
+	OnvifClientImage* pImage = new OnvifClientImage(*m_pOnvifDevice);
 
 	if (!pImage)
 		return false;
@@ -253,17 +339,59 @@ const char* CONVIFClient::GetMediaStreamUrl(char* szProfileToken)
 		return StreamUriResponse.MediaUri->Uri.c_str();
 }
 
-int CONVIFClient::GetVideoSourceConfigure(char *szVideoConfigSourceToken, _trt__GetVideoSourceConfigurationResponse &GetVideoSourceConfigResponse)
+int CONVIFClient::GetVideoSourceConfigure(const char* szVideoConfigSourceToken, tt__VideoSourceConfiguration** ppConfiguration)
 {
 	if (m_pMedia)
 	{
-		return m_pMedia->GetVideoSourceConfiguration(GetVideoSourceConfigResponse, szVideoConfigSourceToken);
+		_trt__GetVideoSourceConfigurationResponse GetVideoSourceConfigResponse;
+		int nResult = m_pMedia->GetVideoSourceConfiguration(GetVideoSourceConfigResponse, szVideoConfigSourceToken);
+		if (nResult == SOAP_OK && GetVideoSourceConfigResponse.Configuration)
+		{
+			*ppConfiguration = GetVideoSourceConfigResponse.Configuration;
+		}
+		return nResult;
 	}
 	else
 		return -1;
 }
 
-int CONVIFClient::GetImageCapabilities(Image_Capabilities& Capabilities)
+int CONVIFClient::GetImageOpstions(const char* szVideoSourceToken, tt__ImagingOptions20** ppImagingOptions)
+{
+	if (!m_pOnvifImage)
+	{
+		if (!CreateImageClient())
+			return -1;
+	}
+	_timg__GetOptions  _GetOptions;
+	_GetOptions.VideoSourceToken = szVideoSourceToken;
+	_timg__GetOptionsResponse  _GetOptionsResponse;
+	int nResult = m_pOnvifImage->GetOptions(&_GetOptions, &_GetOptionsResponse);
+	if (SOAP_OK == nResult && _GetOptionsResponse.ImagingOptions)
+	{
+		*ppImagingOptions = _GetOptionsResponse.ImagingOptions;
+	}
+	return nResult;
+}
+
+int CONVIFClient::GetImageStatus(const char* szVideoSourceToken, tt__ImagingStatus20** ppStatus)
+{
+	if (!m_pOnvifImage)
+	{
+		if (!CreateImageClient())
+			return -1;
+	}
+	_timg__GetStatus  _GetStatus;
+	_GetStatus.VideoSourceToken = szVideoSourceToken;
+	_timg__GetStatusResponse _GetStatusResponse;
+	int nResult = m_pOnvifImage->GetStatus(&_GetStatus, &_GetStatusResponse);
+	if (SOAP_OK == nResult && _GetStatusResponse.Status)
+	{
+		*ppStatus = _GetStatusResponse.Status;
+	}
+	return nResult;
+}
+
+int CONVIFClient::GetImageCapabilities(timg__Capabilities** ppCapabilities)
 {
 	if (!m_pOnvifImage)
 	{
@@ -275,20 +403,14 @@ int CONVIFClient::GetImageCapabilities(Image_Capabilities& Capabilities)
 
 	if (nResult == SOAP_OK && ImageCapabilitiesResponse.Capabilities)
 	{
-		Capabilities.pBoolImageStabilization = ImageCapabilitiesResponse.Capabilities->ImageStabilization;
-		if (ImageCapabilitiesResponse.Capabilities->__any.size())
-			Capabilities.vecAny = ImageCapabilitiesResponse.Capabilities->__any;
-		if (ImageCapabilitiesResponse.Capabilities->__anyAttribute)
-			Capabilities.szAnyAttribute = ImageCapabilitiesResponse.Capabilities->__anyAttribute;
-		else
-			Capabilities.szAnyAttribute = nullptr;
+		*ppCapabilities = ImageCapabilitiesResponse.Capabilities;
 		return nResult;
 	}
 	else
 		return nResult;
 }
 
-int CONVIFClient::SetImageSetting(const char* szVideoSourceToken, ImagingSettings& ImagingSettings, bool bForcePersistence)
+int CONVIFClient::SetImageSettings(const char* szVideoSourceToken, tt__ImagingSettings20& ImagingSettings, bool bForcePersistence)
 {
 	if (!m_pOnvifImage)
 	{
@@ -296,14 +418,15 @@ int CONVIFClient::SetImageSetting(const char* szVideoSourceToken, ImagingSetting
 			return -1;
 	}
 	_timg__SetImagingSettings timg__SetImagingSettings;
+
 	timg__SetImagingSettings.VideoSourceToken = szVideoSourceToken;
 	timg__SetImagingSettings.ForcePersistence = &bForcePersistence;		// 是否永久保存，若为true,则目标设置备重启后也会继续生效，否则重启后失效
-	timg__SetImagingSettings.ImagingSettings = (tt__ImagingSettings20*)&ImagingSettings;
+	timg__SetImagingSettings.ImagingSettings = &ImagingSettings;
 	_timg__SetImagingSettingsResponse timg__SetImagingSettingsResponse;
 	return  m_pOnvifImage->SetImagingSettings(&timg__SetImagingSettings, &timg__SetImagingSettingsResponse);
 }
 
-int CONVIFClient::GetImageSetting(const char* szVideoSourceToken, ImagingSettings** ppImagingSettings)
+int CONVIFClient::GetImageSettings(const char* szVideoSourceToken, tt__ImagingSettings20** ppImagingSettings)
 {
 	if (!m_pOnvifImage)
 	{
@@ -318,10 +441,8 @@ int CONVIFClient::GetImageSetting(const char* szVideoSourceToken, ImagingSetting
 	int nResult = m_pOnvifImage->GetImagingSettings(&timg__GetImagingSettings, &ImagingSettingsResponse);
 	if (nResult == SOAP_OK && ImagingSettingsResponse.ImagingSettings)
 	{
-		*ppImagingSettings = (ImagingSettings*)ImagingSettingsResponse.ImagingSettings;
+		*ppImagingSettings = ImagingSettingsResponse.ImagingSettings;
 
-		//soap_destroy(ImagingSettingsResponse.ImagingSettings->soap);
-		//delete ImagingSettingsResponse.ImagingSettings;
 		return nResult;
 	}
 	else
@@ -340,7 +461,9 @@ const char* CONVIFClient::GetMediaStreamUrl(int nProfile)
 	_trt__GetStreamUriResponse StreamUriResponse;
 	tt__StreamSetup StreamSetup;
 	StreamSetup.Stream = tt__StreamType::tt__StreamType__RTP_Unicast;
-	StreamSetup.Transport = new class tt__Transport();
+	std::tr1::shared_ptr< tt__Transport> pTransport = std::tr1::make_shared<tt__Transport>();
+	StreamSetup.Transport = pTransport.get();
+	StreamSetup.Transport->Protocol = tt__TransportProtocol::tt__TransportProtocol__RTSP;
 	if (m_pMedia->GetStreamUri(StreamUriResponse, StreamSetup, m_Profiles->Profiles[nProfile]->token) != SOAP_OK)
 		return nullptr;
 	else
@@ -770,4 +893,10 @@ const OnvifClientMedia* CONVIFClient::GetMediaPtr()
 const OnvifClientPTZ* CONVIFClient::GetPtzPtr()
 {
 	return m_pPTZClient;
+}
+
+
+void FreeSoap(struct soap* pSoap)
+{
+	soap_destroy(pSoap);
 }

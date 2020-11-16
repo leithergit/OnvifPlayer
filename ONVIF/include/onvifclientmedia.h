@@ -1,4 +1,4 @@
-#ifndef __ONVIF_CLIENT_MEDIA__
+﻿#ifndef __ONVIF_CLIENT_MEDIA__
 #define __ONVIF_CLIENT_MEDIA__
 
 #include <string>
@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class  OnvifClientMedia
+class  OnvifClientMedia :public MediaBindingProxy
 {
 public:
 	Declare_ClassName(OnvifClientMedia);
@@ -39,11 +39,15 @@ public:
 	int GetMetadataConfigurations(_trt__GetMetadataConfigurationsResponse &GetMetadataConfigurationsResponse);
 	int GetMetadataConfiguration(_trt__GetMetadataConfigurationResponse &GetMetadataConfigurationResponse,string profileToken);
 	int GetMetadataConfigurationOptions(_trt__GetMetadataConfigurationOptionsResponse &GetMetadataConfigurationOptionsResponse,string ConfigToken,string profileToken);
-	http_da_info *GetHttpDa();
+	
 private:
 	OnvifClientDevice &m_Device;
-	MediaBindingProxy  mediaProxy;
-	http_da_info*		httpinfo = nullptr;
+	//MediaBindingProxy  mediaProxy;
+	http_da_info		httpinfo;
+	bool bHttpda;
+	const char *httpuserid = nullptr;
+	const char *httppasswd = nullptr;
+	std::string m_strUrl;
 };
 
 

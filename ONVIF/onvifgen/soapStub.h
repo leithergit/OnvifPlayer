@@ -46,7 +46,8 @@ compiling, linking, and/or using OpenSSL is allowed.
  *                                                                            *
 \******************************************************************************/
 
-
+#include "Export.h"
+#pragma warning(disable:4251)
 #ifndef SOAP_TYPE_wsu__tTimestampFault
 #define SOAP_TYPE_wsu__tTimestampFault (7)
 /* wsu:tTimestampFault */
@@ -1700,7 +1701,7 @@ public:
 #ifndef SOAP_TYPE_xsd__anyType
 #define SOAP_TYPE_xsd__anyType (214)
 /* Primitive xsd:anyType schema type: */
-class SOAP_CMAC  xsd__anyType
+class ONVIFLIB_API  xsd__anyType
 {
 public:
 	char* __item;
@@ -1738,7 +1739,7 @@ public:
 #ifndef SOAP_TYPE_xsd__base64Binary
 #define SOAP_TYPE_xsd__base64Binary (220)
 /* Base64 schema type: */
-class SOAP_CMAC xsd__base64Binary
+class ONVIFLIB_API xsd__base64Binary
 {
 public:
 	unsigned char* __ptr;
@@ -1763,7 +1764,7 @@ public:
 #ifndef SOAP_TYPE_xsd__hexBinary
 #define SOAP_TYPE_xsd__hexBinary (225)
 /* hexBinary schema type: */
-class SOAP_CMAC xsd__hexBinary
+class ONVIFLIB_API xsd__hexBinary
 {
 public:
 	unsigned char* __ptr;
@@ -1784,7 +1785,7 @@ public:
 #ifndef SOAP_TYPE_xsd__NCName_
 #define SOAP_TYPE_xsd__NCName_ (227)
 /* Primitive xsd:NCName schema type: */
-class SOAP_CMAC xsd__NCName_ : public xsd__anyType
+class ONVIFLIB_API xsd__NCName_ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -1804,7 +1805,7 @@ public:
 #ifndef SOAP_TYPE_xsd__QName_
 #define SOAP_TYPE_xsd__QName_ (228)
 /* Primitive xsd:QName schema type: */
-class SOAP_CMAC xsd__QName_ : public xsd__anyType
+class ONVIFLIB_API xsd__QName_ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -1824,7 +1825,7 @@ public:
 #ifndef SOAP_TYPE_xsd__anySimpleType_
 #define SOAP_TYPE_xsd__anySimpleType_ (230)
 /* Primitive xsd:anySimpleType schema type: */
-class SOAP_CMAC xsd__anySimpleType_ : public xsd__anyType
+class ONVIFLIB_API xsd__anySimpleType_ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -1844,7 +1845,7 @@ public:
 #ifndef SOAP_TYPE_xsd__anyURI_
 #define SOAP_TYPE_xsd__anyURI_ (232)
 /* Primitive xsd:anyURI schema type: */
-class SOAP_CMAC xsd__anyURI_ : public xsd__anyType
+class ONVIFLIB_API xsd__anyURI_ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -1864,7 +1865,7 @@ public:
 #ifndef SOAP_TYPE_xsd__base64Binary_
 #define SOAP_TYPE_xsd__base64Binary_ (233)
 /* Primitive xsd:base64Binary schema type: */
-class SOAP_CMAC xsd__base64Binary_ : public xsd__anyType
+class ONVIFLIB_API xsd__base64Binary_ : public xsd__anyType
 {
 public:
 	xsd__base64Binary __item;
@@ -1884,7 +1885,7 @@ public:
 #ifndef SOAP_TYPE_xsd__boolean
 #define SOAP_TYPE_xsd__boolean (234)
 /* Primitive xsd:boolean schema type: */
-class SOAP_CMAC xsd__boolean : public xsd__anyType
+class ONVIFLIB_API xsd__boolean : public xsd__anyType
 {
 public:
 	bool __item;
@@ -1904,7 +1905,7 @@ public:
 #ifndef SOAP_TYPE_xsd__dateTime
 #define SOAP_TYPE_xsd__dateTime (236)
 /* Primitive xsd:dateTime schema type: */
-class SOAP_CMAC xsd__dateTime : public xsd__anyType
+class ONVIFLIB_API xsd__dateTime : public xsd__anyType
 {
 public:
 	time_t __item;
@@ -1924,7 +1925,7 @@ public:
 #ifndef SOAP_TYPE_xsd__duration_
 #define SOAP_TYPE_xsd__duration_ (238)
 /* Primitive xsd:duration schema type: */
-class SOAP_CMAC xsd__duration_ : public xsd__anyType
+class ONVIFLIB_API xsd__duration_ : public xsd__anyType
 {
 public:
 	LONG64 __item;	/* external */
@@ -1944,7 +1945,7 @@ public:
 #ifndef SOAP_TYPE_xsd__float
 #define SOAP_TYPE_xsd__float (239)
 /* Primitive xsd:float schema type: */
-class SOAP_CMAC xsd__float : public xsd__anyType
+class ONVIFLIB_API xsd__float : public xsd__anyType
 {
 public:
 	float __item;
@@ -1964,7 +1965,7 @@ public:
 #ifndef SOAP_TYPE_xsd__hexBinary_
 #define SOAP_TYPE_xsd__hexBinary_ (241)
 /* Primitive xsd:hexBinary schema type: */
-class SOAP_CMAC xsd__hexBinary_ : public xsd__anyType
+class ONVIFLIB_API xsd__hexBinary_ : public xsd__anyType
 {
 public:
 	xsd__hexBinary __item;
@@ -1984,7 +1985,7 @@ public:
 #ifndef SOAP_TYPE_xsd__int
 #define SOAP_TYPE_xsd__int (242)
 /* Primitive xsd:int schema type: */
-class SOAP_CMAC xsd__int : public xsd__anyType
+class ONVIFLIB_API xsd__int : public xsd__anyType
 {
 public:
 	int __item;
@@ -2004,7 +2005,7 @@ public:
 #ifndef SOAP_TYPE_xsd__integer_
 #define SOAP_TYPE_xsd__integer_ (244)
 /* Primitive xsd:integer schema type: */
-class SOAP_CMAC xsd__integer_ : public xsd__anyType
+class ONVIFLIB_API xsd__integer_ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2024,7 +2025,7 @@ public:
 #ifndef SOAP_TYPE_xsd__nonNegativeInteger_
 #define SOAP_TYPE_xsd__nonNegativeInteger_ (246)
 /* Primitive xsd:nonNegativeInteger schema type: */
-class SOAP_CMAC xsd__nonNegativeInteger_ : public xsd__anyType
+class ONVIFLIB_API xsd__nonNegativeInteger_ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2044,7 +2045,7 @@ public:
 #ifndef SOAP_TYPE_xsd__string
 #define SOAP_TYPE_xsd__string (247)
 /* Primitive xsd:string schema type: */
-class SOAP_CMAC xsd__string : public xsd__anyType
+class ONVIFLIB_API xsd__string : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2064,7 +2065,7 @@ public:
 #ifndef SOAP_TYPE_xsd__token_
 #define SOAP_TYPE_xsd__token_ (249)
 /* Primitive xsd:token schema type: */
-class SOAP_CMAC xsd__token_ : public xsd__anyType
+class ONVIFLIB_API xsd__token_ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2084,7 +2085,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReferenceToken__
 #define SOAP_TYPE_tt__ReferenceToken__ (1368)
 /* Primitive tt:ReferenceToken schema type: */
-class SOAP_CMAC tt__ReferenceToken__ : public xsd__anyType
+class ONVIFLIB_API tt__ReferenceToken__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2104,7 +2105,7 @@ public:
 #ifndef SOAP_TYPE_tt__Name__
 #define SOAP_TYPE_tt__Name__ (1370)
 /* Primitive tt:Name schema type: */
-class SOAP_CMAC tt__Name__ : public xsd__anyType
+class ONVIFLIB_API tt__Name__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2124,7 +2125,7 @@ public:
 #ifndef SOAP_TYPE_tt__RotateMode_
 #define SOAP_TYPE_tt__RotateMode_ (1372)
 /* Primitive tt:RotateMode schema type: */
-class SOAP_CMAC tt__RotateMode_ : public xsd__anyType
+class ONVIFLIB_API tt__RotateMode_ : public xsd__anyType
 {
 public:
 	enum tt__RotateMode __item;
@@ -2144,7 +2145,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoEncoding_
 #define SOAP_TYPE_tt__VideoEncoding_ (1374)
 /* Primitive tt:VideoEncoding schema type: */
-class SOAP_CMAC tt__VideoEncoding_ : public xsd__anyType
+class ONVIFLIB_API tt__VideoEncoding_ : public xsd__anyType
 {
 public:
 	enum tt__VideoEncoding __item;
@@ -2164,7 +2165,7 @@ public:
 #ifndef SOAP_TYPE_tt__Mpeg4Profile_
 #define SOAP_TYPE_tt__Mpeg4Profile_ (1376)
 /* Primitive tt:Mpeg4Profile schema type: */
-class SOAP_CMAC tt__Mpeg4Profile_ : public xsd__anyType
+class ONVIFLIB_API tt__Mpeg4Profile_ : public xsd__anyType
 {
 public:
 	enum tt__Mpeg4Profile __item;
@@ -2184,7 +2185,7 @@ public:
 #ifndef SOAP_TYPE_tt__H264Profile_
 #define SOAP_TYPE_tt__H264Profile_ (1378)
 /* Primitive tt:H264Profile schema type: */
-class SOAP_CMAC tt__H264Profile_ : public xsd__anyType
+class ONVIFLIB_API tt__H264Profile_ : public xsd__anyType
 {
 public:
 	enum tt__H264Profile __item;
@@ -2204,7 +2205,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioEncoding_
 #define SOAP_TYPE_tt__AudioEncoding_ (1380)
 /* Primitive tt:AudioEncoding schema type: */
-class SOAP_CMAC tt__AudioEncoding_ : public xsd__anyType
+class ONVIFLIB_API tt__AudioEncoding_ : public xsd__anyType
 {
 public:
 	enum tt__AudioEncoding __item;
@@ -2224,7 +2225,7 @@ public:
 #ifndef SOAP_TYPE_tt__StreamType_
 #define SOAP_TYPE_tt__StreamType_ (1382)
 /* Primitive tt:StreamType schema type: */
-class SOAP_CMAC tt__StreamType_ : public xsd__anyType
+class ONVIFLIB_API tt__StreamType_ : public xsd__anyType
 {
 public:
 	enum tt__StreamType __item;
@@ -2244,7 +2245,7 @@ public:
 #ifndef SOAP_TYPE_tt__TransportProtocol_
 #define SOAP_TYPE_tt__TransportProtocol_ (1384)
 /* Primitive tt:TransportProtocol schema type: */
-class SOAP_CMAC tt__TransportProtocol_ : public xsd__anyType
+class ONVIFLIB_API tt__TransportProtocol_ : public xsd__anyType
 {
 public:
 	enum tt__TransportProtocol __item;
@@ -2264,7 +2265,7 @@ public:
 #ifndef SOAP_TYPE_tt__ScopeDefinition_
 #define SOAP_TYPE_tt__ScopeDefinition_ (1386)
 /* Primitive tt:ScopeDefinition schema type: */
-class SOAP_CMAC tt__ScopeDefinition_ : public xsd__anyType
+class ONVIFLIB_API tt__ScopeDefinition_ : public xsd__anyType
 {
 public:
 	enum tt__ScopeDefinition __item;
@@ -2284,7 +2285,7 @@ public:
 #ifndef SOAP_TYPE_tt__DiscoveryMode_
 #define SOAP_TYPE_tt__DiscoveryMode_ (1388)
 /* Primitive tt:DiscoveryMode schema type: */
-class SOAP_CMAC tt__DiscoveryMode_ : public xsd__anyType
+class ONVIFLIB_API tt__DiscoveryMode_ : public xsd__anyType
 {
 public:
 	enum tt__DiscoveryMode __item;
@@ -2304,7 +2305,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceConfigPriority__
 #define SOAP_TYPE_tt__NetworkInterfaceConfigPriority__ (1390)
 /* Primitive tt:NetworkInterfaceConfigPriority schema type: */
-class SOAP_CMAC tt__NetworkInterfaceConfigPriority__ : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceConfigPriority__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2324,7 +2325,7 @@ public:
 #ifndef SOAP_TYPE_tt__Duplex_
 #define SOAP_TYPE_tt__Duplex_ (1392)
 /* Primitive tt:Duplex schema type: */
-class SOAP_CMAC tt__Duplex_ : public xsd__anyType
+class ONVIFLIB_API tt__Duplex_ : public xsd__anyType
 {
 public:
 	enum tt__Duplex __item;
@@ -2344,7 +2345,7 @@ public:
 #ifndef SOAP_TYPE_tt__IANA_IfTypes__
 #define SOAP_TYPE_tt__IANA_IfTypes__ (1394)
 /* Primitive tt:IANA-IfTypes schema type: */
-class SOAP_CMAC tt__IANA_IfTypes__ : public xsd__anyType
+class ONVIFLIB_API tt__IANA_IfTypes__ : public xsd__anyType
 {
 public:
 	int __item;
@@ -2364,7 +2365,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv6DHCPConfiguration_
 #define SOAP_TYPE_tt__IPv6DHCPConfiguration_ (1396)
 /* Primitive tt:IPv6DHCPConfiguration schema type: */
-class SOAP_CMAC tt__IPv6DHCPConfiguration_ : public xsd__anyType
+class ONVIFLIB_API tt__IPv6DHCPConfiguration_ : public xsd__anyType
 {
 public:
 	enum tt__IPv6DHCPConfiguration __item;
@@ -2384,7 +2385,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkProtocolType_
 #define SOAP_TYPE_tt__NetworkProtocolType_ (1398)
 /* Primitive tt:NetworkProtocolType schema type: */
-class SOAP_CMAC tt__NetworkProtocolType_ : public xsd__anyType
+class ONVIFLIB_API tt__NetworkProtocolType_ : public xsd__anyType
 {
 public:
 	enum tt__NetworkProtocolType __item;
@@ -2404,7 +2405,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkHostType_
 #define SOAP_TYPE_tt__NetworkHostType_ (1400)
 /* Primitive tt:NetworkHostType schema type: */
-class SOAP_CMAC tt__NetworkHostType_ : public xsd__anyType
+class ONVIFLIB_API tt__NetworkHostType_ : public xsd__anyType
 {
 public:
 	enum tt__NetworkHostType __item;
@@ -2424,7 +2425,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv4Address__
 #define SOAP_TYPE_tt__IPv4Address__ (1402)
 /* Primitive tt:IPv4Address schema type: */
-class SOAP_CMAC tt__IPv4Address__ : public xsd__anyType
+class ONVIFLIB_API tt__IPv4Address__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2444,7 +2445,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv6Address__
 #define SOAP_TYPE_tt__IPv6Address__ (1404)
 /* Primitive tt:IPv6Address schema type: */
-class SOAP_CMAC tt__IPv6Address__ : public xsd__anyType
+class ONVIFLIB_API tt__IPv6Address__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2464,7 +2465,7 @@ public:
 #ifndef SOAP_TYPE_tt__HwAddress__
 #define SOAP_TYPE_tt__HwAddress__ (1406)
 /* Primitive tt:HwAddress schema type: */
-class SOAP_CMAC tt__HwAddress__ : public xsd__anyType
+class ONVIFLIB_API tt__HwAddress__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2484,7 +2485,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPType_
 #define SOAP_TYPE_tt__IPType_ (1408)
 /* Primitive tt:IPType schema type: */
-class SOAP_CMAC tt__IPType_ : public xsd__anyType
+class ONVIFLIB_API tt__IPType_ : public xsd__anyType
 {
 public:
 	enum tt__IPType __item;
@@ -2504,7 +2505,7 @@ public:
 #ifndef SOAP_TYPE_tt__DNSName__
 #define SOAP_TYPE_tt__DNSName__ (1410)
 /* Primitive tt:DNSName schema type: */
-class SOAP_CMAC tt__DNSName__ : public xsd__anyType
+class ONVIFLIB_API tt__DNSName__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2524,7 +2525,7 @@ public:
 #ifndef SOAP_TYPE_tt__Domain__
 #define SOAP_TYPE_tt__Domain__ (1412)
 /* Primitive tt:Domain schema type: */
-class SOAP_CMAC tt__Domain__ : public xsd__anyType
+class ONVIFLIB_API tt__Domain__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2544,7 +2545,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPAddressFilterType_
 #define SOAP_TYPE_tt__IPAddressFilterType_ (1414)
 /* Primitive tt:IPAddressFilterType schema type: */
-class SOAP_CMAC tt__IPAddressFilterType_ : public xsd__anyType
+class ONVIFLIB_API tt__IPAddressFilterType_ : public xsd__anyType
 {
 public:
 	enum tt__IPAddressFilterType __item;
@@ -2564,7 +2565,7 @@ public:
 #ifndef SOAP_TYPE_tt__DynamicDNSType_
 #define SOAP_TYPE_tt__DynamicDNSType_ (1416)
 /* Primitive tt:DynamicDNSType schema type: */
-class SOAP_CMAC tt__DynamicDNSType_ : public xsd__anyType
+class ONVIFLIB_API tt__DynamicDNSType_ : public xsd__anyType
 {
 public:
 	enum tt__DynamicDNSType __item;
@@ -2584,7 +2585,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11SSIDType__
 #define SOAP_TYPE_tt__Dot11SSIDType__ (1418)
 /* Primitive tt:Dot11SSIDType schema type: */
-class SOAP_CMAC tt__Dot11SSIDType__ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11SSIDType__ : public xsd__anyType
 {
 public:
 	xsd__hexBinary __item;
@@ -2604,7 +2605,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11StationMode_
 #define SOAP_TYPE_tt__Dot11StationMode_ (1420)
 /* Primitive tt:Dot11StationMode schema type: */
-class SOAP_CMAC tt__Dot11StationMode_ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11StationMode_ : public xsd__anyType
 {
 public:
 	enum tt__Dot11StationMode __item;
@@ -2624,7 +2625,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11SecurityMode_
 #define SOAP_TYPE_tt__Dot11SecurityMode_ (1422)
 /* Primitive tt:Dot11SecurityMode schema type: */
-class SOAP_CMAC tt__Dot11SecurityMode_ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11SecurityMode_ : public xsd__anyType
 {
 public:
 	enum tt__Dot11SecurityMode __item;
@@ -2644,7 +2645,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11Cipher_
 #define SOAP_TYPE_tt__Dot11Cipher_ (1424)
 /* Primitive tt:Dot11Cipher schema type: */
-class SOAP_CMAC tt__Dot11Cipher_ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11Cipher_ : public xsd__anyType
 {
 public:
 	enum tt__Dot11Cipher __item;
@@ -2664,7 +2665,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11PSK__
 #define SOAP_TYPE_tt__Dot11PSK__ (1426)
 /* Primitive tt:Dot11PSK schema type: */
-class SOAP_CMAC tt__Dot11PSK__ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11PSK__ : public xsd__anyType
 {
 public:
 	xsd__hexBinary __item;
@@ -2684,7 +2685,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11PSKPassphrase__
 #define SOAP_TYPE_tt__Dot11PSKPassphrase__ (1428)
 /* Primitive tt:Dot11PSKPassphrase schema type: */
-class SOAP_CMAC tt__Dot11PSKPassphrase__ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11PSKPassphrase__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2704,7 +2705,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11SignalStrength_
 #define SOAP_TYPE_tt__Dot11SignalStrength_ (1430)
 /* Primitive tt:Dot11SignalStrength schema type: */
-class SOAP_CMAC tt__Dot11SignalStrength_ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11SignalStrength_ : public xsd__anyType
 {
 public:
 	enum tt__Dot11SignalStrength __item;
@@ -2724,7 +2725,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11AuthAndMangementSuite_
 #define SOAP_TYPE_tt__Dot11AuthAndMangementSuite_ (1432)
 /* Primitive tt:Dot11AuthAndMangementSuite schema type: */
-class SOAP_CMAC tt__Dot11AuthAndMangementSuite_ : public xsd__anyType
+class ONVIFLIB_API tt__Dot11AuthAndMangementSuite_ : public xsd__anyType
 {
 public:
 	enum tt__Dot11AuthAndMangementSuite __item;
@@ -2744,7 +2745,7 @@ public:
 #ifndef SOAP_TYPE_tt__CapabilityCategory_
 #define SOAP_TYPE_tt__CapabilityCategory_ (1434)
 /* Primitive tt:CapabilityCategory schema type: */
-class SOAP_CMAC tt__CapabilityCategory_ : public xsd__anyType
+class ONVIFLIB_API tt__CapabilityCategory_ : public xsd__anyType
 {
 public:
 	enum tt__CapabilityCategory __item;
@@ -2764,7 +2765,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemLogType_
 #define SOAP_TYPE_tt__SystemLogType_ (1436)
 /* Primitive tt:SystemLogType schema type: */
-class SOAP_CMAC tt__SystemLogType_ : public xsd__anyType
+class ONVIFLIB_API tt__SystemLogType_ : public xsd__anyType
 {
 public:
 	enum tt__SystemLogType __item;
@@ -2784,7 +2785,7 @@ public:
 #ifndef SOAP_TYPE_tt__FactoryDefaultType_
 #define SOAP_TYPE_tt__FactoryDefaultType_ (1438)
 /* Primitive tt:FactoryDefaultType schema type: */
-class SOAP_CMAC tt__FactoryDefaultType_ : public xsd__anyType
+class ONVIFLIB_API tt__FactoryDefaultType_ : public xsd__anyType
 {
 public:
 	enum tt__FactoryDefaultType __item;
@@ -2804,7 +2805,7 @@ public:
 #ifndef SOAP_TYPE_tt__SetDateTimeType_
 #define SOAP_TYPE_tt__SetDateTimeType_ (1440)
 /* Primitive tt:SetDateTimeType schema type: */
-class SOAP_CMAC tt__SetDateTimeType_ : public xsd__anyType
+class ONVIFLIB_API tt__SetDateTimeType_ : public xsd__anyType
 {
 public:
 	enum tt__SetDateTimeType __item;
@@ -2824,7 +2825,7 @@ public:
 #ifndef SOAP_TYPE_tt__UserLevel_
 #define SOAP_TYPE_tt__UserLevel_ (1442)
 /* Primitive tt:UserLevel schema type: */
-class SOAP_CMAC tt__UserLevel_ : public xsd__anyType
+class ONVIFLIB_API tt__UserLevel_ : public xsd__anyType
 {
 public:
 	enum tt__UserLevel __item;
@@ -2844,7 +2845,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelayLogicalState_
 #define SOAP_TYPE_tt__RelayLogicalState_ (1444)
 /* Primitive tt:RelayLogicalState schema type: */
-class SOAP_CMAC tt__RelayLogicalState_ : public xsd__anyType
+class ONVIFLIB_API tt__RelayLogicalState_ : public xsd__anyType
 {
 public:
 	enum tt__RelayLogicalState __item;
@@ -2864,7 +2865,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelayIdleState_
 #define SOAP_TYPE_tt__RelayIdleState_ (1446)
 /* Primitive tt:RelayIdleState schema type: */
-class SOAP_CMAC tt__RelayIdleState_ : public xsd__anyType
+class ONVIFLIB_API tt__RelayIdleState_ : public xsd__anyType
 {
 public:
 	enum tt__RelayIdleState __item;
@@ -2884,7 +2885,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelayMode_
 #define SOAP_TYPE_tt__RelayMode_ (1448)
 /* Primitive tt:RelayMode schema type: */
-class SOAP_CMAC tt__RelayMode_ : public xsd__anyType
+class ONVIFLIB_API tt__RelayMode_ : public xsd__anyType
 {
 public:
 	enum tt__RelayMode __item;
@@ -2904,7 +2905,7 @@ public:
 #ifndef SOAP_TYPE_tt__EFlipMode_
 #define SOAP_TYPE_tt__EFlipMode_ (1450)
 /* Primitive tt:EFlipMode schema type: */
-class SOAP_CMAC tt__EFlipMode_ : public xsd__anyType
+class ONVIFLIB_API tt__EFlipMode_ : public xsd__anyType
 {
 public:
 	enum tt__EFlipMode __item;
@@ -2924,7 +2925,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReverseMode_
 #define SOAP_TYPE_tt__ReverseMode_ (1452)
 /* Primitive tt:ReverseMode schema type: */
-class SOAP_CMAC tt__ReverseMode_ : public xsd__anyType
+class ONVIFLIB_API tt__ReverseMode_ : public xsd__anyType
 {
 public:
 	enum tt__ReverseMode __item;
@@ -2944,7 +2945,7 @@ public:
 #ifndef SOAP_TYPE_tt__AuxiliaryData__
 #define SOAP_TYPE_tt__AuxiliaryData__ (1454)
 /* Primitive tt:AuxiliaryData schema type: */
-class SOAP_CMAC tt__AuxiliaryData__ : public xsd__anyType
+class ONVIFLIB_API tt__AuxiliaryData__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -2964,7 +2965,7 @@ public:
 #ifndef SOAP_TYPE_tt__MoveStatus_
 #define SOAP_TYPE_tt__MoveStatus_ (1456)
 /* Primitive tt:MoveStatus schema type: */
-class SOAP_CMAC tt__MoveStatus_ : public xsd__anyType
+class ONVIFLIB_API tt__MoveStatus_ : public xsd__anyType
 {
 public:
 	enum tt__MoveStatus __item;
@@ -2984,7 +2985,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourState_
 #define SOAP_TYPE_tt__PTZPresetTourState_ (1458)
 /* Primitive tt:PTZPresetTourState schema type: */
-class SOAP_CMAC tt__PTZPresetTourState_ : public xsd__anyType
+class ONVIFLIB_API tt__PTZPresetTourState_ : public xsd__anyType
 {
 public:
 	enum tt__PTZPresetTourState __item;
@@ -3004,7 +3005,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourDirection_
 #define SOAP_TYPE_tt__PTZPresetTourDirection_ (1460)
 /* Primitive tt:PTZPresetTourDirection schema type: */
-class SOAP_CMAC tt__PTZPresetTourDirection_ : public xsd__anyType
+class ONVIFLIB_API tt__PTZPresetTourDirection_ : public xsd__anyType
 {
 public:
 	enum tt__PTZPresetTourDirection __item;
@@ -3024,7 +3025,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourOperation_
 #define SOAP_TYPE_tt__PTZPresetTourOperation_ (1462)
 /* Primitive tt:PTZPresetTourOperation schema type: */
-class SOAP_CMAC tt__PTZPresetTourOperation_ : public xsd__anyType
+class ONVIFLIB_API tt__PTZPresetTourOperation_ : public xsd__anyType
 {
 public:
 	enum tt__PTZPresetTourOperation __item;
@@ -3044,7 +3045,7 @@ public:
 #ifndef SOAP_TYPE_tt__AutoFocusMode_
 #define SOAP_TYPE_tt__AutoFocusMode_ (1464)
 /* Primitive tt:AutoFocusMode schema type: */
-class SOAP_CMAC tt__AutoFocusMode_ : public xsd__anyType
+class ONVIFLIB_API tt__AutoFocusMode_ : public xsd__anyType
 {
 public:
 	enum tt__AutoFocusMode __item;
@@ -3064,7 +3065,7 @@ public:
 #ifndef SOAP_TYPE_tt__WideDynamicMode_
 #define SOAP_TYPE_tt__WideDynamicMode_ (1466)
 /* Primitive tt:WideDynamicMode schema type: */
-class SOAP_CMAC tt__WideDynamicMode_ : public xsd__anyType
+class ONVIFLIB_API tt__WideDynamicMode_ : public xsd__anyType
 {
 public:
 	enum tt__WideDynamicMode __item;
@@ -3084,7 +3085,7 @@ public:
 #ifndef SOAP_TYPE_tt__BacklightCompensationMode_
 #define SOAP_TYPE_tt__BacklightCompensationMode_ (1468)
 /* Primitive tt:BacklightCompensationMode schema type: */
-class SOAP_CMAC tt__BacklightCompensationMode_ : public xsd__anyType
+class ONVIFLIB_API tt__BacklightCompensationMode_ : public xsd__anyType
 {
 public:
 	enum tt__BacklightCompensationMode __item;
@@ -3104,7 +3105,7 @@ public:
 #ifndef SOAP_TYPE_tt__ExposurePriority_
 #define SOAP_TYPE_tt__ExposurePriority_ (1470)
 /* Primitive tt:ExposurePriority schema type: */
-class SOAP_CMAC tt__ExposurePriority_ : public xsd__anyType
+class ONVIFLIB_API tt__ExposurePriority_ : public xsd__anyType
 {
 public:
 	enum tt__ExposurePriority __item;
@@ -3124,7 +3125,7 @@ public:
 #ifndef SOAP_TYPE_tt__ExposureMode_
 #define SOAP_TYPE_tt__ExposureMode_ (1472)
 /* Primitive tt:ExposureMode schema type: */
-class SOAP_CMAC tt__ExposureMode_ : public xsd__anyType
+class ONVIFLIB_API tt__ExposureMode_ : public xsd__anyType
 {
 public:
 	enum tt__ExposureMode __item;
@@ -3144,7 +3145,7 @@ public:
 #ifndef SOAP_TYPE_tt__Enabled_
 #define SOAP_TYPE_tt__Enabled_ (1474)
 /* Primitive tt:Enabled schema type: */
-class SOAP_CMAC tt__Enabled_ : public xsd__anyType
+class ONVIFLIB_API tt__Enabled_ : public xsd__anyType
 {
 public:
 	enum tt__Enabled __item;
@@ -3164,7 +3165,7 @@ public:
 #ifndef SOAP_TYPE_tt__WhiteBalanceMode_
 #define SOAP_TYPE_tt__WhiteBalanceMode_ (1476)
 /* Primitive tt:WhiteBalanceMode schema type: */
-class SOAP_CMAC tt__WhiteBalanceMode_ : public xsd__anyType
+class ONVIFLIB_API tt__WhiteBalanceMode_ : public xsd__anyType
 {
 public:
 	enum tt__WhiteBalanceMode __item;
@@ -3184,7 +3185,7 @@ public:
 #ifndef SOAP_TYPE_tt__IrCutFilterMode_
 #define SOAP_TYPE_tt__IrCutFilterMode_ (1478)
 /* Primitive tt:IrCutFilterMode schema type: */
-class SOAP_CMAC tt__IrCutFilterMode_ : public xsd__anyType
+class ONVIFLIB_API tt__IrCutFilterMode_ : public xsd__anyType
 {
 public:
 	enum tt__IrCutFilterMode __item;
@@ -3204,7 +3205,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImageStabilizationMode_
 #define SOAP_TYPE_tt__ImageStabilizationMode_ (1480)
 /* Primitive tt:ImageStabilizationMode schema type: */
-class SOAP_CMAC tt__ImageStabilizationMode_ : public xsd__anyType
+class ONVIFLIB_API tt__ImageStabilizationMode_ : public xsd__anyType
 {
 public:
 	enum tt__ImageStabilizationMode __item;
@@ -3224,7 +3225,7 @@ public:
 #ifndef SOAP_TYPE_tt__IrCutFilterAutoBoundaryType_
 #define SOAP_TYPE_tt__IrCutFilterAutoBoundaryType_ (1482)
 /* Primitive tt:IrCutFilterAutoBoundaryType schema type: */
-class SOAP_CMAC tt__IrCutFilterAutoBoundaryType_ : public xsd__anyType
+class ONVIFLIB_API tt__IrCutFilterAutoBoundaryType_ : public xsd__anyType
 {
 public:
 	enum tt__IrCutFilterAutoBoundaryType __item;
@@ -3244,7 +3245,7 @@ public:
 #ifndef SOAP_TYPE_tt__TopicNamespaceLocation__
 #define SOAP_TYPE_tt__TopicNamespaceLocation__ (1484)
 /* Primitive tt:TopicNamespaceLocation schema type: */
-class SOAP_CMAC tt__TopicNamespaceLocation__ : public xsd__anyType
+class ONVIFLIB_API tt__TopicNamespaceLocation__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3264,7 +3265,7 @@ public:
 #ifndef SOAP_TYPE_tt__PropertyOperation_
 #define SOAP_TYPE_tt__PropertyOperation_ (1486)
 /* Primitive tt:PropertyOperation schema type: */
-class SOAP_CMAC tt__PropertyOperation_ : public xsd__anyType
+class ONVIFLIB_API tt__PropertyOperation_ : public xsd__anyType
 {
 public:
 	enum tt__PropertyOperation __item;
@@ -3284,7 +3285,7 @@ public:
 #ifndef SOAP_TYPE_tt__Direction_
 #define SOAP_TYPE_tt__Direction_ (1488)
 /* Primitive tt:Direction schema type: */
-class SOAP_CMAC tt__Direction_ : public xsd__anyType
+class ONVIFLIB_API tt__Direction_ : public xsd__anyType
 {
 public:
 	enum tt__Direction __item;
@@ -3304,7 +3305,7 @@ public:
 #ifndef SOAP_TYPE_tt__ClassType_
 #define SOAP_TYPE_tt__ClassType_ (1490)
 /* Primitive tt:ClassType schema type: */
-class SOAP_CMAC tt__ClassType_ : public xsd__anyType
+class ONVIFLIB_API tt__ClassType_ : public xsd__anyType
 {
 public:
 	enum tt__ClassType __item;
@@ -3324,7 +3325,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReceiverMode_
 #define SOAP_TYPE_tt__ReceiverMode_ (1492)
 /* Primitive tt:ReceiverMode schema type: */
-class SOAP_CMAC tt__ReceiverMode_ : public xsd__anyType
+class ONVIFLIB_API tt__ReceiverMode_ : public xsd__anyType
 {
 public:
 	enum tt__ReceiverMode __item;
@@ -3344,7 +3345,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReceiverState_
 #define SOAP_TYPE_tt__ReceiverState_ (1494)
 /* Primitive tt:ReceiverState schema type: */
-class SOAP_CMAC tt__ReceiverState_ : public xsd__anyType
+class ONVIFLIB_API tt__ReceiverState_ : public xsd__anyType
 {
 public:
 	enum tt__ReceiverState __item;
@@ -3364,7 +3365,7 @@ public:
 #ifndef SOAP_TYPE_tt__Description__
 #define SOAP_TYPE_tt__Description__ (1496)
 /* Primitive tt:Description schema type: */
-class SOAP_CMAC tt__Description__ : public xsd__anyType
+class ONVIFLIB_API tt__Description__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3384,7 +3385,7 @@ public:
 #ifndef SOAP_TYPE_tt__XPathExpression__
 #define SOAP_TYPE_tt__XPathExpression__ (1498)
 /* Primitive tt:XPathExpression schema type: */
-class SOAP_CMAC tt__XPathExpression__ : public xsd__anyType
+class ONVIFLIB_API tt__XPathExpression__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3404,7 +3405,7 @@ public:
 #ifndef SOAP_TYPE_tt__SearchState_
 #define SOAP_TYPE_tt__SearchState_ (1500)
 /* Primitive tt:SearchState schema type: */
-class SOAP_CMAC tt__SearchState_ : public xsd__anyType
+class ONVIFLIB_API tt__SearchState_ : public xsd__anyType
 {
 public:
 	enum tt__SearchState __item;
@@ -3424,7 +3425,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingStatus_
 #define SOAP_TYPE_tt__RecordingStatus_ (1502)
 /* Primitive tt:RecordingStatus schema type: */
-class SOAP_CMAC tt__RecordingStatus_ : public xsd__anyType
+class ONVIFLIB_API tt__RecordingStatus_ : public xsd__anyType
 {
 public:
 	enum tt__RecordingStatus __item;
@@ -3444,7 +3445,7 @@ public:
 #ifndef SOAP_TYPE_tt__TrackType_
 #define SOAP_TYPE_tt__TrackType_ (1504)
 /* Primitive tt:TrackType schema type: */
-class SOAP_CMAC tt__TrackType_ : public xsd__anyType
+class ONVIFLIB_API tt__TrackType_ : public xsd__anyType
 {
 public:
 	enum tt__TrackType __item;
@@ -3464,7 +3465,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobMode__
 #define SOAP_TYPE_tt__RecordingJobMode__ (1506)
 /* Primitive tt:RecordingJobMode schema type: */
-class SOAP_CMAC tt__RecordingJobMode__ : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobMode__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3484,7 +3485,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobState__
 #define SOAP_TYPE_tt__RecordingJobState__ (1508)
 /* Primitive tt:RecordingJobState schema type: */
-class SOAP_CMAC tt__RecordingJobState__ : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobState__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3504,7 +3505,7 @@ public:
 #ifndef SOAP_TYPE_tt__ModeOfOperation_
 #define SOAP_TYPE_tt__ModeOfOperation_ (1510)
 /* Primitive tt:ModeOfOperation schema type: */
-class SOAP_CMAC tt__ModeOfOperation_ : public xsd__anyType
+class ONVIFLIB_API tt__ModeOfOperation_ : public xsd__anyType
 {
 public:
 	enum tt__ModeOfOperation __item;
@@ -3524,7 +3525,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioClassType__
 #define SOAP_TYPE_tt__AudioClassType__ (1512)
 /* Primitive tt:AudioClassType schema type: */
-class SOAP_CMAC tt__AudioClassType__ : public xsd__anyType
+class ONVIFLIB_API tt__AudioClassType__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3544,7 +3545,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDType_
 #define SOAP_TYPE_tt__OSDType_ (1514)
 /* Primitive tt:OSDType schema type: */
-class SOAP_CMAC tt__OSDType_ : public xsd__anyType
+class ONVIFLIB_API tt__OSDType_ : public xsd__anyType
 {
 public:
 	enum tt__OSDType __item;
@@ -3564,7 +3565,7 @@ public:
 #ifndef SOAP_TYPE_wstop__FullTopicExpression__
 #define SOAP_TYPE_wstop__FullTopicExpression__ (1516)
 /* Primitive wstop:FullTopicExpression schema type: */
-class SOAP_CMAC wstop__FullTopicExpression__ : public xsd__anyType
+class ONVIFLIB_API wstop__FullTopicExpression__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3584,7 +3585,7 @@ public:
 #ifndef SOAP_TYPE_wstop__ConcreteTopicExpression__
 #define SOAP_TYPE_wstop__ConcreteTopicExpression__ (1518)
 /* Primitive wstop:ConcreteTopicExpression schema type: */
-class SOAP_CMAC wstop__ConcreteTopicExpression__ : public xsd__anyType
+class ONVIFLIB_API wstop__ConcreteTopicExpression__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3604,7 +3605,7 @@ public:
 #ifndef SOAP_TYPE_wstop__SimpleTopicExpression__
 #define SOAP_TYPE_wstop__SimpleTopicExpression__ (1520)
 /* Primitive wstop:SimpleTopicExpression schema type: */
-class SOAP_CMAC wstop__SimpleTopicExpression__ : public xsd__anyType
+class ONVIFLIB_API wstop__SimpleTopicExpression__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3624,7 +3625,7 @@ public:
 #ifndef SOAP_TYPE_tmd__SerialPortType_
 #define SOAP_TYPE_tmd__SerialPortType_ (1522)
 /* Primitive tmd:SerialPortType schema type: */
-class SOAP_CMAC tmd__SerialPortType_ : public xsd__anyType
+class ONVIFLIB_API tmd__SerialPortType_ : public xsd__anyType
 {
 public:
 	enum tmd__SerialPortType __item;
@@ -3644,7 +3645,7 @@ public:
 #ifndef SOAP_TYPE_tmd__ParityBit_
 #define SOAP_TYPE_tmd__ParityBit_ (1524)
 /* Primitive tmd:ParityBit schema type: */
-class SOAP_CMAC tmd__ParityBit_ : public xsd__anyType
+class ONVIFLIB_API tmd__ParityBit_ : public xsd__anyType
 {
 public:
 	enum tmd__ParityBit __item;
@@ -3664,7 +3665,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReceiverReference__
 #define SOAP_TYPE_tt__ReceiverReference__ (1526)
 /* Primitive tt:ReceiverReference schema type: */
-class SOAP_CMAC tt__ReceiverReference__ : public xsd__anyType
+class ONVIFLIB_API tt__ReceiverReference__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3684,7 +3685,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingReference__
 #define SOAP_TYPE_tt__RecordingReference__ (1528)
 /* Primitive tt:RecordingReference schema type: */
-class SOAP_CMAC tt__RecordingReference__ : public xsd__anyType
+class ONVIFLIB_API tt__RecordingReference__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3704,7 +3705,7 @@ public:
 #ifndef SOAP_TYPE_tt__TrackReference__
 #define SOAP_TYPE_tt__TrackReference__ (1530)
 /* Primitive tt:TrackReference schema type: */
-class SOAP_CMAC tt__TrackReference__ : public xsd__anyType
+class ONVIFLIB_API tt__TrackReference__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3724,7 +3725,7 @@ public:
 #ifndef SOAP_TYPE_tt__JobToken__
 #define SOAP_TYPE_tt__JobToken__ (1532)
 /* Primitive tt:JobToken schema type: */
-class SOAP_CMAC tt__JobToken__ : public xsd__anyType
+class ONVIFLIB_API tt__JobToken__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3744,7 +3745,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobReference__
 #define SOAP_TYPE_tt__RecordingJobReference__ (1534)
 /* Primitive tt:RecordingJobReference schema type: */
-class SOAP_CMAC tt__RecordingJobReference__ : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobReference__ : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -3764,7 +3765,7 @@ public:
 #ifndef SOAP_TYPE__tds__Service_Capabilities
 #define SOAP_TYPE__tds__Service_Capabilities (1535)
 /* tds:Service-Capabilities */
-class SOAP_CMAC _tds__Service_Capabilities
+class ONVIFLIB_API _tds__Service_Capabilities
 {
 public:
 	char* __any;
@@ -3784,7 +3785,7 @@ public:
 #ifndef SOAP_TYPE_tds__Service
 #define SOAP_TYPE_tds__Service (251)
 /* tds:Service */
-class SOAP_CMAC tds__Service : public xsd__anyType
+class ONVIFLIB_API tds__Service : public xsd__anyType
 {
 public:
 	std::string Namespace;	/* required element of type xsd:anyURI */
@@ -3809,7 +3810,7 @@ public:
 #ifndef SOAP_TYPE_tds__DeviceServiceCapabilities
 #define SOAP_TYPE_tds__DeviceServiceCapabilities (252)
 /* tds:DeviceServiceCapabilities */
-class SOAP_CMAC tds__DeviceServiceCapabilities : public xsd__anyType
+class ONVIFLIB_API tds__DeviceServiceCapabilities : public xsd__anyType
 {
 public:
 	class tds__NetworkCapabilities* Network;	/* required element of type tds:NetworkCapabilities */
@@ -3832,7 +3833,7 @@ public:
 #ifndef SOAP_TYPE_tds__NetworkCapabilities
 #define SOAP_TYPE_tds__NetworkCapabilities (253)
 /* Primitive tds:NetworkCapabilities schema type: */
-class SOAP_CMAC tds__NetworkCapabilities : public xsd__anyType
+class ONVIFLIB_API tds__NetworkCapabilities : public xsd__anyType
 {
 public:
 	bool* IPFilter;	/* optional attribute */
@@ -3861,7 +3862,7 @@ public:
 #ifndef SOAP_TYPE_tds__SecurityCapabilities
 #define SOAP_TYPE_tds__SecurityCapabilities (254)
 /* Primitive tds:SecurityCapabilities schema type: */
-class SOAP_CMAC tds__SecurityCapabilities : public xsd__anyType
+class ONVIFLIB_API tds__SecurityCapabilities : public xsd__anyType
 {
 public:
 	bool* TLS1_x002e0;	/* optional attribute */
@@ -3897,7 +3898,7 @@ public:
 #ifndef SOAP_TYPE_tds__SystemCapabilities
 #define SOAP_TYPE_tds__SystemCapabilities (255)
 /* Primitive tds:SystemCapabilities schema type: */
-class SOAP_CMAC tds__SystemCapabilities : public xsd__anyType
+class ONVIFLIB_API tds__SystemCapabilities : public xsd__anyType
 {
 public:
 	bool* DiscoveryResolve;	/* optional attribute */
@@ -3927,7 +3928,7 @@ public:
 #ifndef SOAP_TYPE_tds__MiscCapabilities
 #define SOAP_TYPE_tds__MiscCapabilities (256)
 /* Primitive tds:MiscCapabilities schema type: */
-class SOAP_CMAC tds__MiscCapabilities : public xsd__anyType
+class ONVIFLIB_API tds__MiscCapabilities : public xsd__anyType
 {
 public:
 	std::string* AuxiliaryCommands;	/* optional attribute */
@@ -3948,7 +3949,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetServices
 #define SOAP_TYPE__tds__GetServices (257)
 /* tds:GetServices */
-class SOAP_CMAC _tds__GetServices
+class ONVIFLIB_API _tds__GetServices
 {
 public:
 	bool IncludeCapability;	/* required element of type xsd:boolean */
@@ -3969,7 +3970,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetServicesResponse
 #define SOAP_TYPE__tds__GetServicesResponse (258)
 /* tds:GetServicesResponse */
-class SOAP_CMAC _tds__GetServicesResponse
+class ONVIFLIB_API _tds__GetServicesResponse
 {
 public:
 	std::vector<tds__Service* >Service;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tds:Service */
@@ -3990,7 +3991,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetServiceCapabilities
 #define SOAP_TYPE__tds__GetServiceCapabilities (259)
 /* tds:GetServiceCapabilities */
-class SOAP_CMAC _tds__GetServiceCapabilities
+class ONVIFLIB_API _tds__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4010,7 +4011,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__tds__GetServiceCapabilitiesResponse (260)
 /* tds:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _tds__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _tds__GetServiceCapabilitiesResponse
 {
 public:
 	tds__DeviceServiceCapabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tds:DeviceServiceCapabilities */
@@ -4031,7 +4032,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDeviceInformation
 #define SOAP_TYPE__tds__GetDeviceInformation (261)
 /* tds:GetDeviceInformation */
-class SOAP_CMAC _tds__GetDeviceInformation
+class ONVIFLIB_API _tds__GetDeviceInformation
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4051,7 +4052,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDeviceInformationResponse
 #define SOAP_TYPE__tds__GetDeviceInformationResponse (262)
 /* tds:GetDeviceInformationResponse */
-class SOAP_CMAC _tds__GetDeviceInformationResponse
+class ONVIFLIB_API _tds__GetDeviceInformationResponse
 {
 public:
 	std::string Manufacturer;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:string */
@@ -4076,7 +4077,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetSystemDateAndTime
 #define SOAP_TYPE__tds__SetSystemDateAndTime (263)
 /* tds:SetSystemDateAndTime */
-class SOAP_CMAC _tds__SetSystemDateAndTime
+class ONVIFLIB_API _tds__SetSystemDateAndTime
 {
 public:
 	enum tt__SetDateTimeType DateTimeType;	/* required element of type tt:SetDateTimeType */
@@ -4100,7 +4101,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetSystemDateAndTimeResponse
 #define SOAP_TYPE__tds__SetSystemDateAndTimeResponse (264)
 /* tds:SetSystemDateAndTimeResponse */
-class SOAP_CMAC _tds__SetSystemDateAndTimeResponse
+class ONVIFLIB_API _tds__SetSystemDateAndTimeResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4120,7 +4121,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemDateAndTime
 #define SOAP_TYPE__tds__GetSystemDateAndTime (265)
 /* tds:GetSystemDateAndTime */
-class SOAP_CMAC _tds__GetSystemDateAndTime
+class ONVIFLIB_API _tds__GetSystemDateAndTime
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4140,7 +4141,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemDateAndTimeResponse
 #define SOAP_TYPE__tds__GetSystemDateAndTimeResponse (266)
 /* tds:GetSystemDateAndTimeResponse */
-class SOAP_CMAC _tds__GetSystemDateAndTimeResponse
+class ONVIFLIB_API _tds__GetSystemDateAndTimeResponse
 {
 public:
 	class tt__SystemDateTime* SystemDateAndTime;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:SystemDateTime */
@@ -4161,7 +4162,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetSystemFactoryDefault
 #define SOAP_TYPE__tds__SetSystemFactoryDefault (267)
 /* tds:SetSystemFactoryDefault */
-class SOAP_CMAC _tds__SetSystemFactoryDefault
+class ONVIFLIB_API _tds__SetSystemFactoryDefault
 {
 public:
 	enum tt__FactoryDefaultType FactoryDefault;	/* required element of type tt:FactoryDefaultType */
@@ -4182,7 +4183,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetSystemFactoryDefaultResponse
 #define SOAP_TYPE__tds__SetSystemFactoryDefaultResponse (268)
 /* tds:SetSystemFactoryDefaultResponse */
-class SOAP_CMAC _tds__SetSystemFactoryDefaultResponse
+class ONVIFLIB_API _tds__SetSystemFactoryDefaultResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4202,7 +4203,7 @@ public:
 #ifndef SOAP_TYPE__tds__UpgradeSystemFirmware
 #define SOAP_TYPE__tds__UpgradeSystemFirmware (269)
 /* tds:UpgradeSystemFirmware */
-class SOAP_CMAC _tds__UpgradeSystemFirmware
+class ONVIFLIB_API _tds__UpgradeSystemFirmware
 {
 public:
 	class tt__AttachmentData* Firmware;	/* required element of type tt:AttachmentData */
@@ -4223,7 +4224,7 @@ public:
 #ifndef SOAP_TYPE__tds__UpgradeSystemFirmwareResponse
 #define SOAP_TYPE__tds__UpgradeSystemFirmwareResponse (270)
 /* tds:UpgradeSystemFirmwareResponse */
-class SOAP_CMAC _tds__UpgradeSystemFirmwareResponse
+class ONVIFLIB_API _tds__UpgradeSystemFirmwareResponse
 {
 public:
 	std::string* Message;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type xsd:string */
@@ -4244,7 +4245,7 @@ public:
 #ifndef SOAP_TYPE__tds__SystemReboot
 #define SOAP_TYPE__tds__SystemReboot (271)
 /* tds:SystemReboot */
-class SOAP_CMAC _tds__SystemReboot
+class ONVIFLIB_API _tds__SystemReboot
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4264,7 +4265,7 @@ public:
 #ifndef SOAP_TYPE__tds__SystemRebootResponse
 #define SOAP_TYPE__tds__SystemRebootResponse (272)
 /* tds:SystemRebootResponse */
-class SOAP_CMAC _tds__SystemRebootResponse
+class ONVIFLIB_API _tds__SystemRebootResponse
 {
 public:
 	std::string Message;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:string */
@@ -4285,7 +4286,7 @@ public:
 #ifndef SOAP_TYPE__tds__RestoreSystem
 #define SOAP_TYPE__tds__RestoreSystem (273)
 /* tds:RestoreSystem */
-class SOAP_CMAC _tds__RestoreSystem
+class ONVIFLIB_API _tds__RestoreSystem
 {
 public:
 	std::vector<class tt__BackupFile* >BackupFiles;	/* required element of type tt:BackupFile */
@@ -4306,7 +4307,7 @@ public:
 #ifndef SOAP_TYPE__tds__RestoreSystemResponse
 #define SOAP_TYPE__tds__RestoreSystemResponse (274)
 /* tds:RestoreSystemResponse */
-class SOAP_CMAC _tds__RestoreSystemResponse
+class ONVIFLIB_API _tds__RestoreSystemResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4326,7 +4327,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemBackup
 #define SOAP_TYPE__tds__GetSystemBackup (275)
 /* tds:GetSystemBackup */
-class SOAP_CMAC _tds__GetSystemBackup
+class ONVIFLIB_API _tds__GetSystemBackup
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4346,7 +4347,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemBackupResponse
 #define SOAP_TYPE__tds__GetSystemBackupResponse (276)
 /* tds:GetSystemBackupResponse */
-class SOAP_CMAC _tds__GetSystemBackupResponse
+class ONVIFLIB_API _tds__GetSystemBackupResponse
 {
 public:
 	std::vector<tt__BackupFile* >BackupFiles;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:BackupFile */
@@ -4367,7 +4368,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemSupportInformation
 #define SOAP_TYPE__tds__GetSystemSupportInformation (277)
 /* tds:GetSystemSupportInformation */
-class SOAP_CMAC _tds__GetSystemSupportInformation
+class ONVIFLIB_API _tds__GetSystemSupportInformation
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4387,7 +4388,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemSupportInformationResponse
 #define SOAP_TYPE__tds__GetSystemSupportInformationResponse (278)
 /* tds:GetSystemSupportInformationResponse */
-class SOAP_CMAC _tds__GetSystemSupportInformationResponse
+class ONVIFLIB_API _tds__GetSystemSupportInformationResponse
 {
 public:
 	class tt__SupportInformation* SupportInformation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:SupportInformation */
@@ -4408,7 +4409,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemLog
 #define SOAP_TYPE__tds__GetSystemLog (279)
 /* tds:GetSystemLog */
-class SOAP_CMAC _tds__GetSystemLog
+class ONVIFLIB_API _tds__GetSystemLog
 {
 public:
 	enum tt__SystemLogType LogType;	/* required element of type tt:SystemLogType */
@@ -4429,7 +4430,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemLogResponse
 #define SOAP_TYPE__tds__GetSystemLogResponse (280)
 /* tds:GetSystemLogResponse */
-class SOAP_CMAC _tds__GetSystemLogResponse
+class ONVIFLIB_API _tds__GetSystemLogResponse
 {
 public:
 	class tt__SystemLog* SystemLog;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:SystemLog */
@@ -4450,7 +4451,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetScopes
 #define SOAP_TYPE__tds__GetScopes (281)
 /* tds:GetScopes */
-class SOAP_CMAC _tds__GetScopes
+class ONVIFLIB_API _tds__GetScopes
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4470,7 +4471,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetScopesResponse
 #define SOAP_TYPE__tds__GetScopesResponse (282)
 /* tds:GetScopesResponse */
-class SOAP_CMAC _tds__GetScopesResponse
+class ONVIFLIB_API _tds__GetScopesResponse
 {
 public:
 	std::vector<class tt__Scope* >Scopes;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Scope */
@@ -4491,7 +4492,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetScopes
 #define SOAP_TYPE__tds__SetScopes (283)
 /* tds:SetScopes */
-class SOAP_CMAC _tds__SetScopes
+class ONVIFLIB_API _tds__SetScopes
 {
 public:
 	std::vector<std::string >Scopes;	/* required element of type xsd:anyURI */
@@ -4512,7 +4513,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetScopesResponse
 #define SOAP_TYPE__tds__SetScopesResponse (284)
 /* tds:SetScopesResponse */
-class SOAP_CMAC _tds__SetScopesResponse
+class ONVIFLIB_API _tds__SetScopesResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4532,7 +4533,7 @@ public:
 #ifndef SOAP_TYPE__tds__AddScopes
 #define SOAP_TYPE__tds__AddScopes (285)
 /* tds:AddScopes */
-class SOAP_CMAC _tds__AddScopes
+class ONVIFLIB_API _tds__AddScopes
 {
 public:
 	std::vector<std::string >ScopeItem;	/* required element of type xsd:anyURI */
@@ -4553,7 +4554,7 @@ public:
 #ifndef SOAP_TYPE__tds__AddScopesResponse
 #define SOAP_TYPE__tds__AddScopesResponse (286)
 /* tds:AddScopesResponse */
-class SOAP_CMAC _tds__AddScopesResponse
+class ONVIFLIB_API _tds__AddScopesResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4573,7 +4574,7 @@ public:
 #ifndef SOAP_TYPE__tds__RemoveScopes
 #define SOAP_TYPE__tds__RemoveScopes (287)
 /* tds:RemoveScopes */
-class SOAP_CMAC _tds__RemoveScopes
+class ONVIFLIB_API _tds__RemoveScopes
 {
 public:
 	std::vector<std::string >ScopeItem;	/* required element of type xsd:anyURI */
@@ -4594,7 +4595,7 @@ public:
 #ifndef SOAP_TYPE__tds__RemoveScopesResponse
 #define SOAP_TYPE__tds__RemoveScopesResponse (288)
 /* tds:RemoveScopesResponse */
-class SOAP_CMAC _tds__RemoveScopesResponse
+class ONVIFLIB_API _tds__RemoveScopesResponse
 {
 public:
 	std::vector<std::string >ScopeItem;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type xsd:anyURI */
@@ -4615,7 +4616,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDiscoveryMode
 #define SOAP_TYPE__tds__GetDiscoveryMode (289)
 /* tds:GetDiscoveryMode */
-class SOAP_CMAC _tds__GetDiscoveryMode
+class ONVIFLIB_API _tds__GetDiscoveryMode
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4635,7 +4636,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDiscoveryModeResponse
 #define SOAP_TYPE__tds__GetDiscoveryModeResponse (290)
 /* tds:GetDiscoveryModeResponse */
-class SOAP_CMAC _tds__GetDiscoveryModeResponse
+class ONVIFLIB_API _tds__GetDiscoveryModeResponse
 {
 public:
 	enum tt__DiscoveryMode DiscoveryMode;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:DiscoveryMode */
@@ -4656,7 +4657,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDiscoveryMode
 #define SOAP_TYPE__tds__SetDiscoveryMode (291)
 /* tds:SetDiscoveryMode */
-class SOAP_CMAC _tds__SetDiscoveryMode
+class ONVIFLIB_API _tds__SetDiscoveryMode
 {
 public:
 	enum tt__DiscoveryMode DiscoveryMode;	/* required element of type tt:DiscoveryMode */
@@ -4677,7 +4678,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDiscoveryModeResponse
 #define SOAP_TYPE__tds__SetDiscoveryModeResponse (292)
 /* tds:SetDiscoveryModeResponse */
-class SOAP_CMAC _tds__SetDiscoveryModeResponse
+class ONVIFLIB_API _tds__SetDiscoveryModeResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4697,7 +4698,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetRemoteDiscoveryMode
 #define SOAP_TYPE__tds__GetRemoteDiscoveryMode (293)
 /* tds:GetRemoteDiscoveryMode */
-class SOAP_CMAC _tds__GetRemoteDiscoveryMode
+class ONVIFLIB_API _tds__GetRemoteDiscoveryMode
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4717,7 +4718,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetRemoteDiscoveryModeResponse
 #define SOAP_TYPE__tds__GetRemoteDiscoveryModeResponse (294)
 /* tds:GetRemoteDiscoveryModeResponse */
-class SOAP_CMAC _tds__GetRemoteDiscoveryModeResponse
+class ONVIFLIB_API _tds__GetRemoteDiscoveryModeResponse
 {
 public:
 	enum tt__DiscoveryMode RemoteDiscoveryMode;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:DiscoveryMode */
@@ -4738,7 +4739,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRemoteDiscoveryMode
 #define SOAP_TYPE__tds__SetRemoteDiscoveryMode (295)
 /* tds:SetRemoteDiscoveryMode */
-class SOAP_CMAC _tds__SetRemoteDiscoveryMode
+class ONVIFLIB_API _tds__SetRemoteDiscoveryMode
 {
 public:
 	enum tt__DiscoveryMode RemoteDiscoveryMode;	/* required element of type tt:DiscoveryMode */
@@ -4759,7 +4760,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRemoteDiscoveryModeResponse
 #define SOAP_TYPE__tds__SetRemoteDiscoveryModeResponse (296)
 /* tds:SetRemoteDiscoveryModeResponse */
-class SOAP_CMAC _tds__SetRemoteDiscoveryModeResponse
+class ONVIFLIB_API _tds__SetRemoteDiscoveryModeResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4779,7 +4780,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDPAddresses
 #define SOAP_TYPE__tds__GetDPAddresses (297)
 /* tds:GetDPAddresses */
-class SOAP_CMAC _tds__GetDPAddresses
+class ONVIFLIB_API _tds__GetDPAddresses
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4799,7 +4800,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDPAddressesResponse
 #define SOAP_TYPE__tds__GetDPAddressesResponse (298)
 /* tds:GetDPAddressesResponse */
-class SOAP_CMAC _tds__GetDPAddressesResponse
+class ONVIFLIB_API _tds__GetDPAddressesResponse
 {
 public:
 	std::vector<class tt__NetworkHost* >DPAddress;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:NetworkHost */
@@ -4820,7 +4821,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDPAddresses
 #define SOAP_TYPE__tds__SetDPAddresses (299)
 /* tds:SetDPAddresses */
-class SOAP_CMAC _tds__SetDPAddresses
+class ONVIFLIB_API _tds__SetDPAddresses
 {
 public:
 	std::vector<tt__NetworkHost* >DPAddress;	/* optional element of type tt:NetworkHost */
@@ -4841,7 +4842,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDPAddressesResponse
 #define SOAP_TYPE__tds__SetDPAddressesResponse (300)
 /* tds:SetDPAddressesResponse */
-class SOAP_CMAC _tds__SetDPAddressesResponse
+class ONVIFLIB_API _tds__SetDPAddressesResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4861,7 +4862,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetEndpointReference
 #define SOAP_TYPE__tds__GetEndpointReference (301)
 /* tds:GetEndpointReference */
-class SOAP_CMAC _tds__GetEndpointReference
+class ONVIFLIB_API _tds__GetEndpointReference
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4881,7 +4882,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetEndpointReferenceResponse
 #define SOAP_TYPE__tds__GetEndpointReferenceResponse (302)
 /* tds:GetEndpointReferenceResponse */
-class SOAP_CMAC _tds__GetEndpointReferenceResponse
+class ONVIFLIB_API _tds__GetEndpointReferenceResponse
 {
 public:
 	std::string GUID;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:string */
@@ -4903,7 +4904,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetRemoteUser
 #define SOAP_TYPE__tds__GetRemoteUser (303)
 /* tds:GetRemoteUser */
-class SOAP_CMAC _tds__GetRemoteUser
+class ONVIFLIB_API _tds__GetRemoteUser
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4923,7 +4924,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetRemoteUserResponse
 #define SOAP_TYPE__tds__GetRemoteUserResponse (304)
 /* tds:GetRemoteUserResponse */
-class SOAP_CMAC _tds__GetRemoteUserResponse
+class ONVIFLIB_API _tds__GetRemoteUserResponse
 {
 public:
 	class tt__RemoteUser* RemoteUser;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:RemoteUser */
@@ -4944,7 +4945,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRemoteUser
 #define SOAP_TYPE__tds__SetRemoteUser (305)
 /* tds:SetRemoteUser */
-class SOAP_CMAC _tds__SetRemoteUser
+class ONVIFLIB_API _tds__SetRemoteUser
 {
 public:
 	tt__RemoteUser* RemoteUser;	/* optional element of type tt:RemoteUser */
@@ -4965,7 +4966,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRemoteUserResponse
 #define SOAP_TYPE__tds__SetRemoteUserResponse (306)
 /* tds:SetRemoteUserResponse */
-class SOAP_CMAC _tds__SetRemoteUserResponse
+class ONVIFLIB_API _tds__SetRemoteUserResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -4985,7 +4986,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetUsers
 #define SOAP_TYPE__tds__GetUsers (307)
 /* tds:GetUsers */
-class SOAP_CMAC _tds__GetUsers
+class ONVIFLIB_API _tds__GetUsers
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5005,7 +5006,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetUsersResponse
 #define SOAP_TYPE__tds__GetUsersResponse (308)
 /* tds:GetUsersResponse */
-class SOAP_CMAC _tds__GetUsersResponse
+class ONVIFLIB_API _tds__GetUsersResponse
 {
 public:
 	std::vector<class tt__User* >User;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:User */
@@ -5026,7 +5027,7 @@ public:
 #ifndef SOAP_TYPE__tds__CreateUsers
 #define SOAP_TYPE__tds__CreateUsers (309)
 /* tds:CreateUsers */
-class SOAP_CMAC _tds__CreateUsers
+class ONVIFLIB_API _tds__CreateUsers
 {
 public:
 	std::vector<tt__User* >User;	/* required element of type tt:User */
@@ -5047,7 +5048,7 @@ public:
 #ifndef SOAP_TYPE__tds__CreateUsersResponse
 #define SOAP_TYPE__tds__CreateUsersResponse (310)
 /* tds:CreateUsersResponse */
-class SOAP_CMAC _tds__CreateUsersResponse
+class ONVIFLIB_API _tds__CreateUsersResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5067,7 +5068,7 @@ public:
 #ifndef SOAP_TYPE__tds__DeleteUsers
 #define SOAP_TYPE__tds__DeleteUsers (311)
 /* tds:DeleteUsers */
-class SOAP_CMAC _tds__DeleteUsers
+class ONVIFLIB_API _tds__DeleteUsers
 {
 public:
 	std::vector<std::string >Username;	/* required element of type xsd:string */
@@ -5088,7 +5089,7 @@ public:
 #ifndef SOAP_TYPE__tds__DeleteUsersResponse
 #define SOAP_TYPE__tds__DeleteUsersResponse (312)
 /* tds:DeleteUsersResponse */
-class SOAP_CMAC _tds__DeleteUsersResponse
+class ONVIFLIB_API _tds__DeleteUsersResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5108,7 +5109,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetUser
 #define SOAP_TYPE__tds__SetUser (313)
 /* tds:SetUser */
-class SOAP_CMAC _tds__SetUser
+class ONVIFLIB_API _tds__SetUser
 {
 public:
 	std::vector<tt__User* >User;	/* required element of type tt:User */
@@ -5129,7 +5130,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetUserResponse
 #define SOAP_TYPE__tds__SetUserResponse (314)
 /* tds:SetUserResponse */
-class SOAP_CMAC _tds__SetUserResponse
+class ONVIFLIB_API _tds__SetUserResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5149,7 +5150,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetWsdlUrl
 #define SOAP_TYPE__tds__GetWsdlUrl (315)
 /* tds:GetWsdlUrl */
-class SOAP_CMAC _tds__GetWsdlUrl
+class ONVIFLIB_API _tds__GetWsdlUrl
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5169,7 +5170,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetWsdlUrlResponse
 #define SOAP_TYPE__tds__GetWsdlUrlResponse (316)
 /* tds:GetWsdlUrlResponse */
-class SOAP_CMAC _tds__GetWsdlUrlResponse
+class ONVIFLIB_API _tds__GetWsdlUrlResponse
 {
 public:
 	std::string WsdlUrl;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:anyURI */
@@ -5190,7 +5191,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCapabilities
 #define SOAP_TYPE__tds__GetCapabilities (317)
 /* tds:GetCapabilities */
-class SOAP_CMAC _tds__GetCapabilities
+class ONVIFLIB_API _tds__GetCapabilities
 {
 public:
 	std::vector<enum tt__CapabilityCategory >Category;	/* optional element of type tt:CapabilityCategory */
@@ -5211,7 +5212,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCapabilitiesResponse
 #define SOAP_TYPE__tds__GetCapabilitiesResponse (318)
 /* tds:GetCapabilitiesResponse */
-class SOAP_CMAC _tds__GetCapabilitiesResponse
+class ONVIFLIB_API _tds__GetCapabilitiesResponse
 {
 public:
 	class tt__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Capabilities */
@@ -5232,7 +5233,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetHostname
 #define SOAP_TYPE__tds__GetHostname (319)
 /* tds:GetHostname */
-class SOAP_CMAC _tds__GetHostname
+class ONVIFLIB_API _tds__GetHostname
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5252,7 +5253,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetHostnameResponse
 #define SOAP_TYPE__tds__GetHostnameResponse (320)
 /* tds:GetHostnameResponse */
-class SOAP_CMAC _tds__GetHostnameResponse
+class ONVIFLIB_API _tds__GetHostnameResponse
 {
 public:
 	class tt__HostnameInformation* HostnameInformation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:HostnameInformation */
@@ -5273,7 +5274,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetHostname
 #define SOAP_TYPE__tds__SetHostname (321)
 /* tds:SetHostname */
-class SOAP_CMAC _tds__SetHostname
+class ONVIFLIB_API _tds__SetHostname
 {
 public:
 	std::string Name;	/* required element of type xsd:token */
@@ -5294,7 +5295,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetHostnameResponse
 #define SOAP_TYPE__tds__SetHostnameResponse (322)
 /* tds:SetHostnameResponse */
-class SOAP_CMAC _tds__SetHostnameResponse
+class ONVIFLIB_API _tds__SetHostnameResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5314,7 +5315,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetHostnameFromDHCP
 #define SOAP_TYPE__tds__SetHostnameFromDHCP (323)
 /* tds:SetHostnameFromDHCP */
-class SOAP_CMAC _tds__SetHostnameFromDHCP
+class ONVIFLIB_API _tds__SetHostnameFromDHCP
 {
 public:
 	bool FromDHCP;	/* required element of type xsd:boolean */
@@ -5335,7 +5336,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetHostnameFromDHCPResponse
 #define SOAP_TYPE__tds__SetHostnameFromDHCPResponse (324)
 /* tds:SetHostnameFromDHCPResponse */
-class SOAP_CMAC _tds__SetHostnameFromDHCPResponse
+class ONVIFLIB_API _tds__SetHostnameFromDHCPResponse
 {
 public:
 	bool RebootNeeded;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:boolean */
@@ -5356,7 +5357,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDNS
 #define SOAP_TYPE__tds__GetDNS (325)
 /* tds:GetDNS */
-class SOAP_CMAC _tds__GetDNS
+class ONVIFLIB_API _tds__GetDNS
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5376,7 +5377,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDNSResponse
 #define SOAP_TYPE__tds__GetDNSResponse (326)
 /* tds:GetDNSResponse */
-class SOAP_CMAC _tds__GetDNSResponse
+class ONVIFLIB_API _tds__GetDNSResponse
 {
 public:
 	class tt__DNSInformation* DNSInformation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:DNSInformation */
@@ -5397,7 +5398,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDNS
 #define SOAP_TYPE__tds__SetDNS (327)
 /* tds:SetDNS */
-class SOAP_CMAC _tds__SetDNS
+class ONVIFLIB_API _tds__SetDNS
 {
 public:
 	bool FromDHCP;	/* required element of type xsd:boolean */
@@ -5420,7 +5421,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDNSResponse
 #define SOAP_TYPE__tds__SetDNSResponse (328)
 /* tds:SetDNSResponse */
-class SOAP_CMAC _tds__SetDNSResponse
+class ONVIFLIB_API _tds__SetDNSResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5440,7 +5441,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNTP
 #define SOAP_TYPE__tds__GetNTP (329)
 /* tds:GetNTP */
-class SOAP_CMAC _tds__GetNTP
+class ONVIFLIB_API _tds__GetNTP
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5460,7 +5461,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNTPResponse
 #define SOAP_TYPE__tds__GetNTPResponse (330)
 /* tds:GetNTPResponse */
-class SOAP_CMAC _tds__GetNTPResponse
+class ONVIFLIB_API _tds__GetNTPResponse
 {
 public:
 	class tt__NTPInformation* NTPInformation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:NTPInformation */
@@ -5481,7 +5482,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNTP
 #define SOAP_TYPE__tds__SetNTP (331)
 /* tds:SetNTP */
-class SOAP_CMAC _tds__SetNTP
+class ONVIFLIB_API _tds__SetNTP
 {
 public:
 	bool FromDHCP;	/* required element of type xsd:boolean */
@@ -5503,7 +5504,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNTPResponse
 #define SOAP_TYPE__tds__SetNTPResponse (332)
 /* tds:SetNTPResponse */
-class SOAP_CMAC _tds__SetNTPResponse
+class ONVIFLIB_API _tds__SetNTPResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5523,7 +5524,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDynamicDNS
 #define SOAP_TYPE__tds__GetDynamicDNS (333)
 /* tds:GetDynamicDNS */
-class SOAP_CMAC _tds__GetDynamicDNS
+class ONVIFLIB_API _tds__GetDynamicDNS
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5543,7 +5544,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDynamicDNSResponse
 #define SOAP_TYPE__tds__GetDynamicDNSResponse (334)
 /* tds:GetDynamicDNSResponse */
-class SOAP_CMAC _tds__GetDynamicDNSResponse
+class ONVIFLIB_API _tds__GetDynamicDNSResponse
 {
 public:
 	class tt__DynamicDNSInformation* DynamicDNSInformation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:DynamicDNSInformation */
@@ -5564,7 +5565,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDynamicDNS
 #define SOAP_TYPE__tds__SetDynamicDNS (335)
 /* tds:SetDynamicDNS */
-class SOAP_CMAC _tds__SetDynamicDNS
+class ONVIFLIB_API _tds__SetDynamicDNS
 {
 public:
 	enum tt__DynamicDNSType Type;	/* required element of type tt:DynamicDNSType */
@@ -5587,7 +5588,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDynamicDNSResponse
 #define SOAP_TYPE__tds__SetDynamicDNSResponse (336)
 /* tds:SetDynamicDNSResponse */
-class SOAP_CMAC _tds__SetDynamicDNSResponse
+class ONVIFLIB_API _tds__SetDynamicDNSResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5607,7 +5608,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNetworkInterfaces
 #define SOAP_TYPE__tds__GetNetworkInterfaces (337)
 /* tds:GetNetworkInterfaces */
-class SOAP_CMAC _tds__GetNetworkInterfaces
+class ONVIFLIB_API _tds__GetNetworkInterfaces
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5627,7 +5628,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNetworkInterfacesResponse
 #define SOAP_TYPE__tds__GetNetworkInterfacesResponse (338)
 /* tds:GetNetworkInterfacesResponse */
-class SOAP_CMAC _tds__GetNetworkInterfacesResponse
+class ONVIFLIB_API _tds__GetNetworkInterfacesResponse
 {
 public:
 	std::vector<class tt__NetworkInterface* >NetworkInterfaces;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:NetworkInterface */
@@ -5648,7 +5649,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNetworkInterfaces
 #define SOAP_TYPE__tds__SetNetworkInterfaces (339)
 /* tds:SetNetworkInterfaces */
-class SOAP_CMAC _tds__SetNetworkInterfaces
+class ONVIFLIB_API _tds__SetNetworkInterfaces
 {
 public:
 	std::string InterfaceToken;	/* required element of type tt:ReferenceToken */
@@ -5670,7 +5671,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNetworkInterfacesResponse
 #define SOAP_TYPE__tds__SetNetworkInterfacesResponse (340)
 /* tds:SetNetworkInterfacesResponse */
-class SOAP_CMAC _tds__SetNetworkInterfacesResponse
+class ONVIFLIB_API _tds__SetNetworkInterfacesResponse
 {
 public:
 	bool RebootNeeded;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:boolean */
@@ -5691,7 +5692,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNetworkProtocols
 #define SOAP_TYPE__tds__GetNetworkProtocols (341)
 /* tds:GetNetworkProtocols */
-class SOAP_CMAC _tds__GetNetworkProtocols
+class ONVIFLIB_API _tds__GetNetworkProtocols
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5711,7 +5712,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNetworkProtocolsResponse
 #define SOAP_TYPE__tds__GetNetworkProtocolsResponse (342)
 /* tds:GetNetworkProtocolsResponse */
-class SOAP_CMAC _tds__GetNetworkProtocolsResponse
+class ONVIFLIB_API _tds__GetNetworkProtocolsResponse
 {
 public:
 	std::vector<class tt__NetworkProtocol* >NetworkProtocols;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:NetworkProtocol */
@@ -5732,7 +5733,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNetworkProtocols
 #define SOAP_TYPE__tds__SetNetworkProtocols (343)
 /* tds:SetNetworkProtocols */
-class SOAP_CMAC _tds__SetNetworkProtocols
+class ONVIFLIB_API _tds__SetNetworkProtocols
 {
 public:
 	std::vector<tt__NetworkProtocol* >NetworkProtocols;	/* required element of type tt:NetworkProtocol */
@@ -5753,7 +5754,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNetworkProtocolsResponse
 #define SOAP_TYPE__tds__SetNetworkProtocolsResponse (344)
 /* tds:SetNetworkProtocolsResponse */
-class SOAP_CMAC _tds__SetNetworkProtocolsResponse
+class ONVIFLIB_API _tds__SetNetworkProtocolsResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5773,7 +5774,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNetworkDefaultGateway
 #define SOAP_TYPE__tds__GetNetworkDefaultGateway (345)
 /* tds:GetNetworkDefaultGateway */
-class SOAP_CMAC _tds__GetNetworkDefaultGateway
+class ONVIFLIB_API _tds__GetNetworkDefaultGateway
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5793,7 +5794,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetNetworkDefaultGatewayResponse
 #define SOAP_TYPE__tds__GetNetworkDefaultGatewayResponse (346)
 /* tds:GetNetworkDefaultGatewayResponse */
-class SOAP_CMAC _tds__GetNetworkDefaultGatewayResponse
+class ONVIFLIB_API _tds__GetNetworkDefaultGatewayResponse
 {
 public:
 	class tt__NetworkGateway* NetworkGateway;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:NetworkGateway */
@@ -5814,7 +5815,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNetworkDefaultGateway
 #define SOAP_TYPE__tds__SetNetworkDefaultGateway (347)
 /* tds:SetNetworkDefaultGateway */
-class SOAP_CMAC _tds__SetNetworkDefaultGateway
+class ONVIFLIB_API _tds__SetNetworkDefaultGateway
 {
 public:
 	std::vector<std::string >IPv4Address;	/* optional element of type tt:IPv4Address */
@@ -5836,7 +5837,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetNetworkDefaultGatewayResponse
 #define SOAP_TYPE__tds__SetNetworkDefaultGatewayResponse (348)
 /* tds:SetNetworkDefaultGatewayResponse */
-class SOAP_CMAC _tds__SetNetworkDefaultGatewayResponse
+class ONVIFLIB_API _tds__SetNetworkDefaultGatewayResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5856,7 +5857,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetZeroConfiguration
 #define SOAP_TYPE__tds__GetZeroConfiguration (349)
 /* tds:GetZeroConfiguration */
-class SOAP_CMAC _tds__GetZeroConfiguration
+class ONVIFLIB_API _tds__GetZeroConfiguration
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5876,7 +5877,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetZeroConfigurationResponse
 #define SOAP_TYPE__tds__GetZeroConfigurationResponse (350)
 /* tds:GetZeroConfigurationResponse */
-class SOAP_CMAC _tds__GetZeroConfigurationResponse
+class ONVIFLIB_API _tds__GetZeroConfigurationResponse
 {
 public:
 	class tt__NetworkZeroConfiguration* ZeroConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:NetworkZeroConfiguration */
@@ -5897,7 +5898,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetZeroConfiguration
 #define SOAP_TYPE__tds__SetZeroConfiguration (351)
 /* tds:SetZeroConfiguration */
-class SOAP_CMAC _tds__SetZeroConfiguration
+class ONVIFLIB_API _tds__SetZeroConfiguration
 {
 public:
 	std::string InterfaceToken;	/* required element of type tt:ReferenceToken */
@@ -5919,7 +5920,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetZeroConfigurationResponse
 #define SOAP_TYPE__tds__SetZeroConfigurationResponse (352)
 /* tds:SetZeroConfigurationResponse */
-class SOAP_CMAC _tds__SetZeroConfigurationResponse
+class ONVIFLIB_API _tds__SetZeroConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5939,7 +5940,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetIPAddressFilter
 #define SOAP_TYPE__tds__GetIPAddressFilter (353)
 /* tds:GetIPAddressFilter */
-class SOAP_CMAC _tds__GetIPAddressFilter
+class ONVIFLIB_API _tds__GetIPAddressFilter
 {
 public:
 	struct soap* soap;	/* transient */
@@ -5959,7 +5960,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetIPAddressFilterResponse
 #define SOAP_TYPE__tds__GetIPAddressFilterResponse (354)
 /* tds:GetIPAddressFilterResponse */
-class SOAP_CMAC _tds__GetIPAddressFilterResponse
+class ONVIFLIB_API _tds__GetIPAddressFilterResponse
 {
 public:
 	class tt__IPAddressFilter* IPAddressFilter;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:IPAddressFilter */
@@ -5980,7 +5981,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetIPAddressFilter
 #define SOAP_TYPE__tds__SetIPAddressFilter (355)
 /* tds:SetIPAddressFilter */
-class SOAP_CMAC _tds__SetIPAddressFilter
+class ONVIFLIB_API _tds__SetIPAddressFilter
 {
 public:
 	tt__IPAddressFilter* IPAddressFilter;	/* required element of type tt:IPAddressFilter */
@@ -6001,7 +6002,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetIPAddressFilterResponse
 #define SOAP_TYPE__tds__SetIPAddressFilterResponse (356)
 /* tds:SetIPAddressFilterResponse */
-class SOAP_CMAC _tds__SetIPAddressFilterResponse
+class ONVIFLIB_API _tds__SetIPAddressFilterResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6021,7 +6022,7 @@ public:
 #ifndef SOAP_TYPE__tds__AddIPAddressFilter
 #define SOAP_TYPE__tds__AddIPAddressFilter (357)
 /* tds:AddIPAddressFilter */
-class SOAP_CMAC _tds__AddIPAddressFilter
+class ONVIFLIB_API _tds__AddIPAddressFilter
 {
 public:
 	tt__IPAddressFilter* IPAddressFilter;	/* required element of type tt:IPAddressFilter */
@@ -6042,7 +6043,7 @@ public:
 #ifndef SOAP_TYPE__tds__AddIPAddressFilterResponse
 #define SOAP_TYPE__tds__AddIPAddressFilterResponse (358)
 /* tds:AddIPAddressFilterResponse */
-class SOAP_CMAC _tds__AddIPAddressFilterResponse
+class ONVIFLIB_API _tds__AddIPAddressFilterResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6062,7 +6063,7 @@ public:
 #ifndef SOAP_TYPE__tds__RemoveIPAddressFilter
 #define SOAP_TYPE__tds__RemoveIPAddressFilter (359)
 /* tds:RemoveIPAddressFilter */
-class SOAP_CMAC _tds__RemoveIPAddressFilter
+class ONVIFLIB_API _tds__RemoveIPAddressFilter
 {
 public:
 	tt__IPAddressFilter* IPAddressFilter;	/* required element of type tt:IPAddressFilter */
@@ -6083,7 +6084,7 @@ public:
 #ifndef SOAP_TYPE__tds__RemoveIPAddressFilterResponse
 #define SOAP_TYPE__tds__RemoveIPAddressFilterResponse (360)
 /* tds:RemoveIPAddressFilterResponse */
-class SOAP_CMAC _tds__RemoveIPAddressFilterResponse
+class ONVIFLIB_API _tds__RemoveIPAddressFilterResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6103,7 +6104,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetAccessPolicy
 #define SOAP_TYPE__tds__GetAccessPolicy (361)
 /* tds:GetAccessPolicy */
-class SOAP_CMAC _tds__GetAccessPolicy
+class ONVIFLIB_API _tds__GetAccessPolicy
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6123,7 +6124,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetAccessPolicyResponse
 #define SOAP_TYPE__tds__GetAccessPolicyResponse (362)
 /* tds:GetAccessPolicyResponse */
-class SOAP_CMAC _tds__GetAccessPolicyResponse
+class ONVIFLIB_API _tds__GetAccessPolicyResponse
 {
 public:
 	class tt__BinaryData* PolicyFile;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:BinaryData */
@@ -6144,7 +6145,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetAccessPolicy
 #define SOAP_TYPE__tds__SetAccessPolicy (363)
 /* tds:SetAccessPolicy */
-class SOAP_CMAC _tds__SetAccessPolicy
+class ONVIFLIB_API _tds__SetAccessPolicy
 {
 public:
 	tt__BinaryData* PolicyFile;	/* required element of type tt:BinaryData */
@@ -6165,7 +6166,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetAccessPolicyResponse
 #define SOAP_TYPE__tds__SetAccessPolicyResponse (364)
 /* tds:SetAccessPolicyResponse */
-class SOAP_CMAC _tds__SetAccessPolicyResponse
+class ONVIFLIB_API _tds__SetAccessPolicyResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6185,7 +6186,7 @@ public:
 #ifndef SOAP_TYPE__tds__CreateCertificate
 #define SOAP_TYPE__tds__CreateCertificate (365)
 /* tds:CreateCertificate */
-class SOAP_CMAC _tds__CreateCertificate
+class ONVIFLIB_API _tds__CreateCertificate
 {
 public:
 	std::string* CertificateID;	/* optional element of type xsd:token */
@@ -6209,7 +6210,7 @@ public:
 #ifndef SOAP_TYPE__tds__CreateCertificateResponse
 #define SOAP_TYPE__tds__CreateCertificateResponse (366)
 /* tds:CreateCertificateResponse */
-class SOAP_CMAC _tds__CreateCertificateResponse
+class ONVIFLIB_API _tds__CreateCertificateResponse
 {
 public:
 	class tt__Certificate* NvtCertificate;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Certificate */
@@ -6230,7 +6231,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCertificates
 #define SOAP_TYPE__tds__GetCertificates (367)
 /* tds:GetCertificates */
-class SOAP_CMAC _tds__GetCertificates
+class ONVIFLIB_API _tds__GetCertificates
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6250,7 +6251,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCertificatesResponse
 #define SOAP_TYPE__tds__GetCertificatesResponse (368)
 /* tds:GetCertificatesResponse */
-class SOAP_CMAC _tds__GetCertificatesResponse
+class ONVIFLIB_API _tds__GetCertificatesResponse
 {
 public:
 	std::vector<tt__Certificate* >NvtCertificate;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:Certificate */
@@ -6271,7 +6272,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCertificatesStatus
 #define SOAP_TYPE__tds__GetCertificatesStatus (369)
 /* tds:GetCertificatesStatus */
-class SOAP_CMAC _tds__GetCertificatesStatus
+class ONVIFLIB_API _tds__GetCertificatesStatus
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6291,7 +6292,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCertificatesStatusResponse
 #define SOAP_TYPE__tds__GetCertificatesStatusResponse (370)
 /* tds:GetCertificatesStatusResponse */
-class SOAP_CMAC _tds__GetCertificatesStatusResponse
+class ONVIFLIB_API _tds__GetCertificatesStatusResponse
 {
 public:
 	std::vector<class tt__CertificateStatus* >CertificateStatus;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:CertificateStatus */
@@ -6312,7 +6313,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetCertificatesStatus
 #define SOAP_TYPE__tds__SetCertificatesStatus (371)
 /* tds:SetCertificatesStatus */
-class SOAP_CMAC _tds__SetCertificatesStatus
+class ONVIFLIB_API _tds__SetCertificatesStatus
 {
 public:
 	std::vector<tt__CertificateStatus* >CertificateStatus;	/* optional element of type tt:CertificateStatus */
@@ -6333,7 +6334,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetCertificatesStatusResponse
 #define SOAP_TYPE__tds__SetCertificatesStatusResponse (372)
 /* tds:SetCertificatesStatusResponse */
-class SOAP_CMAC _tds__SetCertificatesStatusResponse
+class ONVIFLIB_API _tds__SetCertificatesStatusResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6353,7 +6354,7 @@ public:
 #ifndef SOAP_TYPE__tds__DeleteCertificates
 #define SOAP_TYPE__tds__DeleteCertificates (373)
 /* tds:DeleteCertificates */
-class SOAP_CMAC _tds__DeleteCertificates
+class ONVIFLIB_API _tds__DeleteCertificates
 {
 public:
 	std::vector<std::string >CertificateID;	/* required element of type xsd:token */
@@ -6374,7 +6375,7 @@ public:
 #ifndef SOAP_TYPE__tds__DeleteCertificatesResponse
 #define SOAP_TYPE__tds__DeleteCertificatesResponse (374)
 /* tds:DeleteCertificatesResponse */
-class SOAP_CMAC _tds__DeleteCertificatesResponse
+class ONVIFLIB_API _tds__DeleteCertificatesResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6394,7 +6395,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetPkcs10Request
 #define SOAP_TYPE__tds__GetPkcs10Request (375)
 /* tds:GetPkcs10Request */
-class SOAP_CMAC _tds__GetPkcs10Request
+class ONVIFLIB_API _tds__GetPkcs10Request
 {
 public:
 	std::string CertificateID;	/* required element of type xsd:token */
@@ -6417,7 +6418,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetPkcs10RequestResponse
 #define SOAP_TYPE__tds__GetPkcs10RequestResponse (376)
 /* tds:GetPkcs10RequestResponse */
-class SOAP_CMAC _tds__GetPkcs10RequestResponse
+class ONVIFLIB_API _tds__GetPkcs10RequestResponse
 {
 public:
 	tt__BinaryData* Pkcs10Request;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:BinaryData */
@@ -6438,7 +6439,7 @@ public:
 #ifndef SOAP_TYPE__tds__LoadCertificates
 #define SOAP_TYPE__tds__LoadCertificates (377)
 /* tds:LoadCertificates */
-class SOAP_CMAC _tds__LoadCertificates
+class ONVIFLIB_API _tds__LoadCertificates
 {
 public:
 	std::vector<tt__Certificate* >NVTCertificate;	/* required element of type tt:Certificate */
@@ -6459,7 +6460,7 @@ public:
 #ifndef SOAP_TYPE__tds__LoadCertificatesResponse
 #define SOAP_TYPE__tds__LoadCertificatesResponse (378)
 /* tds:LoadCertificatesResponse */
-class SOAP_CMAC _tds__LoadCertificatesResponse
+class ONVIFLIB_API _tds__LoadCertificatesResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6479,7 +6480,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetClientCertificateMode
 #define SOAP_TYPE__tds__GetClientCertificateMode (379)
 /* tds:GetClientCertificateMode */
-class SOAP_CMAC _tds__GetClientCertificateMode
+class ONVIFLIB_API _tds__GetClientCertificateMode
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6499,7 +6500,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetClientCertificateModeResponse
 #define SOAP_TYPE__tds__GetClientCertificateModeResponse (380)
 /* tds:GetClientCertificateModeResponse */
-class SOAP_CMAC _tds__GetClientCertificateModeResponse
+class ONVIFLIB_API _tds__GetClientCertificateModeResponse
 {
 public:
 	bool Enabled;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:boolean */
@@ -6520,7 +6521,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetClientCertificateMode
 #define SOAP_TYPE__tds__SetClientCertificateMode (381)
 /* tds:SetClientCertificateMode */
-class SOAP_CMAC _tds__SetClientCertificateMode
+class ONVIFLIB_API _tds__SetClientCertificateMode
 {
 public:
 	bool Enabled;	/* required element of type xsd:boolean */
@@ -6541,7 +6542,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetClientCertificateModeResponse
 #define SOAP_TYPE__tds__SetClientCertificateModeResponse (382)
 /* tds:SetClientCertificateModeResponse */
-class SOAP_CMAC _tds__SetClientCertificateModeResponse
+class ONVIFLIB_API _tds__SetClientCertificateModeResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6561,7 +6562,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCACertificates
 #define SOAP_TYPE__tds__GetCACertificates (383)
 /* tds:GetCACertificates */
-class SOAP_CMAC _tds__GetCACertificates
+class ONVIFLIB_API _tds__GetCACertificates
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6581,7 +6582,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCACertificatesResponse
 #define SOAP_TYPE__tds__GetCACertificatesResponse (384)
 /* tds:GetCACertificatesResponse */
-class SOAP_CMAC _tds__GetCACertificatesResponse
+class ONVIFLIB_API _tds__GetCACertificatesResponse
 {
 public:
 	std::vector<tt__Certificate* >CACertificate;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:Certificate */
@@ -6602,7 +6603,7 @@ public:
 #ifndef SOAP_TYPE__tds__LoadCertificateWithPrivateKey
 #define SOAP_TYPE__tds__LoadCertificateWithPrivateKey (385)
 /* tds:LoadCertificateWithPrivateKey */
-class SOAP_CMAC _tds__LoadCertificateWithPrivateKey
+class ONVIFLIB_API _tds__LoadCertificateWithPrivateKey
 {
 public:
 	std::vector<class tt__CertificateWithPrivateKey* >CertificateWithPrivateKey;	/* required element of type tt:CertificateWithPrivateKey */
@@ -6623,7 +6624,7 @@ public:
 #ifndef SOAP_TYPE__tds__LoadCertificateWithPrivateKeyResponse
 #define SOAP_TYPE__tds__LoadCertificateWithPrivateKeyResponse (386)
 /* tds:LoadCertificateWithPrivateKeyResponse */
-class SOAP_CMAC _tds__LoadCertificateWithPrivateKeyResponse
+class ONVIFLIB_API _tds__LoadCertificateWithPrivateKeyResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6643,7 +6644,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCertificateInformation
 #define SOAP_TYPE__tds__GetCertificateInformation (387)
 /* tds:GetCertificateInformation */
-class SOAP_CMAC _tds__GetCertificateInformation
+class ONVIFLIB_API _tds__GetCertificateInformation
 {
 public:
 	std::string CertificateID;	/* required element of type xsd:token */
@@ -6664,7 +6665,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetCertificateInformationResponse
 #define SOAP_TYPE__tds__GetCertificateInformationResponse (388)
 /* tds:GetCertificateInformationResponse */
-class SOAP_CMAC _tds__GetCertificateInformationResponse
+class ONVIFLIB_API _tds__GetCertificateInformationResponse
 {
 public:
 	class tt__CertificateInformation* CertificateInformation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:CertificateInformation */
@@ -6685,7 +6686,7 @@ public:
 #ifndef SOAP_TYPE__tds__LoadCACertificates
 #define SOAP_TYPE__tds__LoadCACertificates (389)
 /* tds:LoadCACertificates */
-class SOAP_CMAC _tds__LoadCACertificates
+class ONVIFLIB_API _tds__LoadCACertificates
 {
 public:
 	std::vector<tt__Certificate* >CACertificate;	/* required element of type tt:Certificate */
@@ -6706,7 +6707,7 @@ public:
 #ifndef SOAP_TYPE__tds__LoadCACertificatesResponse
 #define SOAP_TYPE__tds__LoadCACertificatesResponse (390)
 /* tds:LoadCACertificatesResponse */
-class SOAP_CMAC _tds__LoadCACertificatesResponse
+class ONVIFLIB_API _tds__LoadCACertificatesResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6726,7 +6727,7 @@ public:
 #ifndef SOAP_TYPE__tds__CreateDot1XConfiguration
 #define SOAP_TYPE__tds__CreateDot1XConfiguration (391)
 /* tds:CreateDot1XConfiguration */
-class SOAP_CMAC _tds__CreateDot1XConfiguration
+class ONVIFLIB_API _tds__CreateDot1XConfiguration
 {
 public:
 	class tt__Dot1XConfiguration* Dot1XConfiguration;	/* required element of type tt:Dot1XConfiguration */
@@ -6747,7 +6748,7 @@ public:
 #ifndef SOAP_TYPE__tds__CreateDot1XConfigurationResponse
 #define SOAP_TYPE__tds__CreateDot1XConfigurationResponse (392)
 /* tds:CreateDot1XConfigurationResponse */
-class SOAP_CMAC _tds__CreateDot1XConfigurationResponse
+class ONVIFLIB_API _tds__CreateDot1XConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6767,7 +6768,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDot1XConfiguration
 #define SOAP_TYPE__tds__SetDot1XConfiguration (393)
 /* tds:SetDot1XConfiguration */
-class SOAP_CMAC _tds__SetDot1XConfiguration
+class ONVIFLIB_API _tds__SetDot1XConfiguration
 {
 public:
 	tt__Dot1XConfiguration* Dot1XConfiguration;	/* required element of type tt:Dot1XConfiguration */
@@ -6788,7 +6789,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetDot1XConfigurationResponse
 #define SOAP_TYPE__tds__SetDot1XConfigurationResponse (394)
 /* tds:SetDot1XConfigurationResponse */
-class SOAP_CMAC _tds__SetDot1XConfigurationResponse
+class ONVIFLIB_API _tds__SetDot1XConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6808,7 +6809,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot1XConfiguration
 #define SOAP_TYPE__tds__GetDot1XConfiguration (395)
 /* tds:GetDot1XConfiguration */
-class SOAP_CMAC _tds__GetDot1XConfiguration
+class ONVIFLIB_API _tds__GetDot1XConfiguration
 {
 public:
 	std::string Dot1XConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -6829,7 +6830,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot1XConfigurationResponse
 #define SOAP_TYPE__tds__GetDot1XConfigurationResponse (396)
 /* tds:GetDot1XConfigurationResponse */
-class SOAP_CMAC _tds__GetDot1XConfigurationResponse
+class ONVIFLIB_API _tds__GetDot1XConfigurationResponse
 {
 public:
 	tt__Dot1XConfiguration* Dot1XConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Dot1XConfiguration */
@@ -6850,7 +6851,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot1XConfigurations
 #define SOAP_TYPE__tds__GetDot1XConfigurations (397)
 /* tds:GetDot1XConfigurations */
-class SOAP_CMAC _tds__GetDot1XConfigurations
+class ONVIFLIB_API _tds__GetDot1XConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6870,7 +6871,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot1XConfigurationsResponse
 #define SOAP_TYPE__tds__GetDot1XConfigurationsResponse (398)
 /* tds:GetDot1XConfigurationsResponse */
-class SOAP_CMAC _tds__GetDot1XConfigurationsResponse
+class ONVIFLIB_API _tds__GetDot1XConfigurationsResponse
 {
 public:
 	std::vector<tt__Dot1XConfiguration* >Dot1XConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:Dot1XConfiguration */
@@ -6891,7 +6892,7 @@ public:
 #ifndef SOAP_TYPE__tds__DeleteDot1XConfiguration
 #define SOAP_TYPE__tds__DeleteDot1XConfiguration (399)
 /* tds:DeleteDot1XConfiguration */
-class SOAP_CMAC _tds__DeleteDot1XConfiguration
+class ONVIFLIB_API _tds__DeleteDot1XConfiguration
 {
 public:
 	std::vector<std::string >Dot1XConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -6912,7 +6913,7 @@ public:
 #ifndef SOAP_TYPE__tds__DeleteDot1XConfigurationResponse
 #define SOAP_TYPE__tds__DeleteDot1XConfigurationResponse (400)
 /* tds:DeleteDot1XConfigurationResponse */
-class SOAP_CMAC _tds__DeleteDot1XConfigurationResponse
+class ONVIFLIB_API _tds__DeleteDot1XConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6932,7 +6933,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetRelayOutputs
 #define SOAP_TYPE__tds__GetRelayOutputs (401)
 /* tds:GetRelayOutputs */
-class SOAP_CMAC _tds__GetRelayOutputs
+class ONVIFLIB_API _tds__GetRelayOutputs
 {
 public:
 	struct soap* soap;	/* transient */
@@ -6952,7 +6953,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetRelayOutputsResponse
 #define SOAP_TYPE__tds__GetRelayOutputsResponse (402)
 /* tds:GetRelayOutputsResponse */
-class SOAP_CMAC _tds__GetRelayOutputsResponse
+class ONVIFLIB_API _tds__GetRelayOutputsResponse
 {
 public:
 	std::vector<class tt__RelayOutput* >RelayOutputs;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:RelayOutput */
@@ -6973,7 +6974,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRelayOutputSettings
 #define SOAP_TYPE__tds__SetRelayOutputSettings (403)
 /* tds:SetRelayOutputSettings */
-class SOAP_CMAC _tds__SetRelayOutputSettings
+class ONVIFLIB_API _tds__SetRelayOutputSettings
 {
 public:
 	std::string RelayOutputToken;	/* required element of type tt:ReferenceToken */
@@ -6995,7 +6996,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRelayOutputSettingsResponse
 #define SOAP_TYPE__tds__SetRelayOutputSettingsResponse (404)
 /* tds:SetRelayOutputSettingsResponse */
-class SOAP_CMAC _tds__SetRelayOutputSettingsResponse
+class ONVIFLIB_API _tds__SetRelayOutputSettingsResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -7015,7 +7016,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRelayOutputState
 #define SOAP_TYPE__tds__SetRelayOutputState (405)
 /* tds:SetRelayOutputState */
-class SOAP_CMAC _tds__SetRelayOutputState
+class ONVIFLIB_API _tds__SetRelayOutputState
 {
 public:
 	std::string RelayOutputToken;	/* required element of type tt:ReferenceToken */
@@ -7037,7 +7038,7 @@ public:
 #ifndef SOAP_TYPE__tds__SetRelayOutputStateResponse
 #define SOAP_TYPE__tds__SetRelayOutputStateResponse (406)
 /* tds:SetRelayOutputStateResponse */
-class SOAP_CMAC _tds__SetRelayOutputStateResponse
+class ONVIFLIB_API _tds__SetRelayOutputStateResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -7057,7 +7058,7 @@ public:
 #ifndef SOAP_TYPE__tds__SendAuxiliaryCommand
 #define SOAP_TYPE__tds__SendAuxiliaryCommand (407)
 /* tds:SendAuxiliaryCommand */
-class SOAP_CMAC _tds__SendAuxiliaryCommand
+class ONVIFLIB_API _tds__SendAuxiliaryCommand
 {
 public:
 	std::string AuxiliaryCommand;	/* required element of type tt:AuxiliaryData */
@@ -7078,7 +7079,7 @@ public:
 #ifndef SOAP_TYPE__tds__SendAuxiliaryCommandResponse
 #define SOAP_TYPE__tds__SendAuxiliaryCommandResponse (408)
 /* tds:SendAuxiliaryCommandResponse */
-class SOAP_CMAC _tds__SendAuxiliaryCommandResponse
+class ONVIFLIB_API _tds__SendAuxiliaryCommandResponse
 {
 public:
 	std::string* AuxiliaryCommandResponse;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AuxiliaryData */
@@ -7099,7 +7100,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot11Capabilities
 #define SOAP_TYPE__tds__GetDot11Capabilities (409)
 /* tds:GetDot11Capabilities */
-class SOAP_CMAC _tds__GetDot11Capabilities
+class ONVIFLIB_API _tds__GetDot11Capabilities
 {
 public:
 	std::vector<char* >__any;
@@ -7120,7 +7121,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot11CapabilitiesResponse
 #define SOAP_TYPE__tds__GetDot11CapabilitiesResponse (410)
 /* tds:GetDot11CapabilitiesResponse */
-class SOAP_CMAC _tds__GetDot11CapabilitiesResponse
+class ONVIFLIB_API _tds__GetDot11CapabilitiesResponse
 {
 public:
 	class tt__Dot11Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Dot11Capabilities */
@@ -7141,7 +7142,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot11Status
 #define SOAP_TYPE__tds__GetDot11Status (411)
 /* tds:GetDot11Status */
-class SOAP_CMAC _tds__GetDot11Status
+class ONVIFLIB_API _tds__GetDot11Status
 {
 public:
 	std::string InterfaceToken;	/* required element of type tt:ReferenceToken */
@@ -7162,7 +7163,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetDot11StatusResponse
 #define SOAP_TYPE__tds__GetDot11StatusResponse (412)
 /* tds:GetDot11StatusResponse */
-class SOAP_CMAC _tds__GetDot11StatusResponse
+class ONVIFLIB_API _tds__GetDot11StatusResponse
 {
 public:
 	class tt__Dot11Status* Status;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Dot11Status */
@@ -7183,7 +7184,7 @@ public:
 #ifndef SOAP_TYPE__tds__ScanAvailableDot11Networks
 #define SOAP_TYPE__tds__ScanAvailableDot11Networks (413)
 /* tds:ScanAvailableDot11Networks */
-class SOAP_CMAC _tds__ScanAvailableDot11Networks
+class ONVIFLIB_API _tds__ScanAvailableDot11Networks
 {
 public:
 	std::string InterfaceToken;	/* required element of type tt:ReferenceToken */
@@ -7204,7 +7205,7 @@ public:
 #ifndef SOAP_TYPE__tds__ScanAvailableDot11NetworksResponse
 #define SOAP_TYPE__tds__ScanAvailableDot11NetworksResponse (414)
 /* tds:ScanAvailableDot11NetworksResponse */
-class SOAP_CMAC _tds__ScanAvailableDot11NetworksResponse
+class ONVIFLIB_API _tds__ScanAvailableDot11NetworksResponse
 {
 public:
 	std::vector<class tt__Dot11AvailableNetworks* >Networks;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:Dot11AvailableNetworks */
@@ -7225,7 +7226,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemUris
 #define SOAP_TYPE__tds__GetSystemUris (415)
 /* tds:GetSystemUris */
-class SOAP_CMAC _tds__GetSystemUris
+class ONVIFLIB_API _tds__GetSystemUris
 {
 public:
 	struct soap* soap;	/* transient */
@@ -7245,7 +7246,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemUrisResponse_Extension
 #define SOAP_TYPE__tds__GetSystemUrisResponse_Extension (1611)
 /* tds:GetSystemUrisResponse-Extension */
-class SOAP_CMAC _tds__GetSystemUrisResponse_Extension
+class ONVIFLIB_API _tds__GetSystemUrisResponse_Extension
 {
 public:
 	std::vector<char* >__any;
@@ -7265,7 +7266,7 @@ public:
 #ifndef SOAP_TYPE__tds__GetSystemUrisResponse
 #define SOAP_TYPE__tds__GetSystemUrisResponse (416)
 /* tds:GetSystemUrisResponse */
-class SOAP_CMAC _tds__GetSystemUrisResponse
+class ONVIFLIB_API _tds__GetSystemUrisResponse
 {
 public:
 	class tt__SystemLogUriList* SystemLogUris;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:SystemLogUriList */
@@ -7289,7 +7290,7 @@ public:
 #ifndef SOAP_TYPE__tds__StartFirmwareUpgrade
 #define SOAP_TYPE__tds__StartFirmwareUpgrade (417)
 /* tds:StartFirmwareUpgrade */
-class SOAP_CMAC _tds__StartFirmwareUpgrade
+class ONVIFLIB_API _tds__StartFirmwareUpgrade
 {
 public:
 	struct soap* soap;	/* transient */
@@ -7309,7 +7310,7 @@ public:
 #ifndef SOAP_TYPE__tds__StartFirmwareUpgradeResponse
 #define SOAP_TYPE__tds__StartFirmwareUpgradeResponse (418)
 /* tds:StartFirmwareUpgradeResponse */
-class SOAP_CMAC _tds__StartFirmwareUpgradeResponse
+class ONVIFLIB_API _tds__StartFirmwareUpgradeResponse
 {
 public:
 	std::string UploadUri;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:anyURI */
@@ -7332,7 +7333,7 @@ public:
 #ifndef SOAP_TYPE__tds__StartSystemRestore
 #define SOAP_TYPE__tds__StartSystemRestore (419)
 /* tds:StartSystemRestore */
-class SOAP_CMAC _tds__StartSystemRestore
+class ONVIFLIB_API _tds__StartSystemRestore
 {
 public:
 	struct soap* soap;	/* transient */
@@ -7352,7 +7353,7 @@ public:
 #ifndef SOAP_TYPE__tds__StartSystemRestoreResponse
 #define SOAP_TYPE__tds__StartSystemRestoreResponse (420)
 /* tds:StartSystemRestoreResponse */
-class SOAP_CMAC _tds__StartSystemRestoreResponse
+class ONVIFLIB_API _tds__StartSystemRestoreResponse
 {
 public:
 	std::string UploadUri;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:anyURI */
@@ -7374,7 +7375,7 @@ public:
 #ifndef SOAP_TYPE_tt__DeviceEntity
 #define SOAP_TYPE_tt__DeviceEntity (421)
 /* Primitive tt:DeviceEntity schema type: */
-class SOAP_CMAC tt__DeviceEntity : public xsd__anyType
+class ONVIFLIB_API tt__DeviceEntity : public xsd__anyType
 {
 public:
 	std::string token;	/* required attribute */
@@ -7394,7 +7395,7 @@ public:
 #ifndef SOAP_TYPE_tt__IntRectangle
 #define SOAP_TYPE_tt__IntRectangle (422)
 /* Primitive tt:IntRectangle schema type: */
-class SOAP_CMAC tt__IntRectangle : public xsd__anyType
+class ONVIFLIB_API tt__IntRectangle : public xsd__anyType
 {
 public:
 	int x;	/* required attribute */
@@ -7417,7 +7418,7 @@ public:
 #ifndef SOAP_TYPE_tt__IntRectangleRange
 #define SOAP_TYPE_tt__IntRectangleRange (423)
 /* tt:IntRectangleRange */
-class SOAP_CMAC tt__IntRectangleRange : public xsd__anyType
+class ONVIFLIB_API tt__IntRectangleRange : public xsd__anyType
 {
 public:
 	class tt__IntRange* XRange;	/* required element of type tt:IntRange */
@@ -7440,7 +7441,7 @@ public:
 #ifndef SOAP_TYPE_tt__IntRange
 #define SOAP_TYPE_tt__IntRange (424)
 /* tt:IntRange */
-class SOAP_CMAC tt__IntRange : public xsd__anyType
+class ONVIFLIB_API tt__IntRange : public xsd__anyType
 {
 public:
 	int Min;	/* required element of type xsd:int */
@@ -7461,7 +7462,7 @@ public:
 #ifndef SOAP_TYPE_tt__FloatRange
 #define SOAP_TYPE_tt__FloatRange (425)
 /* tt:FloatRange */
-class SOAP_CMAC tt__FloatRange : public xsd__anyType
+class ONVIFLIB_API tt__FloatRange : public xsd__anyType
 {
 public:
 	float Min;	/* required element of type xsd:float */
@@ -7482,7 +7483,7 @@ public:
 #ifndef SOAP_TYPE_tt__DurationRange
 #define SOAP_TYPE_tt__DurationRange (426)
 /* tt:DurationRange */
-class SOAP_CMAC tt__DurationRange : public xsd__anyType
+class ONVIFLIB_API tt__DurationRange : public xsd__anyType
 {
 public:
 	LONG64 Min;	/* external */
@@ -7503,7 +7504,7 @@ public:
 #ifndef SOAP_TYPE_tt__IntList
 #define SOAP_TYPE_tt__IntList (427)
 /* tt:IntList */
-class SOAP_CMAC tt__IntList : public xsd__anyType
+class ONVIFLIB_API tt__IntList : public xsd__anyType
 {
 public:
 	std::vector<int >Items;	/* optional element of type xsd:int */
@@ -7523,7 +7524,7 @@ public:
 #ifndef SOAP_TYPE_tt__FloatList
 #define SOAP_TYPE_tt__FloatList (428)
 /* tt:FloatList */
-class SOAP_CMAC tt__FloatList : public xsd__anyType
+class ONVIFLIB_API tt__FloatList : public xsd__anyType
 {
 public:
 	std::vector<float >Items;	/* optional element of type xsd:float */
@@ -7543,7 +7544,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnyHolder
 #define SOAP_TYPE_tt__AnyHolder (429)
 /* tt:AnyHolder */
-class SOAP_CMAC tt__AnyHolder : public xsd__anyType
+class ONVIFLIB_API tt__AnyHolder : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7564,7 +7565,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceExtension
 #define SOAP_TYPE_tt__VideoSourceExtension (431)
 /* tt:VideoSourceExtension */
-class SOAP_CMAC tt__VideoSourceExtension : public xsd__anyType
+class ONVIFLIB_API tt__VideoSourceExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7586,7 +7587,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceExtension2
 #define SOAP_TYPE_tt__VideoSourceExtension2 (432)
 /* tt:VideoSourceExtension2 */
-class SOAP_CMAC tt__VideoSourceExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__VideoSourceExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7606,7 +7607,7 @@ public:
 #ifndef SOAP_TYPE_tt__Profile
 #define SOAP_TYPE_tt__Profile (434)
 /* tt:Profile */
-class SOAP_CMAC tt__Profile : public xsd__anyType
+class ONVIFLIB_API tt__Profile : public xsd__anyType
 {
 public:
 	std::string Name;	/* required element of type tt:Name */
@@ -7637,7 +7638,7 @@ public:
 #ifndef SOAP_TYPE_tt__ProfileExtension
 #define SOAP_TYPE_tt__ProfileExtension (435)
 /* tt:ProfileExtension */
-class SOAP_CMAC tt__ProfileExtension : public xsd__anyType
+class ONVIFLIB_API tt__ProfileExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7661,7 +7662,7 @@ public:
 #ifndef SOAP_TYPE_tt__ProfileExtension2
 #define SOAP_TYPE_tt__ProfileExtension2 (436)
 /* tt:ProfileExtension2 */
-class SOAP_CMAC tt__ProfileExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__ProfileExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7681,7 +7682,7 @@ public:
 #ifndef SOAP_TYPE_tt__ConfigurationEntity
 #define SOAP_TYPE_tt__ConfigurationEntity (437)
 /* tt:ConfigurationEntity */
-class SOAP_CMAC tt__ConfigurationEntity : public xsd__anyType
+class ONVIFLIB_API tt__ConfigurationEntity : public xsd__anyType
 {
 public:
 	std::string Name;	/* required element of type tt:Name */
@@ -7703,7 +7704,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceConfigurationExtension
 #define SOAP_TYPE_tt__VideoSourceConfigurationExtension (439)
 /* tt:VideoSourceConfigurationExtension */
-class SOAP_CMAC tt__VideoSourceConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__VideoSourceConfigurationExtension : public xsd__anyType
 {
 public:
 	class tt__Rotate* Rotate;	/* optional element of type tt:Rotate */
@@ -7724,7 +7725,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceConfigurationExtension2
 #define SOAP_TYPE_tt__VideoSourceConfigurationExtension2 (440)
 /* tt:VideoSourceConfigurationExtension2 */
-class SOAP_CMAC tt__VideoSourceConfigurationExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__VideoSourceConfigurationExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7744,7 +7745,7 @@ public:
 #ifndef SOAP_TYPE_tt__Rotate
 #define SOAP_TYPE_tt__Rotate (441)
 /* tt:Rotate */
-class SOAP_CMAC tt__Rotate : public xsd__anyType
+class ONVIFLIB_API tt__Rotate : public xsd__anyType
 {
 public:
 	enum tt__RotateMode Mode;	/* required element of type tt:RotateMode */
@@ -7767,7 +7768,7 @@ public:
 #ifndef SOAP_TYPE_tt__RotateExtension
 #define SOAP_TYPE_tt__RotateExtension (442)
 /* tt:RotateExtension */
-class SOAP_CMAC tt__RotateExtension : public xsd__anyType
+class ONVIFLIB_API tt__RotateExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7787,7 +7788,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceConfigurationOptions
 #define SOAP_TYPE_tt__VideoSourceConfigurationOptions (443)
 /* tt:VideoSourceConfigurationOptions */
-class SOAP_CMAC tt__VideoSourceConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__VideoSourceConfigurationOptions : public xsd__anyType
 {
 public:
 	tt__IntRectangleRange* BoundsRange;	/* required element of type tt:IntRectangleRange */
@@ -7810,7 +7811,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceConfigurationOptionsExtension
 #define SOAP_TYPE_tt__VideoSourceConfigurationOptionsExtension (444)
 /* tt:VideoSourceConfigurationOptionsExtension */
-class SOAP_CMAC tt__VideoSourceConfigurationOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__VideoSourceConfigurationOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7832,7 +7833,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceConfigurationOptionsExtension2
 #define SOAP_TYPE_tt__VideoSourceConfigurationOptionsExtension2 (445)
 /* tt:VideoSourceConfigurationOptionsExtension2 */
-class SOAP_CMAC tt__VideoSourceConfigurationOptionsExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__VideoSourceConfigurationOptionsExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7852,7 +7853,7 @@ public:
 #ifndef SOAP_TYPE_tt__RotateOptions
 #define SOAP_TYPE_tt__RotateOptions (446)
 /* tt:RotateOptions */
-class SOAP_CMAC tt__RotateOptions : public xsd__anyType
+class ONVIFLIB_API tt__RotateOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__RotateMode >Mode;	/* required element of type tt:RotateMode */
@@ -7875,7 +7876,7 @@ public:
 #ifndef SOAP_TYPE_tt__RotateOptionsExtension
 #define SOAP_TYPE_tt__RotateOptionsExtension (447)
 /* tt:RotateOptionsExtension */
-class SOAP_CMAC tt__RotateOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__RotateOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -7895,7 +7896,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoResolution
 #define SOAP_TYPE_tt__VideoResolution (449)
 /* tt:VideoResolution */
-class SOAP_CMAC tt__VideoResolution : public xsd__anyType
+class ONVIFLIB_API tt__VideoResolution : public xsd__anyType
 {
 public:
 	int Width;	/* required element of type xsd:int */
@@ -7916,7 +7917,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoRateControl
 #define SOAP_TYPE_tt__VideoRateControl (450)
 /* tt:VideoRateControl */
-class SOAP_CMAC tt__VideoRateControl : public xsd__anyType
+class ONVIFLIB_API tt__VideoRateControl : public xsd__anyType
 {
 public:
 	int FrameRateLimit;	/* required element of type xsd:int */
@@ -7938,7 +7939,7 @@ public:
 #ifndef SOAP_TYPE_tt__Mpeg4Configuration
 #define SOAP_TYPE_tt__Mpeg4Configuration (451)
 /* tt:Mpeg4Configuration */
-class SOAP_CMAC tt__Mpeg4Configuration : public xsd__anyType
+class ONVIFLIB_API tt__Mpeg4Configuration : public xsd__anyType
 {
 public:
 	int GovLength;	/* required element of type xsd:int */
@@ -7959,7 +7960,7 @@ public:
 #ifndef SOAP_TYPE_tt__H264Configuration
 #define SOAP_TYPE_tt__H264Configuration (452)
 /* tt:H264Configuration */
-class SOAP_CMAC tt__H264Configuration : public xsd__anyType
+class ONVIFLIB_API tt__H264Configuration : public xsd__anyType
 {
 public:
 	int GovLength;	/* required element of type xsd:int */
@@ -7980,7 +7981,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoEncoderConfigurationOptions
 #define SOAP_TYPE_tt__VideoEncoderConfigurationOptions (453)
 /* tt:VideoEncoderConfigurationOptions */
-class SOAP_CMAC tt__VideoEncoderConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__VideoEncoderConfigurationOptions : public xsd__anyType
 {
 public:
 	tt__IntRange* QualityRange;	/* required element of type tt:IntRange */
@@ -8005,7 +8006,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoEncoderOptionsExtension
 #define SOAP_TYPE_tt__VideoEncoderOptionsExtension (454)
 /* tt:VideoEncoderOptionsExtension */
-class SOAP_CMAC tt__VideoEncoderOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__VideoEncoderOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8029,7 +8030,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoEncoderOptionsExtension2
 #define SOAP_TYPE_tt__VideoEncoderOptionsExtension2 (455)
 /* tt:VideoEncoderOptionsExtension2 */
-class SOAP_CMAC tt__VideoEncoderOptionsExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__VideoEncoderOptionsExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8049,7 +8050,7 @@ public:
 #ifndef SOAP_TYPE_tt__JpegOptions
 #define SOAP_TYPE_tt__JpegOptions (456)
 /* tt:JpegOptions */
-class SOAP_CMAC tt__JpegOptions : public xsd__anyType
+class ONVIFLIB_API tt__JpegOptions : public xsd__anyType
 {
 public:
 	std::vector<tt__VideoResolution* >ResolutionsAvailable;	/* required element of type tt:VideoResolution */
@@ -8071,7 +8072,7 @@ public:
 #ifndef SOAP_TYPE_tt__Mpeg4Options
 #define SOAP_TYPE_tt__Mpeg4Options (458)
 /* tt:Mpeg4Options */
-class SOAP_CMAC tt__Mpeg4Options : public xsd__anyType
+class ONVIFLIB_API tt__Mpeg4Options : public xsd__anyType
 {
 public:
 	std::vector<tt__VideoResolution* >ResolutionsAvailable;	/* required element of type tt:VideoResolution */
@@ -8095,7 +8096,7 @@ public:
 #ifndef SOAP_TYPE_tt__H264Options
 #define SOAP_TYPE_tt__H264Options (460)
 /* tt:H264Options */
-class SOAP_CMAC tt__H264Options : public xsd__anyType
+class ONVIFLIB_API tt__H264Options : public xsd__anyType
 {
 public:
 	std::vector<tt__VideoResolution* >ResolutionsAvailable;	/* required element of type tt:VideoResolution */
@@ -8119,7 +8120,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioSourceConfigurationOptions
 #define SOAP_TYPE_tt__AudioSourceConfigurationOptions (463)
 /* tt:AudioSourceConfigurationOptions */
-class SOAP_CMAC tt__AudioSourceConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__AudioSourceConfigurationOptions : public xsd__anyType
 {
 public:
 	std::vector<std::string >InputTokensAvailable;	/* required element of type tt:ReferenceToken */
@@ -8141,7 +8142,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioSourceOptionsExtension
 #define SOAP_TYPE_tt__AudioSourceOptionsExtension (464)
 /* tt:AudioSourceOptionsExtension */
-class SOAP_CMAC tt__AudioSourceOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__AudioSourceOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8161,7 +8162,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioEncoderConfigurationOptions
 #define SOAP_TYPE_tt__AudioEncoderConfigurationOptions (466)
 /* tt:AudioEncoderConfigurationOptions */
-class SOAP_CMAC tt__AudioEncoderConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__AudioEncoderConfigurationOptions : public xsd__anyType
 {
 public:
 	std::vector<class tt__AudioEncoderConfigurationOption* >Options;	/* optional element of type tt:AudioEncoderConfigurationOption */
@@ -8182,7 +8183,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioEncoderConfigurationOption
 #define SOAP_TYPE_tt__AudioEncoderConfigurationOption (467)
 /* tt:AudioEncoderConfigurationOption */
-class SOAP_CMAC tt__AudioEncoderConfigurationOption : public xsd__anyType
+class ONVIFLIB_API tt__AudioEncoderConfigurationOption : public xsd__anyType
 {
 public:
 	enum tt__AudioEncoding Encoding;	/* required element of type tt:AudioEncoding */
@@ -8206,7 +8207,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataConfigurationExtension
 #define SOAP_TYPE_tt__MetadataConfigurationExtension (470)
 /* tt:MetadataConfigurationExtension */
-class SOAP_CMAC tt__MetadataConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__MetadataConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8226,7 +8227,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZFilter
 #define SOAP_TYPE_tt__PTZFilter (471)
 /* tt:PTZFilter */
-class SOAP_CMAC tt__PTZFilter : public xsd__anyType
+class ONVIFLIB_API tt__PTZFilter : public xsd__anyType
 {
 public:
 	bool Status;	/* required element of type xsd:boolean */
@@ -8248,7 +8249,7 @@ public:
 #ifndef SOAP_TYPE__tt__EventSubscription_SubscriptionPolicy
 #define SOAP_TYPE__tt__EventSubscription_SubscriptionPolicy (1655)
 /* tt:EventSubscription-SubscriptionPolicy */
-class SOAP_CMAC _tt__EventSubscription_SubscriptionPolicy
+class ONVIFLIB_API _tt__EventSubscription_SubscriptionPolicy
 {
 public:
 	std::vector<char* >__any;
@@ -8268,7 +8269,7 @@ public:
 #ifndef SOAP_TYPE_tt__EventSubscription
 #define SOAP_TYPE_tt__EventSubscription (472)
 /* tt:EventSubscription */
-class SOAP_CMAC tt__EventSubscription : public xsd__anyType
+class ONVIFLIB_API tt__EventSubscription : public xsd__anyType
 {
 public:
 	class wsnt__FilterType* Filter;	/* optional element of type wsnt:FilterType */
@@ -8291,7 +8292,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataConfigurationOptions
 #define SOAP_TYPE_tt__MetadataConfigurationOptions (473)
 /* tt:MetadataConfigurationOptions */
-class SOAP_CMAC tt__MetadataConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__MetadataConfigurationOptions : public xsd__anyType
 {
 public:
 	class tt__PTZStatusFilterOptions* PTZStatusFilterOptions;	/* required element of type tt:PTZStatusFilterOptions */
@@ -8313,7 +8314,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZStatusFilterOptions
 #define SOAP_TYPE_tt__PTZStatusFilterOptions (474)
 /* tt:PTZStatusFilterOptions */
-class SOAP_CMAC tt__PTZStatusFilterOptions : public xsd__anyType
+class ONVIFLIB_API tt__PTZStatusFilterOptions : public xsd__anyType
 {
 public:
 	bool PanTiltStatusSupported;	/* required element of type xsd:boolean */
@@ -8339,7 +8340,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZStatusFilterOptionsExtension
 #define SOAP_TYPE_tt__PTZStatusFilterOptionsExtension (475)
 /* tt:PTZStatusFilterOptionsExtension */
-class SOAP_CMAC tt__PTZStatusFilterOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTZStatusFilterOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8359,7 +8360,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoOutputExtension
 #define SOAP_TYPE_tt__VideoOutputExtension (477)
 /* tt:VideoOutputExtension */
-class SOAP_CMAC tt__VideoOutputExtension : public xsd__anyType
+class ONVIFLIB_API tt__VideoOutputExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8379,7 +8380,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoOutputConfigurationOptions
 #define SOAP_TYPE_tt__VideoOutputConfigurationOptions (479)
 /* tt:VideoOutputConfigurationOptions */
-class SOAP_CMAC tt__VideoOutputConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__VideoOutputConfigurationOptions : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8400,7 +8401,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoDecoderConfigurationOptions
 #define SOAP_TYPE_tt__VideoDecoderConfigurationOptions (480)
 /* tt:VideoDecoderConfigurationOptions */
-class SOAP_CMAC tt__VideoDecoderConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__VideoDecoderConfigurationOptions : public xsd__anyType
 {
 public:
 	class tt__JpegDecOptions* JpegDecOptions;	/* optional element of type tt:JpegDecOptions */
@@ -8424,7 +8425,7 @@ public:
 #ifndef SOAP_TYPE_tt__H264DecOptions
 #define SOAP_TYPE_tt__H264DecOptions (481)
 /* tt:H264DecOptions */
-class SOAP_CMAC tt__H264DecOptions : public xsd__anyType
+class ONVIFLIB_API tt__H264DecOptions : public xsd__anyType
 {
 public:
 	std::vector<tt__VideoResolution* >ResolutionsAvailable;	/* required element of type tt:VideoResolution */
@@ -8449,7 +8450,7 @@ public:
 #ifndef SOAP_TYPE_tt__JpegDecOptions
 #define SOAP_TYPE_tt__JpegDecOptions (482)
 /* tt:JpegDecOptions */
-class SOAP_CMAC tt__JpegDecOptions : public xsd__anyType
+class ONVIFLIB_API tt__JpegDecOptions : public xsd__anyType
 {
 public:
 	std::vector<tt__VideoResolution* >ResolutionsAvailable;	/* required element of type tt:VideoResolution */
@@ -8473,7 +8474,7 @@ public:
 #ifndef SOAP_TYPE_tt__Mpeg4DecOptions
 #define SOAP_TYPE_tt__Mpeg4DecOptions (483)
 /* tt:Mpeg4DecOptions */
-class SOAP_CMAC tt__Mpeg4DecOptions : public xsd__anyType
+class ONVIFLIB_API tt__Mpeg4DecOptions : public xsd__anyType
 {
 public:
 	std::vector<tt__VideoResolution* >ResolutionsAvailable;	/* required element of type tt:VideoResolution */
@@ -8498,7 +8499,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoDecoderConfigurationOptionsExtension
 #define SOAP_TYPE_tt__VideoDecoderConfigurationOptionsExtension (484)
 /* tt:VideoDecoderConfigurationOptionsExtension */
-class SOAP_CMAC tt__VideoDecoderConfigurationOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__VideoDecoderConfigurationOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8518,7 +8519,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioOutputConfigurationOptions
 #define SOAP_TYPE_tt__AudioOutputConfigurationOptions (487)
 /* tt:AudioOutputConfigurationOptions */
-class SOAP_CMAC tt__AudioOutputConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__AudioOutputConfigurationOptions : public xsd__anyType
 {
 public:
 	std::vector<std::string >OutputTokensAvailable;	/* required element of type tt:ReferenceToken */
@@ -8542,7 +8543,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioDecoderConfigurationOptions
 #define SOAP_TYPE_tt__AudioDecoderConfigurationOptions (489)
 /* tt:AudioDecoderConfigurationOptions */
-class SOAP_CMAC tt__AudioDecoderConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__AudioDecoderConfigurationOptions : public xsd__anyType
 {
 public:
 	class tt__AACDecOptions* AACDecOptions;	/* optional element of type tt:AACDecOptions */
@@ -8566,7 +8567,7 @@ public:
 #ifndef SOAP_TYPE_tt__G711DecOptions
 #define SOAP_TYPE_tt__G711DecOptions (490)
 /* tt:G711DecOptions */
-class SOAP_CMAC tt__G711DecOptions : public xsd__anyType
+class ONVIFLIB_API tt__G711DecOptions : public xsd__anyType
 {
 public:
 	tt__IntList* Bitrate;	/* required element of type tt:IntList */
@@ -8589,7 +8590,7 @@ public:
 #ifndef SOAP_TYPE_tt__AACDecOptions
 #define SOAP_TYPE_tt__AACDecOptions (491)
 /* tt:AACDecOptions */
-class SOAP_CMAC tt__AACDecOptions : public xsd__anyType
+class ONVIFLIB_API tt__AACDecOptions : public xsd__anyType
 {
 public:
 	tt__IntList* Bitrate;	/* required element of type tt:IntList */
@@ -8612,7 +8613,7 @@ public:
 #ifndef SOAP_TYPE_tt__G726DecOptions
 #define SOAP_TYPE_tt__G726DecOptions (492)
 /* tt:G726DecOptions */
-class SOAP_CMAC tt__G726DecOptions : public xsd__anyType
+class ONVIFLIB_API tt__G726DecOptions : public xsd__anyType
 {
 public:
 	tt__IntList* Bitrate;	/* required element of type tt:IntList */
@@ -8635,7 +8636,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioDecoderConfigurationOptionsExtension
 #define SOAP_TYPE_tt__AudioDecoderConfigurationOptionsExtension (493)
 /* tt:AudioDecoderConfigurationOptionsExtension */
-class SOAP_CMAC tt__AudioDecoderConfigurationOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__AudioDecoderConfigurationOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8655,7 +8656,7 @@ public:
 #ifndef SOAP_TYPE_tt__MulticastConfiguration
 #define SOAP_TYPE_tt__MulticastConfiguration (494)
 /* tt:MulticastConfiguration */
-class SOAP_CMAC tt__MulticastConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__MulticastConfiguration : public xsd__anyType
 {
 public:
 	tt__IPAddress* Address;	/* required element of type tt:IPAddress */
@@ -8680,7 +8681,7 @@ public:
 #ifndef SOAP_TYPE_tt__StreamSetup
 #define SOAP_TYPE_tt__StreamSetup (495)
 /* tt:StreamSetup */
-class SOAP_CMAC tt__StreamSetup : public xsd__anyType
+class ONVIFLIB_API tt__StreamSetup : public xsd__anyType
 {
 public:
 	enum tt__StreamType Stream;	/* required element of type tt:StreamType */
@@ -8703,7 +8704,7 @@ public:
 #ifndef SOAP_TYPE_tt__Transport
 #define SOAP_TYPE_tt__Transport (496)
 /* tt:Transport */
-class SOAP_CMAC tt__Transport : public xsd__anyType
+class ONVIFLIB_API tt__Transport : public xsd__anyType
 {
 public:
 	enum tt__TransportProtocol Protocol;	/* required element of type tt:TransportProtocol */
@@ -8724,7 +8725,7 @@ public:
 #ifndef SOAP_TYPE_tt__MediaUri
 #define SOAP_TYPE_tt__MediaUri (497)
 /* tt:MediaUri */
-class SOAP_CMAC tt__MediaUri : public xsd__anyType
+class ONVIFLIB_API tt__MediaUri : public xsd__anyType
 {
 public:
 	std::string Uri;	/* required element of type xsd:anyURI */
@@ -8749,7 +8750,7 @@ public:
 #ifndef SOAP_TYPE_tt__Scope
 #define SOAP_TYPE_tt__Scope (498)
 /* tt:Scope */
-class SOAP_CMAC tt__Scope : public xsd__anyType
+class ONVIFLIB_API tt__Scope : public xsd__anyType
 {
 public:
 	enum tt__ScopeDefinition ScopeDef;	/* required element of type tt:ScopeDefinition */
@@ -8770,7 +8771,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceExtension
 #define SOAP_TYPE_tt__NetworkInterfaceExtension (500)
 /* tt:NetworkInterfaceExtension */
-class SOAP_CMAC tt__NetworkInterfaceExtension : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8794,7 +8795,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot3Configuration
 #define SOAP_TYPE_tt__Dot3Configuration (501)
 /* tt:Dot3Configuration */
-class SOAP_CMAC tt__Dot3Configuration : public xsd__anyType
+class ONVIFLIB_API tt__Dot3Configuration : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8815,7 +8816,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceExtension2
 #define SOAP_TYPE_tt__NetworkInterfaceExtension2 (502)
 /* tt:NetworkInterfaceExtension2 */
-class SOAP_CMAC tt__NetworkInterfaceExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -8835,7 +8836,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceLink
 #define SOAP_TYPE_tt__NetworkInterfaceLink (503)
 /* tt:NetworkInterfaceLink */
-class SOAP_CMAC tt__NetworkInterfaceLink : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceLink : public xsd__anyType
 {
 public:
 	class tt__NetworkInterfaceConnectionSetting* AdminSettings;	/* required element of type tt:NetworkInterfaceConnectionSetting */
@@ -8857,7 +8858,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceConnectionSetting
 #define SOAP_TYPE_tt__NetworkInterfaceConnectionSetting (504)
 /* tt:NetworkInterfaceConnectionSetting */
-class SOAP_CMAC tt__NetworkInterfaceConnectionSetting : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceConnectionSetting : public xsd__anyType
 {
 public:
 	bool AutoNegotiation;	/* required element of type xsd:boolean */
@@ -8879,7 +8880,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceInfo
 #define SOAP_TYPE_tt__NetworkInterfaceInfo (505)
 /* tt:NetworkInterfaceInfo */
-class SOAP_CMAC tt__NetworkInterfaceInfo : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceInfo : public xsd__anyType
 {
 public:
 	std::string* Name;	/* optional element of type xsd:string */
@@ -8901,7 +8902,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv6NetworkInterface
 #define SOAP_TYPE_tt__IPv6NetworkInterface (506)
 /* tt:IPv6NetworkInterface */
-class SOAP_CMAC tt__IPv6NetworkInterface : public xsd__anyType
+class ONVIFLIB_API tt__IPv6NetworkInterface : public xsd__anyType
 {
 public:
 	bool Enabled;	/* required element of type xsd:boolean */
@@ -8922,7 +8923,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv4NetworkInterface
 #define SOAP_TYPE_tt__IPv4NetworkInterface (507)
 /* tt:IPv4NetworkInterface */
-class SOAP_CMAC tt__IPv4NetworkInterface : public xsd__anyType
+class ONVIFLIB_API tt__IPv4NetworkInterface : public xsd__anyType
 {
 public:
 	bool Enabled;	/* required element of type xsd:boolean */
@@ -8943,7 +8944,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv4Configuration
 #define SOAP_TYPE_tt__IPv4Configuration (508)
 /* tt:IPv4Configuration */
-class SOAP_CMAC tt__IPv4Configuration : public xsd__anyType
+class ONVIFLIB_API tt__IPv4Configuration : public xsd__anyType
 {
 public:
 	std::vector<class tt__PrefixedIPv4Address* >Manual;	/* optional element of type tt:PrefixedIPv4Address */
@@ -8968,7 +8969,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv6Configuration
 #define SOAP_TYPE_tt__IPv6Configuration (509)
 /* tt:IPv6Configuration */
-class SOAP_CMAC tt__IPv6Configuration : public xsd__anyType
+class ONVIFLIB_API tt__IPv6Configuration : public xsd__anyType
 {
 public:
 	bool* AcceptRouterAdvert;	/* optional element of type xsd:boolean */
@@ -8995,7 +8996,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv6ConfigurationExtension
 #define SOAP_TYPE_tt__IPv6ConfigurationExtension (510)
 /* tt:IPv6ConfigurationExtension */
-class SOAP_CMAC tt__IPv6ConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__IPv6ConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9015,7 +9016,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkProtocol
 #define SOAP_TYPE_tt__NetworkProtocol (511)
 /* tt:NetworkProtocol */
-class SOAP_CMAC tt__NetworkProtocol : public xsd__anyType
+class ONVIFLIB_API tt__NetworkProtocol : public xsd__anyType
 {
 public:
 	enum tt__NetworkProtocolType Name;	/* required element of type tt:NetworkProtocolType */
@@ -9039,7 +9040,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkProtocolExtension
 #define SOAP_TYPE_tt__NetworkProtocolExtension (512)
 /* tt:NetworkProtocolExtension */
-class SOAP_CMAC tt__NetworkProtocolExtension : public xsd__anyType
+class ONVIFLIB_API tt__NetworkProtocolExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9059,7 +9060,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkHost
 #define SOAP_TYPE_tt__NetworkHost (513)
 /* tt:NetworkHost */
-class SOAP_CMAC tt__NetworkHost : public xsd__anyType
+class ONVIFLIB_API tt__NetworkHost : public xsd__anyType
 {
 public:
 	enum tt__NetworkHostType Type;	/* required element of type tt:NetworkHostType */
@@ -9084,7 +9085,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkHostExtension
 #define SOAP_TYPE_tt__NetworkHostExtension (514)
 /* tt:NetworkHostExtension */
-class SOAP_CMAC tt__NetworkHostExtension : public xsd__anyType
+class ONVIFLIB_API tt__NetworkHostExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9104,7 +9105,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPAddress
 #define SOAP_TYPE_tt__IPAddress (515)
 /* tt:IPAddress */
-class SOAP_CMAC tt__IPAddress : public xsd__anyType
+class ONVIFLIB_API tt__IPAddress : public xsd__anyType
 {
 public:
 	enum tt__IPType Type;	/* required element of type tt:IPType */
@@ -9126,7 +9127,7 @@ public:
 #ifndef SOAP_TYPE_tt__PrefixedIPv4Address
 #define SOAP_TYPE_tt__PrefixedIPv4Address (516)
 /* tt:PrefixedIPv4Address */
-class SOAP_CMAC tt__PrefixedIPv4Address : public xsd__anyType
+class ONVIFLIB_API tt__PrefixedIPv4Address : public xsd__anyType
 {
 public:
 	std::string Address;	/* required element of type tt:IPv4Address */
@@ -9147,7 +9148,7 @@ public:
 #ifndef SOAP_TYPE_tt__PrefixedIPv6Address
 #define SOAP_TYPE_tt__PrefixedIPv6Address (517)
 /* tt:PrefixedIPv6Address */
-class SOAP_CMAC tt__PrefixedIPv6Address : public xsd__anyType
+class ONVIFLIB_API tt__PrefixedIPv6Address : public xsd__anyType
 {
 public:
 	std::string Address;	/* required element of type tt:IPv6Address */
@@ -9168,7 +9169,7 @@ public:
 #ifndef SOAP_TYPE_tt__HostnameInformation
 #define SOAP_TYPE_tt__HostnameInformation (518)
 /* tt:HostnameInformation */
-class SOAP_CMAC tt__HostnameInformation : public xsd__anyType
+class ONVIFLIB_API tt__HostnameInformation : public xsd__anyType
 {
 public:
 	bool FromDHCP;	/* required element of type xsd:boolean */
@@ -9191,7 +9192,7 @@ public:
 #ifndef SOAP_TYPE_tt__HostnameInformationExtension
 #define SOAP_TYPE_tt__HostnameInformationExtension (519)
 /* tt:HostnameInformationExtension */
-class SOAP_CMAC tt__HostnameInformationExtension : public xsd__anyType
+class ONVIFLIB_API tt__HostnameInformationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9211,7 +9212,7 @@ public:
 #ifndef SOAP_TYPE_tt__DNSInformation
 #define SOAP_TYPE_tt__DNSInformation (520)
 /* tt:DNSInformation */
-class SOAP_CMAC tt__DNSInformation : public xsd__anyType
+class ONVIFLIB_API tt__DNSInformation : public xsd__anyType
 {
 public:
 	bool FromDHCP;	/* required element of type xsd:boolean */
@@ -9236,7 +9237,7 @@ public:
 #ifndef SOAP_TYPE_tt__DNSInformationExtension
 #define SOAP_TYPE_tt__DNSInformationExtension (521)
 /* tt:DNSInformationExtension */
-class SOAP_CMAC tt__DNSInformationExtension : public xsd__anyType
+class ONVIFLIB_API tt__DNSInformationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9256,7 +9257,7 @@ public:
 #ifndef SOAP_TYPE_tt__NTPInformation
 #define SOAP_TYPE_tt__NTPInformation (522)
 /* tt:NTPInformation */
-class SOAP_CMAC tt__NTPInformation : public xsd__anyType
+class ONVIFLIB_API tt__NTPInformation : public xsd__anyType
 {
 public:
 	bool FromDHCP;	/* required element of type xsd:boolean */
@@ -9280,7 +9281,7 @@ public:
 #ifndef SOAP_TYPE_tt__NTPInformationExtension
 #define SOAP_TYPE_tt__NTPInformationExtension (523)
 /* tt:NTPInformationExtension */
-class SOAP_CMAC tt__NTPInformationExtension : public xsd__anyType
+class ONVIFLIB_API tt__NTPInformationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9300,7 +9301,7 @@ public:
 #ifndef SOAP_TYPE_tt__DynamicDNSInformation
 #define SOAP_TYPE_tt__DynamicDNSInformation (524)
 /* tt:DynamicDNSInformation */
-class SOAP_CMAC tt__DynamicDNSInformation : public xsd__anyType
+class ONVIFLIB_API tt__DynamicDNSInformation : public xsd__anyType
 {
 public:
 	enum tt__DynamicDNSType Type;	/* required element of type tt:DynamicDNSType */
@@ -9324,7 +9325,7 @@ public:
 #ifndef SOAP_TYPE_tt__DynamicDNSInformationExtension
 #define SOAP_TYPE_tt__DynamicDNSInformationExtension (525)
 /* tt:DynamicDNSInformationExtension */
-class SOAP_CMAC tt__DynamicDNSInformationExtension : public xsd__anyType
+class ONVIFLIB_API tt__DynamicDNSInformationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9344,7 +9345,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceSetConfiguration
 #define SOAP_TYPE_tt__NetworkInterfaceSetConfiguration (526)
 /* tt:NetworkInterfaceSetConfiguration */
-class SOAP_CMAC tt__NetworkInterfaceSetConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceSetConfiguration : public xsd__anyType
 {
 public:
 	bool* Enabled;	/* optional element of type xsd:boolean */
@@ -9370,7 +9371,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceSetConfigurationExtension
 #define SOAP_TYPE_tt__NetworkInterfaceSetConfigurationExtension (527)
 /* tt:NetworkInterfaceSetConfigurationExtension */
-class SOAP_CMAC tt__NetworkInterfaceSetConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceSetConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9393,7 +9394,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv6NetworkInterfaceSetConfiguration
 #define SOAP_TYPE_tt__IPv6NetworkInterfaceSetConfiguration (528)
 /* tt:IPv6NetworkInterfaceSetConfiguration */
-class SOAP_CMAC tt__IPv6NetworkInterfaceSetConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__IPv6NetworkInterfaceSetConfiguration : public xsd__anyType
 {
 public:
 	bool* Enabled;	/* optional element of type xsd:boolean */
@@ -9416,7 +9417,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPv4NetworkInterfaceSetConfiguration
 #define SOAP_TYPE_tt__IPv4NetworkInterfaceSetConfiguration (529)
 /* tt:IPv4NetworkInterfaceSetConfiguration */
-class SOAP_CMAC tt__IPv4NetworkInterfaceSetConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__IPv4NetworkInterfaceSetConfiguration : public xsd__anyType
 {
 public:
 	bool* Enabled;	/* optional element of type xsd:boolean */
@@ -9438,7 +9439,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkGateway
 #define SOAP_TYPE_tt__NetworkGateway (530)
 /* tt:NetworkGateway */
-class SOAP_CMAC tt__NetworkGateway : public xsd__anyType
+class ONVIFLIB_API tt__NetworkGateway : public xsd__anyType
 {
 public:
 	std::vector<std::string >IPv4Address;	/* optional element of type tt:IPv4Address */
@@ -9459,7 +9460,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkZeroConfiguration
 #define SOAP_TYPE_tt__NetworkZeroConfiguration (531)
 /* tt:NetworkZeroConfiguration */
-class SOAP_CMAC tt__NetworkZeroConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__NetworkZeroConfiguration : public xsd__anyType
 {
 public:
 	std::string InterfaceToken;	/* required element of type tt:ReferenceToken */
@@ -9483,7 +9484,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkZeroConfigurationExtension
 #define SOAP_TYPE_tt__NetworkZeroConfigurationExtension (532)
 /* tt:NetworkZeroConfigurationExtension */
-class SOAP_CMAC tt__NetworkZeroConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__NetworkZeroConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9505,7 +9506,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkZeroConfigurationExtension2
 #define SOAP_TYPE_tt__NetworkZeroConfigurationExtension2 (533)
 /* tt:NetworkZeroConfigurationExtension2 */
-class SOAP_CMAC tt__NetworkZeroConfigurationExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__NetworkZeroConfigurationExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9525,7 +9526,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPAddressFilter
 #define SOAP_TYPE_tt__IPAddressFilter (534)
 /* tt:IPAddressFilter */
-class SOAP_CMAC tt__IPAddressFilter : public xsd__anyType
+class ONVIFLIB_API tt__IPAddressFilter : public xsd__anyType
 {
 public:
 	enum tt__IPAddressFilterType Type;	/* required element of type tt:IPAddressFilterType */
@@ -9549,7 +9550,7 @@ public:
 #ifndef SOAP_TYPE_tt__IPAddressFilterExtension
 #define SOAP_TYPE_tt__IPAddressFilterExtension (535)
 /* tt:IPAddressFilterExtension */
-class SOAP_CMAC tt__IPAddressFilterExtension : public xsd__anyType
+class ONVIFLIB_API tt__IPAddressFilterExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9569,7 +9570,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11Configuration
 #define SOAP_TYPE_tt__Dot11Configuration (536)
 /* tt:Dot11Configuration */
-class SOAP_CMAC tt__Dot11Configuration : public xsd__anyType
+class ONVIFLIB_API tt__Dot11Configuration : public xsd__anyType
 {
 public:
 	xsd__hexBinary SSID;	/* required element of type tt:Dot11SSIDType */
@@ -9595,7 +9596,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11SecurityConfiguration
 #define SOAP_TYPE_tt__Dot11SecurityConfiguration (537)
 /* tt:Dot11SecurityConfiguration */
-class SOAP_CMAC tt__Dot11SecurityConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__Dot11SecurityConfiguration : public xsd__anyType
 {
 public:
 	enum tt__Dot11SecurityMode Mode;	/* required element of type tt:Dot11SecurityMode */
@@ -9620,7 +9621,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11SecurityConfigurationExtension
 #define SOAP_TYPE_tt__Dot11SecurityConfigurationExtension (538)
 /* tt:Dot11SecurityConfigurationExtension */
-class SOAP_CMAC tt__Dot11SecurityConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__Dot11SecurityConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9641,7 +9642,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11PSKSet
 #define SOAP_TYPE_tt__Dot11PSKSet (539)
 /* tt:Dot11PSKSet */
-class SOAP_CMAC tt__Dot11PSKSet : public xsd__anyType
+class ONVIFLIB_API tt__Dot11PSKSet : public xsd__anyType
 {
 public:
 	xsd__hexBinary* Key;	/* optional element of type tt:Dot11PSK */
@@ -9664,7 +9665,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11PSKSetExtension
 #define SOAP_TYPE_tt__Dot11PSKSetExtension (540)
 /* tt:Dot11PSKSetExtension */
-class SOAP_CMAC tt__Dot11PSKSetExtension : public xsd__anyType
+class ONVIFLIB_API tt__Dot11PSKSetExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9684,7 +9685,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterfaceSetConfigurationExtension2
 #define SOAP_TYPE_tt__NetworkInterfaceSetConfigurationExtension2 (541)
 /* tt:NetworkInterfaceSetConfigurationExtension2 */
-class SOAP_CMAC tt__NetworkInterfaceSetConfigurationExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__NetworkInterfaceSetConfigurationExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9704,7 +9705,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11Capabilities
 #define SOAP_TYPE_tt__Dot11Capabilities (542)
 /* tt:Dot11Capabilities */
-class SOAP_CMAC tt__Dot11Capabilities : public xsd__anyType
+class ONVIFLIB_API tt__Dot11Capabilities : public xsd__anyType
 {
 public:
 	bool TKIP;	/* required element of type xsd:boolean */
@@ -9730,7 +9731,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11Status
 #define SOAP_TYPE_tt__Dot11Status (543)
 /* tt:Dot11Status */
-class SOAP_CMAC tt__Dot11Status : public xsd__anyType
+class ONVIFLIB_API tt__Dot11Status : public xsd__anyType
 {
 public:
 	xsd__hexBinary SSID;	/* required element of type tt:Dot11SSIDType */
@@ -9757,7 +9758,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11AvailableNetworks
 #define SOAP_TYPE_tt__Dot11AvailableNetworks (544)
 /* tt:Dot11AvailableNetworks */
-class SOAP_CMAC tt__Dot11AvailableNetworks : public xsd__anyType
+class ONVIFLIB_API tt__Dot11AvailableNetworks : public xsd__anyType
 {
 public:
 	xsd__hexBinary SSID;	/* required element of type tt:Dot11SSIDType */
@@ -9784,7 +9785,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot11AvailableNetworksExtension
 #define SOAP_TYPE_tt__Dot11AvailableNetworksExtension (545)
 /* tt:Dot11AvailableNetworksExtension */
-class SOAP_CMAC tt__Dot11AvailableNetworksExtension : public xsd__anyType
+class ONVIFLIB_API tt__Dot11AvailableNetworksExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9804,7 +9805,7 @@ public:
 #ifndef SOAP_TYPE_tt__Capabilities
 #define SOAP_TYPE_tt__Capabilities (546)
 /* tt:Capabilities */
-class SOAP_CMAC tt__Capabilities : public xsd__anyType
+class ONVIFLIB_API tt__Capabilities : public xsd__anyType
 {
 public:
 	class tt__AnalyticsCapabilities* Analytics;	/* optional element of type tt:AnalyticsCapabilities */
@@ -9831,7 +9832,7 @@ public:
 #ifndef SOAP_TYPE_tt__CapabilitiesExtension
 #define SOAP_TYPE_tt__CapabilitiesExtension (547)
 /* tt:CapabilitiesExtension */
-class SOAP_CMAC tt__CapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__CapabilitiesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9859,7 +9860,7 @@ public:
 #ifndef SOAP_TYPE_tt__CapabilitiesExtension2
 #define SOAP_TYPE_tt__CapabilitiesExtension2 (548)
 /* tt:CapabilitiesExtension2 */
-class SOAP_CMAC tt__CapabilitiesExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__CapabilitiesExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9879,7 +9880,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsCapabilities
 #define SOAP_TYPE_tt__AnalyticsCapabilities (549)
 /* tt:AnalyticsCapabilities */
-class SOAP_CMAC tt__AnalyticsCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -9903,7 +9904,7 @@ public:
 #ifndef SOAP_TYPE_tt__DeviceCapabilities
 #define SOAP_TYPE_tt__DeviceCapabilities (550)
 /* tt:DeviceCapabilities */
-class SOAP_CMAC tt__DeviceCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__DeviceCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -9929,7 +9930,7 @@ public:
 #ifndef SOAP_TYPE_tt__DeviceCapabilitiesExtension
 #define SOAP_TYPE_tt__DeviceCapabilitiesExtension (551)
 /* tt:DeviceCapabilitiesExtension */
-class SOAP_CMAC tt__DeviceCapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__DeviceCapabilitiesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -9949,7 +9950,7 @@ public:
 #ifndef SOAP_TYPE_tt__EventCapabilities
 #define SOAP_TYPE_tt__EventCapabilities (552)
 /* tt:EventCapabilities */
-class SOAP_CMAC tt__EventCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__EventCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -9974,7 +9975,7 @@ public:
 #ifndef SOAP_TYPE_tt__IOCapabilities
 #define SOAP_TYPE_tt__IOCapabilities (553)
 /* tt:IOCapabilities */
-class SOAP_CMAC tt__IOCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__IOCapabilities : public xsd__anyType
 {
 public:
 	int* InputConnectors;	/* optional element of type xsd:int */
@@ -9997,7 +9998,7 @@ public:
 #ifndef SOAP_TYPE_tt__IOCapabilitiesExtension
 #define SOAP_TYPE_tt__IOCapabilitiesExtension (554)
 /* tt:IOCapabilitiesExtension */
-class SOAP_CMAC tt__IOCapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__IOCapabilitiesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10021,7 +10022,7 @@ public:
 #ifndef SOAP_TYPE_tt__IOCapabilitiesExtension2
 #define SOAP_TYPE_tt__IOCapabilitiesExtension2 (555)
 /* tt:IOCapabilitiesExtension2 */
-class SOAP_CMAC tt__IOCapabilitiesExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__IOCapabilitiesExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10041,7 +10042,7 @@ public:
 #ifndef SOAP_TYPE_tt__MediaCapabilities
 #define SOAP_TYPE_tt__MediaCapabilities (556)
 /* tt:MediaCapabilities */
-class SOAP_CMAC tt__MediaCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__MediaCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10065,7 +10066,7 @@ public:
 #ifndef SOAP_TYPE_tt__MediaCapabilitiesExtension
 #define SOAP_TYPE_tt__MediaCapabilitiesExtension (557)
 /* tt:MediaCapabilitiesExtension */
-class SOAP_CMAC tt__MediaCapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__MediaCapabilitiesExtension : public xsd__anyType
 {
 public:
 	class tt__ProfileCapabilities* ProfileCapabilities;	/* required element of type tt:ProfileCapabilities */
@@ -10087,7 +10088,7 @@ public:
 #ifndef SOAP_TYPE_tt__RealTimeStreamingCapabilities
 #define SOAP_TYPE_tt__RealTimeStreamingCapabilities (558)
 /* tt:RealTimeStreamingCapabilities */
-class SOAP_CMAC tt__RealTimeStreamingCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__RealTimeStreamingCapabilities : public xsd__anyType
 {
 public:
 	bool* RTPMulticast;	/* optional element of type xsd:boolean */
@@ -10111,7 +10112,7 @@ public:
 #ifndef SOAP_TYPE_tt__RealTimeStreamingCapabilitiesExtension
 #define SOAP_TYPE_tt__RealTimeStreamingCapabilitiesExtension (559)
 /* tt:RealTimeStreamingCapabilitiesExtension */
-class SOAP_CMAC tt__RealTimeStreamingCapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__RealTimeStreamingCapabilitiesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10131,7 +10132,7 @@ public:
 #ifndef SOAP_TYPE_tt__ProfileCapabilities
 #define SOAP_TYPE_tt__ProfileCapabilities (560)
 /* tt:ProfileCapabilities */
-class SOAP_CMAC tt__ProfileCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__ProfileCapabilities : public xsd__anyType
 {
 public:
 	int MaximumNumberOfProfiles;	/* required element of type xsd:int */
@@ -10153,7 +10154,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkCapabilities
 #define SOAP_TYPE_tt__NetworkCapabilities (561)
 /* tt:NetworkCapabilities */
-class SOAP_CMAC tt__NetworkCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__NetworkCapabilities : public xsd__anyType
 {
 public:
 	bool* IPFilter;	/* optional element of type xsd:boolean */
@@ -10178,7 +10179,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkCapabilitiesExtension
 #define SOAP_TYPE_tt__NetworkCapabilitiesExtension (562)
 /* tt:NetworkCapabilitiesExtension */
-class SOAP_CMAC tt__NetworkCapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__NetworkCapabilitiesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10200,7 +10201,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkCapabilitiesExtension2
 #define SOAP_TYPE_tt__NetworkCapabilitiesExtension2 (563)
 /* tt:NetworkCapabilitiesExtension2 */
-class SOAP_CMAC tt__NetworkCapabilitiesExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__NetworkCapabilitiesExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10220,7 +10221,7 @@ public:
 #ifndef SOAP_TYPE_tt__SecurityCapabilities
 #define SOAP_TYPE_tt__SecurityCapabilities (564)
 /* tt:SecurityCapabilities */
-class SOAP_CMAC tt__SecurityCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__SecurityCapabilities : public xsd__anyType
 {
 public:
 	bool TLS1_x002e1;	/* required element of type xsd:boolean */
@@ -10250,7 +10251,7 @@ public:
 #ifndef SOAP_TYPE_tt__SecurityCapabilitiesExtension
 #define SOAP_TYPE_tt__SecurityCapabilitiesExtension (565)
 /* tt:SecurityCapabilitiesExtension */
-class SOAP_CMAC tt__SecurityCapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__SecurityCapabilitiesExtension : public xsd__anyType
 {
 public:
 	bool TLS1_x002e0;	/* required element of type xsd:boolean */
@@ -10271,7 +10272,7 @@ public:
 #ifndef SOAP_TYPE_tt__SecurityCapabilitiesExtension2
 #define SOAP_TYPE_tt__SecurityCapabilitiesExtension2 (566)
 /* tt:SecurityCapabilitiesExtension2 */
-class SOAP_CMAC tt__SecurityCapabilitiesExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__SecurityCapabilitiesExtension2 : public xsd__anyType
 {
 public:
 	bool Dot1X;	/* required element of type xsd:boolean */
@@ -10294,7 +10295,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemCapabilities
 #define SOAP_TYPE_tt__SystemCapabilities (567)
 /* tt:SystemCapabilities */
-class SOAP_CMAC tt__SystemCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__SystemCapabilities : public xsd__anyType
 {
 public:
 	bool DiscoveryResolve;	/* required element of type xsd:boolean */
@@ -10322,7 +10323,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemCapabilitiesExtension
 #define SOAP_TYPE_tt__SystemCapabilitiesExtension (568)
 /* tt:SystemCapabilitiesExtension */
-class SOAP_CMAC tt__SystemCapabilitiesExtension : public xsd__anyType
+class ONVIFLIB_API tt__SystemCapabilitiesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10347,7 +10348,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemCapabilitiesExtension2
 #define SOAP_TYPE_tt__SystemCapabilitiesExtension2 (569)
 /* tt:SystemCapabilitiesExtension2 */
-class SOAP_CMAC tt__SystemCapabilitiesExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__SystemCapabilitiesExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10367,7 +10368,7 @@ public:
 #ifndef SOAP_TYPE_tt__OnvifVersion
 #define SOAP_TYPE_tt__OnvifVersion (570)
 /* tt:OnvifVersion */
-class SOAP_CMAC tt__OnvifVersion : public xsd__anyType
+class ONVIFLIB_API tt__OnvifVersion : public xsd__anyType
 {
 public:
 	int Major;	/* required element of type xsd:int */
@@ -10388,7 +10389,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingCapabilities
 #define SOAP_TYPE_tt__ImagingCapabilities (571)
 /* tt:ImagingCapabilities */
-class SOAP_CMAC tt__ImagingCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__ImagingCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10409,7 +10410,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZCapabilities
 #define SOAP_TYPE_tt__PTZCapabilities (572)
 /* tt:PTZCapabilities */
-class SOAP_CMAC tt__PTZCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__PTZCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10431,7 +10432,7 @@ public:
 #ifndef SOAP_TYPE_tt__DeviceIOCapabilities
 #define SOAP_TYPE_tt__DeviceIOCapabilities (573)
 /* tt:DeviceIOCapabilities */
-class SOAP_CMAC tt__DeviceIOCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__DeviceIOCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10458,7 +10459,7 @@ public:
 #ifndef SOAP_TYPE_tt__DisplayCapabilities
 #define SOAP_TYPE_tt__DisplayCapabilities (574)
 /* tt:DisplayCapabilities */
-class SOAP_CMAC tt__DisplayCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__DisplayCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10481,7 +10482,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingCapabilities
 #define SOAP_TYPE_tt__RecordingCapabilities (575)
 /* tt:RecordingCapabilities */
-class SOAP_CMAC tt__RecordingCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__RecordingCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10508,7 +10509,7 @@ public:
 #ifndef SOAP_TYPE_tt__SearchCapabilities
 #define SOAP_TYPE_tt__SearchCapabilities (576)
 /* tt:SearchCapabilities */
-class SOAP_CMAC tt__SearchCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__SearchCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10531,7 +10532,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReplayCapabilities
 #define SOAP_TYPE_tt__ReplayCapabilities (577)
 /* tt:ReplayCapabilities */
-class SOAP_CMAC tt__ReplayCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__ReplayCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10553,7 +10554,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReceiverCapabilities
 #define SOAP_TYPE_tt__ReceiverCapabilities (578)
 /* tt:ReceiverCapabilities */
-class SOAP_CMAC tt__ReceiverCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__ReceiverCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10580,7 +10581,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsDeviceCapabilities
 #define SOAP_TYPE_tt__AnalyticsDeviceCapabilities (579)
 /* tt:AnalyticsDeviceCapabilities */
-class SOAP_CMAC tt__AnalyticsDeviceCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsDeviceCapabilities : public xsd__anyType
 {
 public:
 	std::string XAddr;	/* required element of type xsd:anyURI */
@@ -10603,7 +10604,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsDeviceExtension
 #define SOAP_TYPE_tt__AnalyticsDeviceExtension (580)
 /* tt:AnalyticsDeviceExtension */
-class SOAP_CMAC tt__AnalyticsDeviceExtension : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsDeviceExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10623,7 +10624,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemLog
 #define SOAP_TYPE_tt__SystemLog (581)
 /* tt:SystemLog */
-class SOAP_CMAC tt__SystemLog : public xsd__anyType
+class ONVIFLIB_API tt__SystemLog : public xsd__anyType
 {
 public:
 	tt__AttachmentData* Binary;	/* optional element of type tt:AttachmentData */
@@ -10644,7 +10645,7 @@ public:
 #ifndef SOAP_TYPE_tt__SupportInformation
 #define SOAP_TYPE_tt__SupportInformation (582)
 /* tt:SupportInformation */
-class SOAP_CMAC tt__SupportInformation : public xsd__anyType
+class ONVIFLIB_API tt__SupportInformation : public xsd__anyType
 {
 public:
 	tt__AttachmentData* Binary;	/* optional element of type tt:AttachmentData */
@@ -10665,7 +10666,7 @@ public:
 #ifndef SOAP_TYPE_tt__BinaryData
 #define SOAP_TYPE_tt__BinaryData (583)
 /* tt:BinaryData */
-class SOAP_CMAC tt__BinaryData : public xsd__anyType
+class ONVIFLIB_API tt__BinaryData : public xsd__anyType
 {
 public:
 	xsd__base64Binary Data;	/* required element of type xsd:base64Binary */
@@ -10686,7 +10687,7 @@ public:
 #ifndef SOAP_TYPE_tt__AttachmentData
 #define SOAP_TYPE_tt__AttachmentData (584)
 /* tt:AttachmentData */
-class SOAP_CMAC tt__AttachmentData : public xsd__anyType
+class ONVIFLIB_API tt__AttachmentData : public xsd__anyType
 {
 public:
 	struct _xop__Include xop__Include;	/* required element of type xop:Include */
@@ -10707,7 +10708,7 @@ public:
 #ifndef SOAP_TYPE_tt__BackupFile
 #define SOAP_TYPE_tt__BackupFile (585)
 /* tt:BackupFile */
-class SOAP_CMAC tt__BackupFile : public xsd__anyType
+class ONVIFLIB_API tt__BackupFile : public xsd__anyType
 {
 public:
 	std::string Name;	/* required element of type xsd:string */
@@ -10728,7 +10729,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemLogUriList
 #define SOAP_TYPE_tt__SystemLogUriList (586)
 /* tt:SystemLogUriList */
-class SOAP_CMAC tt__SystemLogUriList : public xsd__anyType
+class ONVIFLIB_API tt__SystemLogUriList : public xsd__anyType
 {
 public:
 	std::vector<class tt__SystemLogUri* >SystemLog;	/* optional element of type tt:SystemLogUri */
@@ -10748,7 +10749,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemLogUri
 #define SOAP_TYPE_tt__SystemLogUri (587)
 /* tt:SystemLogUri */
-class SOAP_CMAC tt__SystemLogUri : public xsd__anyType
+class ONVIFLIB_API tt__SystemLogUri : public xsd__anyType
 {
 public:
 	enum tt__SystemLogType Type;	/* required element of type tt:SystemLogType */
@@ -10771,7 +10772,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemDateTime
 #define SOAP_TYPE_tt__SystemDateTime (588)
 /* tt:SystemDateTime */
-class SOAP_CMAC tt__SystemDateTime : public xsd__anyType
+class ONVIFLIB_API tt__SystemDateTime : public xsd__anyType
 {
 public:
 	enum tt__SetDateTimeType DateTimeType;	/* required element of type tt:SetDateTimeType */
@@ -10797,7 +10798,7 @@ public:
 #ifndef SOAP_TYPE_tt__SystemDateTimeExtension
 #define SOAP_TYPE_tt__SystemDateTimeExtension (589)
 /* tt:SystemDateTimeExtension */
-class SOAP_CMAC tt__SystemDateTimeExtension : public xsd__anyType
+class ONVIFLIB_API tt__SystemDateTimeExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10817,7 +10818,7 @@ public:
 #ifndef SOAP_TYPE_tt__DateTime
 #define SOAP_TYPE_tt__DateTime (590)
 /* tt:DateTime */
-class SOAP_CMAC tt__DateTime : public xsd__anyType
+class ONVIFLIB_API tt__DateTime : public xsd__anyType
 {
 public:
 	class tt__Time* Time;	/* required element of type tt:Time */
@@ -10838,7 +10839,7 @@ public:
 #ifndef SOAP_TYPE_tt__Date
 #define SOAP_TYPE_tt__Date (591)
 /* tt:Date */
-class SOAP_CMAC tt__Date : public xsd__anyType
+class ONVIFLIB_API tt__Date : public xsd__anyType
 {
 public:
 	int Year;	/* required element of type xsd:int */
@@ -10860,7 +10861,7 @@ public:
 #ifndef SOAP_TYPE_tt__Time
 #define SOAP_TYPE_tt__Time (592)
 /* tt:Time */
-class SOAP_CMAC tt__Time : public xsd__anyType
+class ONVIFLIB_API tt__Time : public xsd__anyType
 {
 public:
 	int Hour;	/* required element of type xsd:int */
@@ -10882,7 +10883,7 @@ public:
 #ifndef SOAP_TYPE_tt__TimeZone
 #define SOAP_TYPE_tt__TimeZone (593)
 /* tt:TimeZone */
-class SOAP_CMAC tt__TimeZone : public xsd__anyType
+class ONVIFLIB_API tt__TimeZone : public xsd__anyType
 {
 public:
 	std::string TZ;	/* required element of type xsd:token */
@@ -10902,7 +10903,7 @@ public:
 #ifndef SOAP_TYPE_tt__RemoteUser
 #define SOAP_TYPE_tt__RemoteUser (594)
 /* tt:RemoteUser */
-class SOAP_CMAC tt__RemoteUser : public xsd__anyType
+class ONVIFLIB_API tt__RemoteUser : public xsd__anyType
 {
 public:
 	std::string Username;	/* required element of type xsd:string */
@@ -10926,7 +10927,7 @@ public:
 #ifndef SOAP_TYPE_tt__User
 #define SOAP_TYPE_tt__User (595)
 /* tt:User */
-class SOAP_CMAC tt__User : public xsd__anyType
+class ONVIFLIB_API tt__User : public xsd__anyType
 {
 public:
 	std::string Username;	/* required element of type xsd:string */
@@ -10950,7 +10951,7 @@ public:
 #ifndef SOAP_TYPE_tt__UserExtension
 #define SOAP_TYPE_tt__UserExtension (596)
 /* tt:UserExtension */
-class SOAP_CMAC tt__UserExtension : public xsd__anyType
+class ONVIFLIB_API tt__UserExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -10970,7 +10971,7 @@ public:
 #ifndef SOAP_TYPE_tt__CertificateGenerationParameters
 #define SOAP_TYPE_tt__CertificateGenerationParameters (597)
 /* tt:CertificateGenerationParameters */
-class SOAP_CMAC tt__CertificateGenerationParameters : public xsd__anyType
+class ONVIFLIB_API tt__CertificateGenerationParameters : public xsd__anyType
 {
 public:
 	std::string* CertificateID;	/* optional element of type xsd:token */
@@ -10995,7 +10996,7 @@ public:
 #ifndef SOAP_TYPE_tt__CertificateGenerationParametersExtension
 #define SOAP_TYPE_tt__CertificateGenerationParametersExtension (598)
 /* tt:CertificateGenerationParametersExtension */
-class SOAP_CMAC tt__CertificateGenerationParametersExtension : public xsd__anyType
+class ONVIFLIB_API tt__CertificateGenerationParametersExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11015,7 +11016,7 @@ public:
 #ifndef SOAP_TYPE_tt__Certificate
 #define SOAP_TYPE_tt__Certificate (599)
 /* tt:Certificate */
-class SOAP_CMAC tt__Certificate : public xsd__anyType
+class ONVIFLIB_API tt__Certificate : public xsd__anyType
 {
 public:
 	std::string CertificateID;	/* required element of type xsd:token */
@@ -11036,7 +11037,7 @@ public:
 #ifndef SOAP_TYPE_tt__CertificateStatus
 #define SOAP_TYPE_tt__CertificateStatus (600)
 /* tt:CertificateStatus */
-class SOAP_CMAC tt__CertificateStatus : public xsd__anyType
+class ONVIFLIB_API tt__CertificateStatus : public xsd__anyType
 {
 public:
 	std::string CertificateID;	/* required element of type xsd:token */
@@ -11059,7 +11060,7 @@ public:
 #ifndef SOAP_TYPE_tt__CertificateWithPrivateKey
 #define SOAP_TYPE_tt__CertificateWithPrivateKey (601)
 /* tt:CertificateWithPrivateKey */
-class SOAP_CMAC tt__CertificateWithPrivateKey : public xsd__anyType
+class ONVIFLIB_API tt__CertificateWithPrivateKey : public xsd__anyType
 {
 public:
 	std::string* CertificateID;	/* optional element of type xsd:token */
@@ -11083,7 +11084,7 @@ public:
 #ifndef SOAP_TYPE_tt__CertificateInformation
 #define SOAP_TYPE_tt__CertificateInformation (602)
 /* tt:CertificateInformation */
-class SOAP_CMAC tt__CertificateInformation : public xsd__anyType
+class ONVIFLIB_API tt__CertificateInformation : public xsd__anyType
 {
 public:
 	std::string CertificateID;	/* required element of type xsd:token */
@@ -11114,7 +11115,7 @@ public:
 #ifndef SOAP_TYPE_tt__CertificateInformationExtension
 #define SOAP_TYPE_tt__CertificateInformationExtension (604)
 /* tt:CertificateInformationExtension */
-class SOAP_CMAC tt__CertificateInformationExtension : public xsd__anyType
+class ONVIFLIB_API tt__CertificateInformationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11134,7 +11135,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot1XConfiguration
 #define SOAP_TYPE_tt__Dot1XConfiguration (605)
 /* tt:Dot1XConfiguration */
-class SOAP_CMAC tt__Dot1XConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__Dot1XConfiguration : public xsd__anyType
 {
 public:
 	std::string Dot1XConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -11161,7 +11162,7 @@ public:
 #ifndef SOAP_TYPE_tt__Dot1XConfigurationExtension
 #define SOAP_TYPE_tt__Dot1XConfigurationExtension (606)
 /* tt:Dot1XConfigurationExtension */
-class SOAP_CMAC tt__Dot1XConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__Dot1XConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11181,7 +11182,7 @@ public:
 #ifndef SOAP_TYPE_tt__EAPMethodConfiguration
 #define SOAP_TYPE_tt__EAPMethodConfiguration (607)
 /* tt:EAPMethodConfiguration */
-class SOAP_CMAC tt__EAPMethodConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__EAPMethodConfiguration : public xsd__anyType
 {
 public:
 	class tt__TLSConfiguration* TLSConfiguration;	/* optional element of type tt:TLSConfiguration */
@@ -11204,7 +11205,7 @@ public:
 #ifndef SOAP_TYPE_tt__EapMethodExtension
 #define SOAP_TYPE_tt__EapMethodExtension (608)
 /* tt:EapMethodExtension */
-class SOAP_CMAC tt__EapMethodExtension : public xsd__anyType
+class ONVIFLIB_API tt__EapMethodExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11224,7 +11225,7 @@ public:
 #ifndef SOAP_TYPE_tt__TLSConfiguration
 #define SOAP_TYPE_tt__TLSConfiguration (609)
 /* tt:TLSConfiguration */
-class SOAP_CMAC tt__TLSConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__TLSConfiguration : public xsd__anyType
 {
 public:
 	std::string CertificateID;	/* required element of type xsd:token */
@@ -11246,7 +11247,7 @@ public:
 #ifndef SOAP_TYPE_tt__GenericEapPwdConfigurationExtension
 #define SOAP_TYPE_tt__GenericEapPwdConfigurationExtension (610)
 /* tt:GenericEapPwdConfigurationExtension */
-class SOAP_CMAC tt__GenericEapPwdConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__GenericEapPwdConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11266,7 +11267,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelayOutputSettings
 #define SOAP_TYPE_tt__RelayOutputSettings (611)
 /* tt:RelayOutputSettings */
-class SOAP_CMAC tt__RelayOutputSettings : public xsd__anyType
+class ONVIFLIB_API tt__RelayOutputSettings : public xsd__anyType
 {
 public:
 	enum tt__RelayMode Mode;	/* required element of type tt:RelayMode */
@@ -11288,7 +11289,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZNodeExtension
 #define SOAP_TYPE_tt__PTZNodeExtension (615)
 /* tt:PTZNodeExtension */
-class SOAP_CMAC tt__PTZNodeExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTZNodeExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11310,7 +11311,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZNodeExtension2
 #define SOAP_TYPE_tt__PTZNodeExtension2 (616)
 /* tt:PTZNodeExtension2 */
-class SOAP_CMAC tt__PTZNodeExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__PTZNodeExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11330,7 +11331,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourSupported
 #define SOAP_TYPE_tt__PTZPresetTourSupported (617)
 /* tt:PTZPresetTourSupported */
-class SOAP_CMAC tt__PTZPresetTourSupported : public xsd__anyType
+class ONVIFLIB_API tt__PTZPresetTourSupported : public xsd__anyType
 {
 public:
 	int MaximumNumberOfPresetTours;	/* required element of type xsd:int */
@@ -11353,7 +11354,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourSupportedExtension
 #define SOAP_TYPE_tt__PTZPresetTourSupportedExtension (618)
 /* tt:PTZPresetTourSupportedExtension */
-class SOAP_CMAC tt__PTZPresetTourSupportedExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTZPresetTourSupportedExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11373,7 +11374,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZConfigurationExtension
 #define SOAP_TYPE_tt__PTZConfigurationExtension (620)
 /* tt:PTZConfigurationExtension */
-class SOAP_CMAC tt__PTZConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTZConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11395,7 +11396,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZConfigurationExtension2
 #define SOAP_TYPE_tt__PTZConfigurationExtension2 (621)
 /* tt:PTZConfigurationExtension2 */
-class SOAP_CMAC tt__PTZConfigurationExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__PTZConfigurationExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11415,7 +11416,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTControlDirection
 #define SOAP_TYPE_tt__PTControlDirection (622)
 /* tt:PTControlDirection */
-class SOAP_CMAC tt__PTControlDirection : public xsd__anyType
+class ONVIFLIB_API tt__PTControlDirection : public xsd__anyType
 {
 public:
 	class tt__EFlip* EFlip;	/* optional element of type tt:EFlip */
@@ -11438,7 +11439,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTControlDirectionExtension
 #define SOAP_TYPE_tt__PTControlDirectionExtension (623)
 /* tt:PTControlDirectionExtension */
-class SOAP_CMAC tt__PTControlDirectionExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTControlDirectionExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11459,7 +11460,7 @@ public:
 #ifndef SOAP_TYPE_tt__EFlip
 #define SOAP_TYPE_tt__EFlip (624)
 /* tt:EFlip */
-class SOAP_CMAC tt__EFlip : public xsd__anyType
+class ONVIFLIB_API tt__EFlip : public xsd__anyType
 {
 public:
 	enum tt__EFlipMode Mode;	/* required element of type tt:EFlipMode */
@@ -11481,7 +11482,7 @@ public:
 #ifndef SOAP_TYPE_tt__Reverse
 #define SOAP_TYPE_tt__Reverse (625)
 /* tt:Reverse */
-class SOAP_CMAC tt__Reverse : public xsd__anyType
+class ONVIFLIB_API tt__Reverse : public xsd__anyType
 {
 public:
 	enum tt__ReverseMode Mode;	/* required element of type tt:ReverseMode */
@@ -11503,7 +11504,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZConfigurationOptions
 #define SOAP_TYPE_tt__PTZConfigurationOptions (626)
 /* tt:PTZConfigurationOptions */
-class SOAP_CMAC tt__PTZConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__PTZConfigurationOptions : public xsd__anyType
 {
 public:
 	class tt__PTZSpaces* Spaces;	/* required element of type tt:PTZSpaces */
@@ -11528,7 +11529,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZConfigurationOptions2
 #define SOAP_TYPE_tt__PTZConfigurationOptions2 (627)
 /* tt:PTZConfigurationOptions2 */
-class SOAP_CMAC tt__PTZConfigurationOptions2 : public xsd__anyType
+class ONVIFLIB_API tt__PTZConfigurationOptions2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11548,7 +11549,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTControlDirectionOptions
 #define SOAP_TYPE_tt__PTControlDirectionOptions (628)
 /* tt:PTControlDirectionOptions */
-class SOAP_CMAC tt__PTControlDirectionOptions : public xsd__anyType
+class ONVIFLIB_API tt__PTControlDirectionOptions : public xsd__anyType
 {
 public:
 	class tt__EFlipOptions* EFlip;	/* optional element of type tt:EFlipOptions */
@@ -11571,7 +11572,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTControlDirectionOptionsExtension
 #define SOAP_TYPE_tt__PTControlDirectionOptionsExtension (629)
 /* tt:PTControlDirectionOptionsExtension */
-class SOAP_CMAC tt__PTControlDirectionOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTControlDirectionOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11591,7 +11592,7 @@ public:
 #ifndef SOAP_TYPE_tt__EFlipOptions
 #define SOAP_TYPE_tt__EFlipOptions (630)
 /* tt:EFlipOptions */
-class SOAP_CMAC tt__EFlipOptions : public xsd__anyType
+class ONVIFLIB_API tt__EFlipOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__EFlipMode >Mode;	/* optional element of type tt:EFlipMode */
@@ -11613,7 +11614,7 @@ public:
 #ifndef SOAP_TYPE_tt__EFlipOptionsExtension
 #define SOAP_TYPE_tt__EFlipOptionsExtension (631)
 /* tt:EFlipOptionsExtension */
-class SOAP_CMAC tt__EFlipOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__EFlipOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11633,7 +11634,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReverseOptions
 #define SOAP_TYPE_tt__ReverseOptions (632)
 /* tt:ReverseOptions */
-class SOAP_CMAC tt__ReverseOptions : public xsd__anyType
+class ONVIFLIB_API tt__ReverseOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__ReverseMode >Mode;	/* optional element of type tt:ReverseMode */
@@ -11655,7 +11656,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReverseOptionsExtension
 #define SOAP_TYPE_tt__ReverseOptionsExtension (633)
 /* tt:ReverseOptionsExtension */
-class SOAP_CMAC tt__ReverseOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__ReverseOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11675,7 +11676,7 @@ public:
 #ifndef SOAP_TYPE_tt__PanTiltLimits
 #define SOAP_TYPE_tt__PanTiltLimits (634)
 /* tt:PanTiltLimits */
-class SOAP_CMAC tt__PanTiltLimits : public xsd__anyType
+class ONVIFLIB_API tt__PanTiltLimits : public xsd__anyType
 {
 public:
 	class tt__Space2DDescription* Range;	/* required element of type tt:Space2DDescription */
@@ -11695,7 +11696,7 @@ public:
 #ifndef SOAP_TYPE_tt__ZoomLimits
 #define SOAP_TYPE_tt__ZoomLimits (635)
 /* tt:ZoomLimits */
-class SOAP_CMAC tt__ZoomLimits : public xsd__anyType
+class ONVIFLIB_API tt__ZoomLimits : public xsd__anyType
 {
 public:
 	class tt__Space1DDescription* Range;	/* required element of type tt:Space1DDescription */
@@ -11715,7 +11716,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZSpaces
 #define SOAP_TYPE_tt__PTZSpaces (636)
 /* tt:PTZSpaces */
-class SOAP_CMAC tt__PTZSpaces : public xsd__anyType
+class ONVIFLIB_API tt__PTZSpaces : public xsd__anyType
 {
 public:
 	std::vector<tt__Space2DDescription* >AbsolutePanTiltPositionSpace;	/* optional element of type tt:Space2DDescription */
@@ -11744,7 +11745,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZSpacesExtension
 #define SOAP_TYPE_tt__PTZSpacesExtension (637)
 /* tt:PTZSpacesExtension */
-class SOAP_CMAC tt__PTZSpacesExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTZSpacesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -11764,7 +11765,7 @@ public:
 #ifndef SOAP_TYPE_tt__Space2DDescription
 #define SOAP_TYPE_tt__Space2DDescription (638)
 /* tt:Space2DDescription */
-class SOAP_CMAC tt__Space2DDescription : public xsd__anyType
+class ONVIFLIB_API tt__Space2DDescription : public xsd__anyType
 {
 public:
 	std::string URI;	/* required element of type xsd:anyURI */
@@ -11786,7 +11787,7 @@ public:
 #ifndef SOAP_TYPE_tt__Space1DDescription
 #define SOAP_TYPE_tt__Space1DDescription (639)
 /* tt:Space1DDescription */
-class SOAP_CMAC tt__Space1DDescription : public xsd__anyType
+class ONVIFLIB_API tt__Space1DDescription : public xsd__anyType
 {
 public:
 	std::string URI;	/* required element of type xsd:anyURI */
@@ -11807,7 +11808,7 @@ public:
 #ifndef SOAP_TYPE_tt__Vector2D
 #define SOAP_TYPE_tt__Vector2D (640)
 /* Primitive tt:Vector2D schema type: */
-class SOAP_CMAC tt__Vector2D : public xsd__anyType
+class ONVIFLIB_API tt__Vector2D : public xsd__anyType
 {
 public:
 	float x;	/* required attribute */
@@ -11829,7 +11830,7 @@ public:
 #ifndef SOAP_TYPE_tt__Vector1D
 #define SOAP_TYPE_tt__Vector1D (641)
 /* Primitive tt:Vector1D schema type: */
-class SOAP_CMAC tt__Vector1D : public xsd__anyType
+class ONVIFLIB_API tt__Vector1D : public xsd__anyType
 {
 public:
 	float x;	/* required attribute */
@@ -11850,7 +11851,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZVector
 #define SOAP_TYPE_tt__PTZVector (642)
 /* tt:PTZVector */
-class SOAP_CMAC tt__PTZVector : public xsd__anyType
+class ONVIFLIB_API tt__PTZVector : public xsd__anyType
 {
 public:
 	tt__Vector2D* PanTilt;	/* optional element of type tt:Vector2D */
@@ -11871,7 +11872,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZSpeed
 #define SOAP_TYPE_tt__PTZSpeed (643)
 /* tt:PTZSpeed */
-class SOAP_CMAC tt__PTZSpeed : public xsd__anyType
+class ONVIFLIB_API tt__PTZSpeed : public xsd__anyType
 {
 public:
 	tt__Vector2D* PanTilt;	/* optional element of type tt:Vector2D */
@@ -11897,7 +11898,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZStatus
 #define SOAP_TYPE_tt__PTZStatus (644)
 /* tt:PTZStatus */
-class SOAP_CMAC  tt__PTZStatus : public xsd__anyType
+class ONVIFLIB_API  tt__PTZStatus : public xsd__anyType
 {
 public:
 	tt__PTZVector* Position;	/* optional element of type tt:PTZVector */
@@ -11922,7 +11923,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPreset
 #define SOAP_TYPE_tt__PTZPreset (645)
 /* tt:PTZPreset */
-class SOAP_CMAC  tt__PTZPreset : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPreset : public xsd__anyType
 {
 public:
 	std::string* Name;	/* optional element of type tt:Name */
@@ -11945,7 +11946,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZMoveStatus
 #define SOAP_TYPE_tt__PTZMoveStatus (646)
 /* tt:PTZMoveStatus */
-class SOAP_CMAC  tt__PTZMoveStatus : public xsd__anyType
+class ONVIFLIB_API  tt__PTZMoveStatus : public xsd__anyType
 {
 public:
 	enum tt__MoveStatus* PanTilt;	/* optional element of type tt:MoveStatus */
@@ -11966,7 +11967,7 @@ public:
 #ifndef SOAP_TYPE_tt__PresetTour
 #define SOAP_TYPE_tt__PresetTour (647)
 /* tt:PresetTour */
-class SOAP_CMAC  tt__PresetTour : public xsd__anyType
+class ONVIFLIB_API  tt__PresetTour : public xsd__anyType
 {
 public:
 	std::string* Name;	/* optional element of type tt:Name */
@@ -11993,7 +11994,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourExtension
 #define SOAP_TYPE_tt__PTZPresetTourExtension (648)
 /* tt:PTZPresetTourExtension */
-class SOAP_CMAC  tt__PTZPresetTourExtension : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12013,7 +12014,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourSpot
 #define SOAP_TYPE_tt__PTZPresetTourSpot (649)
 /* tt:PTZPresetTourSpot */
-class SOAP_CMAC  tt__PTZPresetTourSpot : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourSpot : public xsd__anyType
 {
 public:
 	class tt__PTZPresetTourPresetDetail* PresetDetail;	/* required element of type tt:PTZPresetTourPresetDetail */
@@ -12037,7 +12038,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourSpotExtension
 #define SOAP_TYPE_tt__PTZPresetTourSpotExtension (650)
 /* tt:PTZPresetTourSpotExtension */
-class SOAP_CMAC  tt__PTZPresetTourSpotExtension : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourSpotExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12073,7 +12074,7 @@ union  _tt__union_PTZPresetTourPresetDetail
 #ifndef SOAP_TYPE_tt__PTZPresetTourPresetDetail
 #define SOAP_TYPE_tt__PTZPresetTourPresetDetail (651)
 /* tt:PTZPresetTourPresetDetail */
-class SOAP_CMAC  tt__PTZPresetTourPresetDetail : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourPresetDetail : public xsd__anyType
 {
 public:
 	int __union_PTZPresetTourPresetDetail;	/* union discriminant (of union defined below) */
@@ -12096,7 +12097,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourTypeExtension
 #define SOAP_TYPE_tt__PTZPresetTourTypeExtension (652)
 /* tt:PTZPresetTourTypeExtension */
-class SOAP_CMAC  tt__PTZPresetTourTypeExtension : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourTypeExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12116,7 +12117,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourStatus
 #define SOAP_TYPE_tt__PTZPresetTourStatus (653)
 /* tt:PTZPresetTourStatus */
-class SOAP_CMAC  tt__PTZPresetTourStatus : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourStatus : public xsd__anyType
 {
 public:
 	enum tt__PTZPresetTourState State;	/* required element of type tt:PTZPresetTourState */
@@ -12139,7 +12140,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourStatusExtension
 #define SOAP_TYPE_tt__PTZPresetTourStatusExtension (654)
 /* tt:PTZPresetTourStatusExtension */
-class SOAP_CMAC  tt__PTZPresetTourStatusExtension : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourStatusExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12159,7 +12160,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourStartingCondition
 #define SOAP_TYPE_tt__PTZPresetTourStartingCondition (655)
 /* tt:PTZPresetTourStartingCondition */
-class SOAP_CMAC  tt__PTZPresetTourStartingCondition : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourStartingCondition : public xsd__anyType
 {
 public:
 	int* RecurringTime;	/* optional element of type xsd:int */
@@ -12183,7 +12184,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourStartingConditionExtension
 #define SOAP_TYPE_tt__PTZPresetTourStartingConditionExtension (656)
 /* tt:PTZPresetTourStartingConditionExtension */
-class SOAP_CMAC  tt__PTZPresetTourStartingConditionExtension : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourStartingConditionExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12203,7 +12204,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourOptions
 #define SOAP_TYPE_tt__PTZPresetTourOptions (657)
 /* tt:PTZPresetTourOptions */
-class SOAP_CMAC  tt__PTZPresetTourOptions : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourOptions : public xsd__anyType
 {
 public:
 	bool AutoStart;	/* required element of type xsd:boolean */
@@ -12227,7 +12228,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourSpotOptions
 #define SOAP_TYPE_tt__PTZPresetTourSpotOptions (658)
 /* tt:PTZPresetTourSpotOptions */
-class SOAP_CMAC  tt__PTZPresetTourSpotOptions : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourSpotOptions : public xsd__anyType
 {
 public:
 	class tt__PTZPresetTourPresetDetailOptions* PresetDetail;	/* required element of type tt:PTZPresetTourPresetDetailOptions */
@@ -12250,7 +12251,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourPresetDetailOptions
 #define SOAP_TYPE_tt__PTZPresetTourPresetDetailOptions (659)
 /* tt:PTZPresetTourPresetDetailOptions */
-class SOAP_CMAC  tt__PTZPresetTourPresetDetailOptions : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourPresetDetailOptions : public xsd__anyType
 {
 public:
 	std::vector<std::string >PresetToken;	/* optional element of type tt:ReferenceToken */
@@ -12275,7 +12276,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourPresetDetailOptionsExtension
 #define SOAP_TYPE_tt__PTZPresetTourPresetDetailOptionsExtension (660)
 /* tt:PTZPresetTourPresetDetailOptionsExtension */
-class SOAP_CMAC  tt__PTZPresetTourPresetDetailOptionsExtension : public xsd__anyType
+class ONVIFLIB_API  tt__PTZPresetTourPresetDetailOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12295,7 +12296,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourStartingConditionOptions
 #define SOAP_TYPE_tt__PTZPresetTourStartingConditionOptions (661)
 /* tt:PTZPresetTourStartingConditionOptions */
-class SOAP_CMAC tt__PTZPresetTourStartingConditionOptions : public xsd__anyType
+class ONVIFLIB_API tt__PTZPresetTourStartingConditionOptions : public xsd__anyType
 {
 public:
 	tt__IntRange* RecurringTime;	/* optional element of type tt:IntRange */
@@ -12319,7 +12320,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPresetTourStartingConditionOptionsExtension
 #define SOAP_TYPE_tt__PTZPresetTourStartingConditionOptionsExtension (662)
 /* tt:PTZPresetTourStartingConditionOptionsExtension */
-class SOAP_CMAC tt__PTZPresetTourStartingConditionOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTZPresetTourStartingConditionOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12339,7 +12340,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingStatus
 #define SOAP_TYPE_tt__ImagingStatus (663)
 /* tt:ImagingStatus */
-class SOAP_CMAC tt__ImagingStatus : public xsd__anyType
+class ONVIFLIB_API tt__ImagingStatus : public xsd__anyType
 {
 public:
 	class tt__FocusStatus* FocusStatus;	/* required element of type tt:FocusStatus */
@@ -12361,7 +12362,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusStatus
 #define SOAP_TYPE_tt__FocusStatus (664)
 /* tt:FocusStatus */
-class SOAP_CMAC tt__FocusStatus : public xsd__anyType
+class ONVIFLIB_API tt__FocusStatus : public xsd__anyType
 {
 public:
 	float Position;	/* required element of type xsd:float */
@@ -12385,7 +12386,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusConfiguration
 #define SOAP_TYPE_tt__FocusConfiguration (665)
 /* tt:FocusConfiguration */
-class SOAP_CMAC tt__FocusConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__FocusConfiguration : public xsd__anyType
 {
 public:
 	enum tt__AutoFocusMode AutoFocusMode;	/* required element of type tt:AutoFocusMode */
@@ -12410,7 +12411,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingSettings
 #define SOAP_TYPE_tt__ImagingSettings (666)
 /* tt:ImagingSettings */
-class SOAP_CMAC tt__ImagingSettings : public xsd__anyType
+class ONVIFLIB_API tt__ImagingSettings : public xsd__anyType
 {
 public:
 	class tt__BacklightCompensation* BacklightCompensation;	/* optional element of type tt:BacklightCompensation */
@@ -12441,7 +12442,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingSettingsExtension
 #define SOAP_TYPE_tt__ImagingSettingsExtension (667)
 /* tt:ImagingSettingsExtension */
-class SOAP_CMAC tt__ImagingSettingsExtension : public xsd__anyType
+class ONVIFLIB_API tt__ImagingSettingsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12461,7 +12462,7 @@ public:
 #ifndef SOAP_TYPE_tt__Exposure
 #define SOAP_TYPE_tt__Exposure (668)
 /* tt:Exposure */
-class SOAP_CMAC tt__Exposure : public xsd__anyType
+class ONVIFLIB_API tt__Exposure : public xsd__anyType
 {
 public:
 	enum tt__ExposureMode Mode;	/* required element of type tt:ExposureMode */
@@ -12492,7 +12493,7 @@ public:
 #ifndef SOAP_TYPE_tt__WideDynamicRange
 #define SOAP_TYPE_tt__WideDynamicRange (669)
 /* tt:WideDynamicRange */
-class SOAP_CMAC tt__WideDynamicRange : public xsd__anyType
+class ONVIFLIB_API tt__WideDynamicRange : public xsd__anyType
 {
 public:
 	enum tt__WideDynamicMode Mode;	/* required element of type tt:WideDynamicMode */
@@ -12513,7 +12514,7 @@ public:
 #ifndef SOAP_TYPE_tt__BacklightCompensation
 #define SOAP_TYPE_tt__BacklightCompensation (670)
 /* tt:BacklightCompensation */
-class SOAP_CMAC tt__BacklightCompensation : public xsd__anyType
+class ONVIFLIB_API tt__BacklightCompensation : public xsd__anyType
 {
 public:
 	enum tt__BacklightCompensationMode Mode;	/* required element of type tt:BacklightCompensationMode */
@@ -12534,7 +12535,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingOptions
 #define SOAP_TYPE_tt__ImagingOptions (671)
 /* tt:ImagingOptions */
-class SOAP_CMAC tt__ImagingOptions : public xsd__anyType
+class ONVIFLIB_API tt__ImagingOptions : public xsd__anyType
 {
 public:
 	class tt__BacklightCompensationOptions* BacklightCompensation;	/* required element of type tt:BacklightCompensationOptions */
@@ -12565,7 +12566,7 @@ public:
 #ifndef SOAP_TYPE_tt__WideDynamicRangeOptions
 #define SOAP_TYPE_tt__WideDynamicRangeOptions (672)
 /* tt:WideDynamicRangeOptions */
-class SOAP_CMAC tt__WideDynamicRangeOptions : public xsd__anyType
+class ONVIFLIB_API tt__WideDynamicRangeOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__WideDynamicMode >Mode;	/* required element of type tt:WideDynamicMode */
@@ -12586,7 +12587,7 @@ public:
 #ifndef SOAP_TYPE_tt__BacklightCompensationOptions
 #define SOAP_TYPE_tt__BacklightCompensationOptions (673)
 /* tt:BacklightCompensationOptions */
-class SOAP_CMAC tt__BacklightCompensationOptions : public xsd__anyType
+class ONVIFLIB_API tt__BacklightCompensationOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__WideDynamicMode >Mode;	/* required element of type tt:WideDynamicMode */
@@ -12607,7 +12608,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusOptions
 #define SOAP_TYPE_tt__FocusOptions (674)
 /* tt:FocusOptions */
-class SOAP_CMAC tt__FocusOptions : public xsd__anyType
+class ONVIFLIB_API tt__FocusOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__AutoFocusMode >AutoFocusModes;	/* optional element of type tt:AutoFocusMode */
@@ -12630,7 +12631,7 @@ public:
 #ifndef SOAP_TYPE_tt__ExposureOptions
 #define SOAP_TYPE_tt__ExposureOptions (675)
 /* tt:ExposureOptions */
-class SOAP_CMAC tt__ExposureOptions : public xsd__anyType
+class ONVIFLIB_API tt__ExposureOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__ExposureMode >Mode;	/* required element of type tt:ExposureMode */
@@ -12660,7 +12661,7 @@ public:
 #ifndef SOAP_TYPE_tt__WhiteBalanceOptions
 #define SOAP_TYPE_tt__WhiteBalanceOptions (676)
 /* tt:WhiteBalanceOptions */
-class SOAP_CMAC tt__WhiteBalanceOptions : public xsd__anyType
+class ONVIFLIB_API tt__WhiteBalanceOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__WhiteBalanceMode >Mode;	/* required element of type tt:WhiteBalanceMode */
@@ -12682,7 +12683,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusMove
 #define SOAP_TYPE_tt__FocusMove (677)
 /* tt:FocusMove */
-class SOAP_CMAC tt__FocusMove : public xsd__anyType
+class ONVIFLIB_API tt__FocusMove : public xsd__anyType
 {
 public:
 	class tt__AbsoluteFocus* Absolute;	/* optional element of type tt:AbsoluteFocus */
@@ -12704,7 +12705,7 @@ public:
 #ifndef SOAP_TYPE_tt__AbsoluteFocus
 #define SOAP_TYPE_tt__AbsoluteFocus (678)
 /* tt:AbsoluteFocus */
-class SOAP_CMAC tt__AbsoluteFocus : public xsd__anyType
+class ONVIFLIB_API tt__AbsoluteFocus : public xsd__anyType
 {
 public:
 	float Position;	/* required element of type xsd:float */
@@ -12725,7 +12726,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelativeFocus
 #define SOAP_TYPE_tt__RelativeFocus (679)
 /* tt:RelativeFocus */
-class SOAP_CMAC tt__RelativeFocus : public xsd__anyType
+class ONVIFLIB_API tt__RelativeFocus : public xsd__anyType
 {
 public:
 	float Distance;	/* required element of type xsd:float */
@@ -12746,7 +12747,7 @@ public:
 #ifndef SOAP_TYPE_tt__ContinuousFocus
 #define SOAP_TYPE_tt__ContinuousFocus (680)
 /* tt:ContinuousFocus */
-class SOAP_CMAC tt__ContinuousFocus : public xsd__anyType
+class ONVIFLIB_API tt__ContinuousFocus : public xsd__anyType
 {
 public:
 	float Speed;	/* required element of type xsd:float */
@@ -12766,7 +12767,7 @@ public:
 #ifndef SOAP_TYPE_tt__MoveOptions
 #define SOAP_TYPE_tt__MoveOptions (681)
 /* tt:MoveOptions */
-class SOAP_CMAC tt__MoveOptions : public xsd__anyType
+class ONVIFLIB_API tt__MoveOptions : public xsd__anyType
 {
 public:
 	class tt__AbsoluteFocusOptions* Absolute;	/* optional element of type tt:AbsoluteFocusOptions */
@@ -12788,7 +12789,7 @@ public:
 #ifndef SOAP_TYPE_tt__AbsoluteFocusOptions
 #define SOAP_TYPE_tt__AbsoluteFocusOptions (682)
 /* tt:AbsoluteFocusOptions */
-class SOAP_CMAC tt__AbsoluteFocusOptions : public xsd__anyType
+class ONVIFLIB_API tt__AbsoluteFocusOptions : public xsd__anyType
 {
 public:
 	tt__FloatRange* Position;	/* required element of type tt:FloatRange */
@@ -12809,7 +12810,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelativeFocusOptions
 #define SOAP_TYPE_tt__RelativeFocusOptions (683)
 /* tt:RelativeFocusOptions */
-class SOAP_CMAC tt__RelativeFocusOptions : public xsd__anyType
+class ONVIFLIB_API tt__RelativeFocusOptions : public xsd__anyType
 {
 public:
 	tt__FloatRange* Distance;	/* required element of type tt:FloatRange */
@@ -12830,7 +12831,7 @@ public:
 #ifndef SOAP_TYPE_tt__ContinuousFocusOptions
 #define SOAP_TYPE_tt__ContinuousFocusOptions (684)
 /* tt:ContinuousFocusOptions */
-class SOAP_CMAC tt__ContinuousFocusOptions : public xsd__anyType
+class ONVIFLIB_API tt__ContinuousFocusOptions : public xsd__anyType
 {
 public:
 	tt__FloatRange* Speed;	/* required element of type tt:FloatRange */
@@ -12850,7 +12851,7 @@ public:
 #ifndef SOAP_TYPE_tt__WhiteBalance
 #define SOAP_TYPE_tt__WhiteBalance (685)
 /* tt:WhiteBalance */
-class SOAP_CMAC tt__WhiteBalance : public xsd__anyType
+class ONVIFLIB_API tt__WhiteBalance : public xsd__anyType
 {
 public:
 	enum tt__WhiteBalanceMode Mode;	/* required element of type tt:WhiteBalanceMode */
@@ -12874,7 +12875,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingStatus20
 #define SOAP_TYPE_tt__ImagingStatus20 (686)
 /* tt:ImagingStatus20 */
-class SOAP_CMAC tt__ImagingStatus20 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingStatus20 : public xsd__anyType
 {
 public:
 	class tt__FocusStatus20* FocusStatus20;	/* optional element of type tt:FocusStatus20 */
@@ -12896,7 +12897,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingStatus20Extension
 #define SOAP_TYPE_tt__ImagingStatus20Extension (687)
 /* tt:ImagingStatus20Extension */
-class SOAP_CMAC tt__ImagingStatus20Extension : public xsd__anyType
+class ONVIFLIB_API tt__ImagingStatus20Extension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12916,7 +12917,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusStatus20
 #define SOAP_TYPE_tt__FocusStatus20 (688)
 /* tt:FocusStatus20 */
-class SOAP_CMAC tt__FocusStatus20 : public xsd__anyType
+class ONVIFLIB_API tt__FocusStatus20 : public xsd__anyType
 {
 public:
 	float Position;	/* required element of type xsd:float */
@@ -12940,7 +12941,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusStatus20Extension
 #define SOAP_TYPE_tt__FocusStatus20Extension (689)
 /* tt:FocusStatus20Extension */
-class SOAP_CMAC tt__FocusStatus20Extension : public xsd__anyType
+class ONVIFLIB_API tt__FocusStatus20Extension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -12960,7 +12961,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingSettings20
 #define SOAP_TYPE_tt__ImagingSettings20 (690)
 /* tt:ImagingSettings20 */
-class SOAP_CMAC tt__ImagingSettings20 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingSettings20 : public xsd__anyType
 {
 public:
 	class tt__BacklightCompensation20* BacklightCompensation;	/* optional element of type tt:BacklightCompensation20 */
@@ -12991,7 +12992,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingSettingsExtension20
 #define SOAP_TYPE_tt__ImagingSettingsExtension20 (691)
 /* tt:ImagingSettingsExtension20 */
-class SOAP_CMAC tt__ImagingSettingsExtension20 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingSettingsExtension20 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13013,7 +13014,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingSettingsExtension202
 #define SOAP_TYPE_tt__ImagingSettingsExtension202 (692)
 /* tt:ImagingSettingsExtension202 */
-class SOAP_CMAC tt__ImagingSettingsExtension202 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingSettingsExtension202 : public xsd__anyType
 {
 public:
 	std::vector<class tt__IrCutFilterAutoAdjustment* >IrCutFilterAutoAdjustment;	/* optional element of type tt:IrCutFilterAutoAdjustment */
@@ -13034,7 +13035,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingSettingsExtension203
 #define SOAP_TYPE_tt__ImagingSettingsExtension203 (693)
 /* tt:ImagingSettingsExtension203 */
-class SOAP_CMAC tt__ImagingSettingsExtension203 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingSettingsExtension203 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13054,7 +13055,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImageStabilization
 #define SOAP_TYPE_tt__ImageStabilization (694)
 /* tt:ImageStabilization */
-class SOAP_CMAC tt__ImageStabilization : public xsd__anyType
+class ONVIFLIB_API tt__ImageStabilization : public xsd__anyType
 {
 public:
 	enum tt__ImageStabilizationMode Mode;	/* required element of type tt:ImageStabilizationMode */
@@ -13077,7 +13078,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImageStabilizationExtension
 #define SOAP_TYPE_tt__ImageStabilizationExtension (695)
 /* tt:ImageStabilizationExtension */
-class SOAP_CMAC tt__ImageStabilizationExtension : public xsd__anyType
+class ONVIFLIB_API tt__ImageStabilizationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13097,7 +13098,7 @@ public:
 #ifndef SOAP_TYPE_tt__IrCutFilterAutoAdjustment
 #define SOAP_TYPE_tt__IrCutFilterAutoAdjustment (696)
 /* tt:IrCutFilterAutoAdjustment */
-class SOAP_CMAC tt__IrCutFilterAutoAdjustment : public xsd__anyType
+class ONVIFLIB_API tt__IrCutFilterAutoAdjustment : public xsd__anyType
 {
 public:
 	std::string BoundaryType;	/* required element of type xsd:string */
@@ -13121,7 +13122,7 @@ public:
 #ifndef SOAP_TYPE_tt__IrCutFilterAutoAdjustmentExtension
 #define SOAP_TYPE_tt__IrCutFilterAutoAdjustmentExtension (697)
 /* tt:IrCutFilterAutoAdjustmentExtension */
-class SOAP_CMAC tt__IrCutFilterAutoAdjustmentExtension : public xsd__anyType
+class ONVIFLIB_API tt__IrCutFilterAutoAdjustmentExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13141,7 +13142,7 @@ public:
 #ifndef SOAP_TYPE_tt__WideDynamicRange20
 #define SOAP_TYPE_tt__WideDynamicRange20 (698)
 /* tt:WideDynamicRange20 */
-class SOAP_CMAC tt__WideDynamicRange20 : public xsd__anyType
+class ONVIFLIB_API tt__WideDynamicRange20 : public xsd__anyType
 {
 public:
 	enum tt__WideDynamicMode Mode;	/* required element of type tt:WideDynamicMode */
@@ -13162,7 +13163,7 @@ public:
 #ifndef SOAP_TYPE_tt__BacklightCompensation20
 #define SOAP_TYPE_tt__BacklightCompensation20 (699)
 /* tt:BacklightCompensation20 */
-class SOAP_CMAC tt__BacklightCompensation20 : public xsd__anyType
+class ONVIFLIB_API tt__BacklightCompensation20 : public xsd__anyType
 {
 public:
 	enum tt__BacklightCompensationMode Mode;	/* required element of type tt:BacklightCompensationMode */
@@ -13183,7 +13184,7 @@ public:
 #ifndef SOAP_TYPE_tt__Exposure20
 #define SOAP_TYPE_tt__Exposure20 (700)
 /* tt:Exposure20 */
-class SOAP_CMAC tt__Exposure20 : public xsd__anyType
+class ONVIFLIB_API tt__Exposure20 : public xsd__anyType
 {
 public:
 	enum tt__ExposureMode Mode;	/* required element of type tt:ExposureMode */
@@ -13214,7 +13215,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingOptions20
 #define SOAP_TYPE_tt__ImagingOptions20 (701)
 /* tt:ImagingOptions20 */
-class SOAP_CMAC tt__ImagingOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingOptions20 : public xsd__anyType
 {
 public:
 	class tt__BacklightCompensationOptions20* BacklightCompensation;	/* optional element of type tt:BacklightCompensationOptions20 */
@@ -13245,7 +13246,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingOptions20Extension
 #define SOAP_TYPE_tt__ImagingOptions20Extension (702)
 /* tt:ImagingOptions20Extension */
-class SOAP_CMAC tt__ImagingOptions20Extension : public xsd__anyType
+class ONVIFLIB_API tt__ImagingOptions20Extension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13267,7 +13268,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingOptions20Extension2
 #define SOAP_TYPE_tt__ImagingOptions20Extension2 (703)
 /* tt:ImagingOptions20Extension2 */
-class SOAP_CMAC tt__ImagingOptions20Extension2 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingOptions20Extension2 : public xsd__anyType
 {
 public:
 	class tt__IrCutFilterAutoAdjustmentOptions* IrCutFilterAutoAdjustment;	/* optional element of type tt:IrCutFilterAutoAdjustmentOptions */
@@ -13288,7 +13289,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImagingOptions20Extension3
 #define SOAP_TYPE_tt__ImagingOptions20Extension3 (704)
 /* tt:ImagingOptions20Extension3 */
-class SOAP_CMAC tt__ImagingOptions20Extension3 : public xsd__anyType
+class ONVIFLIB_API tt__ImagingOptions20Extension3 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13308,7 +13309,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImageStabilizationOptions
 #define SOAP_TYPE_tt__ImageStabilizationOptions (705)
 /* tt:ImageStabilizationOptions */
-class SOAP_CMAC tt__ImageStabilizationOptions : public xsd__anyType
+class ONVIFLIB_API tt__ImageStabilizationOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__ImageStabilizationMode >Mode;	/* required element of type tt:ImageStabilizationMode */
@@ -13331,7 +13332,7 @@ public:
 #ifndef SOAP_TYPE_tt__ImageStabilizationOptionsExtension
 #define SOAP_TYPE_tt__ImageStabilizationOptionsExtension (706)
 /* tt:ImageStabilizationOptionsExtension */
-class SOAP_CMAC tt__ImageStabilizationOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__ImageStabilizationOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13351,7 +13352,7 @@ public:
 #ifndef SOAP_TYPE_tt__IrCutFilterAutoAdjustmentOptions
 #define SOAP_TYPE_tt__IrCutFilterAutoAdjustmentOptions (707)
 /* tt:IrCutFilterAutoAdjustmentOptions */
-class SOAP_CMAC tt__IrCutFilterAutoAdjustmentOptions : public xsd__anyType
+class ONVIFLIB_API tt__IrCutFilterAutoAdjustmentOptions : public xsd__anyType
 {
 public:
 	std::vector<std::string >BoundaryType;	/* required element of type xsd:string */
@@ -13375,7 +13376,7 @@ public:
 #ifndef SOAP_TYPE_tt__IrCutFilterAutoAdjustmentOptionsExtension
 #define SOAP_TYPE_tt__IrCutFilterAutoAdjustmentOptionsExtension (708)
 /* tt:IrCutFilterAutoAdjustmentOptionsExtension */
-class SOAP_CMAC tt__IrCutFilterAutoAdjustmentOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__IrCutFilterAutoAdjustmentOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13395,7 +13396,7 @@ public:
 #ifndef SOAP_TYPE_tt__WideDynamicRangeOptions20
 #define SOAP_TYPE_tt__WideDynamicRangeOptions20 (709)
 /* tt:WideDynamicRangeOptions20 */
-class SOAP_CMAC tt__WideDynamicRangeOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__WideDynamicRangeOptions20 : public xsd__anyType
 {
 public:
 	std::vector<enum tt__WideDynamicMode >Mode;	/* required element of type tt:WideDynamicMode */
@@ -13416,7 +13417,7 @@ public:
 #ifndef SOAP_TYPE_tt__BacklightCompensationOptions20
 #define SOAP_TYPE_tt__BacklightCompensationOptions20 (710)
 /* tt:BacklightCompensationOptions20 */
-class SOAP_CMAC tt__BacklightCompensationOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__BacklightCompensationOptions20 : public xsd__anyType
 {
 public:
 	std::vector<enum tt__BacklightCompensationMode >Mode;	/* required element of type tt:BacklightCompensationMode */
@@ -13437,7 +13438,7 @@ public:
 #ifndef SOAP_TYPE_tt__ExposureOptions20
 #define SOAP_TYPE_tt__ExposureOptions20 (711)
 /* tt:ExposureOptions20 */
-class SOAP_CMAC tt__ExposureOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__ExposureOptions20 : public xsd__anyType
 {
 public:
 	std::vector<enum tt__ExposureMode >Mode;	/* required element of type tt:ExposureMode */
@@ -13467,7 +13468,7 @@ public:
 #ifndef SOAP_TYPE_tt__MoveOptions20
 #define SOAP_TYPE_tt__MoveOptions20 (712)
 /* tt:MoveOptions20 */
-class SOAP_CMAC tt__MoveOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__MoveOptions20 : public xsd__anyType
 {
 public:
 	tt__AbsoluteFocusOptions* Absolute;	/* optional element of type tt:AbsoluteFocusOptions */
@@ -13489,7 +13490,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelativeFocusOptions20
 #define SOAP_TYPE_tt__RelativeFocusOptions20 (713)
 /* tt:RelativeFocusOptions20 */
-class SOAP_CMAC tt__RelativeFocusOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__RelativeFocusOptions20 : public xsd__anyType
 {
 public:
 	tt__FloatRange* Distance;	/* required element of type tt:FloatRange */
@@ -13510,7 +13511,7 @@ public:
 #ifndef SOAP_TYPE_tt__WhiteBalance20
 #define SOAP_TYPE_tt__WhiteBalance20 (714)
 /* tt:WhiteBalance20 */
-class SOAP_CMAC tt__WhiteBalance20 : public xsd__anyType
+class ONVIFLIB_API tt__WhiteBalance20 : public xsd__anyType
 {
 public:
 	enum tt__WhiteBalanceMode Mode;	/* required element of type tt:WhiteBalanceMode */
@@ -13534,7 +13535,7 @@ public:
 #ifndef SOAP_TYPE_tt__WhiteBalance20Extension
 #define SOAP_TYPE_tt__WhiteBalance20Extension (715)
 /* tt:WhiteBalance20Extension */
-class SOAP_CMAC tt__WhiteBalance20Extension : public xsd__anyType
+class ONVIFLIB_API tt__WhiteBalance20Extension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13554,7 +13555,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusConfiguration20
 #define SOAP_TYPE_tt__FocusConfiguration20 (716)
 /* tt:FocusConfiguration20 */
-class SOAP_CMAC tt__FocusConfiguration20 : public xsd__anyType
+class ONVIFLIB_API tt__FocusConfiguration20 : public xsd__anyType
 {
 public:
 	enum tt__AutoFocusMode AutoFocusMode;	/* required element of type tt:AutoFocusMode */
@@ -13579,7 +13580,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusConfiguration20Extension
 #define SOAP_TYPE_tt__FocusConfiguration20Extension (717)
 /* tt:FocusConfiguration20Extension */
-class SOAP_CMAC tt__FocusConfiguration20Extension : public xsd__anyType
+class ONVIFLIB_API tt__FocusConfiguration20Extension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13599,7 +13600,7 @@ public:
 #ifndef SOAP_TYPE_tt__WhiteBalanceOptions20
 #define SOAP_TYPE_tt__WhiteBalanceOptions20 (718)
 /* tt:WhiteBalanceOptions20 */
-class SOAP_CMAC tt__WhiteBalanceOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__WhiteBalanceOptions20 : public xsd__anyType
 {
 public:
 	std::vector<enum tt__WhiteBalanceMode >Mode;	/* required element of type tt:WhiteBalanceMode */
@@ -13622,7 +13623,7 @@ public:
 #ifndef SOAP_TYPE_tt__WhiteBalanceOptions20Extension
 #define SOAP_TYPE_tt__WhiteBalanceOptions20Extension (719)
 /* tt:WhiteBalanceOptions20Extension */
-class SOAP_CMAC tt__WhiteBalanceOptions20Extension : public xsd__anyType
+class ONVIFLIB_API tt__WhiteBalanceOptions20Extension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13642,7 +13643,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusOptions20
 #define SOAP_TYPE_tt__FocusOptions20 (720)
 /* tt:FocusOptions20 */
-class SOAP_CMAC tt__FocusOptions20 : public xsd__anyType
+class ONVIFLIB_API tt__FocusOptions20 : public xsd__anyType
 {
 public:
 	std::vector<enum tt__AutoFocusMode >AutoFocusModes;	/* optional element of type tt:AutoFocusMode */
@@ -13666,7 +13667,7 @@ public:
 #ifndef SOAP_TYPE_tt__FocusOptions20Extension
 #define SOAP_TYPE_tt__FocusOptions20Extension (721)
 /* tt:FocusOptions20Extension */
-class SOAP_CMAC tt__FocusOptions20Extension : public xsd__anyType
+class ONVIFLIB_API tt__FocusOptions20Extension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13686,7 +13687,7 @@ public:
 #ifndef SOAP_TYPE_tt__MessageExtension
 #define SOAP_TYPE_tt__MessageExtension (722)
 /* tt:MessageExtension */
-class SOAP_CMAC tt__MessageExtension : public xsd__anyType
+class ONVIFLIB_API tt__MessageExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13706,7 +13707,7 @@ public:
 #ifndef SOAP_TYPE__tt__ItemList_SimpleItem
 #define SOAP_TYPE__tt__ItemList_SimpleItem (1873)
 /* tt:ItemList-SimpleItem */
-class SOAP_CMAC _tt__ItemList_SimpleItem
+class ONVIFLIB_API _tt__ItemList_SimpleItem
 {
 public:
 	std::string Name;	/* required attribute */
@@ -13727,7 +13728,7 @@ public:
 #ifndef SOAP_TYPE__tt__ItemList_ElementItem
 #define SOAP_TYPE__tt__ItemList_ElementItem (1876)
 /* tt:ItemList-ElementItem */
-class SOAP_CMAC _tt__ItemList_ElementItem
+class ONVIFLIB_API _tt__ItemList_ElementItem
 {
 public:
 	char* __any;
@@ -13748,7 +13749,7 @@ public:
 #ifndef SOAP_TYPE_tt__ItemList
 #define SOAP_TYPE_tt__ItemList (723)
 /* tt:ItemList */
-class SOAP_CMAC tt__ItemList : public xsd__anyType
+class ONVIFLIB_API tt__ItemList : public xsd__anyType
 {
 public:
 	std::vector<_tt__ItemList_SimpleItem >* SimpleItem;	/* optional element of type tt:ItemList-SimpleItem */
@@ -13771,7 +13772,7 @@ public:
 #ifndef SOAP_TYPE_tt__ItemListExtension
 #define SOAP_TYPE_tt__ItemListExtension (724)
 /* tt:ItemListExtension */
-class SOAP_CMAC tt__ItemListExtension : public xsd__anyType
+class ONVIFLIB_API tt__ItemListExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13791,7 +13792,7 @@ public:
 #ifndef SOAP_TYPE_tt__MessageDescription
 #define SOAP_TYPE_tt__MessageDescription (725)
 /* tt:MessageDescription */
-class SOAP_CMAC tt__MessageDescription : public xsd__anyType
+class ONVIFLIB_API tt__MessageDescription : public xsd__anyType
 {
 public:
 	class tt__ItemListDescription* Source;	/* optional element of type tt:ItemListDescription */
@@ -13816,7 +13817,7 @@ public:
 #ifndef SOAP_TYPE_tt__MessageDescriptionExtension
 #define SOAP_TYPE_tt__MessageDescriptionExtension (726)
 /* tt:MessageDescriptionExtension */
-class SOAP_CMAC tt__MessageDescriptionExtension : public xsd__anyType
+class ONVIFLIB_API tt__MessageDescriptionExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13836,7 +13837,7 @@ public:
 #ifndef SOAP_TYPE__tt__ItemListDescription_SimpleItemDescription
 #define SOAP_TYPE__tt__ItemListDescription_SimpleItemDescription (1882)
 /* tt:ItemListDescription-SimpleItemDescription */
-class SOAP_CMAC _tt__ItemListDescription_SimpleItemDescription
+class ONVIFLIB_API _tt__ItemListDescription_SimpleItemDescription
 {
 public:
 	std::string Name;	/* required attribute */
@@ -13857,7 +13858,7 @@ public:
 #ifndef SOAP_TYPE__tt__ItemListDescription_ElementItemDescription
 #define SOAP_TYPE__tt__ItemListDescription_ElementItemDescription (1885)
 /* tt:ItemListDescription-ElementItemDescription */
-class SOAP_CMAC _tt__ItemListDescription_ElementItemDescription
+class ONVIFLIB_API _tt__ItemListDescription_ElementItemDescription
 {
 public:
 	std::string Name;	/* required attribute */
@@ -13878,7 +13879,7 @@ public:
 #ifndef SOAP_TYPE_tt__ItemListDescription
 #define SOAP_TYPE_tt__ItemListDescription (727)
 /* tt:ItemListDescription */
-class SOAP_CMAC tt__ItemListDescription : public xsd__anyType
+class ONVIFLIB_API tt__ItemListDescription : public xsd__anyType
 {
 public:
 	std::vector<_tt__ItemListDescription_SimpleItemDescription >* SimpleItemDescription;	/* optional element of type tt:ItemListDescription-SimpleItemDescription */
@@ -13901,7 +13902,7 @@ public:
 #ifndef SOAP_TYPE_tt__ItemListDescriptionExtension
 #define SOAP_TYPE_tt__ItemListDescriptionExtension (728)
 /* tt:ItemListDescriptionExtension */
-class SOAP_CMAC tt__ItemListDescriptionExtension : public xsd__anyType
+class ONVIFLIB_API tt__ItemListDescriptionExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -13921,7 +13922,7 @@ public:
 #ifndef SOAP_TYPE_tt__Vector
 #define SOAP_TYPE_tt__Vector (729)
 /* Primitive tt:Vector schema type: */
-class SOAP_CMAC tt__Vector : public xsd__anyType
+class ONVIFLIB_API tt__Vector : public xsd__anyType
 {
 public:
 	float* x;	/* optional attribute */
@@ -13942,7 +13943,7 @@ public:
 #ifndef SOAP_TYPE_tt__Rectangle
 #define SOAP_TYPE_tt__Rectangle (730)
 /* Primitive tt:Rectangle schema type: */
-class SOAP_CMAC tt__Rectangle : public xsd__anyType
+class ONVIFLIB_API tt__Rectangle : public xsd__anyType
 {
 public:
 	float* bottom;	/* optional attribute */
@@ -13965,7 +13966,7 @@ public:
 #ifndef SOAP_TYPE_tt__Polygon
 #define SOAP_TYPE_tt__Polygon (731)
 /* tt:Polygon */
-class SOAP_CMAC tt__Polygon : public xsd__anyType
+class ONVIFLIB_API tt__Polygon : public xsd__anyType
 {
 public:
 	std::vector<tt__Vector* >Point;	/* required element of type tt:Vector */
@@ -13985,7 +13986,7 @@ public:
 #ifndef SOAP_TYPE_tt__Polyline
 #define SOAP_TYPE_tt__Polyline (732)
 /* tt:Polyline */
-class SOAP_CMAC tt__Polyline : public xsd__anyType
+class ONVIFLIB_API tt__Polyline : public xsd__anyType
 {
 public:
 	std::vector<tt__Vector* >Point;	/* required element of type tt:Vector */
@@ -14005,7 +14006,7 @@ public:
 #ifndef SOAP_TYPE_tt__Color
 #define SOAP_TYPE_tt__Color (733)
 /* Primitive tt:Color schema type: */
-class SOAP_CMAC tt__Color : public xsd__anyType
+class ONVIFLIB_API tt__Color : public xsd__anyType
 {
 public:
 	float X;	/* required attribute */
@@ -14028,7 +14029,7 @@ public:
 #ifndef SOAP_TYPE_tt__ColorCovariance
 #define SOAP_TYPE_tt__ColorCovariance (734)
 /* Primitive tt:ColorCovariance schema type: */
-class SOAP_CMAC tt__ColorCovariance : public xsd__anyType
+class ONVIFLIB_API tt__ColorCovariance : public xsd__anyType
 {
 public:
 	float XX;	/* required attribute */
@@ -14054,7 +14055,7 @@ public:
 #ifndef SOAP_TYPE_tt__Appearance
 #define SOAP_TYPE_tt__Appearance (735)
 /* tt:Appearance */
-class SOAP_CMAC tt__Appearance : public xsd__anyType
+class ONVIFLIB_API tt__Appearance : public xsd__anyType
 {
 public:
 	class tt__Transformation* Transformation;	/* optional element of type tt:Transformation */
@@ -14079,7 +14080,7 @@ public:
 #ifndef SOAP_TYPE_tt__AppearanceExtension
 #define SOAP_TYPE_tt__AppearanceExtension (736)
 /* tt:AppearanceExtension */
-class SOAP_CMAC tt__AppearanceExtension : public xsd__anyType
+class ONVIFLIB_API tt__AppearanceExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14099,7 +14100,7 @@ public:
 #ifndef SOAP_TYPE_tt__ShapeDescriptor
 #define SOAP_TYPE_tt__ShapeDescriptor (737)
 /* tt:ShapeDescriptor */
-class SOAP_CMAC tt__ShapeDescriptor : public xsd__anyType
+class ONVIFLIB_API tt__ShapeDescriptor : public xsd__anyType
 {
 public:
 	tt__Rectangle* BoundingBox;	/* required element of type tt:Rectangle */
@@ -14123,7 +14124,7 @@ public:
 #ifndef SOAP_TYPE_tt__ShapeDescriptorExtension
 #define SOAP_TYPE_tt__ShapeDescriptorExtension (738)
 /* tt:ShapeDescriptorExtension */
-class SOAP_CMAC tt__ShapeDescriptorExtension : public xsd__anyType
+class ONVIFLIB_API tt__ShapeDescriptorExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14143,7 +14144,7 @@ public:
 #ifndef SOAP_TYPE__tt__ColorDescriptor_ColorCluster
 #define SOAP_TYPE__tt__ColorDescriptor_ColorCluster (1899)
 /* tt:ColorDescriptor-ColorCluster */
-class SOAP_CMAC _tt__ColorDescriptor_ColorCluster
+class ONVIFLIB_API _tt__ColorDescriptor_ColorCluster
 {
 public:
 	tt__Color* Color;	/* required element of type tt:Color */
@@ -14165,7 +14166,7 @@ public:
 #ifndef SOAP_TYPE_tt__ColorDescriptor
 #define SOAP_TYPE_tt__ColorDescriptor (739)
 /* tt:ColorDescriptor */
-class SOAP_CMAC tt__ColorDescriptor : public xsd__anyType
+class ONVIFLIB_API tt__ColorDescriptor : public xsd__anyType
 {
 public:
 	std::vector<_tt__ColorDescriptor_ColorCluster >* ColorCluster;	/* optional element of type tt:ColorDescriptor-ColorCluster */
@@ -14187,7 +14188,7 @@ public:
 #ifndef SOAP_TYPE_tt__ColorDescriptorExtension
 #define SOAP_TYPE_tt__ColorDescriptorExtension (740)
 /* tt:ColorDescriptorExtension */
-class SOAP_CMAC tt__ColorDescriptorExtension : public xsd__anyType
+class ONVIFLIB_API tt__ColorDescriptorExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14207,7 +14208,7 @@ public:
 #ifndef SOAP_TYPE__tt__ClassDescriptor_ClassCandidate
 #define SOAP_TYPE__tt__ClassDescriptor_ClassCandidate (1905)
 /* tt:ClassDescriptor-ClassCandidate */
-class SOAP_CMAC _tt__ClassDescriptor_ClassCandidate
+class ONVIFLIB_API _tt__ClassDescriptor_ClassCandidate
 {
 public:
 	enum tt__ClassType Type;	/* required element of type tt:ClassType */
@@ -14228,7 +14229,7 @@ public:
 #ifndef SOAP_TYPE_tt__ClassDescriptor
 #define SOAP_TYPE_tt__ClassDescriptor (741)
 /* tt:ClassDescriptor */
-class SOAP_CMAC tt__ClassDescriptor : public xsd__anyType
+class ONVIFLIB_API tt__ClassDescriptor : public xsd__anyType
 {
 public:
 	std::vector<_tt__ClassDescriptor_ClassCandidate >* ClassCandidate;	/* optional element of type tt:ClassDescriptor-ClassCandidate */
@@ -14249,7 +14250,7 @@ public:
 #ifndef SOAP_TYPE_tt__ClassDescriptorExtension
 #define SOAP_TYPE_tt__ClassDescriptorExtension (742)
 /* tt:ClassDescriptorExtension */
-class SOAP_CMAC tt__ClassDescriptorExtension : public xsd__anyType
+class ONVIFLIB_API tt__ClassDescriptorExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14271,7 +14272,7 @@ public:
 #ifndef SOAP_TYPE_tt__ClassDescriptorExtension2
 #define SOAP_TYPE_tt__ClassDescriptorExtension2 (743)
 /* tt:ClassDescriptorExtension2 */
-class SOAP_CMAC tt__ClassDescriptorExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__ClassDescriptorExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14292,7 +14293,7 @@ public:
 #ifndef SOAP_TYPE_tt__OtherType
 #define SOAP_TYPE_tt__OtherType (744)
 /* tt:OtherType */
-class SOAP_CMAC tt__OtherType : public xsd__anyType
+class ONVIFLIB_API tt__OtherType : public xsd__anyType
 {
 public:
 	std::string Type;	/* required element of type xsd:string */
@@ -14315,7 +14316,7 @@ public:
 #ifndef SOAP_TYPE_tt__ObjectExtension
 #define SOAP_TYPE_tt__ObjectExtension (746)
 /* tt:ObjectExtension */
-class SOAP_CMAC tt__ObjectExtension : public xsd__anyType
+class ONVIFLIB_API tt__ObjectExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14335,7 +14336,7 @@ public:
 #ifndef SOAP_TYPE_tt__Transformation
 #define SOAP_TYPE_tt__Transformation (747)
 /* tt:Transformation */
-class SOAP_CMAC tt__Transformation : public xsd__anyType
+class ONVIFLIB_API tt__Transformation : public xsd__anyType
 {
 public:
 	tt__Vector* Translate;	/* optional element of type tt:Vector */
@@ -14358,7 +14359,7 @@ public:
 #ifndef SOAP_TYPE_tt__TransformationExtension
 #define SOAP_TYPE_tt__TransformationExtension (748)
 /* tt:TransformationExtension */
-class SOAP_CMAC tt__TransformationExtension : public xsd__anyType
+class ONVIFLIB_API tt__TransformationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14378,7 +14379,7 @@ public:
 #ifndef SOAP_TYPE_tt__Frame
 #define SOAP_TYPE_tt__Frame (749)
 /* tt:Frame */
-class SOAP_CMAC tt__Frame : public xsd__anyType
+class ONVIFLIB_API tt__Frame : public xsd__anyType
 {
 public:
 	tt__PTZStatus* PTZStatus;	/* optional element of type tt:PTZStatus */
@@ -14404,7 +14405,7 @@ public:
 #ifndef SOAP_TYPE_tt__FrameExtension
 #define SOAP_TYPE_tt__FrameExtension (750)
 /* tt:FrameExtension */
-class SOAP_CMAC tt__FrameExtension : public xsd__anyType
+class ONVIFLIB_API tt__FrameExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14426,7 +14427,7 @@ public:
 #ifndef SOAP_TYPE_tt__FrameExtension2
 #define SOAP_TYPE_tt__FrameExtension2 (751)
 /* tt:FrameExtension2 */
-class SOAP_CMAC tt__FrameExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__FrameExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14446,7 +14447,7 @@ public:
 #ifndef SOAP_TYPE_tt__Merge
 #define SOAP_TYPE_tt__Merge (752)
 /* tt:Merge */
-class SOAP_CMAC tt__Merge : public xsd__anyType
+class ONVIFLIB_API tt__Merge : public xsd__anyType
 {
 public:
 	std::vector<class tt__ObjectId* >from;	/* required element of type tt:ObjectId */
@@ -14467,7 +14468,7 @@ public:
 #ifndef SOAP_TYPE_tt__Split
 #define SOAP_TYPE_tt__Split (753)
 /* tt:Split */
-class SOAP_CMAC tt__Split : public xsd__anyType
+class ONVIFLIB_API tt__Split : public xsd__anyType
 {
 public:
 	tt__ObjectId* from;	/* required element of type tt:ObjectId */
@@ -14488,7 +14489,7 @@ public:
 #ifndef SOAP_TYPE_tt__Rename
 #define SOAP_TYPE_tt__Rename (754)
 /* tt:Rename */
-class SOAP_CMAC tt__Rename : public xsd__anyType
+class ONVIFLIB_API tt__Rename : public xsd__anyType
 {
 public:
 	tt__ObjectId* from;	/* required element of type tt:ObjectId */
@@ -14509,7 +14510,7 @@ public:
 #ifndef SOAP_TYPE_tt__ObjectId
 #define SOAP_TYPE_tt__ObjectId (755)
 /* Primitive tt:ObjectId schema type: */
-class SOAP_CMAC tt__ObjectId : public xsd__anyType
+class ONVIFLIB_API tt__ObjectId : public xsd__anyType
 {
 public:
 	std::string* ObjectId;	/* optional attribute */
@@ -14529,7 +14530,7 @@ public:
 #ifndef SOAP_TYPE__tt__Behaviour_Removed
 #define SOAP_TYPE__tt__Behaviour_Removed (1923)
 /* tt:Behaviour-Removed */
-class SOAP_CMAC _tt__Behaviour_Removed
+class ONVIFLIB_API _tt__Behaviour_Removed
 {
 public:
 	std::vector<char* >__any;
@@ -14549,7 +14550,7 @@ public:
 #ifndef SOAP_TYPE__tt__Behaviour_Idle
 #define SOAP_TYPE__tt__Behaviour_Idle (1925)
 /* tt:Behaviour-Idle */
-class SOAP_CMAC _tt__Behaviour_Idle
+class ONVIFLIB_API _tt__Behaviour_Idle
 {
 public:
 	std::vector<char* >__any;
@@ -14569,7 +14570,7 @@ public:
 #ifndef SOAP_TYPE_tt__Behaviour
 #define SOAP_TYPE_tt__Behaviour (756)
 /* tt:Behaviour */
-class SOAP_CMAC tt__Behaviour : public xsd__anyType
+class ONVIFLIB_API tt__Behaviour : public xsd__anyType
 {
 public:
 	_tt__Behaviour_Removed* Removed;	/* optional element of type tt:Behaviour-Removed */
@@ -14592,7 +14593,7 @@ public:
 #ifndef SOAP_TYPE_tt__BehaviourExtension
 #define SOAP_TYPE_tt__BehaviourExtension (757)
 /* tt:BehaviourExtension */
-class SOAP_CMAC tt__BehaviourExtension : public xsd__anyType
+class ONVIFLIB_API tt__BehaviourExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14612,7 +14613,7 @@ public:
 #ifndef SOAP_TYPE_tt__ObjectTree
 #define SOAP_TYPE_tt__ObjectTree (758)
 /* tt:ObjectTree */
-class SOAP_CMAC tt__ObjectTree : public xsd__anyType
+class ONVIFLIB_API tt__ObjectTree : public xsd__anyType
 {
 public:
 	std::vector<tt__Rename* >Rename;	/* optional element of type tt:Rename */
@@ -14637,7 +14638,7 @@ public:
 #ifndef SOAP_TYPE_tt__ObjectTreeExtension
 #define SOAP_TYPE_tt__ObjectTreeExtension (759)
 /* tt:ObjectTreeExtension */
-class SOAP_CMAC tt__ObjectTreeExtension : public xsd__anyType
+class ONVIFLIB_API tt__ObjectTreeExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14657,7 +14658,7 @@ public:
 #ifndef SOAP_TYPE_tt__MotionInCells
 #define SOAP_TYPE_tt__MotionInCells (760)
 /* tt:MotionInCells */
-class SOAP_CMAC tt__MotionInCells : public xsd__anyType
+class ONVIFLIB_API tt__MotionInCells : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14681,7 +14682,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsEngineConfiguration
 #define SOAP_TYPE_tt__AnalyticsEngineConfiguration (761)
 /* tt:AnalyticsEngineConfiguration */
-class SOAP_CMAC tt__AnalyticsEngineConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsEngineConfiguration : public xsd__anyType
 {
 public:
 	std::vector<class tt__Config* >AnalyticsModule;	/* optional element of type tt:Config */
@@ -14703,7 +14704,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsEngineConfigurationExtension
 #define SOAP_TYPE_tt__AnalyticsEngineConfigurationExtension (762)
 /* tt:AnalyticsEngineConfigurationExtension */
-class SOAP_CMAC tt__AnalyticsEngineConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsEngineConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14723,7 +14724,7 @@ public:
 #ifndef SOAP_TYPE_tt__RuleEngineConfiguration
 #define SOAP_TYPE_tt__RuleEngineConfiguration (763)
 /* tt:RuleEngineConfiguration */
-class SOAP_CMAC tt__RuleEngineConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__RuleEngineConfiguration : public xsd__anyType
 {
 public:
 	std::vector<tt__Config* >Rule;	/* optional element of type tt:Config */
@@ -14745,7 +14746,7 @@ public:
 #ifndef SOAP_TYPE_tt__RuleEngineConfigurationExtension
 #define SOAP_TYPE_tt__RuleEngineConfigurationExtension (764)
 /* tt:RuleEngineConfigurationExtension */
-class SOAP_CMAC tt__RuleEngineConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__RuleEngineConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14765,7 +14766,7 @@ public:
 #ifndef SOAP_TYPE_tt__Config
 #define SOAP_TYPE_tt__Config (765)
 /* tt:Config */
-class SOAP_CMAC tt__Config : public xsd__anyType
+class ONVIFLIB_API tt__Config : public xsd__anyType
 {
 public:
 	tt__ItemList* Parameters;	/* required element of type tt:ItemList */
@@ -14787,7 +14788,7 @@ public:
 #ifndef SOAP_TYPE__tt__ConfigDescription_Messages
 #define SOAP_TYPE__tt__ConfigDescription_Messages (1940)
 /* tt:ConfigDescription-Messages */
-class SOAP_CMAC _tt__ConfigDescription_Messages
+class ONVIFLIB_API _tt__ConfigDescription_Messages
 {
 public:
 	tt__ItemListDescription* Source;	/* optional element of type tt:ItemListDescription */
@@ -14813,7 +14814,7 @@ public:
 #ifndef SOAP_TYPE_tt__ConfigDescription
 #define SOAP_TYPE_tt__ConfigDescription (766)
 /* tt:ConfigDescription */
-class SOAP_CMAC tt__ConfigDescription : public xsd__anyType
+class ONVIFLIB_API tt__ConfigDescription : public xsd__anyType
 {
 public:
 	tt__ItemListDescription* Parameters;	/* required element of type tt:ItemListDescription */
@@ -14837,7 +14838,7 @@ public:
 #ifndef SOAP_TYPE_tt__ConfigDescriptionExtension
 #define SOAP_TYPE_tt__ConfigDescriptionExtension (767)
 /* tt:ConfigDescriptionExtension */
-class SOAP_CMAC tt__ConfigDescriptionExtension : public xsd__anyType
+class ONVIFLIB_API tt__ConfigDescriptionExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14857,7 +14858,7 @@ public:
 #ifndef SOAP_TYPE_tt__SupportedRules
 #define SOAP_TYPE_tt__SupportedRules (768)
 /* tt:SupportedRules */
-class SOAP_CMAC tt__SupportedRules : public xsd__anyType
+class ONVIFLIB_API tt__SupportedRules : public xsd__anyType
 {
 public:
 	std::vector<std::string >RuleContentSchemaLocation;	/* optional element of type xsd:anyURI */
@@ -14880,7 +14881,7 @@ public:
 #ifndef SOAP_TYPE_tt__SupportedRulesExtension
 #define SOAP_TYPE_tt__SupportedRulesExtension (769)
 /* tt:SupportedRulesExtension */
-class SOAP_CMAC tt__SupportedRulesExtension : public xsd__anyType
+class ONVIFLIB_API tt__SupportedRulesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14900,7 +14901,7 @@ public:
 #ifndef SOAP_TYPE_tt__SupportedAnalyticsModules
 #define SOAP_TYPE_tt__SupportedAnalyticsModules (770)
 /* tt:SupportedAnalyticsModules */
-class SOAP_CMAC tt__SupportedAnalyticsModules : public xsd__anyType
+class ONVIFLIB_API tt__SupportedAnalyticsModules : public xsd__anyType
 {
 public:
 	std::vector<std::string >AnalyticsModuleContentSchemaLocation;	/* optional element of type xsd:anyURI */
@@ -14923,7 +14924,7 @@ public:
 #ifndef SOAP_TYPE_tt__SupportedAnalyticsModulesExtension
 #define SOAP_TYPE_tt__SupportedAnalyticsModulesExtension (771)
 /* tt:SupportedAnalyticsModulesExtension */
-class SOAP_CMAC tt__SupportedAnalyticsModulesExtension : public xsd__anyType
+class ONVIFLIB_API tt__SupportedAnalyticsModulesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -14943,7 +14944,7 @@ public:
 #ifndef SOAP_TYPE_tt__PolygonConfiguration
 #define SOAP_TYPE_tt__PolygonConfiguration (772)
 /* tt:PolygonConfiguration */
-class SOAP_CMAC tt__PolygonConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__PolygonConfiguration : public xsd__anyType
 {
 public:
 	tt__Polygon* Polygon;	/* required element of type tt:Polygon */
@@ -14965,7 +14966,7 @@ public:
 #ifndef SOAP_TYPE_tt__PolylineArray
 #define SOAP_TYPE_tt__PolylineArray (773)
 /* tt:PolylineArray */
-class SOAP_CMAC tt__PolylineArray : public xsd__anyType
+class ONVIFLIB_API tt__PolylineArray : public xsd__anyType
 {
 public:
 	std::vector<tt__Polyline* >Segment;	/* required element of type tt:Polyline */
@@ -14987,7 +14988,7 @@ public:
 #ifndef SOAP_TYPE_tt__PolylineArrayExtension
 #define SOAP_TYPE_tt__PolylineArrayExtension (774)
 /* tt:PolylineArrayExtension */
-class SOAP_CMAC tt__PolylineArrayExtension : public xsd__anyType
+class ONVIFLIB_API tt__PolylineArrayExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15007,7 +15008,7 @@ public:
 #ifndef SOAP_TYPE_tt__PolylineArrayConfiguration
 #define SOAP_TYPE_tt__PolylineArrayConfiguration (775)
 /* tt:PolylineArrayConfiguration */
-class SOAP_CMAC tt__PolylineArrayConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__PolylineArrayConfiguration : public xsd__anyType
 {
 public:
 	tt__PolylineArray* PolylineArray;	/* required element of type tt:PolylineArray */
@@ -15029,7 +15030,7 @@ public:
 #ifndef SOAP_TYPE_tt__MotionExpression
 #define SOAP_TYPE_tt__MotionExpression (776)
 /* tt:MotionExpression */
-class SOAP_CMAC tt__MotionExpression : public xsd__anyType
+class ONVIFLIB_API tt__MotionExpression : public xsd__anyType
 {
 public:
 	std::string Expression;	/* required element of type xsd:string */
@@ -15052,7 +15053,7 @@ public:
 #ifndef SOAP_TYPE_tt__MotionExpressionConfiguration
 #define SOAP_TYPE_tt__MotionExpressionConfiguration (777)
 /* tt:MotionExpressionConfiguration */
-class SOAP_CMAC tt__MotionExpressionConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__MotionExpressionConfiguration : public xsd__anyType
 {
 public:
 	tt__MotionExpression* MotionExpression;	/* required element of type tt:MotionExpression */
@@ -15074,7 +15075,7 @@ public:
 #ifndef SOAP_TYPE_tt__CellLayout
 #define SOAP_TYPE_tt__CellLayout (778)
 /* tt:CellLayout */
-class SOAP_CMAC tt__CellLayout : public xsd__anyType
+class ONVIFLIB_API tt__CellLayout : public xsd__anyType
 {
 public:
 	tt__Transformation* Transformation;	/* required element of type tt:Transformation */
@@ -15114,7 +15115,7 @@ union _tt__union_MetadataStream
 #ifndef SOAP_TYPE___tt__union_MetadataStream
 #define SOAP_TYPE___tt__union_MetadataStream (1953)
 /* Operation wrapper: */
-class SOAP_CMAC __tt__union_MetadataStream
+class ONVIFLIB_API __tt__union_MetadataStream
 {
 public:
 	int __union_MetadataStream;	/* union discriminant (of union defined below) */
@@ -15135,7 +15136,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataStream
 #define SOAP_TYPE_tt__MetadataStream (779)
 /* tt:MetadataStream */
-class SOAP_CMAC tt__MetadataStream : public xsd__anyType
+class ONVIFLIB_API tt__MetadataStream : public xsd__anyType
 {
 public:
 	int __size_MetadataStream;	/* sequence of elements <-union-MetadataStream> */
@@ -15157,7 +15158,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataStreamExtension
 #define SOAP_TYPE_tt__MetadataStreamExtension (780)
 /* tt:MetadataStreamExtension */
-class SOAP_CMAC tt__MetadataStreamExtension : public xsd__anyType
+class ONVIFLIB_API tt__MetadataStreamExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15179,7 +15180,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataStreamExtension2
 #define SOAP_TYPE_tt__MetadataStreamExtension2 (781)
 /* tt:MetadataStreamExtension2 */
-class SOAP_CMAC tt__MetadataStreamExtension2 : public xsd__anyType
+class ONVIFLIB_API tt__MetadataStreamExtension2 : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15200,7 +15201,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioAnalyticsStream
 #define SOAP_TYPE_tt__AudioAnalyticsStream (782)
 /* tt:AudioAnalyticsStream */
-class SOAP_CMAC tt__AudioAnalyticsStream : public xsd__anyType
+class ONVIFLIB_API tt__AudioAnalyticsStream : public xsd__anyType
 {
 public:
 	std::vector<class tt__AudioDescriptor* >AudioDescriptor;	/* optional element of type tt:AudioDescriptor */
@@ -15222,7 +15223,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioDescriptor
 #define SOAP_TYPE_tt__AudioDescriptor (783)
 /* tt:AudioDescriptor */
-class SOAP_CMAC tt__AudioDescriptor : public xsd__anyType
+class ONVIFLIB_API tt__AudioDescriptor : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15244,7 +15245,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioAnalyticsStreamExtension
 #define SOAP_TYPE_tt__AudioAnalyticsStreamExtension (784)
 /* tt:AudioAnalyticsStreamExtension */
-class SOAP_CMAC tt__AudioAnalyticsStreamExtension : public xsd__anyType
+class ONVIFLIB_API tt__AudioAnalyticsStreamExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15277,7 +15278,7 @@ union _tt__union_VideoAnalyticsStream
 #ifndef SOAP_TYPE___tt__union_VideoAnalyticsStream
 #define SOAP_TYPE___tt__union_VideoAnalyticsStream (1965)
 /* Operation wrapper: */
-class SOAP_CMAC __tt__union_VideoAnalyticsStream
+class ONVIFLIB_API __tt__union_VideoAnalyticsStream
 {
 public:
 	int __union_VideoAnalyticsStream;	/* union discriminant (of union defined below) */
@@ -15298,7 +15299,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoAnalyticsStream
 #define SOAP_TYPE_tt__VideoAnalyticsStream (785)
 /* tt:VideoAnalyticsStream */
-class SOAP_CMAC tt__VideoAnalyticsStream : public xsd__anyType
+class ONVIFLIB_API tt__VideoAnalyticsStream : public xsd__anyType
 {
 public:
 	int __size_VideoAnalyticsStream;	/* sequence of elements <-union-VideoAnalyticsStream> */
@@ -15319,7 +15320,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoAnalyticsStreamExtension
 #define SOAP_TYPE_tt__VideoAnalyticsStreamExtension (786)
 /* tt:VideoAnalyticsStreamExtension */
-class SOAP_CMAC tt__VideoAnalyticsStreamExtension : public xsd__anyType
+class ONVIFLIB_API tt__VideoAnalyticsStreamExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15351,7 +15352,7 @@ union _tt__union_PTZStream
 #ifndef SOAP_TYPE___tt__union_PTZStream
 #define SOAP_TYPE___tt__union_PTZStream (1970)
 /* Operation wrapper: */
-class SOAP_CMAC __tt__union_PTZStream
+class ONVIFLIB_API __tt__union_PTZStream
 {
 public:
 	int __union_PTZStream;	/* union discriminant (of union defined below) */
@@ -15372,7 +15373,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZStream
 #define SOAP_TYPE_tt__PTZStream (787)
 /* tt:PTZStream */
-class SOAP_CMAC tt__PTZStream : public xsd__anyType
+class ONVIFLIB_API tt__PTZStream : public xsd__anyType
 {
 public:
 	int __size_PTZStream;	/* sequence of elements <-union-PTZStream> */
@@ -15393,7 +15394,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZStreamExtension
 #define SOAP_TYPE_tt__PTZStreamExtension (788)
 /* tt:PTZStreamExtension */
-class SOAP_CMAC tt__PTZStreamExtension : public xsd__anyType
+class ONVIFLIB_API tt__PTZStreamExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15425,7 +15426,7 @@ union _tt__union_EventStream
 #ifndef SOAP_TYPE___tt__union_EventStream
 #define SOAP_TYPE___tt__union_EventStream (1974)
 /* Operation wrapper: */
-class SOAP_CMAC __tt__union_EventStream
+class ONVIFLIB_API __tt__union_EventStream
 {
 public:
 	int __union_EventStream;	/* union discriminant (of union defined below) */
@@ -15446,7 +15447,7 @@ public:
 #ifndef SOAP_TYPE_tt__EventStream
 #define SOAP_TYPE_tt__EventStream (789)
 /* tt:EventStream */
-class SOAP_CMAC tt__EventStream : public xsd__anyType
+class ONVIFLIB_API tt__EventStream : public xsd__anyType
 {
 public:
 	int __size_EventStream;	/* sequence of elements <-union-EventStream> */
@@ -15467,7 +15468,7 @@ public:
 #ifndef SOAP_TYPE_tt__EventStreamExtension
 #define SOAP_TYPE_tt__EventStreamExtension (790)
 /* tt:EventStreamExtension */
-class SOAP_CMAC tt__EventStreamExtension : public xsd__anyType
+class ONVIFLIB_API tt__EventStreamExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15487,7 +15488,7 @@ public:
 #ifndef SOAP_TYPE_tt__PaneConfiguration
 #define SOAP_TYPE_tt__PaneConfiguration (791)
 /* tt:PaneConfiguration */
-class SOAP_CMAC tt__PaneConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__PaneConfiguration : public xsd__anyType
 {
 public:
 	std::string* PaneName;	/* optional element of type xsd:string */
@@ -15514,7 +15515,7 @@ public:
 #ifndef SOAP_TYPE_tt__PaneLayout
 #define SOAP_TYPE_tt__PaneLayout (792)
 /* tt:PaneLayout */
-class SOAP_CMAC tt__PaneLayout : public xsd__anyType
+class ONVIFLIB_API tt__PaneLayout : public xsd__anyType
 {
 public:
 	std::string Pane;	/* required element of type tt:ReferenceToken */
@@ -15537,7 +15538,7 @@ public:
 #ifndef SOAP_TYPE_tt__Layout
 #define SOAP_TYPE_tt__Layout (793)
 /* tt:Layout */
-class SOAP_CMAC tt__Layout : public xsd__anyType
+class ONVIFLIB_API tt__Layout : public xsd__anyType
 {
 public:
 	std::vector<tt__PaneLayout* >PaneLayout;	/* required element of type tt:PaneLayout */
@@ -15559,7 +15560,7 @@ public:
 #ifndef SOAP_TYPE_tt__LayoutExtension
 #define SOAP_TYPE_tt__LayoutExtension (794)
 /* tt:LayoutExtension */
-class SOAP_CMAC tt__LayoutExtension : public xsd__anyType
+class ONVIFLIB_API tt__LayoutExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15579,7 +15580,7 @@ public:
 #ifndef SOAP_TYPE_tt__CodingCapabilities
 #define SOAP_TYPE_tt__CodingCapabilities (795)
 /* tt:CodingCapabilities */
-class SOAP_CMAC tt__CodingCapabilities : public xsd__anyType
+class ONVIFLIB_API tt__CodingCapabilities : public xsd__anyType
 {
 public:
 	tt__AudioEncoderConfigurationOptions* AudioEncodingCapabilities;	/* optional element of type tt:AudioEncoderConfigurationOptions */
@@ -15603,7 +15604,7 @@ public:
 #ifndef SOAP_TYPE_tt__LayoutOptions
 #define SOAP_TYPE_tt__LayoutOptions (796)
 /* tt:LayoutOptions */
-class SOAP_CMAC tt__LayoutOptions : public xsd__anyType
+class ONVIFLIB_API tt__LayoutOptions : public xsd__anyType
 {
 public:
 	std::vector<class tt__PaneLayoutOptions* >PaneLayoutOptions;	/* required element of type tt:PaneLayoutOptions */
@@ -15625,7 +15626,7 @@ public:
 #ifndef SOAP_TYPE_tt__LayoutOptionsExtension
 #define SOAP_TYPE_tt__LayoutOptionsExtension (797)
 /* tt:LayoutOptionsExtension */
-class SOAP_CMAC tt__LayoutOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__LayoutOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15645,7 +15646,7 @@ public:
 #ifndef SOAP_TYPE_tt__PaneLayoutOptions
 #define SOAP_TYPE_tt__PaneLayoutOptions (798)
 /* tt:PaneLayoutOptions */
-class SOAP_CMAC tt__PaneLayoutOptions : public xsd__anyType
+class ONVIFLIB_API tt__PaneLayoutOptions : public xsd__anyType
 {
 public:
 	std::vector<tt__Rectangle* >Area;	/* required element of type tt:Rectangle */
@@ -15667,7 +15668,7 @@ public:
 #ifndef SOAP_TYPE_tt__PaneOptionExtension
 #define SOAP_TYPE_tt__PaneOptionExtension (799)
 /* tt:PaneOptionExtension */
-class SOAP_CMAC tt__PaneOptionExtension : public xsd__anyType
+class ONVIFLIB_API tt__PaneOptionExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15687,7 +15688,7 @@ public:
 #ifndef SOAP_TYPE_tt__Receiver
 #define SOAP_TYPE_tt__Receiver (800)
 /* tt:Receiver */
-class SOAP_CMAC tt__Receiver : public xsd__anyType
+class ONVIFLIB_API tt__Receiver : public xsd__anyType
 {
 public:
 	std::string Token;	/* required element of type tt:ReferenceToken */
@@ -15710,7 +15711,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReceiverConfiguration
 #define SOAP_TYPE_tt__ReceiverConfiguration (801)
 /* tt:ReceiverConfiguration */
-class SOAP_CMAC tt__ReceiverConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__ReceiverConfiguration : public xsd__anyType
 {
 public:
 	enum tt__ReceiverMode Mode;	/* required element of type tt:ReceiverMode */
@@ -15734,7 +15735,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReceiverStateInformation
 #define SOAP_TYPE_tt__ReceiverStateInformation (802)
 /* tt:ReceiverStateInformation */
-class SOAP_CMAC tt__ReceiverStateInformation : public xsd__anyType
+class ONVIFLIB_API tt__ReceiverStateInformation : public xsd__anyType
 {
 public:
 	enum tt__ReceiverState State;	/* required element of type tt:ReceiverState */
@@ -15757,7 +15758,7 @@ public:
 #ifndef SOAP_TYPE_tt__SourceReference
 #define SOAP_TYPE_tt__SourceReference (803)
 /* tt:SourceReference */
-class SOAP_CMAC tt__SourceReference : public xsd__anyType
+class ONVIFLIB_API tt__SourceReference : public xsd__anyType
 {
 public:
 	std::string Token;	/* required element of type tt:ReferenceToken */
@@ -15780,7 +15781,7 @@ public:
 #ifndef SOAP_TYPE_tt__DateTimeRange
 #define SOAP_TYPE_tt__DateTimeRange (804)
 /* tt:DateTimeRange */
-class SOAP_CMAC tt__DateTimeRange : public xsd__anyType
+class ONVIFLIB_API tt__DateTimeRange : public xsd__anyType
 {
 public:
 	time_t From;	/* required element of type xsd:dateTime */
@@ -15803,7 +15804,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingSummary
 #define SOAP_TYPE_tt__RecordingSummary (805)
 /* tt:RecordingSummary */
-class SOAP_CMAC tt__RecordingSummary : public xsd__anyType
+class ONVIFLIB_API tt__RecordingSummary : public xsd__anyType
 {
 public:
 	time_t DataFrom;	/* required element of type xsd:dateTime */
@@ -15827,7 +15828,7 @@ public:
 #ifndef SOAP_TYPE_tt__SearchScope
 #define SOAP_TYPE_tt__SearchScope (806)
 /* tt:SearchScope */
-class SOAP_CMAC tt__SearchScope : public xsd__anyType
+class ONVIFLIB_API tt__SearchScope : public xsd__anyType
 {
 public:
 	std::vector<tt__SourceReference* >IncludedSources;	/* optional element of type tt:SourceReference */
@@ -15851,7 +15852,7 @@ public:
 #ifndef SOAP_TYPE_tt__SearchScopeExtension
 #define SOAP_TYPE_tt__SearchScopeExtension (807)
 /* tt:SearchScopeExtension */
-class SOAP_CMAC tt__SearchScopeExtension : public xsd__anyType
+class ONVIFLIB_API tt__SearchScopeExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -15871,7 +15872,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZPositionFilter
 #define SOAP_TYPE_tt__PTZPositionFilter (809)
 /* tt:PTZPositionFilter */
-class SOAP_CMAC tt__PTZPositionFilter : public xsd__anyType
+class ONVIFLIB_API tt__PTZPositionFilter : public xsd__anyType
 {
 public:
 	tt__PTZVector* MinPosition;	/* required element of type tt:PTZVector */
@@ -15895,7 +15896,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataFilter
 #define SOAP_TYPE_tt__MetadataFilter (810)
 /* tt:MetadataFilter */
-class SOAP_CMAC tt__MetadataFilter : public xsd__anyType
+class ONVIFLIB_API tt__MetadataFilter : public xsd__anyType
 {
 public:
 	std::string MetadataStreamFilter;	/* required element of type tt:XPathExpression */
@@ -15917,7 +15918,7 @@ public:
 #ifndef SOAP_TYPE_tt__FindRecordingResultList
 #define SOAP_TYPE_tt__FindRecordingResultList (811)
 /* tt:FindRecordingResultList */
-class SOAP_CMAC tt__FindRecordingResultList : public xsd__anyType
+class ONVIFLIB_API tt__FindRecordingResultList : public xsd__anyType
 {
 public:
 	enum tt__SearchState SearchState;	/* required element of type tt:SearchState */
@@ -15938,7 +15939,7 @@ public:
 #ifndef SOAP_TYPE_tt__FindEventResultList
 #define SOAP_TYPE_tt__FindEventResultList (812)
 /* tt:FindEventResultList */
-class SOAP_CMAC tt__FindEventResultList : public xsd__anyType
+class ONVIFLIB_API tt__FindEventResultList : public xsd__anyType
 {
 public:
 	enum tt__SearchState SearchState;	/* required element of type tt:SearchState */
@@ -15959,7 +15960,7 @@ public:
 #ifndef SOAP_TYPE_tt__FindEventResult
 #define SOAP_TYPE_tt__FindEventResult (813)
 /* tt:FindEventResult */
-class SOAP_CMAC tt__FindEventResult : public xsd__anyType
+class ONVIFLIB_API tt__FindEventResult : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -15985,7 +15986,7 @@ public:
 #ifndef SOAP_TYPE_tt__FindPTZPositionResultList
 #define SOAP_TYPE_tt__FindPTZPositionResultList (814)
 /* tt:FindPTZPositionResultList */
-class SOAP_CMAC tt__FindPTZPositionResultList : public xsd__anyType
+class ONVIFLIB_API tt__FindPTZPositionResultList : public xsd__anyType
 {
 public:
 	enum tt__SearchState SearchState;	/* required element of type tt:SearchState */
@@ -16006,7 +16007,7 @@ public:
 #ifndef SOAP_TYPE_tt__FindPTZPositionResult
 #define SOAP_TYPE_tt__FindPTZPositionResult (815)
 /* tt:FindPTZPositionResult */
-class SOAP_CMAC tt__FindPTZPositionResult : public xsd__anyType
+class ONVIFLIB_API tt__FindPTZPositionResult : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -16031,7 +16032,7 @@ public:
 #ifndef SOAP_TYPE_tt__FindMetadataResultList
 #define SOAP_TYPE_tt__FindMetadataResultList (816)
 /* tt:FindMetadataResultList */
-class SOAP_CMAC tt__FindMetadataResultList : public xsd__anyType
+class ONVIFLIB_API tt__FindMetadataResultList : public xsd__anyType
 {
 public:
 	enum tt__SearchState SearchState;	/* required element of type tt:SearchState */
@@ -16052,7 +16053,7 @@ public:
 #ifndef SOAP_TYPE_tt__FindMetadataResult
 #define SOAP_TYPE_tt__FindMetadataResult (817)
 /* tt:FindMetadataResult */
-class SOAP_CMAC tt__FindMetadataResult : public xsd__anyType
+class ONVIFLIB_API tt__FindMetadataResult : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -16076,7 +16077,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingInformation
 #define SOAP_TYPE_tt__RecordingInformation (818)
 /* tt:RecordingInformation */
-class SOAP_CMAC tt__RecordingInformation : public xsd__anyType
+class ONVIFLIB_API tt__RecordingInformation : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -16104,7 +16105,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingSourceInformation
 #define SOAP_TYPE_tt__RecordingSourceInformation (819)
 /* tt:RecordingSourceInformation */
-class SOAP_CMAC tt__RecordingSourceInformation : public xsd__anyType
+class ONVIFLIB_API tt__RecordingSourceInformation : public xsd__anyType
 {
 public:
 	std::string SourceId;	/* required element of type xsd:anyURI */
@@ -16130,7 +16131,7 @@ public:
 #ifndef SOAP_TYPE_tt__TrackInformation
 #define SOAP_TYPE_tt__TrackInformation (820)
 /* tt:TrackInformation */
-class SOAP_CMAC tt__TrackInformation : public xsd__anyType
+class ONVIFLIB_API tt__TrackInformation : public xsd__anyType
 {
 public:
 	std::string TrackToken;	/* required element of type tt:TrackReference */
@@ -16156,7 +16157,7 @@ public:
 #ifndef SOAP_TYPE_tt__MediaAttributes
 #define SOAP_TYPE_tt__MediaAttributes (821)
 /* tt:MediaAttributes */
-class SOAP_CMAC tt__MediaAttributes : public xsd__anyType
+class ONVIFLIB_API tt__MediaAttributes : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -16181,7 +16182,7 @@ public:
 #ifndef SOAP_TYPE_tt__TrackAttributes
 #define SOAP_TYPE_tt__TrackAttributes (822)
 /* tt:TrackAttributes */
-class SOAP_CMAC tt__TrackAttributes : public xsd__anyType
+class ONVIFLIB_API tt__TrackAttributes : public xsd__anyType
 {
 public:
 	tt__TrackInformation* TrackInformation;	/* required element of type tt:TrackInformation */
@@ -16206,7 +16207,7 @@ public:
 #ifndef SOAP_TYPE_tt__TrackAttributesExtension
 #define SOAP_TYPE_tt__TrackAttributesExtension (823)
 /* tt:TrackAttributesExtension */
-class SOAP_CMAC tt__TrackAttributesExtension : public xsd__anyType
+class ONVIFLIB_API tt__TrackAttributesExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16226,7 +16227,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoAttributes
 #define SOAP_TYPE_tt__VideoAttributes (824)
 /* tt:VideoAttributes */
-class SOAP_CMAC tt__VideoAttributes : public xsd__anyType
+class ONVIFLIB_API tt__VideoAttributes : public xsd__anyType
 {
 public:
 	int* Bitrate;	/* optional element of type xsd:int */
@@ -16252,7 +16253,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioAttributes
 #define SOAP_TYPE_tt__AudioAttributes (825)
 /* tt:AudioAttributes */
-class SOAP_CMAC tt__AudioAttributes : public xsd__anyType
+class ONVIFLIB_API tt__AudioAttributes : public xsd__anyType
 {
 public:
 	int* Bitrate;	/* optional element of type xsd:int */
@@ -16276,7 +16277,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataAttributes
 #define SOAP_TYPE_tt__MetadataAttributes (826)
 /* tt:MetadataAttributes */
-class SOAP_CMAC tt__MetadataAttributes : public xsd__anyType
+class ONVIFLIB_API tt__MetadataAttributes : public xsd__anyType
 {
 public:
 	bool CanContainPTZ;	/* required element of type xsd:boolean */
@@ -16301,7 +16302,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingConfiguration
 #define SOAP_TYPE_tt__RecordingConfiguration (827)
 /* tt:RecordingConfiguration */
-class SOAP_CMAC tt__RecordingConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__RecordingConfiguration : public xsd__anyType
 {
 public:
 	tt__RecordingSourceInformation* Source;	/* required element of type tt:RecordingSourceInformation */
@@ -16325,7 +16326,7 @@ public:
 #ifndef SOAP_TYPE_tt__TrackConfiguration
 #define SOAP_TYPE_tt__TrackConfiguration (828)
 /* tt:TrackConfiguration */
-class SOAP_CMAC tt__TrackConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__TrackConfiguration : public xsd__anyType
 {
 public:
 	enum tt__TrackType TrackType;	/* required element of type tt:TrackType */
@@ -16348,7 +16349,7 @@ public:
 #ifndef SOAP_TYPE_tt__GetRecordingsResponseItem
 #define SOAP_TYPE_tt__GetRecordingsResponseItem (829)
 /* tt:GetRecordingsResponseItem */
-class SOAP_CMAC tt__GetRecordingsResponseItem : public xsd__anyType
+class ONVIFLIB_API tt__GetRecordingsResponseItem : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -16372,7 +16373,7 @@ public:
 #ifndef SOAP_TYPE_tt__GetTracksResponseList
 #define SOAP_TYPE_tt__GetTracksResponseList (830)
 /* tt:GetTracksResponseList */
-class SOAP_CMAC tt__GetTracksResponseList : public xsd__anyType
+class ONVIFLIB_API tt__GetTracksResponseList : public xsd__anyType
 {
 public:
 	std::vector<class tt__GetTracksResponseItem* >Track;	/* optional element of type tt:GetTracksResponseItem */
@@ -16393,7 +16394,7 @@ public:
 #ifndef SOAP_TYPE_tt__GetTracksResponseItem
 #define SOAP_TYPE_tt__GetTracksResponseItem (831)
 /* tt:GetTracksResponseItem */
-class SOAP_CMAC tt__GetTracksResponseItem : public xsd__anyType
+class ONVIFLIB_API tt__GetTracksResponseItem : public xsd__anyType
 {
 public:
 	std::string TrackToken;	/* required element of type tt:TrackReference */
@@ -16416,7 +16417,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobConfiguration
 #define SOAP_TYPE_tt__RecordingJobConfiguration (832)
 /* tt:RecordingJobConfiguration */
-class SOAP_CMAC tt__RecordingJobConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobConfiguration : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -16441,7 +16442,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobConfigurationExtension
 #define SOAP_TYPE_tt__RecordingJobConfigurationExtension (833)
 /* tt:RecordingJobConfigurationExtension */
-class SOAP_CMAC tt__RecordingJobConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16461,7 +16462,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobSource
 #define SOAP_TYPE_tt__RecordingJobSource (834)
 /* tt:RecordingJobSource */
-class SOAP_CMAC tt__RecordingJobSource : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobSource : public xsd__anyType
 {
 public:
 	tt__SourceReference* SourceToken;	/* optional element of type tt:SourceReference */
@@ -16485,7 +16486,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobSourceExtension
 #define SOAP_TYPE_tt__RecordingJobSourceExtension (835)
 /* tt:RecordingJobSourceExtension */
-class SOAP_CMAC tt__RecordingJobSourceExtension : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobSourceExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16505,7 +16506,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobTrack
 #define SOAP_TYPE_tt__RecordingJobTrack (836)
 /* tt:RecordingJobTrack */
-class SOAP_CMAC tt__RecordingJobTrack : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobTrack : public xsd__anyType
 {
 public:
 	std::string SourceTag;	/* required element of type xsd:string */
@@ -16528,7 +16529,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobStateInformation
 #define SOAP_TYPE_tt__RecordingJobStateInformation (837)
 /* tt:RecordingJobStateInformation */
-class SOAP_CMAC tt__RecordingJobStateInformation : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobStateInformation : public xsd__anyType
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -16552,7 +16553,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobStateInformationExtension
 #define SOAP_TYPE_tt__RecordingJobStateInformationExtension (838)
 /* tt:RecordingJobStateInformationExtension */
-class SOAP_CMAC tt__RecordingJobStateInformationExtension : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobStateInformationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16572,7 +16573,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobStateSource
 #define SOAP_TYPE_tt__RecordingJobStateSource (839)
 /* tt:RecordingJobStateSource */
-class SOAP_CMAC tt__RecordingJobStateSource : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobStateSource : public xsd__anyType
 {
 public:
 	tt__SourceReference* SourceToken;	/* required element of type tt:SourceReference */
@@ -16596,7 +16597,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobStateTracks
 #define SOAP_TYPE_tt__RecordingJobStateTracks (840)
 /* tt:RecordingJobStateTracks */
-class SOAP_CMAC tt__RecordingJobStateTracks : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobStateTracks : public xsd__anyType
 {
 public:
 	std::vector<class tt__RecordingJobStateTrack* >Track;	/* optional element of type tt:RecordingJobStateTrack */
@@ -16617,7 +16618,7 @@ public:
 #ifndef SOAP_TYPE_tt__RecordingJobStateTrack
 #define SOAP_TYPE_tt__RecordingJobStateTrack (841)
 /* tt:RecordingJobStateTrack */
-class SOAP_CMAC tt__RecordingJobStateTrack : public xsd__anyType
+class ONVIFLIB_API tt__RecordingJobStateTrack : public xsd__anyType
 {
 public:
 	std::string SourceTag;	/* required element of type xsd:string */
@@ -16642,7 +16643,7 @@ public:
 #ifndef SOAP_TYPE_tt__GetRecordingJobsResponseItem
 #define SOAP_TYPE_tt__GetRecordingJobsResponseItem (842)
 /* tt:GetRecordingJobsResponseItem */
-class SOAP_CMAC tt__GetRecordingJobsResponseItem : public xsd__anyType
+class ONVIFLIB_API tt__GetRecordingJobsResponseItem : public xsd__anyType
 {
 public:
 	std::string JobToken;	/* required element of type tt:RecordingJobReference */
@@ -16665,7 +16666,7 @@ public:
 #ifndef SOAP_TYPE_tt__ReplayConfiguration
 #define SOAP_TYPE_tt__ReplayConfiguration (843)
 /* tt:ReplayConfiguration */
-class SOAP_CMAC tt__ReplayConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__ReplayConfiguration : public xsd__anyType
 {
 public:
 	LONG64 SessionTimeout;	/* external */
@@ -16687,7 +16688,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsDeviceEngineConfiguration
 #define SOAP_TYPE_tt__AnalyticsDeviceEngineConfiguration (845)
 /* tt:AnalyticsDeviceEngineConfiguration */
-class SOAP_CMAC tt__AnalyticsDeviceEngineConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsDeviceEngineConfiguration : public xsd__anyType
 {
 public:
 	std::vector<class tt__EngineConfiguration* >EngineConfiguration;	/* required element of type tt:EngineConfiguration */
@@ -16709,7 +16710,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsDeviceEngineConfigurationExtension
 #define SOAP_TYPE_tt__AnalyticsDeviceEngineConfigurationExtension (846)
 /* tt:AnalyticsDeviceEngineConfigurationExtension */
-class SOAP_CMAC tt__AnalyticsDeviceEngineConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsDeviceEngineConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16729,7 +16730,7 @@ public:
 #ifndef SOAP_TYPE_tt__EngineConfiguration
 #define SOAP_TYPE_tt__EngineConfiguration (847)
 /* tt:EngineConfiguration */
-class SOAP_CMAC tt__EngineConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__EngineConfiguration : public xsd__anyType
 {
 public:
 	tt__VideoAnalyticsConfiguration* VideoAnalyticsConfiguration;	/* required element of type tt:VideoAnalyticsConfiguration */
@@ -16752,7 +16753,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsEngineInputInfo
 #define SOAP_TYPE_tt__AnalyticsEngineInputInfo (848)
 /* tt:AnalyticsEngineInputInfo */
-class SOAP_CMAC tt__AnalyticsEngineInputInfo : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsEngineInputInfo : public xsd__anyType
 {
 public:
 	tt__Config* InputInfo;	/* optional element of type tt:Config */
@@ -16774,7 +16775,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsEngineInputInfoExtension
 #define SOAP_TYPE_tt__AnalyticsEngineInputInfoExtension (849)
 /* tt:AnalyticsEngineInputInfoExtension */
-class SOAP_CMAC tt__AnalyticsEngineInputInfoExtension : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsEngineInputInfoExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16794,7 +16795,7 @@ public:
 #ifndef SOAP_TYPE_tt__SourceIdentification
 #define SOAP_TYPE_tt__SourceIdentification (851)
 /* tt:SourceIdentification */
-class SOAP_CMAC tt__SourceIdentification : public xsd__anyType
+class ONVIFLIB_API tt__SourceIdentification : public xsd__anyType
 {
 public:
 	std::string Name;	/* required element of type xsd:string */
@@ -16817,7 +16818,7 @@ public:
 #ifndef SOAP_TYPE_tt__SourceIdentificationExtension
 #define SOAP_TYPE_tt__SourceIdentificationExtension (852)
 /* tt:SourceIdentificationExtension */
-class SOAP_CMAC tt__SourceIdentificationExtension : public xsd__anyType
+class ONVIFLIB_API tt__SourceIdentificationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16837,7 +16838,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataInput
 #define SOAP_TYPE_tt__MetadataInput (853)
 /* tt:MetadataInput */
-class SOAP_CMAC tt__MetadataInput : public xsd__anyType
+class ONVIFLIB_API tt__MetadataInput : public xsd__anyType
 {
 public:
 	std::vector<tt__Config* >MetadataConfig;	/* optional element of type tt:Config */
@@ -16859,7 +16860,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataInputExtension
 #define SOAP_TYPE_tt__MetadataInputExtension (854)
 /* tt:MetadataInputExtension */
-class SOAP_CMAC tt__MetadataInputExtension : public xsd__anyType
+class ONVIFLIB_API tt__MetadataInputExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16879,7 +16880,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsStateInformation
 #define SOAP_TYPE_tt__AnalyticsStateInformation (856)
 /* tt:AnalyticsStateInformation */
-class SOAP_CMAC tt__AnalyticsStateInformation : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsStateInformation : public xsd__anyType
 {
 public:
 	std::string AnalyticsEngineControlToken;	/* required element of type tt:ReferenceToken */
@@ -16902,7 +16903,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsState
 #define SOAP_TYPE_tt__AnalyticsState (857)
 /* tt:AnalyticsState */
-class SOAP_CMAC tt__AnalyticsState : public xsd__anyType
+class ONVIFLIB_API tt__AnalyticsState : public xsd__anyType
 {
 public:
 	std::string* Error;	/* optional element of type xsd:string */
@@ -16925,7 +16926,7 @@ public:
 #ifndef SOAP_TYPE_tt__ActionEngineEventPayload
 #define SOAP_TYPE_tt__ActionEngineEventPayload (858)
 /* tt:ActionEngineEventPayload */
-class SOAP_CMAC tt__ActionEngineEventPayload : public xsd__anyType
+class ONVIFLIB_API tt__ActionEngineEventPayload : public xsd__anyType
 {
 public:
 	struct SOAP_ENV__Envelope* RequestInfo;	/* optional element of type SOAP-ENV:Envelope */
@@ -16949,7 +16950,7 @@ public:
 #ifndef SOAP_TYPE_tt__ActionEngineEventPayloadExtension
 #define SOAP_TYPE_tt__ActionEngineEventPayloadExtension (859)
 /* tt:ActionEngineEventPayloadExtension */
-class SOAP_CMAC tt__ActionEngineEventPayloadExtension : public xsd__anyType
+class ONVIFLIB_API tt__ActionEngineEventPayloadExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -16970,7 +16971,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioClassCandidate
 #define SOAP_TYPE_tt__AudioClassCandidate (860)
 /* tt:AudioClassCandidate */
-class SOAP_CMAC tt__AudioClassCandidate : public xsd__anyType
+class ONVIFLIB_API tt__AudioClassCandidate : public xsd__anyType
 {
 public:
 	std::string Type;	/* required element of type tt:AudioClassType */
@@ -16993,7 +16994,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioClassDescriptor
 #define SOAP_TYPE_tt__AudioClassDescriptor (861)
 /* tt:AudioClassDescriptor */
-class SOAP_CMAC tt__AudioClassDescriptor : public xsd__anyType
+class ONVIFLIB_API tt__AudioClassDescriptor : public xsd__anyType
 {
 public:
 	std::vector<tt__AudioClassCandidate* >ClassCandidate;	/* optional element of type tt:AudioClassCandidate */
@@ -17015,7 +17016,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioClassDescriptorExtension
 #define SOAP_TYPE_tt__AudioClassDescriptorExtension (862)
 /* tt:AudioClassDescriptorExtension */
-class SOAP_CMAC tt__AudioClassDescriptorExtension : public xsd__anyType
+class ONVIFLIB_API tt__AudioClassDescriptorExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17036,7 +17037,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDPosConfiguration
 #define SOAP_TYPE_tt__OSDPosConfiguration (864)
 /* tt:OSDPosConfiguration */
-class SOAP_CMAC tt__OSDPosConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__OSDPosConfiguration : public xsd__anyType
 {
 public:
 	std::string Type;	/* required element of type xsd:string */
@@ -17059,7 +17060,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDPosConfigurationExtension
 #define SOAP_TYPE_tt__OSDPosConfigurationExtension (865)
 /* tt:OSDPosConfigurationExtension */
-class SOAP_CMAC tt__OSDPosConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDPosConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17080,7 +17081,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDColor
 #define SOAP_TYPE_tt__OSDColor (866)
 /* tt:OSDColor */
-class SOAP_CMAC tt__OSDColor : public xsd__anyType
+class ONVIFLIB_API tt__OSDColor : public xsd__anyType
 {
 public:
 	tt__Color* Color;	/* required element of type tt:Color */
@@ -17102,7 +17103,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDTextConfiguration
 #define SOAP_TYPE_tt__OSDTextConfiguration (867)
 /* tt:OSDTextConfiguration */
-class SOAP_CMAC tt__OSDTextConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__OSDTextConfiguration : public xsd__anyType
 {
 public:
 	std::string Type;	/* required element of type xsd:string */
@@ -17130,7 +17131,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDTextConfigurationExtension
 #define SOAP_TYPE_tt__OSDTextConfigurationExtension (868)
 /* tt:OSDTextConfigurationExtension */
-class SOAP_CMAC tt__OSDTextConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDTextConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17151,7 +17152,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDImgConfiguration
 #define SOAP_TYPE_tt__OSDImgConfiguration (869)
 /* tt:OSDImgConfiguration */
-class SOAP_CMAC tt__OSDImgConfiguration : public xsd__anyType
+class ONVIFLIB_API tt__OSDImgConfiguration : public xsd__anyType
 {
 public:
 	std::string ImgPath;	/* required element of type xsd:anyURI */
@@ -17173,7 +17174,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDImgConfigurationExtension
 #define SOAP_TYPE_tt__OSDImgConfigurationExtension (870)
 /* tt:OSDImgConfigurationExtension */
-class SOAP_CMAC tt__OSDImgConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDImgConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17194,7 +17195,7 @@ public:
 #ifndef SOAP_TYPE_tt__ColorspaceRange
 #define SOAP_TYPE_tt__ColorspaceRange (871)
 /* tt:ColorspaceRange */
-class SOAP_CMAC tt__ColorspaceRange : public xsd__anyType
+class ONVIFLIB_API tt__ColorspaceRange : public xsd__anyType
 {
 public:
 	tt__FloatRange* X;	/* required element of type tt:FloatRange */
@@ -17230,7 +17231,7 @@ union _tt__union_ColorOptions
 #ifndef SOAP_TYPE_tt__ColorOptions
 #define SOAP_TYPE_tt__ColorOptions (872)
 /* tt:ColorOptions */
-class SOAP_CMAC tt__ColorOptions : public xsd__anyType
+class ONVIFLIB_API tt__ColorOptions : public xsd__anyType
 {
 public:
 	int __union_ColorOptions;	/* union discriminant (of union defined below) */
@@ -17252,7 +17253,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDColorOptions
 #define SOAP_TYPE_tt__OSDColorOptions (873)
 /* tt:OSDColorOptions */
-class SOAP_CMAC tt__OSDColorOptions : public xsd__anyType
+class ONVIFLIB_API tt__OSDColorOptions : public xsd__anyType
 {
 public:
 	tt__ColorOptions* Color;	/* optional element of type tt:ColorOptions */
@@ -17275,7 +17276,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDColorOptionsExtension
 #define SOAP_TYPE_tt__OSDColorOptionsExtension (874)
 /* tt:OSDColorOptionsExtension */
-class SOAP_CMAC tt__OSDColorOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDColorOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17296,7 +17297,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDTextOptions
 #define SOAP_TYPE_tt__OSDTextOptions (875)
 /* tt:OSDTextOptions */
-class SOAP_CMAC tt__OSDTextOptions : public xsd__anyType
+class ONVIFLIB_API tt__OSDTextOptions : public xsd__anyType
 {
 public:
 	std::vector<std::string >Type;	/* required element of type xsd:string */
@@ -17323,7 +17324,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDTextOptionsExtension
 #define SOAP_TYPE_tt__OSDTextOptionsExtension (876)
 /* tt:OSDTextOptionsExtension */
-class SOAP_CMAC tt__OSDTextOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDTextOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17344,7 +17345,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDImgOptions
 #define SOAP_TYPE_tt__OSDImgOptions (877)
 /* tt:OSDImgOptions */
-class SOAP_CMAC tt__OSDImgOptions : public xsd__anyType
+class ONVIFLIB_API tt__OSDImgOptions : public xsd__anyType
 {
 public:
 	std::vector<std::string >ImagePath;	/* required element of type xsd:anyURI */
@@ -17366,7 +17367,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDImgOptionsExtension
 #define SOAP_TYPE_tt__OSDImgOptionsExtension (878)
 /* tt:OSDImgOptionsExtension */
-class SOAP_CMAC tt__OSDImgOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDImgOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17387,7 +17388,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDConfigurationExtension
 #define SOAP_TYPE_tt__OSDConfigurationExtension (880)
 /* tt:OSDConfigurationExtension */
-class SOAP_CMAC tt__OSDConfigurationExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDConfigurationExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17408,7 +17409,7 @@ public:
 #ifndef SOAP_TYPE_tt__MaximumNumberOfOSDs
 #define SOAP_TYPE_tt__MaximumNumberOfOSDs (881)
 /* Primitive tt:MaximumNumberOfOSDs schema type: */
-class SOAP_CMAC tt__MaximumNumberOfOSDs : public xsd__anyType
+class ONVIFLIB_API tt__MaximumNumberOfOSDs : public xsd__anyType
 {
 public:
 	int Total;	/* required attribute */
@@ -17434,7 +17435,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDConfigurationOptions
 #define SOAP_TYPE_tt__OSDConfigurationOptions (882)
 /* tt:OSDConfigurationOptions */
-class SOAP_CMAC tt__OSDConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tt__OSDConfigurationOptions : public xsd__anyType
 {
 public:
 	tt__MaximumNumberOfOSDs* MaximumNumberOfOSDs;	/* required element of type tt:MaximumNumberOfOSDs */
@@ -17460,7 +17461,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDConfigurationOptionsExtension
 #define SOAP_TYPE_tt__OSDConfigurationOptionsExtension (883)
 /* tt:OSDConfigurationOptionsExtension */
-class SOAP_CMAC tt__OSDConfigurationOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tt__OSDConfigurationOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17481,7 +17482,7 @@ public:
 #ifndef SOAP_TYPE__tt__Message
 #define SOAP_TYPE__tt__Message (884)
 /* tt:Message */
-class SOAP_CMAC _tt__Message
+class ONVIFLIB_API _tt__Message
 {
 public:
 	tt__ItemList* Source;	/* optional element of type tt:ItemList */
@@ -17508,7 +17509,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__QueryExpressionType
 #define SOAP_TYPE_wsnt__QueryExpressionType (885)
 /* wsnt:QueryExpressionType */
-class SOAP_CMAC wsnt__QueryExpressionType : public xsd__anyType
+class ONVIFLIB_API wsnt__QueryExpressionType : public xsd__anyType
 {
 public:
 	char* __any;
@@ -17530,7 +17531,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__TopicExpressionType
 #define SOAP_TYPE_wsnt__TopicExpressionType (886)
 /* wsnt:TopicExpressionType */
-class SOAP_CMAC wsnt__TopicExpressionType : public xsd__anyType
+class ONVIFLIB_API wsnt__TopicExpressionType : public xsd__anyType
 {
 public:
 	char* __any;
@@ -17553,7 +17554,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__FilterType
 #define SOAP_TYPE_wsnt__FilterType (887)
 /* wsnt:FilterType */
-class SOAP_CMAC wsnt__FilterType : public xsd__anyType
+class ONVIFLIB_API wsnt__FilterType : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17573,7 +17574,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__SubscriptionPolicyType
 #define SOAP_TYPE_wsnt__SubscriptionPolicyType (888)
 /* wsnt:SubscriptionPolicyType */
-class SOAP_CMAC wsnt__SubscriptionPolicyType : public xsd__anyType
+class ONVIFLIB_API wsnt__SubscriptionPolicyType : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -17593,7 +17594,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__NotificationMessageHolderType_Message
 #define SOAP_TYPE__wsnt__NotificationMessageHolderType_Message (2070)
 /* wsnt:NotificationMessageHolderType-Message */
-class SOAP_CMAC _wsnt__NotificationMessageHolderType_Message
+class ONVIFLIB_API _wsnt__NotificationMessageHolderType_Message
 {
 public:
 	char* __any;
@@ -17613,7 +17614,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__NotificationMessageHolderType
 #define SOAP_TYPE_wsnt__NotificationMessageHolderType (889)
 /* wsnt:NotificationMessageHolderType */
-class SOAP_CMAC wsnt__NotificationMessageHolderType : public xsd__anyType
+class ONVIFLIB_API wsnt__NotificationMessageHolderType : public xsd__anyType
 {
 public:
 	struct wsa5__EndpointReferenceType* SubscriptionReference;	/* optional element of type wsa5:EndpointReferenceType */
@@ -17636,7 +17637,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__NotificationProducerRP
 #define SOAP_TYPE__wsnt__NotificationProducerRP (910)
 /* wsnt:NotificationProducerRP */
-class SOAP_CMAC _wsnt__NotificationProducerRP
+class ONVIFLIB_API _wsnt__NotificationProducerRP
 {
 public:
 	std::vector<wsnt__TopicExpressionType* >TopicExpression;	/* optional element of type wsnt:TopicExpressionType */
@@ -17660,7 +17661,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__SubscriptionManagerRP
 #define SOAP_TYPE__wsnt__SubscriptionManagerRP (911)
 /* wsnt:SubscriptionManagerRP */
-class SOAP_CMAC _wsnt__SubscriptionManagerRP
+class ONVIFLIB_API _wsnt__SubscriptionManagerRP
 {
 public:
 	struct wsa5__EndpointReferenceType ConsumerReference;	/* required element of type wsa5:EndpointReferenceType */
@@ -17684,7 +17685,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__Notify
 #define SOAP_TYPE__wsnt__Notify (912)
 /* wsnt:Notify */
-class SOAP_CMAC _wsnt__Notify
+class ONVIFLIB_API _wsnt__Notify
 {
 public:
 	std::vector<wsnt__NotificationMessageHolderType* >NotificationMessage;	/* required element of type wsnt:NotificationMessageHolderType */
@@ -17706,7 +17707,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__UseRaw
 #define SOAP_TYPE__wsnt__UseRaw (913)
 /* wsnt:UseRaw */
-class SOAP_CMAC _wsnt__UseRaw
+class ONVIFLIB_API _wsnt__UseRaw
 {
 public:
 	struct soap* soap;	/* transient */
@@ -17726,7 +17727,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__Subscribe_SubscriptionPolicy
 #define SOAP_TYPE__wsnt__Subscribe_SubscriptionPolicy (2076)
 /* wsnt:Subscribe-SubscriptionPolicy */
-class SOAP_CMAC _wsnt__Subscribe_SubscriptionPolicy
+class ONVIFLIB_API _wsnt__Subscribe_SubscriptionPolicy
 {
 public:
 	std::vector<char* >__any;
@@ -17746,7 +17747,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__Subscribe
 #define SOAP_TYPE__wsnt__Subscribe (914)
 /* wsnt:Subscribe */
-class SOAP_CMAC _wsnt__Subscribe
+class ONVIFLIB_API _wsnt__Subscribe
 {
 public:
 	struct wsa5__EndpointReferenceType ConsumerReference;	/* required element of type wsa5:EndpointReferenceType */
@@ -17771,7 +17772,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__SubscribeResponse
 #define SOAP_TYPE__wsnt__SubscribeResponse (915)
 /* wsnt:SubscribeResponse */
-class SOAP_CMAC _wsnt__SubscribeResponse
+class ONVIFLIB_API _wsnt__SubscribeResponse
 {
 public:
 	struct wsa5__EndpointReferenceType SubscriptionReference;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type wsa5:EndpointReferenceType */
@@ -17795,7 +17796,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__GetCurrentMessage
 #define SOAP_TYPE__wsnt__GetCurrentMessage (916)
 /* wsnt:GetCurrentMessage */
-class SOAP_CMAC _wsnt__GetCurrentMessage
+class ONVIFLIB_API _wsnt__GetCurrentMessage
 {
 public:
 	wsnt__TopicExpressionType* Topic;	/* required element of type wsnt:TopicExpressionType */
@@ -17817,7 +17818,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__GetCurrentMessageResponse
 #define SOAP_TYPE__wsnt__GetCurrentMessageResponse (917)
 /* wsnt:GetCurrentMessageResponse */
-class SOAP_CMAC _wsnt__GetCurrentMessageResponse
+class ONVIFLIB_API _wsnt__GetCurrentMessageResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -17838,7 +17839,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__GetMessages
 #define SOAP_TYPE__wsnt__GetMessages (918)
 /* wsnt:GetMessages */
-class SOAP_CMAC _wsnt__GetMessages
+class ONVIFLIB_API _wsnt__GetMessages
 {
 public:
 	std::string* MaximumNumber;	/* optional element of type xsd:nonNegativeInteger */
@@ -17861,7 +17862,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__GetMessagesResponse
 #define SOAP_TYPE__wsnt__GetMessagesResponse (919)
 /* wsnt:GetMessagesResponse */
-class SOAP_CMAC _wsnt__GetMessagesResponse
+class ONVIFLIB_API _wsnt__GetMessagesResponse
 {
 public:
 	std::vector<wsnt__NotificationMessageHolderType* >NotificationMessage;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type wsnt:NotificationMessageHolderType */
@@ -17884,7 +17885,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__DestroyPullPoint
 #define SOAP_TYPE__wsnt__DestroyPullPoint (920)
 /* wsnt:DestroyPullPoint */
-class SOAP_CMAC _wsnt__DestroyPullPoint
+class ONVIFLIB_API _wsnt__DestroyPullPoint
 {
 public:
 	std::vector<char* >__any;
@@ -17906,7 +17907,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__DestroyPullPointResponse
 #define SOAP_TYPE__wsnt__DestroyPullPointResponse (921)
 /* wsnt:DestroyPullPointResponse */
-class SOAP_CMAC _wsnt__DestroyPullPointResponse
+class ONVIFLIB_API _wsnt__DestroyPullPointResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -17928,7 +17929,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__CreatePullPoint
 #define SOAP_TYPE__wsnt__CreatePullPoint (922)
 /* wsnt:CreatePullPoint */
-class SOAP_CMAC _wsnt__CreatePullPoint
+class ONVIFLIB_API _wsnt__CreatePullPoint
 {
 public:
 	std::vector<char* >__any;
@@ -17950,7 +17951,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__CreatePullPointResponse
 #define SOAP_TYPE__wsnt__CreatePullPointResponse (923)
 /* wsnt:CreatePullPointResponse */
-class SOAP_CMAC _wsnt__CreatePullPointResponse
+class ONVIFLIB_API _wsnt__CreatePullPointResponse
 {
 public:
 	struct wsa5__EndpointReferenceType PullPoint;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type wsa5:EndpointReferenceType */
@@ -17973,7 +17974,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__Renew
 #define SOAP_TYPE__wsnt__Renew (924)
 /* wsnt:Renew */
-class SOAP_CMAC _wsnt__Renew
+class ONVIFLIB_API _wsnt__Renew
 {
 public:
 	std::string* TerminationTime;	/* required element of type wsnt:AbsoluteOrRelativeTimeType */
@@ -17995,7 +17996,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__RenewResponse
 #define SOAP_TYPE__wsnt__RenewResponse (925)
 /* wsnt:RenewResponse */
-class SOAP_CMAC _wsnt__RenewResponse
+class ONVIFLIB_API _wsnt__RenewResponse
 {
 public:
 	time_t TerminationTime;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:dateTime */
@@ -18018,7 +18019,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__Unsubscribe
 #define SOAP_TYPE__wsnt__Unsubscribe (926)
 /* wsnt:Unsubscribe */
-class SOAP_CMAC _wsnt__Unsubscribe
+class ONVIFLIB_API _wsnt__Unsubscribe
 {
 public:
 	std::vector<char* >__any;
@@ -18039,7 +18040,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__UnsubscribeResponse
 #define SOAP_TYPE__wsnt__UnsubscribeResponse (927)
 /* wsnt:UnsubscribeResponse */
-class SOAP_CMAC _wsnt__UnsubscribeResponse
+class ONVIFLIB_API _wsnt__UnsubscribeResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -18060,7 +18061,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__PauseSubscription
 #define SOAP_TYPE__wsnt__PauseSubscription (928)
 /* wsnt:PauseSubscription */
-class SOAP_CMAC _wsnt__PauseSubscription
+class ONVIFLIB_API _wsnt__PauseSubscription
 {
 public:
 	std::vector<char* >__any;
@@ -18081,7 +18082,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__PauseSubscriptionResponse
 #define SOAP_TYPE__wsnt__PauseSubscriptionResponse (929)
 /* wsnt:PauseSubscriptionResponse */
-class SOAP_CMAC _wsnt__PauseSubscriptionResponse
+class ONVIFLIB_API _wsnt__PauseSubscriptionResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -18102,7 +18103,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__ResumeSubscription
 #define SOAP_TYPE__wsnt__ResumeSubscription (930)
 /* wsnt:ResumeSubscription */
-class SOAP_CMAC _wsnt__ResumeSubscription
+class ONVIFLIB_API _wsnt__ResumeSubscription
 {
 public:
 	std::vector<char* >__any;
@@ -18123,7 +18124,7 @@ public:
 #ifndef SOAP_TYPE__wsnt__ResumeSubscriptionResponse
 #define SOAP_TYPE__wsnt__ResumeSubscriptionResponse (931)
 /* wsnt:ResumeSubscriptionResponse */
-class SOAP_CMAC _wsnt__ResumeSubscriptionResponse
+class ONVIFLIB_API _wsnt__ResumeSubscriptionResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -18144,7 +18145,7 @@ public:
 #ifndef SOAP_TYPE__wsrfbf__BaseFaultType_ErrorCode
 #define SOAP_TYPE__wsrfbf__BaseFaultType_ErrorCode (2079)
 /* wsrfbf:BaseFaultType-ErrorCode */
-class SOAP_CMAC _wsrfbf__BaseFaultType_ErrorCode
+class ONVIFLIB_API _wsrfbf__BaseFaultType_ErrorCode
 {
 public:
 	std::string dialect;	/* required attribute */
@@ -18164,7 +18165,7 @@ public:
 #ifndef SOAP_TYPE__wsrfbf__BaseFaultType_Description
 #define SOAP_TYPE__wsrfbf__BaseFaultType_Description (2081)
 /* Primitive wsrfbf:BaseFaultType-Description schema type: */
-class SOAP_CMAC _wsrfbf__BaseFaultType_Description
+class ONVIFLIB_API _wsrfbf__BaseFaultType_Description
 {
 public:
 	std::string __item;
@@ -18185,7 +18186,7 @@ public:
 #ifndef SOAP_TYPE__wsrfbf__BaseFaultType_FaultCause
 #define SOAP_TYPE__wsrfbf__BaseFaultType_FaultCause (2085)
 /* wsrfbf:BaseFaultType-FaultCause */
-class SOAP_CMAC _wsrfbf__BaseFaultType_FaultCause
+class ONVIFLIB_API _wsrfbf__BaseFaultType_FaultCause
 {
 public:
 	char* __any;
@@ -18205,7 +18206,7 @@ public:
 #ifndef SOAP_TYPE_wsrfbf__BaseFaultType
 #define SOAP_TYPE_wsrfbf__BaseFaultType (932)
 /* wsrfbf:BaseFaultType */
-class SOAP_CMAC wsrfbf__BaseFaultType : public xsd__anyType
+class ONVIFLIB_API wsrfbf__BaseFaultType : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -18231,7 +18232,7 @@ public:
 #ifndef SOAP_TYPE_wstop__Documentation
 #define SOAP_TYPE_wstop__Documentation (933)
 /* wstop:Documentation */
-class SOAP_CMAC wstop__Documentation : public xsd__anyType
+class ONVIFLIB_API wstop__Documentation : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -18252,7 +18253,7 @@ public:
 #ifndef SOAP_TYPE_wstop__ExtensibleDocumented
 #define SOAP_TYPE_wstop__ExtensibleDocumented (934)
 /* wstop:ExtensibleDocumented */
-class SOAP_CMAC wstop__ExtensibleDocumented : public xsd__anyType
+class ONVIFLIB_API wstop__ExtensibleDocumented : public xsd__anyType
 {
 public:
 	wstop__Documentation* documentation;	/* optional element of type wstop:Documentation */
@@ -18273,7 +18274,7 @@ public:
 #ifndef SOAP_TYPE_wstop__QueryExpressionType
 #define SOAP_TYPE_wstop__QueryExpressionType (935)
 /* wstop:QueryExpressionType */
-class SOAP_CMAC wstop__QueryExpressionType : public xsd__anyType
+class ONVIFLIB_API wstop__QueryExpressionType : public xsd__anyType
 {
 public:
 	char* __any;
@@ -18295,7 +18296,7 @@ public:
 #ifndef SOAP_TYPE_tev__Capabilities
 #define SOAP_TYPE_tev__Capabilities (939)
 /* tev:Capabilities */
-class SOAP_CMAC tev__Capabilities : public xsd__anyType
+class ONVIFLIB_API tev__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -18322,7 +18323,7 @@ public:
 #ifndef SOAP_TYPE_tev__SubscriptionPolicy
 #define SOAP_TYPE_tev__SubscriptionPolicy (940)
 /* tev:SubscriptionPolicy */
-class SOAP_CMAC tev__SubscriptionPolicy : public xsd__anyType
+class ONVIFLIB_API tev__SubscriptionPolicy : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -18344,7 +18345,7 @@ public:
 #ifndef SOAP_TYPE__tev__GetServiceCapabilities
 #define SOAP_TYPE__tev__GetServiceCapabilities (941)
 /* tev:GetServiceCapabilities */
-class SOAP_CMAC _tev__GetServiceCapabilities
+class ONVIFLIB_API _tev__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -18364,7 +18365,7 @@ public:
 #ifndef SOAP_TYPE__tev__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__tev__GetServiceCapabilitiesResponse (942)
 /* tev:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _tev__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _tev__GetServiceCapabilitiesResponse
 {
 public:
 	tev__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tev:Capabilities */
@@ -18385,7 +18386,7 @@ public:
 #ifndef SOAP_TYPE__tev__CreatePullPointSubscription_SubscriptionPolicy
 #define SOAP_TYPE__tev__CreatePullPointSubscription_SubscriptionPolicy (2089)
 /* tev:CreatePullPointSubscription-SubscriptionPolicy */
-class SOAP_CMAC _tev__CreatePullPointSubscription_SubscriptionPolicy
+class ONVIFLIB_API _tev__CreatePullPointSubscription_SubscriptionPolicy
 {
 public:
 	std::vector<char* >__any;
@@ -18405,7 +18406,7 @@ public:
 #ifndef SOAP_TYPE__tev__CreatePullPointSubscription
 #define SOAP_TYPE__tev__CreatePullPointSubscription (943)
 /* tev:CreatePullPointSubscription */
-class SOAP_CMAC _tev__CreatePullPointSubscription
+class ONVIFLIB_API _tev__CreatePullPointSubscription
 {
 public:
 	wsnt__FilterType* Filter;	/* optional element of type wsnt:FilterType */
@@ -18429,7 +18430,7 @@ public:
 #ifndef SOAP_TYPE__tev__CreatePullPointSubscriptionResponse
 #define SOAP_TYPE__tev__CreatePullPointSubscriptionResponse (944)
 /* tev:CreatePullPointSubscriptionResponse */
-class SOAP_CMAC _tev__CreatePullPointSubscriptionResponse
+class ONVIFLIB_API _tev__CreatePullPointSubscriptionResponse
 {
 public:
 	struct wsa5__EndpointReferenceType SubscriptionReference;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type wsa5:EndpointReferenceType */
@@ -18453,7 +18454,7 @@ public:
 #ifndef SOAP_TYPE__tev__PullMessages
 #define SOAP_TYPE__tev__PullMessages (945)
 /* tev:PullMessages */
-class SOAP_CMAC _tev__PullMessages
+class ONVIFLIB_API _tev__PullMessages
 {
 public:
 	LONG64 Timeout;	/* external */
@@ -18476,7 +18477,7 @@ public:
 #ifndef SOAP_TYPE__tev__PullMessagesResponse
 #define SOAP_TYPE__tev__PullMessagesResponse (946)
 /* tev:PullMessagesResponse */
-class SOAP_CMAC _tev__PullMessagesResponse
+class ONVIFLIB_API _tev__PullMessagesResponse
 {
 public:
 	time_t CurrentTime;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:dateTime */
@@ -18499,7 +18500,7 @@ public:
 #ifndef SOAP_TYPE__tev__PullMessagesFaultResponse
 #define SOAP_TYPE__tev__PullMessagesFaultResponse (947)
 /* tev:PullMessagesFaultResponse */
-class SOAP_CMAC _tev__PullMessagesFaultResponse
+class ONVIFLIB_API _tev__PullMessagesFaultResponse
 {
 public:
 	LONG64 MaxTimeout;	/* external */
@@ -18522,7 +18523,7 @@ public:
 #ifndef SOAP_TYPE__tev__Seek
 #define SOAP_TYPE__tev__Seek (948)
 /* tev:Seek */
-class SOAP_CMAC _tev__Seek
+class ONVIFLIB_API _tev__Seek
 {
 public:
 	time_t UtcTime;	/* required element of type xsd:dateTime */
@@ -18545,7 +18546,7 @@ public:
 #ifndef SOAP_TYPE__tev__SeekResponse
 #define SOAP_TYPE__tev__SeekResponse (949)
 /* tev:SeekResponse */
-class SOAP_CMAC _tev__SeekResponse
+class ONVIFLIB_API _tev__SeekResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -18565,7 +18566,7 @@ public:
 #ifndef SOAP_TYPE__tev__SetSynchronizationPoint
 #define SOAP_TYPE__tev__SetSynchronizationPoint (950)
 /* tev:SetSynchronizationPoint */
-class SOAP_CMAC _tev__SetSynchronizationPoint
+class ONVIFLIB_API _tev__SetSynchronizationPoint
 {
 public:
 	struct soap* soap;	/* transient */
@@ -18585,7 +18586,7 @@ public:
 #ifndef SOAP_TYPE__tev__SetSynchronizationPointResponse
 #define SOAP_TYPE__tev__SetSynchronizationPointResponse (951)
 /* tev:SetSynchronizationPointResponse */
-class SOAP_CMAC _tev__SetSynchronizationPointResponse
+class ONVIFLIB_API _tev__SetSynchronizationPointResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -18605,7 +18606,7 @@ public:
 #ifndef SOAP_TYPE__tev__GetEventProperties
 #define SOAP_TYPE__tev__GetEventProperties (952)
 /* tev:GetEventProperties */
-class SOAP_CMAC _tev__GetEventProperties
+class ONVIFLIB_API _tev__GetEventProperties
 {
 public:
 	struct soap* soap;	/* transient */
@@ -18625,7 +18626,7 @@ public:
 #ifndef SOAP_TYPE__tev__GetEventPropertiesResponse
 #define SOAP_TYPE__tev__GetEventPropertiesResponse (953)
 /* tev:GetEventPropertiesResponse */
-class SOAP_CMAC _tev__GetEventPropertiesResponse
+class ONVIFLIB_API _tev__GetEventPropertiesResponse
 {
 public:
 	std::vector<std::string >TopicNamespaceLocation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:anyURI */
@@ -18653,7 +18654,7 @@ public:
 #ifndef SOAP_TYPE_tls__Capabilities
 #define SOAP_TYPE_tls__Capabilities (956)
 /* tls:Capabilities */
-class SOAP_CMAC tls__Capabilities : public xsd__anyType
+class ONVIFLIB_API tls__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -18675,7 +18676,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetServiceCapabilities
 #define SOAP_TYPE__tls__GetServiceCapabilities (957)
 /* tls:GetServiceCapabilities */
-class SOAP_CMAC _tls__GetServiceCapabilities
+class ONVIFLIB_API _tls__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -18695,7 +18696,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__tls__GetServiceCapabilitiesResponse (958)
 /* tls:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _tls__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _tls__GetServiceCapabilitiesResponse
 {
 public:
 	tls__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tls:Capabilities */
@@ -18716,7 +18717,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetLayout
 #define SOAP_TYPE__tls__GetLayout (959)
 /* tls:GetLayout */
-class SOAP_CMAC _tls__GetLayout
+class ONVIFLIB_API _tls__GetLayout
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -18738,7 +18739,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetLayoutResponse
 #define SOAP_TYPE__tls__GetLayoutResponse (960)
 /* tls:GetLayoutResponse */
-class SOAP_CMAC _tls__GetLayoutResponse
+class ONVIFLIB_API _tls__GetLayoutResponse
 {
 public:
 	tt__Layout* Layout;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Layout */
@@ -18760,7 +18761,7 @@ public:
 #ifndef SOAP_TYPE__tls__SetLayout
 #define SOAP_TYPE__tls__SetLayout (961)
 /* tls:SetLayout */
-class SOAP_CMAC _tls__SetLayout
+class ONVIFLIB_API _tls__SetLayout
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -18783,7 +18784,7 @@ public:
 #ifndef SOAP_TYPE__tls__SetLayoutResponse
 #define SOAP_TYPE__tls__SetLayoutResponse (962)
 /* tls:SetLayoutResponse */
-class SOAP_CMAC _tls__SetLayoutResponse
+class ONVIFLIB_API _tls__SetLayoutResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -18804,7 +18805,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetDisplayOptions
 #define SOAP_TYPE__tls__GetDisplayOptions (963)
 /* tls:GetDisplayOptions */
-class SOAP_CMAC _tls__GetDisplayOptions
+class ONVIFLIB_API _tls__GetDisplayOptions
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -18826,7 +18827,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetDisplayOptionsResponse
 #define SOAP_TYPE__tls__GetDisplayOptionsResponse (964)
 /* tls:GetDisplayOptionsResponse */
-class SOAP_CMAC _tls__GetDisplayOptionsResponse
+class ONVIFLIB_API _tls__GetDisplayOptionsResponse
 {
 public:
 	tt__LayoutOptions* LayoutOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:LayoutOptions */
@@ -18849,7 +18850,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetPaneConfigurations
 #define SOAP_TYPE__tls__GetPaneConfigurations (965)
 /* tls:GetPaneConfigurations */
-class SOAP_CMAC _tls__GetPaneConfigurations
+class ONVIFLIB_API _tls__GetPaneConfigurations
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -18871,7 +18872,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetPaneConfigurationsResponse
 #define SOAP_TYPE__tls__GetPaneConfigurationsResponse (966)
 /* tls:GetPaneConfigurationsResponse */
-class SOAP_CMAC _tls__GetPaneConfigurationsResponse
+class ONVIFLIB_API _tls__GetPaneConfigurationsResponse
 {
 public:
 	std::vector<tt__PaneConfiguration* >PaneConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PaneConfiguration */
@@ -18892,7 +18893,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetPaneConfiguration
 #define SOAP_TYPE__tls__GetPaneConfiguration (967)
 /* tls:GetPaneConfiguration */
-class SOAP_CMAC _tls__GetPaneConfiguration
+class ONVIFLIB_API _tls__GetPaneConfiguration
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -18915,7 +18916,7 @@ public:
 #ifndef SOAP_TYPE__tls__GetPaneConfigurationResponse
 #define SOAP_TYPE__tls__GetPaneConfigurationResponse (968)
 /* tls:GetPaneConfigurationResponse */
-class SOAP_CMAC _tls__GetPaneConfigurationResponse
+class ONVIFLIB_API _tls__GetPaneConfigurationResponse
 {
 public:
 	tt__PaneConfiguration* PaneConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PaneConfiguration */
@@ -18937,7 +18938,7 @@ public:
 #ifndef SOAP_TYPE__tls__SetPaneConfigurations
 #define SOAP_TYPE__tls__SetPaneConfigurations (969)
 /* tls:SetPaneConfigurations */
-class SOAP_CMAC _tls__SetPaneConfigurations
+class ONVIFLIB_API _tls__SetPaneConfigurations
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -18959,7 +18960,7 @@ public:
 #ifndef SOAP_TYPE__tls__SetPaneConfigurationsResponse
 #define SOAP_TYPE__tls__SetPaneConfigurationsResponse (970)
 /* tls:SetPaneConfigurationsResponse */
-class SOAP_CMAC _tls__SetPaneConfigurationsResponse
+class ONVIFLIB_API _tls__SetPaneConfigurationsResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -18980,7 +18981,7 @@ public:
 #ifndef SOAP_TYPE__tls__SetPaneConfiguration
 #define SOAP_TYPE__tls__SetPaneConfiguration (971)
 /* tls:SetPaneConfiguration */
-class SOAP_CMAC _tls__SetPaneConfiguration
+class ONVIFLIB_API _tls__SetPaneConfiguration
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -19003,7 +19004,7 @@ public:
 #ifndef SOAP_TYPE__tls__SetPaneConfigurationResponse
 #define SOAP_TYPE__tls__SetPaneConfigurationResponse (972)
 /* tls:SetPaneConfigurationResponse */
-class SOAP_CMAC _tls__SetPaneConfigurationResponse
+class ONVIFLIB_API _tls__SetPaneConfigurationResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -19024,7 +19025,7 @@ public:
 #ifndef SOAP_TYPE__tls__CreatePaneConfiguration
 #define SOAP_TYPE__tls__CreatePaneConfiguration (973)
 /* tls:CreatePaneConfiguration */
-class SOAP_CMAC _tls__CreatePaneConfiguration
+class ONVIFLIB_API _tls__CreatePaneConfiguration
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -19047,7 +19048,7 @@ public:
 #ifndef SOAP_TYPE__tls__CreatePaneConfigurationResponse
 #define SOAP_TYPE__tls__CreatePaneConfigurationResponse (974)
 /* tls:CreatePaneConfigurationResponse */
-class SOAP_CMAC _tls__CreatePaneConfigurationResponse
+class ONVIFLIB_API _tls__CreatePaneConfigurationResponse
 {
 public:
 	std::string PaneToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ReferenceToken */
@@ -19069,7 +19070,7 @@ public:
 #ifndef SOAP_TYPE__tls__DeletePaneConfiguration
 #define SOAP_TYPE__tls__DeletePaneConfiguration (975)
 /* tls:DeletePaneConfiguration */
-class SOAP_CMAC _tls__DeletePaneConfiguration
+class ONVIFLIB_API _tls__DeletePaneConfiguration
 {
 public:
 	std::string VideoOutput;	/* required element of type tt:ReferenceToken */
@@ -19092,7 +19093,7 @@ public:
 #ifndef SOAP_TYPE__tls__DeletePaneConfigurationResponse
 #define SOAP_TYPE__tls__DeletePaneConfigurationResponse (976)
 /* tls:DeletePaneConfigurationResponse */
-class SOAP_CMAC _tls__DeletePaneConfigurationResponse
+class ONVIFLIB_API _tls__DeletePaneConfigurationResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -19113,7 +19114,7 @@ public:
 #ifndef SOAP_TYPE_tmd__Capabilities
 #define SOAP_TYPE_tmd__Capabilities (977)
 /* tmd:Capabilities */
-class SOAP_CMAC tmd__Capabilities : public xsd__anyType
+class ONVIFLIB_API tmd__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -19141,7 +19142,7 @@ public:
 #ifndef SOAP_TYPE_tmd__RelayOutputOptions
 #define SOAP_TYPE_tmd__RelayOutputOptions (978)
 /* tmd:RelayOutputOptions */
-class SOAP_CMAC tmd__RelayOutputOptions : public xsd__anyType
+class ONVIFLIB_API tmd__RelayOutputOptions : public xsd__anyType
 {
 public:
 	std::vector<enum tt__RelayMode >Mode;	/* required element of type tt:RelayMode */
@@ -19166,7 +19167,7 @@ public:
 #ifndef SOAP_TYPE_tmd__RelayOutputOptionsExtension
 #define SOAP_TYPE_tmd__RelayOutputOptionsExtension (979)
 /* tmd:RelayOutputOptionsExtension */
-class SOAP_CMAC tmd__RelayOutputOptionsExtension : public xsd__anyType
+class ONVIFLIB_API tmd__RelayOutputOptionsExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -19198,7 +19199,7 @@ union _tmd__union_SerialData
 #ifndef SOAP_TYPE_tmd__SerialData
 #define SOAP_TYPE_tmd__SerialData (980)
 /* tmd:SerialData */
-class SOAP_CMAC tmd__SerialData : public xsd__anyType
+class ONVIFLIB_API tmd__SerialData : public xsd__anyType
 {
 public:
 	int __union_SerialData;	/* union discriminant (of union defined below) */
@@ -19220,7 +19221,7 @@ public:
 #ifndef SOAP_TYPE_tmd__SerialPortConfiguration
 #define SOAP_TYPE_tmd__SerialPortConfiguration (982)
 /* tmd:SerialPortConfiguration */
-class SOAP_CMAC tmd__SerialPortConfiguration : public xsd__anyType
+class ONVIFLIB_API tmd__SerialPortConfiguration : public xsd__anyType
 {
 public:
 	int BaudRate;	/* required element of type xsd:int */
@@ -19247,7 +19248,7 @@ public:
 #ifndef SOAP_TYPE_tmd__SerialPortConfigurationOptions
 #define SOAP_TYPE_tmd__SerialPortConfigurationOptions (983)
 /* tmd:SerialPortConfigurationOptions */
-class SOAP_CMAC tmd__SerialPortConfigurationOptions : public xsd__anyType
+class ONVIFLIB_API tmd__SerialPortConfigurationOptions : public xsd__anyType
 {
 public:
 	tt__IntList* BaudRateList;	/* required element of type tt:IntList */
@@ -19273,7 +19274,7 @@ public:
 #ifndef SOAP_TYPE_tmd__ParityBitList
 #define SOAP_TYPE_tmd__ParityBitList (984)
 /* tmd:ParityBitList */
-class SOAP_CMAC tmd__ParityBitList : public xsd__anyType
+class ONVIFLIB_API tmd__ParityBitList : public xsd__anyType
 {
 public:
 	std::vector<enum tmd__ParityBit >Items;	/* optional element of type tmd:ParityBit */
@@ -19293,7 +19294,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetServiceCapabilities
 #define SOAP_TYPE__tmd__GetServiceCapabilities (985)
 /* tmd:GetServiceCapabilities */
-class SOAP_CMAC _tmd__GetServiceCapabilities
+class ONVIFLIB_API _tmd__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -19313,7 +19314,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__tmd__GetServiceCapabilitiesResponse (986)
 /* tmd:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _tmd__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _tmd__GetServiceCapabilitiesResponse
 {
 public:
 	tmd__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tmd:Capabilities */
@@ -19334,7 +19335,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetRelayOutputOptions
 #define SOAP_TYPE__tmd__GetRelayOutputOptions (987)
 /* tmd:GetRelayOutputOptions */
-class SOAP_CMAC _tmd__GetRelayOutputOptions
+class ONVIFLIB_API _tmd__GetRelayOutputOptions
 {
 public:
 	std::string* RelayOutputToken;	/* optional element of type tt:ReferenceToken */
@@ -19355,7 +19356,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetRelayOutputOptionsResponse
 #define SOAP_TYPE__tmd__GetRelayOutputOptionsResponse (988)
 /* tmd:GetRelayOutputOptionsResponse */
-class SOAP_CMAC _tmd__GetRelayOutputOptionsResponse
+class ONVIFLIB_API _tmd__GetRelayOutputOptionsResponse
 {
 public:
 	std::vector<tmd__RelayOutputOptions* >RelayOutputOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tmd:RelayOutputOptions */
@@ -19376,7 +19377,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoOutputs
 #define SOAP_TYPE__tmd__GetVideoOutputs (989)
 /* tmd:GetVideoOutputs */
-class SOAP_CMAC _tmd__GetVideoOutputs
+class ONVIFLIB_API _tmd__GetVideoOutputs
 {
 public:
 	struct soap* soap;	/* transient */
@@ -19396,7 +19397,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoOutputsResponse
 #define SOAP_TYPE__tmd__GetVideoOutputsResponse (990)
 /* tmd:GetVideoOutputsResponse */
-class SOAP_CMAC _tmd__GetVideoOutputsResponse
+class ONVIFLIB_API _tmd__GetVideoOutputsResponse
 {
 public:
 	std::vector<class tt__VideoOutput* >VideoOutputs;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoOutput */
@@ -19417,7 +19418,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioSourceConfiguration
 #define SOAP_TYPE__tmd__GetAudioSourceConfiguration (991)
 /* tmd:GetAudioSourceConfiguration */
-class SOAP_CMAC _tmd__GetAudioSourceConfiguration
+class ONVIFLIB_API _tmd__GetAudioSourceConfiguration
 {
 public:
 	std::string AudioSourceToken;	/* required element of type tt:ReferenceToken */
@@ -19439,7 +19440,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioSourceConfigurationResponse
 #define SOAP_TYPE__tmd__GetAudioSourceConfigurationResponse (992)
 /* tmd:GetAudioSourceConfigurationResponse */
-class SOAP_CMAC _tmd__GetAudioSourceConfigurationResponse
+class ONVIFLIB_API _tmd__GetAudioSourceConfigurationResponse
 {
 public:
 	tt__AudioSourceConfiguration* AudioSourceConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioSourceConfiguration */
@@ -19461,7 +19462,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioOutputConfiguration
 #define SOAP_TYPE__tmd__GetAudioOutputConfiguration (993)
 /* tmd:GetAudioOutputConfiguration */
-class SOAP_CMAC _tmd__GetAudioOutputConfiguration
+class ONVIFLIB_API _tmd__GetAudioOutputConfiguration
 {
 public:
 	std::string AudioOutputToken;	/* required element of type tt:ReferenceToken */
@@ -19483,7 +19484,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioOutputConfigurationResponse
 #define SOAP_TYPE__tmd__GetAudioOutputConfigurationResponse (994)
 /* tmd:GetAudioOutputConfigurationResponse */
-class SOAP_CMAC _tmd__GetAudioOutputConfigurationResponse
+class ONVIFLIB_API _tmd__GetAudioOutputConfigurationResponse
 {
 public:
 	tt__AudioOutputConfiguration* AudioOutputConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioOutputConfiguration */
@@ -19505,7 +19506,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoSourceConfiguration
 #define SOAP_TYPE__tmd__GetVideoSourceConfiguration (995)
 /* tmd:GetVideoSourceConfiguration */
-class SOAP_CMAC _tmd__GetVideoSourceConfiguration
+class ONVIFLIB_API _tmd__GetVideoSourceConfiguration
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -19527,7 +19528,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoSourceConfigurationResponse
 #define SOAP_TYPE__tmd__GetVideoSourceConfigurationResponse (996)
 /* tmd:GetVideoSourceConfigurationResponse */
-class SOAP_CMAC _tmd__GetVideoSourceConfigurationResponse
+class ONVIFLIB_API _tmd__GetVideoSourceConfigurationResponse
 {
 public:
 	tt__VideoSourceConfiguration* VideoSourceConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoSourceConfiguration */
@@ -19549,7 +19550,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoOutputConfiguration
 #define SOAP_TYPE__tmd__GetVideoOutputConfiguration (997)
 /* tmd:GetVideoOutputConfiguration */
-class SOAP_CMAC _tmd__GetVideoOutputConfiguration
+class ONVIFLIB_API _tmd__GetVideoOutputConfiguration
 {
 public:
 	std::string VideoOutputToken;	/* required element of type tt:ReferenceToken */
@@ -19571,7 +19572,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoOutputConfigurationResponse
 #define SOAP_TYPE__tmd__GetVideoOutputConfigurationResponse (998)
 /* tmd:GetVideoOutputConfigurationResponse */
-class SOAP_CMAC _tmd__GetVideoOutputConfigurationResponse
+class ONVIFLIB_API _tmd__GetVideoOutputConfigurationResponse
 {
 public:
 	class tt__VideoOutputConfiguration* VideoOutputConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoOutputConfiguration */
@@ -19593,7 +19594,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetAudioSourceConfiguration
 #define SOAP_TYPE__tmd__SetAudioSourceConfiguration (999)
 /* tmd:SetAudioSourceConfiguration */
-class SOAP_CMAC _tmd__SetAudioSourceConfiguration
+class ONVIFLIB_API _tmd__SetAudioSourceConfiguration
 {
 public:
 	tt__AudioSourceConfiguration* Configuration;	/* required element of type tt:AudioSourceConfiguration */
@@ -19616,7 +19617,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetAudioSourceConfigurationResponse
 #define SOAP_TYPE__tmd__SetAudioSourceConfigurationResponse (1000)
 /* tmd:SetAudioSourceConfigurationResponse */
-class SOAP_CMAC _tmd__SetAudioSourceConfigurationResponse
+class ONVIFLIB_API _tmd__SetAudioSourceConfigurationResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -19637,7 +19638,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetAudioOutputConfiguration
 #define SOAP_TYPE__tmd__SetAudioOutputConfiguration (1001)
 /* tmd:SetAudioOutputConfiguration */
-class SOAP_CMAC _tmd__SetAudioOutputConfiguration
+class ONVIFLIB_API _tmd__SetAudioOutputConfiguration
 {
 public:
 	tt__AudioOutputConfiguration* Configuration;	/* required element of type tt:AudioOutputConfiguration */
@@ -19660,7 +19661,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetAudioOutputConfigurationResponse
 #define SOAP_TYPE__tmd__SetAudioOutputConfigurationResponse (1002)
 /* tmd:SetAudioOutputConfigurationResponse */
-class SOAP_CMAC _tmd__SetAudioOutputConfigurationResponse
+class ONVIFLIB_API _tmd__SetAudioOutputConfigurationResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -19681,7 +19682,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetVideoSourceConfiguration
 #define SOAP_TYPE__tmd__SetVideoSourceConfiguration (1003)
 /* tmd:SetVideoSourceConfiguration */
-class SOAP_CMAC _tmd__SetVideoSourceConfiguration
+class ONVIFLIB_API _tmd__SetVideoSourceConfiguration
 {
 public:
 	tt__VideoSourceConfiguration* Configuration;	/* required element of type tt:VideoSourceConfiguration */
@@ -19704,7 +19705,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetVideoSourceConfigurationResponse
 #define SOAP_TYPE__tmd__SetVideoSourceConfigurationResponse (1004)
 /* tmd:SetVideoSourceConfigurationResponse */
-class SOAP_CMAC _tmd__SetVideoSourceConfigurationResponse
+class ONVIFLIB_API _tmd__SetVideoSourceConfigurationResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -19725,7 +19726,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetVideoOutputConfiguration
 #define SOAP_TYPE__tmd__SetVideoOutputConfiguration (1005)
 /* tmd:SetVideoOutputConfiguration */
-class SOAP_CMAC _tmd__SetVideoOutputConfiguration
+class ONVIFLIB_API _tmd__SetVideoOutputConfiguration
 {
 public:
 	tt__VideoOutputConfiguration* Configuration;	/* required element of type tt:VideoOutputConfiguration */
@@ -19748,7 +19749,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetVideoOutputConfigurationResponse
 #define SOAP_TYPE__tmd__SetVideoOutputConfigurationResponse (1006)
 /* tmd:SetVideoOutputConfigurationResponse */
-class SOAP_CMAC _tmd__SetVideoOutputConfigurationResponse
+class ONVIFLIB_API _tmd__SetVideoOutputConfigurationResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -19769,7 +19770,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoSourceConfigurationOptions
 #define SOAP_TYPE__tmd__GetVideoSourceConfigurationOptions (1007)
 /* tmd:GetVideoSourceConfigurationOptions */
-class SOAP_CMAC _tmd__GetVideoSourceConfigurationOptions
+class ONVIFLIB_API _tmd__GetVideoSourceConfigurationOptions
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -19791,7 +19792,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoSourceConfigurationOptionsResponse
 #define SOAP_TYPE__tmd__GetVideoSourceConfigurationOptionsResponse (1008)
 /* tmd:GetVideoSourceConfigurationOptionsResponse */
-class SOAP_CMAC _tmd__GetVideoSourceConfigurationOptionsResponse
+class ONVIFLIB_API _tmd__GetVideoSourceConfigurationOptionsResponse
 {
 public:
 	tt__VideoSourceConfigurationOptions* VideoSourceConfigurationOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoSourceConfigurationOptions */
@@ -19813,7 +19814,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoOutputConfigurationOptions
 #define SOAP_TYPE__tmd__GetVideoOutputConfigurationOptions (1009)
 /* tmd:GetVideoOutputConfigurationOptions */
-class SOAP_CMAC _tmd__GetVideoOutputConfigurationOptions
+class ONVIFLIB_API _tmd__GetVideoOutputConfigurationOptions
 {
 public:
 	std::string VideoOutputToken;	/* required element of type tt:ReferenceToken */
@@ -19835,7 +19836,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetVideoOutputConfigurationOptionsResponse
 #define SOAP_TYPE__tmd__GetVideoOutputConfigurationOptionsResponse (1010)
 /* tmd:GetVideoOutputConfigurationOptionsResponse */
-class SOAP_CMAC _tmd__GetVideoOutputConfigurationOptionsResponse
+class ONVIFLIB_API _tmd__GetVideoOutputConfigurationOptionsResponse
 {
 public:
 	tt__VideoOutputConfigurationOptions* VideoOutputConfigurationOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoOutputConfigurationOptions */
@@ -19857,7 +19858,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioSourceConfigurationOptions
 #define SOAP_TYPE__tmd__GetAudioSourceConfigurationOptions (1011)
 /* tmd:GetAudioSourceConfigurationOptions */
-class SOAP_CMAC _tmd__GetAudioSourceConfigurationOptions
+class ONVIFLIB_API _tmd__GetAudioSourceConfigurationOptions
 {
 public:
 	std::string AudioSourceToken;	/* required element of type tt:ReferenceToken */
@@ -19879,7 +19880,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioSourceConfigurationOptionsResponse
 #define SOAP_TYPE__tmd__GetAudioSourceConfigurationOptionsResponse (1012)
 /* tmd:GetAudioSourceConfigurationOptionsResponse */
-class SOAP_CMAC _tmd__GetAudioSourceConfigurationOptionsResponse
+class ONVIFLIB_API _tmd__GetAudioSourceConfigurationOptionsResponse
 {
 public:
 	tt__AudioSourceConfigurationOptions* AudioSourceOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioSourceConfigurationOptions */
@@ -19901,7 +19902,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioOutputConfigurationOptions
 #define SOAP_TYPE__tmd__GetAudioOutputConfigurationOptions (1013)
 /* tmd:GetAudioOutputConfigurationOptions */
-class SOAP_CMAC _tmd__GetAudioOutputConfigurationOptions
+class ONVIFLIB_API _tmd__GetAudioOutputConfigurationOptions
 {
 public:
 	std::string AudioOutputToken;	/* required element of type tt:ReferenceToken */
@@ -19923,7 +19924,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetAudioOutputConfigurationOptionsResponse
 #define SOAP_TYPE__tmd__GetAudioOutputConfigurationOptionsResponse (1014)
 /* tmd:GetAudioOutputConfigurationOptionsResponse */
-class SOAP_CMAC _tmd__GetAudioOutputConfigurationOptionsResponse
+class ONVIFLIB_API _tmd__GetAudioOutputConfigurationOptionsResponse
 {
 public:
 	tt__AudioOutputConfigurationOptions* AudioOutputOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioOutputConfigurationOptions */
@@ -19945,7 +19946,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetRelayOutputSettings
 #define SOAP_TYPE__tmd__SetRelayOutputSettings (1015)
 /* tmd:SetRelayOutputSettings */
-class SOAP_CMAC _tmd__SetRelayOutputSettings
+class ONVIFLIB_API _tmd__SetRelayOutputSettings
 {
 public:
 	tt__RelayOutput* RelayOutput;	/* required element of type tt:RelayOutput */
@@ -19966,7 +19967,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetRelayOutputSettingsResponse
 #define SOAP_TYPE__tmd__SetRelayOutputSettingsResponse (1016)
 /* tmd:SetRelayOutputSettingsResponse */
-class SOAP_CMAC _tmd__SetRelayOutputSettingsResponse
+class ONVIFLIB_API _tmd__SetRelayOutputSettingsResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -19986,7 +19987,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetDigitalInputs
 #define SOAP_TYPE__tmd__GetDigitalInputs (1017)
 /* tmd:GetDigitalInputs */
-class SOAP_CMAC _tmd__GetDigitalInputs
+class ONVIFLIB_API _tmd__GetDigitalInputs
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20006,7 +20007,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetDigitalInputsResponse
 #define SOAP_TYPE__tmd__GetDigitalInputsResponse (1018)
 /* tmd:GetDigitalInputsResponse */
-class SOAP_CMAC _tmd__GetDigitalInputsResponse
+class ONVIFLIB_API _tmd__GetDigitalInputsResponse
 {
 public:
 	std::vector<class tt__DigitalInput* >DigitalInputs;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:DigitalInput */
@@ -20027,7 +20028,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetSerialPorts
 #define SOAP_TYPE__tmd__GetSerialPorts (1019)
 /* tmd:GetSerialPorts */
-class SOAP_CMAC _tmd__GetSerialPorts
+class ONVIFLIB_API _tmd__GetSerialPorts
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20047,7 +20048,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetSerialPortsResponse
 #define SOAP_TYPE__tmd__GetSerialPortsResponse (1020)
 /* tmd:GetSerialPortsResponse */
-class SOAP_CMAC _tmd__GetSerialPortsResponse
+class ONVIFLIB_API _tmd__GetSerialPortsResponse
 {
 public:
 	std::vector<class tmd__SerialPort* >SerialPort;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tmd:SerialPort */
@@ -20068,7 +20069,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetSerialPortConfiguration
 #define SOAP_TYPE__tmd__GetSerialPortConfiguration (1021)
 /* tmd:GetSerialPortConfiguration */
-class SOAP_CMAC _tmd__GetSerialPortConfiguration
+class ONVIFLIB_API _tmd__GetSerialPortConfiguration
 {
 public:
 	std::string SerialPortToken;	/* required element of type tt:ReferenceToken */
@@ -20089,7 +20090,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetSerialPortConfigurationResponse
 #define SOAP_TYPE__tmd__GetSerialPortConfigurationResponse (1022)
 /* tmd:GetSerialPortConfigurationResponse */
-class SOAP_CMAC _tmd__GetSerialPortConfigurationResponse
+class ONVIFLIB_API _tmd__GetSerialPortConfigurationResponse
 {
 public:
 	tmd__SerialPortConfiguration* SerialPortConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tmd:SerialPortConfiguration */
@@ -20110,7 +20111,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetSerialPortConfiguration
 #define SOAP_TYPE__tmd__SetSerialPortConfiguration (1023)
 /* tmd:SetSerialPortConfiguration */
-class SOAP_CMAC _tmd__SetSerialPortConfiguration
+class ONVIFLIB_API _tmd__SetSerialPortConfiguration
 {
 public:
 	tmd__SerialPortConfiguration* SerialPortConfiguration;	/* required element of type tmd:SerialPortConfiguration */
@@ -20132,7 +20133,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SetSerialPortConfigurationResponse
 #define SOAP_TYPE__tmd__SetSerialPortConfigurationResponse (1024)
 /* tmd:SetSerialPortConfigurationResponse */
-class SOAP_CMAC _tmd__SetSerialPortConfigurationResponse
+class ONVIFLIB_API _tmd__SetSerialPortConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20152,7 +20153,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetSerialPortConfigurationOptions
 #define SOAP_TYPE__tmd__GetSerialPortConfigurationOptions (1025)
 /* tmd:GetSerialPortConfigurationOptions */
-class SOAP_CMAC _tmd__GetSerialPortConfigurationOptions
+class ONVIFLIB_API _tmd__GetSerialPortConfigurationOptions
 {
 public:
 	std::string SerialPortToken;	/* required element of type tt:ReferenceToken */
@@ -20173,7 +20174,7 @@ public:
 #ifndef SOAP_TYPE__tmd__GetSerialPortConfigurationOptionsResponse
 #define SOAP_TYPE__tmd__GetSerialPortConfigurationOptionsResponse (1026)
 /* tmd:GetSerialPortConfigurationOptionsResponse */
-class SOAP_CMAC _tmd__GetSerialPortConfigurationOptionsResponse
+class ONVIFLIB_API _tmd__GetSerialPortConfigurationOptionsResponse
 {
 public:
 	tmd__SerialPortConfigurationOptions* SerialPortOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tmd:SerialPortConfigurationOptions */
@@ -20194,7 +20195,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SendReceiveSerialCommand
 #define SOAP_TYPE__tmd__SendReceiveSerialCommand (1027)
 /* tmd:SendReceiveSerialCommand */
-class SOAP_CMAC _tmd__SendReceiveSerialCommand
+class ONVIFLIB_API _tmd__SendReceiveSerialCommand
 {
 public:
 	tmd__SerialData* SerialData;	/* optional element of type tmd:SerialData */
@@ -20218,7 +20219,7 @@ public:
 #ifndef SOAP_TYPE__tmd__SendReceiveSerialCommandResponse
 #define SOAP_TYPE__tmd__SendReceiveSerialCommandResponse (1028)
 /* tmd:SendReceiveSerialCommandResponse */
-class SOAP_CMAC _tmd__SendReceiveSerialCommandResponse
+class ONVIFLIB_API _tmd__SendReceiveSerialCommandResponse
 {
 public:
 	tmd__SerialData* SerialData;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tmd:SerialData */
@@ -20239,7 +20240,7 @@ public:
 #ifndef SOAP_TYPE_trt__Capabilities
 #define SOAP_TYPE_trt__Capabilities (1029)
 /* trt:Capabilities */
-class SOAP_CMAC trt__Capabilities : public xsd__anyType
+class ONVIFLIB_API trt__Capabilities : public xsd__anyType
 {
 public:
 	class trt__ProfileCapabilities* ProfileCapabilities;	/* required element of type trt:ProfileCapabilities */
@@ -20266,7 +20267,7 @@ public:
 #ifndef SOAP_TYPE_trt__ProfileCapabilities
 #define SOAP_TYPE_trt__ProfileCapabilities (1030)
 /* trt:ProfileCapabilities */
-class SOAP_CMAC trt__ProfileCapabilities : public xsd__anyType
+class ONVIFLIB_API trt__ProfileCapabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -20288,7 +20289,7 @@ public:
 #ifndef SOAP_TYPE_trt__StreamingCapabilities
 #define SOAP_TYPE_trt__StreamingCapabilities (1031)
 /* trt:StreamingCapabilities */
-class SOAP_CMAC trt__StreamingCapabilities : public xsd__anyType
+class ONVIFLIB_API trt__StreamingCapabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -20314,7 +20315,7 @@ public:
 #ifndef SOAP_TYPE_trt__VideoSourceMode
 #define SOAP_TYPE_trt__VideoSourceMode (1032)
 /* trt:VideoSourceMode */
-class SOAP_CMAC trt__VideoSourceMode : public xsd__anyType
+class ONVIFLIB_API trt__VideoSourceMode : public xsd__anyType
 {
 public:
 	float MaxFramerate;	/* required element of type xsd:float */
@@ -20342,7 +20343,7 @@ public:
 #ifndef SOAP_TYPE_trt__VideoSourceModeExtension
 #define SOAP_TYPE_trt__VideoSourceModeExtension (1033)
 /* trt:VideoSourceModeExtension */
-class SOAP_CMAC trt__VideoSourceModeExtension : public xsd__anyType
+class ONVIFLIB_API trt__VideoSourceModeExtension : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -20362,7 +20363,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetServiceCapabilities
 #define SOAP_TYPE__trt__GetServiceCapabilities (1034)
 /* trt:GetServiceCapabilities */
-class SOAP_CMAC _trt__GetServiceCapabilities
+class ONVIFLIB_API _trt__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20382,7 +20383,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__trt__GetServiceCapabilitiesResponse (1035)
 /* trt:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _trt__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _trt__GetServiceCapabilitiesResponse
 {
 public:
 	trt__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type trt:Capabilities */
@@ -20403,7 +20404,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSources
 #define SOAP_TYPE__trt__GetVideoSources (1036)
 /* trt:GetVideoSources */
-class SOAP_CMAC _trt__GetVideoSources
+class ONVIFLIB_API _trt__GetVideoSources
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20423,7 +20424,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourcesResponse
 #define SOAP_TYPE__trt__GetVideoSourcesResponse (1037)
 /* trt:GetVideoSourcesResponse */
-class SOAP_CMAC _trt__GetVideoSourcesResponse
+class ONVIFLIB_API _trt__GetVideoSourcesResponse
 {
 public:
 	std::vector<class tt__VideoSource* >VideoSources;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoSource */
@@ -20444,7 +20445,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSources
 #define SOAP_TYPE__trt__GetAudioSources (1038)
 /* trt:GetAudioSources */
-class SOAP_CMAC _trt__GetAudioSources
+class ONVIFLIB_API _trt__GetAudioSources
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20464,7 +20465,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSourcesResponse
 #define SOAP_TYPE__trt__GetAudioSourcesResponse (1039)
 /* trt:GetAudioSourcesResponse */
-class SOAP_CMAC _trt__GetAudioSourcesResponse
+class ONVIFLIB_API _trt__GetAudioSourcesResponse
 {
 public:
 	std::vector<class tt__AudioSource* >AudioSources;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioSource */
@@ -20485,7 +20486,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputs
 #define SOAP_TYPE__trt__GetAudioOutputs (1040)
 /* trt:GetAudioOutputs */
-class SOAP_CMAC _trt__GetAudioOutputs
+class ONVIFLIB_API _trt__GetAudioOutputs
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20505,7 +20506,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputsResponse
 #define SOAP_TYPE__trt__GetAudioOutputsResponse (1041)
 /* trt:GetAudioOutputsResponse */
-class SOAP_CMAC _trt__GetAudioOutputsResponse
+class ONVIFLIB_API _trt__GetAudioOutputsResponse
 {
 public:
 	std::vector<class tt__AudioOutput* >AudioOutputs;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioOutput */
@@ -20526,7 +20527,7 @@ public:
 #ifndef SOAP_TYPE__trt__CreateProfile
 #define SOAP_TYPE__trt__CreateProfile (1042)
 /* trt:CreateProfile */
-class SOAP_CMAC _trt__CreateProfile
+class ONVIFLIB_API _trt__CreateProfile
 {
 public:
 	std::string Name;	/* required element of type tt:Name */
@@ -20548,7 +20549,7 @@ public:
 #ifndef SOAP_TYPE__trt__CreateProfileResponse
 #define SOAP_TYPE__trt__CreateProfileResponse (1043)
 /* trt:CreateProfileResponse */
-class SOAP_CMAC _trt__CreateProfileResponse
+class ONVIFLIB_API _trt__CreateProfileResponse
 {
 public:
 	tt__Profile* Profile;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Profile */
@@ -20569,7 +20570,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetProfile
 #define SOAP_TYPE__trt__GetProfile (1044)
 /* trt:GetProfile */
-class SOAP_CMAC _trt__GetProfile
+class ONVIFLIB_API _trt__GetProfile
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20590,7 +20591,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetProfileResponse
 #define SOAP_TYPE__trt__GetProfileResponse (1045)
 /* trt:GetProfileResponse */
-class SOAP_CMAC _trt__GetProfileResponse
+class ONVIFLIB_API _trt__GetProfileResponse
 {
 public:
 	tt__Profile* Profile;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Profile */
@@ -20611,7 +20612,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetProfiles
 #define SOAP_TYPE__trt__GetProfiles (1046)
 /* trt:GetProfiles */
-class SOAP_CMAC _trt__GetProfiles
+class ONVIFLIB_API _trt__GetProfiles
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20631,7 +20632,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetProfilesResponse
 #define SOAP_TYPE__trt__GetProfilesResponse (1047)
 /* trt:GetProfilesResponse */
-class SOAP_CMAC _trt__GetProfilesResponse
+class ONVIFLIB_API _trt__GetProfilesResponse
 {
 public:
 	std::vector<tt__Profile* >Profiles;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:Profile */
@@ -20652,7 +20653,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddVideoEncoderConfiguration
 #define SOAP_TYPE__trt__AddVideoEncoderConfiguration (1048)
 /* trt:AddVideoEncoderConfiguration */
-class SOAP_CMAC _trt__AddVideoEncoderConfiguration
+class ONVIFLIB_API _trt__AddVideoEncoderConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20674,7 +20675,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddVideoEncoderConfigurationResponse
 #define SOAP_TYPE__trt__AddVideoEncoderConfigurationResponse (1049)
 /* trt:AddVideoEncoderConfigurationResponse */
-class SOAP_CMAC _trt__AddVideoEncoderConfigurationResponse
+class ONVIFLIB_API _trt__AddVideoEncoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20694,7 +20695,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveVideoEncoderConfiguration
 #define SOAP_TYPE__trt__RemoveVideoEncoderConfiguration (1050)
 /* trt:RemoveVideoEncoderConfiguration */
-class SOAP_CMAC _trt__RemoveVideoEncoderConfiguration
+class ONVIFLIB_API _trt__RemoveVideoEncoderConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20715,7 +20716,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveVideoEncoderConfigurationResponse
 #define SOAP_TYPE__trt__RemoveVideoEncoderConfigurationResponse (1051)
 /* trt:RemoveVideoEncoderConfigurationResponse */
-class SOAP_CMAC _trt__RemoveVideoEncoderConfigurationResponse
+class ONVIFLIB_API _trt__RemoveVideoEncoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20735,7 +20736,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddVideoSourceConfiguration
 #define SOAP_TYPE__trt__AddVideoSourceConfiguration (1052)
 /* trt:AddVideoSourceConfiguration */
-class SOAP_CMAC _trt__AddVideoSourceConfiguration
+class ONVIFLIB_API _trt__AddVideoSourceConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20757,7 +20758,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddVideoSourceConfigurationResponse
 #define SOAP_TYPE__trt__AddVideoSourceConfigurationResponse (1053)
 /* trt:AddVideoSourceConfigurationResponse */
-class SOAP_CMAC _trt__AddVideoSourceConfigurationResponse
+class ONVIFLIB_API _trt__AddVideoSourceConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20777,7 +20778,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveVideoSourceConfiguration
 #define SOAP_TYPE__trt__RemoveVideoSourceConfiguration (1054)
 /* trt:RemoveVideoSourceConfiguration */
-class SOAP_CMAC _trt__RemoveVideoSourceConfiguration
+class ONVIFLIB_API _trt__RemoveVideoSourceConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20798,7 +20799,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveVideoSourceConfigurationResponse
 #define SOAP_TYPE__trt__RemoveVideoSourceConfigurationResponse (1055)
 /* trt:RemoveVideoSourceConfigurationResponse */
-class SOAP_CMAC _trt__RemoveVideoSourceConfigurationResponse
+class ONVIFLIB_API _trt__RemoveVideoSourceConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20818,7 +20819,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioEncoderConfiguration
 #define SOAP_TYPE__trt__AddAudioEncoderConfiguration (1056)
 /* trt:AddAudioEncoderConfiguration */
-class SOAP_CMAC _trt__AddAudioEncoderConfiguration
+class ONVIFLIB_API _trt__AddAudioEncoderConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20840,7 +20841,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioEncoderConfigurationResponse
 #define SOAP_TYPE__trt__AddAudioEncoderConfigurationResponse (1057)
 /* trt:AddAudioEncoderConfigurationResponse */
-class SOAP_CMAC _trt__AddAudioEncoderConfigurationResponse
+class ONVIFLIB_API _trt__AddAudioEncoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20860,7 +20861,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioEncoderConfiguration
 #define SOAP_TYPE__trt__RemoveAudioEncoderConfiguration (1058)
 /* trt:RemoveAudioEncoderConfiguration */
-class SOAP_CMAC _trt__RemoveAudioEncoderConfiguration
+class ONVIFLIB_API _trt__RemoveAudioEncoderConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20881,7 +20882,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioEncoderConfigurationResponse
 #define SOAP_TYPE__trt__RemoveAudioEncoderConfigurationResponse (1059)
 /* trt:RemoveAudioEncoderConfigurationResponse */
-class SOAP_CMAC _trt__RemoveAudioEncoderConfigurationResponse
+class ONVIFLIB_API _trt__RemoveAudioEncoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20901,7 +20902,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioSourceConfiguration
 #define SOAP_TYPE__trt__AddAudioSourceConfiguration (1060)
 /* trt:AddAudioSourceConfiguration */
-class SOAP_CMAC _trt__AddAudioSourceConfiguration
+class ONVIFLIB_API _trt__AddAudioSourceConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20923,7 +20924,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioSourceConfigurationResponse
 #define SOAP_TYPE__trt__AddAudioSourceConfigurationResponse (1061)
 /* trt:AddAudioSourceConfigurationResponse */
-class SOAP_CMAC _trt__AddAudioSourceConfigurationResponse
+class ONVIFLIB_API _trt__AddAudioSourceConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20943,7 +20944,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioSourceConfiguration
 #define SOAP_TYPE__trt__RemoveAudioSourceConfiguration (1062)
 /* trt:RemoveAudioSourceConfiguration */
-class SOAP_CMAC _trt__RemoveAudioSourceConfiguration
+class ONVIFLIB_API _trt__RemoveAudioSourceConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -20964,7 +20965,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioSourceConfigurationResponse
 #define SOAP_TYPE__trt__RemoveAudioSourceConfigurationResponse (1063)
 /* trt:RemoveAudioSourceConfigurationResponse */
-class SOAP_CMAC _trt__RemoveAudioSourceConfigurationResponse
+class ONVIFLIB_API _trt__RemoveAudioSourceConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -20984,7 +20985,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddPTZConfiguration
 #define SOAP_TYPE__trt__AddPTZConfiguration (1064)
 /* trt:AddPTZConfiguration */
-class SOAP_CMAC _trt__AddPTZConfiguration
+class ONVIFLIB_API _trt__AddPTZConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21006,7 +21007,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddPTZConfigurationResponse
 #define SOAP_TYPE__trt__AddPTZConfigurationResponse (1065)
 /* trt:AddPTZConfigurationResponse */
-class SOAP_CMAC _trt__AddPTZConfigurationResponse
+class ONVIFLIB_API _trt__AddPTZConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21026,7 +21027,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemovePTZConfiguration
 #define SOAP_TYPE__trt__RemovePTZConfiguration (1066)
 /* trt:RemovePTZConfiguration */
-class SOAP_CMAC _trt__RemovePTZConfiguration
+class ONVIFLIB_API _trt__RemovePTZConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21047,7 +21048,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemovePTZConfigurationResponse
 #define SOAP_TYPE__trt__RemovePTZConfigurationResponse (1067)
 /* trt:RemovePTZConfigurationResponse */
-class SOAP_CMAC _trt__RemovePTZConfigurationResponse
+class ONVIFLIB_API _trt__RemovePTZConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21067,7 +21068,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddVideoAnalyticsConfiguration
 #define SOAP_TYPE__trt__AddVideoAnalyticsConfiguration (1068)
 /* trt:AddVideoAnalyticsConfiguration */
-class SOAP_CMAC _trt__AddVideoAnalyticsConfiguration
+class ONVIFLIB_API _trt__AddVideoAnalyticsConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21089,7 +21090,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddVideoAnalyticsConfigurationResponse
 #define SOAP_TYPE__trt__AddVideoAnalyticsConfigurationResponse (1069)
 /* trt:AddVideoAnalyticsConfigurationResponse */
-class SOAP_CMAC _trt__AddVideoAnalyticsConfigurationResponse
+class ONVIFLIB_API _trt__AddVideoAnalyticsConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21109,7 +21110,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveVideoAnalyticsConfiguration
 #define SOAP_TYPE__trt__RemoveVideoAnalyticsConfiguration (1070)
 /* trt:RemoveVideoAnalyticsConfiguration */
-class SOAP_CMAC _trt__RemoveVideoAnalyticsConfiguration
+class ONVIFLIB_API _trt__RemoveVideoAnalyticsConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21130,7 +21131,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveVideoAnalyticsConfigurationResponse
 #define SOAP_TYPE__trt__RemoveVideoAnalyticsConfigurationResponse (1071)
 /* trt:RemoveVideoAnalyticsConfigurationResponse */
-class SOAP_CMAC _trt__RemoveVideoAnalyticsConfigurationResponse
+class ONVIFLIB_API _trt__RemoveVideoAnalyticsConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21150,7 +21151,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddMetadataConfiguration
 #define SOAP_TYPE__trt__AddMetadataConfiguration (1072)
 /* trt:AddMetadataConfiguration */
-class SOAP_CMAC _trt__AddMetadataConfiguration
+class ONVIFLIB_API _trt__AddMetadataConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21172,7 +21173,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddMetadataConfigurationResponse
 #define SOAP_TYPE__trt__AddMetadataConfigurationResponse (1073)
 /* trt:AddMetadataConfigurationResponse */
-class SOAP_CMAC _trt__AddMetadataConfigurationResponse
+class ONVIFLIB_API _trt__AddMetadataConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21192,7 +21193,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveMetadataConfiguration
 #define SOAP_TYPE__trt__RemoveMetadataConfiguration (1074)
 /* trt:RemoveMetadataConfiguration */
-class SOAP_CMAC _trt__RemoveMetadataConfiguration
+class ONVIFLIB_API _trt__RemoveMetadataConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21213,7 +21214,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveMetadataConfigurationResponse
 #define SOAP_TYPE__trt__RemoveMetadataConfigurationResponse (1075)
 /* trt:RemoveMetadataConfigurationResponse */
-class SOAP_CMAC _trt__RemoveMetadataConfigurationResponse
+class ONVIFLIB_API _trt__RemoveMetadataConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21233,7 +21234,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioOutputConfiguration
 #define SOAP_TYPE__trt__AddAudioOutputConfiguration (1076)
 /* trt:AddAudioOutputConfiguration */
-class SOAP_CMAC _trt__AddAudioOutputConfiguration
+class ONVIFLIB_API _trt__AddAudioOutputConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21255,7 +21256,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioOutputConfigurationResponse
 #define SOAP_TYPE__trt__AddAudioOutputConfigurationResponse (1077)
 /* trt:AddAudioOutputConfigurationResponse */
-class SOAP_CMAC _trt__AddAudioOutputConfigurationResponse
+class ONVIFLIB_API _trt__AddAudioOutputConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21275,7 +21276,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioOutputConfiguration
 #define SOAP_TYPE__trt__RemoveAudioOutputConfiguration (1078)
 /* trt:RemoveAudioOutputConfiguration */
-class SOAP_CMAC _trt__RemoveAudioOutputConfiguration
+class ONVIFLIB_API _trt__RemoveAudioOutputConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21296,7 +21297,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioOutputConfigurationResponse
 #define SOAP_TYPE__trt__RemoveAudioOutputConfigurationResponse (1079)
 /* trt:RemoveAudioOutputConfigurationResponse */
-class SOAP_CMAC _trt__RemoveAudioOutputConfigurationResponse
+class ONVIFLIB_API _trt__RemoveAudioOutputConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21316,7 +21317,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioDecoderConfiguration
 #define SOAP_TYPE__trt__AddAudioDecoderConfiguration (1080)
 /* trt:AddAudioDecoderConfiguration */
-class SOAP_CMAC _trt__AddAudioDecoderConfiguration
+class ONVIFLIB_API _trt__AddAudioDecoderConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21338,7 +21339,7 @@ public:
 #ifndef SOAP_TYPE__trt__AddAudioDecoderConfigurationResponse
 #define SOAP_TYPE__trt__AddAudioDecoderConfigurationResponse (1081)
 /* trt:AddAudioDecoderConfigurationResponse */
-class SOAP_CMAC _trt__AddAudioDecoderConfigurationResponse
+class ONVIFLIB_API _trt__AddAudioDecoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21358,7 +21359,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioDecoderConfiguration
 #define SOAP_TYPE__trt__RemoveAudioDecoderConfiguration (1082)
 /* trt:RemoveAudioDecoderConfiguration */
-class SOAP_CMAC _trt__RemoveAudioDecoderConfiguration
+class ONVIFLIB_API _trt__RemoveAudioDecoderConfiguration
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21379,7 +21380,7 @@ public:
 #ifndef SOAP_TYPE__trt__RemoveAudioDecoderConfigurationResponse
 #define SOAP_TYPE__trt__RemoveAudioDecoderConfigurationResponse (1083)
 /* trt:RemoveAudioDecoderConfigurationResponse */
-class SOAP_CMAC _trt__RemoveAudioDecoderConfigurationResponse
+class ONVIFLIB_API _trt__RemoveAudioDecoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21399,7 +21400,7 @@ public:
 #ifndef SOAP_TYPE__trt__DeleteProfile
 #define SOAP_TYPE__trt__DeleteProfile (1084)
 /* trt:DeleteProfile */
-class SOAP_CMAC _trt__DeleteProfile
+class ONVIFLIB_API _trt__DeleteProfile
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -21420,7 +21421,7 @@ public:
 #ifndef SOAP_TYPE__trt__DeleteProfileResponse
 #define SOAP_TYPE__trt__DeleteProfileResponse (1085)
 /* trt:DeleteProfileResponse */
-class SOAP_CMAC _trt__DeleteProfileResponse
+class ONVIFLIB_API _trt__DeleteProfileResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21440,7 +21441,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurations
 #define SOAP_TYPE__trt__GetVideoEncoderConfigurations (1086)
 /* trt:GetVideoEncoderConfigurations */
-class SOAP_CMAC _trt__GetVideoEncoderConfigurations
+class ONVIFLIB_API _trt__GetVideoEncoderConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21460,7 +21461,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse
 #define SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse (1087)
 /* trt:GetVideoEncoderConfigurationsResponse */
-class SOAP_CMAC _trt__GetVideoEncoderConfigurationsResponse
+class ONVIFLIB_API _trt__GetVideoEncoderConfigurationsResponse
 {
 public:
 	std::vector<tt__VideoEncoderConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoEncoderConfiguration */
@@ -21481,7 +21482,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceConfigurations
 #define SOAP_TYPE__trt__GetVideoSourceConfigurations (1088)
 /* trt:GetVideoSourceConfigurations */
-class SOAP_CMAC _trt__GetVideoSourceConfigurations
+class ONVIFLIB_API _trt__GetVideoSourceConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21501,7 +21502,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse
 #define SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse (1089)
 /* trt:GetVideoSourceConfigurationsResponse */
-class SOAP_CMAC _trt__GetVideoSourceConfigurationsResponse
+class ONVIFLIB_API _trt__GetVideoSourceConfigurationsResponse
 {
 public:
 	std::vector<tt__VideoSourceConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoSourceConfiguration */
@@ -21522,7 +21523,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioEncoderConfigurations
 #define SOAP_TYPE__trt__GetAudioEncoderConfigurations (1090)
 /* trt:GetAudioEncoderConfigurations */
-class SOAP_CMAC _trt__GetAudioEncoderConfigurations
+class ONVIFLIB_API _trt__GetAudioEncoderConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21542,7 +21543,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioEncoderConfigurationsResponse
 #define SOAP_TYPE__trt__GetAudioEncoderConfigurationsResponse (1091)
 /* trt:GetAudioEncoderConfigurationsResponse */
-class SOAP_CMAC _trt__GetAudioEncoderConfigurationsResponse
+class ONVIFLIB_API _trt__GetAudioEncoderConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioEncoderConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioEncoderConfiguration */
@@ -21563,7 +21564,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSourceConfigurations
 #define SOAP_TYPE__trt__GetAudioSourceConfigurations (1092)
 /* trt:GetAudioSourceConfigurations */
-class SOAP_CMAC _trt__GetAudioSourceConfigurations
+class ONVIFLIB_API _trt__GetAudioSourceConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21583,7 +21584,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSourceConfigurationsResponse
 #define SOAP_TYPE__trt__GetAudioSourceConfigurationsResponse (1093)
 /* trt:GetAudioSourceConfigurationsResponse */
-class SOAP_CMAC _trt__GetAudioSourceConfigurationsResponse
+class ONVIFLIB_API _trt__GetAudioSourceConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioSourceConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioSourceConfiguration */
@@ -21604,7 +21605,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoAnalyticsConfigurations
 #define SOAP_TYPE__trt__GetVideoAnalyticsConfigurations (1094)
 /* trt:GetVideoAnalyticsConfigurations */
-class SOAP_CMAC _trt__GetVideoAnalyticsConfigurations
+class ONVIFLIB_API _trt__GetVideoAnalyticsConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21624,7 +21625,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoAnalyticsConfigurationsResponse
 #define SOAP_TYPE__trt__GetVideoAnalyticsConfigurationsResponse (1095)
 /* trt:GetVideoAnalyticsConfigurationsResponse */
-class SOAP_CMAC _trt__GetVideoAnalyticsConfigurationsResponse
+class ONVIFLIB_API _trt__GetVideoAnalyticsConfigurationsResponse
 {
 public:
 	std::vector<tt__VideoAnalyticsConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoAnalyticsConfiguration */
@@ -21645,7 +21646,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetMetadataConfigurations
 #define SOAP_TYPE__trt__GetMetadataConfigurations (1096)
 /* trt:GetMetadataConfigurations */
-class SOAP_CMAC _trt__GetMetadataConfigurations
+class ONVIFLIB_API _trt__GetMetadataConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21665,7 +21666,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetMetadataConfigurationsResponse
 #define SOAP_TYPE__trt__GetMetadataConfigurationsResponse (1097)
 /* trt:GetMetadataConfigurationsResponse */
-class SOAP_CMAC _trt__GetMetadataConfigurationsResponse
+class ONVIFLIB_API _trt__GetMetadataConfigurationsResponse
 {
 public:
 	std::vector<tt__MetadataConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:MetadataConfiguration */
@@ -21686,7 +21687,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputConfigurations
 #define SOAP_TYPE__trt__GetAudioOutputConfigurations (1098)
 /* trt:GetAudioOutputConfigurations */
-class SOAP_CMAC _trt__GetAudioOutputConfigurations
+class ONVIFLIB_API _trt__GetAudioOutputConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21706,7 +21707,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputConfigurationsResponse
 #define SOAP_TYPE__trt__GetAudioOutputConfigurationsResponse (1099)
 /* trt:GetAudioOutputConfigurationsResponse */
-class SOAP_CMAC _trt__GetAudioOutputConfigurationsResponse
+class ONVIFLIB_API _trt__GetAudioOutputConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioOutputConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioOutputConfiguration */
@@ -21727,7 +21728,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioDecoderConfigurations
 #define SOAP_TYPE__trt__GetAudioDecoderConfigurations (1100)
 /* trt:GetAudioDecoderConfigurations */
-class SOAP_CMAC _trt__GetAudioDecoderConfigurations
+class ONVIFLIB_API _trt__GetAudioDecoderConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -21747,7 +21748,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioDecoderConfigurationsResponse
 #define SOAP_TYPE__trt__GetAudioDecoderConfigurationsResponse (1101)
 /* trt:GetAudioDecoderConfigurationsResponse */
-class SOAP_CMAC _trt__GetAudioDecoderConfigurationsResponse
+class ONVIFLIB_API _trt__GetAudioDecoderConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioDecoderConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioDecoderConfiguration */
@@ -21768,7 +21769,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceConfiguration
 #define SOAP_TYPE__trt__GetVideoSourceConfiguration (1102)
 /* trt:GetVideoSourceConfiguration */
-class SOAP_CMAC _trt__GetVideoSourceConfiguration
+class ONVIFLIB_API _trt__GetVideoSourceConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -21789,7 +21790,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationResponse
 #define SOAP_TYPE__trt__GetVideoSourceConfigurationResponse (1103)
 /* trt:GetVideoSourceConfigurationResponse */
-class SOAP_CMAC _trt__GetVideoSourceConfigurationResponse
+class ONVIFLIB_API _trt__GetVideoSourceConfigurationResponse
 {
 public:
 	tt__VideoSourceConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoSourceConfiguration */
@@ -21810,7 +21811,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoEncoderConfiguration
 #define SOAP_TYPE__trt__GetVideoEncoderConfiguration (1104)
 /* trt:GetVideoEncoderConfiguration */
-class SOAP_CMAC _trt__GetVideoEncoderConfiguration
+class ONVIFLIB_API _trt__GetVideoEncoderConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -21831,7 +21832,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse
 #define SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse (1105)
 /* trt:GetVideoEncoderConfigurationResponse */
-class SOAP_CMAC _trt__GetVideoEncoderConfigurationResponse
+class ONVIFLIB_API _trt__GetVideoEncoderConfigurationResponse
 {
 public:
 	tt__VideoEncoderConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoEncoderConfiguration */
@@ -21852,7 +21853,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSourceConfiguration
 #define SOAP_TYPE__trt__GetAudioSourceConfiguration (1106)
 /* trt:GetAudioSourceConfiguration */
-class SOAP_CMAC _trt__GetAudioSourceConfiguration
+class ONVIFLIB_API _trt__GetAudioSourceConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -21873,7 +21874,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSourceConfigurationResponse
 #define SOAP_TYPE__trt__GetAudioSourceConfigurationResponse (1107)
 /* trt:GetAudioSourceConfigurationResponse */
-class SOAP_CMAC _trt__GetAudioSourceConfigurationResponse
+class ONVIFLIB_API _trt__GetAudioSourceConfigurationResponse
 {
 public:
 	tt__AudioSourceConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioSourceConfiguration */
@@ -21894,7 +21895,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioEncoderConfiguration
 #define SOAP_TYPE__trt__GetAudioEncoderConfiguration (1108)
 /* trt:GetAudioEncoderConfiguration */
-class SOAP_CMAC _trt__GetAudioEncoderConfiguration
+class ONVIFLIB_API _trt__GetAudioEncoderConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -21915,7 +21916,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioEncoderConfigurationResponse
 #define SOAP_TYPE__trt__GetAudioEncoderConfigurationResponse (1109)
 /* trt:GetAudioEncoderConfigurationResponse */
-class SOAP_CMAC _trt__GetAudioEncoderConfigurationResponse
+class ONVIFLIB_API _trt__GetAudioEncoderConfigurationResponse
 {
 public:
 	tt__AudioEncoderConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioEncoderConfiguration */
@@ -21936,7 +21937,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoAnalyticsConfiguration
 #define SOAP_TYPE__trt__GetVideoAnalyticsConfiguration (1110)
 /* trt:GetVideoAnalyticsConfiguration */
-class SOAP_CMAC _trt__GetVideoAnalyticsConfiguration
+class ONVIFLIB_API _trt__GetVideoAnalyticsConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -21957,7 +21958,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoAnalyticsConfigurationResponse
 #define SOAP_TYPE__trt__GetVideoAnalyticsConfigurationResponse (1111)
 /* trt:GetVideoAnalyticsConfigurationResponse */
-class SOAP_CMAC _trt__GetVideoAnalyticsConfigurationResponse
+class ONVIFLIB_API _trt__GetVideoAnalyticsConfigurationResponse
 {
 public:
 	tt__VideoAnalyticsConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoAnalyticsConfiguration */
@@ -21978,7 +21979,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetMetadataConfiguration
 #define SOAP_TYPE__trt__GetMetadataConfiguration (1112)
 /* trt:GetMetadataConfiguration */
-class SOAP_CMAC _trt__GetMetadataConfiguration
+class ONVIFLIB_API _trt__GetMetadataConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -21999,7 +22000,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetMetadataConfigurationResponse
 #define SOAP_TYPE__trt__GetMetadataConfigurationResponse (1113)
 /* trt:GetMetadataConfigurationResponse */
-class SOAP_CMAC _trt__GetMetadataConfigurationResponse
+class ONVIFLIB_API _trt__GetMetadataConfigurationResponse
 {
 public:
 	tt__MetadataConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:MetadataConfiguration */
@@ -22020,7 +22021,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputConfiguration
 #define SOAP_TYPE__trt__GetAudioOutputConfiguration (1114)
 /* trt:GetAudioOutputConfiguration */
-class SOAP_CMAC _trt__GetAudioOutputConfiguration
+class ONVIFLIB_API _trt__GetAudioOutputConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -22041,7 +22042,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputConfigurationResponse
 #define SOAP_TYPE__trt__GetAudioOutputConfigurationResponse (1115)
 /* trt:GetAudioOutputConfigurationResponse */
-class SOAP_CMAC _trt__GetAudioOutputConfigurationResponse
+class ONVIFLIB_API _trt__GetAudioOutputConfigurationResponse
 {
 public:
 	tt__AudioOutputConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioOutputConfiguration */
@@ -22062,7 +22063,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioDecoderConfiguration
 #define SOAP_TYPE__trt__GetAudioDecoderConfiguration (1116)
 /* trt:GetAudioDecoderConfiguration */
-class SOAP_CMAC _trt__GetAudioDecoderConfiguration
+class ONVIFLIB_API _trt__GetAudioDecoderConfiguration
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -22083,7 +22084,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioDecoderConfigurationResponse
 #define SOAP_TYPE__trt__GetAudioDecoderConfigurationResponse (1117)
 /* trt:GetAudioDecoderConfigurationResponse */
-class SOAP_CMAC _trt__GetAudioDecoderConfigurationResponse
+class ONVIFLIB_API _trt__GetAudioDecoderConfigurationResponse
 {
 public:
 	tt__AudioDecoderConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioDecoderConfiguration */
@@ -22104,7 +22105,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleVideoEncoderConfigurations
 #define SOAP_TYPE__trt__GetCompatibleVideoEncoderConfigurations (1118)
 /* trt:GetCompatibleVideoEncoderConfigurations */
-class SOAP_CMAC _trt__GetCompatibleVideoEncoderConfigurations
+class ONVIFLIB_API _trt__GetCompatibleVideoEncoderConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22125,7 +22126,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleVideoEncoderConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleVideoEncoderConfigurationsResponse (1119)
 /* trt:GetCompatibleVideoEncoderConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleVideoEncoderConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleVideoEncoderConfigurationsResponse
 {
 public:
 	std::vector<tt__VideoEncoderConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoEncoderConfiguration */
@@ -22146,7 +22147,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleVideoSourceConfigurations
 #define SOAP_TYPE__trt__GetCompatibleVideoSourceConfigurations (1120)
 /* trt:GetCompatibleVideoSourceConfigurations */
-class SOAP_CMAC _trt__GetCompatibleVideoSourceConfigurations
+class ONVIFLIB_API _trt__GetCompatibleVideoSourceConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22167,7 +22168,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleVideoSourceConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleVideoSourceConfigurationsResponse (1121)
 /* trt:GetCompatibleVideoSourceConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleVideoSourceConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleVideoSourceConfigurationsResponse
 {
 public:
 	std::vector<tt__VideoSourceConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoSourceConfiguration */
@@ -22188,7 +22189,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioEncoderConfigurations
 #define SOAP_TYPE__trt__GetCompatibleAudioEncoderConfigurations (1122)
 /* trt:GetCompatibleAudioEncoderConfigurations */
-class SOAP_CMAC _trt__GetCompatibleAudioEncoderConfigurations
+class ONVIFLIB_API _trt__GetCompatibleAudioEncoderConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22209,7 +22210,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioEncoderConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleAudioEncoderConfigurationsResponse (1123)
 /* trt:GetCompatibleAudioEncoderConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleAudioEncoderConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleAudioEncoderConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioEncoderConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioEncoderConfiguration */
@@ -22230,7 +22231,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioSourceConfigurations
 #define SOAP_TYPE__trt__GetCompatibleAudioSourceConfigurations (1124)
 /* trt:GetCompatibleAudioSourceConfigurations */
-class SOAP_CMAC _trt__GetCompatibleAudioSourceConfigurations
+class ONVIFLIB_API _trt__GetCompatibleAudioSourceConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22251,7 +22252,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioSourceConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleAudioSourceConfigurationsResponse (1125)
 /* trt:GetCompatibleAudioSourceConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleAudioSourceConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleAudioSourceConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioSourceConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioSourceConfiguration */
@@ -22272,7 +22273,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleVideoAnalyticsConfigurations
 #define SOAP_TYPE__trt__GetCompatibleVideoAnalyticsConfigurations (1126)
 /* trt:GetCompatibleVideoAnalyticsConfigurations */
-class SOAP_CMAC _trt__GetCompatibleVideoAnalyticsConfigurations
+class ONVIFLIB_API _trt__GetCompatibleVideoAnalyticsConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22293,7 +22294,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleVideoAnalyticsConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleVideoAnalyticsConfigurationsResponse (1127)
 /* trt:GetCompatibleVideoAnalyticsConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleVideoAnalyticsConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleVideoAnalyticsConfigurationsResponse
 {
 public:
 	std::vector<tt__VideoAnalyticsConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:VideoAnalyticsConfiguration */
@@ -22314,7 +22315,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleMetadataConfigurations
 #define SOAP_TYPE__trt__GetCompatibleMetadataConfigurations (1128)
 /* trt:GetCompatibleMetadataConfigurations */
-class SOAP_CMAC _trt__GetCompatibleMetadataConfigurations
+class ONVIFLIB_API _trt__GetCompatibleMetadataConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22335,7 +22336,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleMetadataConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleMetadataConfigurationsResponse (1129)
 /* trt:GetCompatibleMetadataConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleMetadataConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleMetadataConfigurationsResponse
 {
 public:
 	std::vector<tt__MetadataConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:MetadataConfiguration */
@@ -22356,7 +22357,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioOutputConfigurations
 #define SOAP_TYPE__trt__GetCompatibleAudioOutputConfigurations (1130)
 /* trt:GetCompatibleAudioOutputConfigurations */
-class SOAP_CMAC _trt__GetCompatibleAudioOutputConfigurations
+class ONVIFLIB_API _trt__GetCompatibleAudioOutputConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22377,7 +22378,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioOutputConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleAudioOutputConfigurationsResponse (1131)
 /* trt:GetCompatibleAudioOutputConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleAudioOutputConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleAudioOutputConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioOutputConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioOutputConfiguration */
@@ -22398,7 +22399,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioDecoderConfigurations
 #define SOAP_TYPE__trt__GetCompatibleAudioDecoderConfigurations (1132)
 /* trt:GetCompatibleAudioDecoderConfigurations */
-class SOAP_CMAC _trt__GetCompatibleAudioDecoderConfigurations
+class ONVIFLIB_API _trt__GetCompatibleAudioDecoderConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -22419,7 +22420,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetCompatibleAudioDecoderConfigurationsResponse
 #define SOAP_TYPE__trt__GetCompatibleAudioDecoderConfigurationsResponse (1133)
 /* trt:GetCompatibleAudioDecoderConfigurationsResponse */
-class SOAP_CMAC _trt__GetCompatibleAudioDecoderConfigurationsResponse
+class ONVIFLIB_API _trt__GetCompatibleAudioDecoderConfigurationsResponse
 {
 public:
 	std::vector<tt__AudioDecoderConfiguration* >Configurations;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:AudioDecoderConfiguration */
@@ -22440,7 +22441,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoEncoderConfiguration
 #define SOAP_TYPE__trt__SetVideoEncoderConfiguration (1134)
 /* trt:SetVideoEncoderConfiguration */
-class SOAP_CMAC _trt__SetVideoEncoderConfiguration
+class ONVIFLIB_API _trt__SetVideoEncoderConfiguration
 {
 public:
 	tt__VideoEncoderConfiguration* Configuration;	/* required element of type tt:VideoEncoderConfiguration */
@@ -22462,7 +22463,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse
 #define SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse (1135)
 /* trt:SetVideoEncoderConfigurationResponse */
-class SOAP_CMAC _trt__SetVideoEncoderConfigurationResponse
+class ONVIFLIB_API _trt__SetVideoEncoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22482,7 +22483,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoSourceConfiguration
 #define SOAP_TYPE__trt__SetVideoSourceConfiguration (1136)
 /* trt:SetVideoSourceConfiguration */
-class SOAP_CMAC _trt__SetVideoSourceConfiguration
+class ONVIFLIB_API _trt__SetVideoSourceConfiguration
 {
 public:
 	tt__VideoSourceConfiguration* Configuration;	/* required element of type tt:VideoSourceConfiguration */
@@ -22504,7 +22505,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoSourceConfigurationResponse
 #define SOAP_TYPE__trt__SetVideoSourceConfigurationResponse (1137)
 /* trt:SetVideoSourceConfigurationResponse */
-class SOAP_CMAC _trt__SetVideoSourceConfigurationResponse
+class ONVIFLIB_API _trt__SetVideoSourceConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22524,7 +22525,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioEncoderConfiguration
 #define SOAP_TYPE__trt__SetAudioEncoderConfiguration (1138)
 /* trt:SetAudioEncoderConfiguration */
-class SOAP_CMAC _trt__SetAudioEncoderConfiguration
+class ONVIFLIB_API _trt__SetAudioEncoderConfiguration
 {
 public:
 	tt__AudioEncoderConfiguration* Configuration;	/* required element of type tt:AudioEncoderConfiguration */
@@ -22546,7 +22547,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioEncoderConfigurationResponse
 #define SOAP_TYPE__trt__SetAudioEncoderConfigurationResponse (1139)
 /* trt:SetAudioEncoderConfigurationResponse */
-class SOAP_CMAC _trt__SetAudioEncoderConfigurationResponse
+class ONVIFLIB_API _trt__SetAudioEncoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22566,7 +22567,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioSourceConfiguration
 #define SOAP_TYPE__trt__SetAudioSourceConfiguration (1140)
 /* trt:SetAudioSourceConfiguration */
-class SOAP_CMAC _trt__SetAudioSourceConfiguration
+class ONVIFLIB_API _trt__SetAudioSourceConfiguration
 {
 public:
 	tt__AudioSourceConfiguration* Configuration;	/* required element of type tt:AudioSourceConfiguration */
@@ -22588,7 +22589,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioSourceConfigurationResponse
 #define SOAP_TYPE__trt__SetAudioSourceConfigurationResponse (1141)
 /* trt:SetAudioSourceConfigurationResponse */
-class SOAP_CMAC _trt__SetAudioSourceConfigurationResponse
+class ONVIFLIB_API _trt__SetAudioSourceConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22608,7 +22609,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoAnalyticsConfiguration
 #define SOAP_TYPE__trt__SetVideoAnalyticsConfiguration (1142)
 /* trt:SetVideoAnalyticsConfiguration */
-class SOAP_CMAC _trt__SetVideoAnalyticsConfiguration
+class ONVIFLIB_API _trt__SetVideoAnalyticsConfiguration
 {
 public:
 	tt__VideoAnalyticsConfiguration* Configuration;	/* required element of type tt:VideoAnalyticsConfiguration */
@@ -22630,7 +22631,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoAnalyticsConfigurationResponse
 #define SOAP_TYPE__trt__SetVideoAnalyticsConfigurationResponse (1143)
 /* trt:SetVideoAnalyticsConfigurationResponse */
-class SOAP_CMAC _trt__SetVideoAnalyticsConfigurationResponse
+class ONVIFLIB_API _trt__SetVideoAnalyticsConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22650,7 +22651,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetMetadataConfiguration
 #define SOAP_TYPE__trt__SetMetadataConfiguration (1144)
 /* trt:SetMetadataConfiguration */
-class SOAP_CMAC _trt__SetMetadataConfiguration
+class ONVIFLIB_API _trt__SetMetadataConfiguration
 {
 public:
 	tt__MetadataConfiguration* Configuration;	/* required element of type tt:MetadataConfiguration */
@@ -22672,7 +22673,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetMetadataConfigurationResponse
 #define SOAP_TYPE__trt__SetMetadataConfigurationResponse (1145)
 /* trt:SetMetadataConfigurationResponse */
-class SOAP_CMAC _trt__SetMetadataConfigurationResponse
+class ONVIFLIB_API _trt__SetMetadataConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22692,7 +22693,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioOutputConfiguration
 #define SOAP_TYPE__trt__SetAudioOutputConfiguration (1146)
 /* trt:SetAudioOutputConfiguration */
-class SOAP_CMAC _trt__SetAudioOutputConfiguration
+class ONVIFLIB_API _trt__SetAudioOutputConfiguration
 {
 public:
 	tt__AudioOutputConfiguration* Configuration;	/* required element of type tt:AudioOutputConfiguration */
@@ -22714,7 +22715,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioOutputConfigurationResponse
 #define SOAP_TYPE__trt__SetAudioOutputConfigurationResponse (1147)
 /* trt:SetAudioOutputConfigurationResponse */
-class SOAP_CMAC _trt__SetAudioOutputConfigurationResponse
+class ONVIFLIB_API _trt__SetAudioOutputConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22734,7 +22735,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioDecoderConfiguration
 #define SOAP_TYPE__trt__SetAudioDecoderConfiguration (1148)
 /* trt:SetAudioDecoderConfiguration */
-class SOAP_CMAC _trt__SetAudioDecoderConfiguration
+class ONVIFLIB_API _trt__SetAudioDecoderConfiguration
 {
 public:
 	tt__AudioDecoderConfiguration* Configuration;	/* required element of type tt:AudioDecoderConfiguration */
@@ -22756,7 +22757,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetAudioDecoderConfigurationResponse
 #define SOAP_TYPE__trt__SetAudioDecoderConfigurationResponse (1149)
 /* trt:SetAudioDecoderConfigurationResponse */
-class SOAP_CMAC _trt__SetAudioDecoderConfigurationResponse
+class ONVIFLIB_API _trt__SetAudioDecoderConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -22776,7 +22777,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationOptions
 #define SOAP_TYPE__trt__GetVideoSourceConfigurationOptions (1150)
 /* trt:GetVideoSourceConfigurationOptions */
-class SOAP_CMAC _trt__GetVideoSourceConfigurationOptions
+class ONVIFLIB_API _trt__GetVideoSourceConfigurationOptions
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -22798,7 +22799,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse
 #define SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse (1151)
 /* trt:GetVideoSourceConfigurationOptionsResponse */
-class SOAP_CMAC _trt__GetVideoSourceConfigurationOptionsResponse
+class ONVIFLIB_API _trt__GetVideoSourceConfigurationOptionsResponse
 {
 public:
 	tt__VideoSourceConfigurationOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoSourceConfigurationOptions */
@@ -22819,7 +22820,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions
 #define SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions (1152)
 /* trt:GetVideoEncoderConfigurationOptions */
-class SOAP_CMAC _trt__GetVideoEncoderConfigurationOptions
+class ONVIFLIB_API _trt__GetVideoEncoderConfigurationOptions
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -22841,7 +22842,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse
 #define SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse (1153)
 /* trt:GetVideoEncoderConfigurationOptionsResponse */
-class SOAP_CMAC _trt__GetVideoEncoderConfigurationOptionsResponse
+class ONVIFLIB_API _trt__GetVideoEncoderConfigurationOptionsResponse
 {
 public:
 	tt__VideoEncoderConfigurationOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:VideoEncoderConfigurationOptions */
@@ -22862,7 +22863,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSourceConfigurationOptions
 #define SOAP_TYPE__trt__GetAudioSourceConfigurationOptions (1154)
 /* trt:GetAudioSourceConfigurationOptions */
-class SOAP_CMAC _trt__GetAudioSourceConfigurationOptions
+class ONVIFLIB_API _trt__GetAudioSourceConfigurationOptions
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -22884,7 +22885,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioSourceConfigurationOptionsResponse
 #define SOAP_TYPE__trt__GetAudioSourceConfigurationOptionsResponse (1155)
 /* trt:GetAudioSourceConfigurationOptionsResponse */
-class SOAP_CMAC _trt__GetAudioSourceConfigurationOptionsResponse
+class ONVIFLIB_API _trt__GetAudioSourceConfigurationOptionsResponse
 {
 public:
 	tt__AudioSourceConfigurationOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioSourceConfigurationOptions */
@@ -22905,7 +22906,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioEncoderConfigurationOptions
 #define SOAP_TYPE__trt__GetAudioEncoderConfigurationOptions (1156)
 /* trt:GetAudioEncoderConfigurationOptions */
-class SOAP_CMAC _trt__GetAudioEncoderConfigurationOptions
+class ONVIFLIB_API _trt__GetAudioEncoderConfigurationOptions
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -22927,7 +22928,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioEncoderConfigurationOptionsResponse
 #define SOAP_TYPE__trt__GetAudioEncoderConfigurationOptionsResponse (1157)
 /* trt:GetAudioEncoderConfigurationOptionsResponse */
-class SOAP_CMAC _trt__GetAudioEncoderConfigurationOptionsResponse
+class ONVIFLIB_API _trt__GetAudioEncoderConfigurationOptionsResponse
 {
 public:
 	tt__AudioEncoderConfigurationOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioEncoderConfigurationOptions */
@@ -22948,7 +22949,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetMetadataConfigurationOptions
 #define SOAP_TYPE__trt__GetMetadataConfigurationOptions (1158)
 /* trt:GetMetadataConfigurationOptions */
-class SOAP_CMAC _trt__GetMetadataConfigurationOptions
+class ONVIFLIB_API _trt__GetMetadataConfigurationOptions
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -22970,7 +22971,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetMetadataConfigurationOptionsResponse
 #define SOAP_TYPE__trt__GetMetadataConfigurationOptionsResponse (1159)
 /* trt:GetMetadataConfigurationOptionsResponse */
-class SOAP_CMAC _trt__GetMetadataConfigurationOptionsResponse
+class ONVIFLIB_API _trt__GetMetadataConfigurationOptionsResponse
 {
 public:
 	tt__MetadataConfigurationOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:MetadataConfigurationOptions */
@@ -22991,7 +22992,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputConfigurationOptions
 #define SOAP_TYPE__trt__GetAudioOutputConfigurationOptions (1160)
 /* trt:GetAudioOutputConfigurationOptions */
-class SOAP_CMAC _trt__GetAudioOutputConfigurationOptions
+class ONVIFLIB_API _trt__GetAudioOutputConfigurationOptions
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -23013,7 +23014,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioOutputConfigurationOptionsResponse
 #define SOAP_TYPE__trt__GetAudioOutputConfigurationOptionsResponse (1161)
 /* trt:GetAudioOutputConfigurationOptionsResponse */
-class SOAP_CMAC _trt__GetAudioOutputConfigurationOptionsResponse
+class ONVIFLIB_API _trt__GetAudioOutputConfigurationOptionsResponse
 {
 public:
 	tt__AudioOutputConfigurationOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioOutputConfigurationOptions */
@@ -23034,7 +23035,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioDecoderConfigurationOptions
 #define SOAP_TYPE__trt__GetAudioDecoderConfigurationOptions (1162)
 /* trt:GetAudioDecoderConfigurationOptions */
-class SOAP_CMAC _trt__GetAudioDecoderConfigurationOptions
+class ONVIFLIB_API _trt__GetAudioDecoderConfigurationOptions
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -23056,7 +23057,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetAudioDecoderConfigurationOptionsResponse
 #define SOAP_TYPE__trt__GetAudioDecoderConfigurationOptionsResponse (1163)
 /* trt:GetAudioDecoderConfigurationOptionsResponse */
-class SOAP_CMAC _trt__GetAudioDecoderConfigurationOptionsResponse
+class ONVIFLIB_API _trt__GetAudioDecoderConfigurationOptionsResponse
 {
 public:
 	tt__AudioDecoderConfigurationOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AudioDecoderConfigurationOptions */
@@ -23077,7 +23078,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetGuaranteedNumberOfVideoEncoderInstances
 #define SOAP_TYPE__trt__GetGuaranteedNumberOfVideoEncoderInstances (1164)
 /* trt:GetGuaranteedNumberOfVideoEncoderInstances */
-class SOAP_CMAC _trt__GetGuaranteedNumberOfVideoEncoderInstances
+class ONVIFLIB_API _trt__GetGuaranteedNumberOfVideoEncoderInstances
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -23098,7 +23099,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetGuaranteedNumberOfVideoEncoderInstancesResponse
 #define SOAP_TYPE__trt__GetGuaranteedNumberOfVideoEncoderInstancesResponse (1165)
 /* trt:GetGuaranteedNumberOfVideoEncoderInstancesResponse */
-class SOAP_CMAC _trt__GetGuaranteedNumberOfVideoEncoderInstancesResponse
+class ONVIFLIB_API _trt__GetGuaranteedNumberOfVideoEncoderInstancesResponse
 {
 public:
 	int TotalNumber;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:int */
@@ -23122,7 +23123,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetStreamUri
 #define SOAP_TYPE__trt__GetStreamUri (1166)
 /* trt:GetStreamUri */
-class SOAP_CMAC _trt__GetStreamUri
+class ONVIFLIB_API _trt__GetStreamUri
 {
 public:
 	tt__StreamSetup* StreamSetup;	/* required element of type tt:StreamSetup */
@@ -23144,7 +23145,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetStreamUriResponse
 #define SOAP_TYPE__trt__GetStreamUriResponse (1167)
 /* trt:GetStreamUriResponse */
-class SOAP_CMAC _trt__GetStreamUriResponse
+class ONVIFLIB_API _trt__GetStreamUriResponse
 {
 public:
 	tt__MediaUri* MediaUri;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:MediaUri */
@@ -23165,7 +23166,7 @@ public:
 #ifndef SOAP_TYPE__trt__StartMulticastStreaming
 #define SOAP_TYPE__trt__StartMulticastStreaming (1168)
 /* trt:StartMulticastStreaming */
-class SOAP_CMAC _trt__StartMulticastStreaming
+class ONVIFLIB_API _trt__StartMulticastStreaming
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -23186,7 +23187,7 @@ public:
 #ifndef SOAP_TYPE__trt__StartMulticastStreamingResponse
 #define SOAP_TYPE__trt__StartMulticastStreamingResponse (1169)
 /* trt:StartMulticastStreamingResponse */
-class SOAP_CMAC _trt__StartMulticastStreamingResponse
+class ONVIFLIB_API _trt__StartMulticastStreamingResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -23206,7 +23207,7 @@ public:
 #ifndef SOAP_TYPE__trt__StopMulticastStreaming
 #define SOAP_TYPE__trt__StopMulticastStreaming (1170)
 /* trt:StopMulticastStreaming */
-class SOAP_CMAC _trt__StopMulticastStreaming
+class ONVIFLIB_API _trt__StopMulticastStreaming
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -23227,7 +23228,7 @@ public:
 #ifndef SOAP_TYPE__trt__StopMulticastStreamingResponse
 #define SOAP_TYPE__trt__StopMulticastStreamingResponse (1171)
 /* trt:StopMulticastStreamingResponse */
-class SOAP_CMAC _trt__StopMulticastStreamingResponse
+class ONVIFLIB_API _trt__StopMulticastStreamingResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -23247,7 +23248,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetSynchronizationPoint
 #define SOAP_TYPE__trt__SetSynchronizationPoint (1172)
 /* trt:SetSynchronizationPoint */
-class SOAP_CMAC _trt__SetSynchronizationPoint
+class ONVIFLIB_API _trt__SetSynchronizationPoint
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -23268,7 +23269,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetSynchronizationPointResponse
 #define SOAP_TYPE__trt__SetSynchronizationPointResponse (1173)
 /* trt:SetSynchronizationPointResponse */
-class SOAP_CMAC _trt__SetSynchronizationPointResponse
+class ONVIFLIB_API _trt__SetSynchronizationPointResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -23288,7 +23289,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetSnapshotUri
 #define SOAP_TYPE__trt__GetSnapshotUri (1174)
 /* trt:GetSnapshotUri */
-class SOAP_CMAC _trt__GetSnapshotUri
+class ONVIFLIB_API _trt__GetSnapshotUri
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -23309,7 +23310,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetSnapshotUriResponse
 #define SOAP_TYPE__trt__GetSnapshotUriResponse (1175)
 /* trt:GetSnapshotUriResponse */
-class SOAP_CMAC _trt__GetSnapshotUriResponse
+class ONVIFLIB_API _trt__GetSnapshotUriResponse
 {
 public:
 	tt__MediaUri* MediaUri;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:MediaUri */
@@ -23330,7 +23331,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceModes
 #define SOAP_TYPE__trt__GetVideoSourceModes (1176)
 /* trt:GetVideoSourceModes */
-class SOAP_CMAC _trt__GetVideoSourceModes
+class ONVIFLIB_API _trt__GetVideoSourceModes
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23351,7 +23352,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetVideoSourceModesResponse
 #define SOAP_TYPE__trt__GetVideoSourceModesResponse (1177)
 /* trt:GetVideoSourceModesResponse */
-class SOAP_CMAC _trt__GetVideoSourceModesResponse
+class ONVIFLIB_API _trt__GetVideoSourceModesResponse
 {
 public:
 	std::vector<trt__VideoSourceMode* >VideoSourceModes;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type trt:VideoSourceMode */
@@ -23372,7 +23373,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoSourceMode
 #define SOAP_TYPE__trt__SetVideoSourceMode (1178)
 /* trt:SetVideoSourceMode */
-class SOAP_CMAC _trt__SetVideoSourceMode
+class ONVIFLIB_API _trt__SetVideoSourceMode
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23394,7 +23395,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetVideoSourceModeResponse
 #define SOAP_TYPE__trt__SetVideoSourceModeResponse (1179)
 /* trt:SetVideoSourceModeResponse */
-class SOAP_CMAC _trt__SetVideoSourceModeResponse
+class ONVIFLIB_API _trt__SetVideoSourceModeResponse
 {
 public:
 	bool Reboot;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:boolean */
@@ -23415,7 +23416,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetOSDs
 #define SOAP_TYPE__trt__GetOSDs (1180)
 /* trt:GetOSDs */
-class SOAP_CMAC _trt__GetOSDs
+class ONVIFLIB_API _trt__GetOSDs
 {
 public:
 	std::string* ConfigurationToken;	/* optional element of type tt:ReferenceToken */
@@ -23436,7 +23437,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetOSDsResponse
 #define SOAP_TYPE__trt__GetOSDsResponse (1181)
 /* trt:GetOSDsResponse */
-class SOAP_CMAC _trt__GetOSDsResponse
+class ONVIFLIB_API _trt__GetOSDsResponse
 {
 public:
 	std::vector<class tt__OSDConfiguration* >OSDs;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:OSDConfiguration */
@@ -23457,7 +23458,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetOSD
 #define SOAP_TYPE__trt__GetOSD (1182)
 /* trt:GetOSD */
-class SOAP_CMAC _trt__GetOSD
+class ONVIFLIB_API _trt__GetOSD
 {
 public:
 	std::string OSDToken;	/* required element of type tt:ReferenceToken */
@@ -23479,7 +23480,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetOSDResponse
 #define SOAP_TYPE__trt__GetOSDResponse (1183)
 /* trt:GetOSDResponse */
-class SOAP_CMAC _trt__GetOSDResponse
+class ONVIFLIB_API _trt__GetOSDResponse
 {
 public:
 	tt__OSDConfiguration* OSD;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:OSDConfiguration */
@@ -23501,7 +23502,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetOSD
 #define SOAP_TYPE__trt__SetOSD (1184)
 /* trt:SetOSD */
-class SOAP_CMAC _trt__SetOSD
+class ONVIFLIB_API _trt__SetOSD
 {
 public:
 	tt__OSDConfiguration* OSD;	/* required element of type tt:OSDConfiguration */
@@ -23523,7 +23524,7 @@ public:
 #ifndef SOAP_TYPE__trt__SetOSDResponse
 #define SOAP_TYPE__trt__SetOSDResponse (1185)
 /* trt:SetOSDResponse */
-class SOAP_CMAC _trt__SetOSDResponse
+class ONVIFLIB_API _trt__SetOSDResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -23544,7 +23545,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetOSDOptions
 #define SOAP_TYPE__trt__GetOSDOptions (1186)
 /* trt:GetOSDOptions */
-class SOAP_CMAC _trt__GetOSDOptions
+class ONVIFLIB_API _trt__GetOSDOptions
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -23566,7 +23567,7 @@ public:
 #ifndef SOAP_TYPE__trt__GetOSDOptionsResponse
 #define SOAP_TYPE__trt__GetOSDOptionsResponse (1187)
 /* trt:GetOSDOptionsResponse */
-class SOAP_CMAC _trt__GetOSDOptionsResponse
+class ONVIFLIB_API _trt__GetOSDOptionsResponse
 {
 public:
 	tt__OSDConfigurationOptions* OSDOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:OSDConfigurationOptions */
@@ -23588,7 +23589,7 @@ public:
 #ifndef SOAP_TYPE__trt__CreateOSD
 #define SOAP_TYPE__trt__CreateOSD (1188)
 /* trt:CreateOSD */
-class SOAP_CMAC _trt__CreateOSD
+class ONVIFLIB_API _trt__CreateOSD
 {
 public:
 	tt__OSDConfiguration* OSD;	/* required element of type tt:OSDConfiguration */
@@ -23610,7 +23611,7 @@ public:
 #ifndef SOAP_TYPE__trt__CreateOSDResponse
 #define SOAP_TYPE__trt__CreateOSDResponse (1189)
 /* trt:CreateOSDResponse */
-class SOAP_CMAC _trt__CreateOSDResponse
+class ONVIFLIB_API _trt__CreateOSDResponse
 {
 public:
 	std::string OSDToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ReferenceToken */
@@ -23632,7 +23633,7 @@ public:
 #ifndef SOAP_TYPE__trt__DeleteOSD
 #define SOAP_TYPE__trt__DeleteOSD (1190)
 /* trt:DeleteOSD */
-class SOAP_CMAC _trt__DeleteOSD
+class ONVIFLIB_API _trt__DeleteOSD
 {
 public:
 	std::string OSDToken;	/* required element of type tt:ReferenceToken */
@@ -23654,7 +23655,7 @@ public:
 #ifndef SOAP_TYPE__trt__DeleteOSDResponse
 #define SOAP_TYPE__trt__DeleteOSDResponse (1191)
 /* trt:DeleteOSDResponse */
-class SOAP_CMAC _trt__DeleteOSDResponse
+class ONVIFLIB_API _trt__DeleteOSDResponse
 {
 public:
 	std::vector<char* >__any;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -23675,7 +23676,7 @@ public:
 #ifndef SOAP_TYPE_timg__Capabilities
 #define SOAP_TYPE_timg__Capabilities (1192)
 /* timg:Capabilities */
-class SOAP_CMAC timg__Capabilities : public xsd__anyType
+class ONVIFLIB_API timg__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -23697,7 +23698,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetServiceCapabilities
 #define SOAP_TYPE__timg__GetServiceCapabilities (1193)
 /* timg:GetServiceCapabilities */
-class SOAP_CMAC _timg__GetServiceCapabilities
+class ONVIFLIB_API _timg__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -23717,7 +23718,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__timg__GetServiceCapabilitiesResponse (1194)
 /* timg:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _timg__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _timg__GetServiceCapabilitiesResponse
 {
 public:
 	timg__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type timg:Capabilities */
@@ -23738,7 +23739,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetImagingSettings
 #define SOAP_TYPE__timg__GetImagingSettings (1195)
 /* timg:GetImagingSettings */
-class SOAP_CMAC _timg__GetImagingSettings
+class ONVIFLIB_API _timg__GetImagingSettings
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23759,7 +23760,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetImagingSettingsResponse
 #define SOAP_TYPE__timg__GetImagingSettingsResponse (1196)
 /* timg:GetImagingSettingsResponse */
-class SOAP_CMAC _timg__GetImagingSettingsResponse
+class ONVIFLIB_API _timg__GetImagingSettingsResponse
 {
 public:
 	tt__ImagingSettings20* ImagingSettings;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ImagingSettings20 */
@@ -23780,7 +23781,7 @@ public:
 #ifndef SOAP_TYPE__timg__SetImagingSettings
 #define SOAP_TYPE__timg__SetImagingSettings (1197)
 /* timg:SetImagingSettings */
-class SOAP_CMAC _timg__SetImagingSettings
+class ONVIFLIB_API _timg__SetImagingSettings
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23803,7 +23804,7 @@ public:
 #ifndef SOAP_TYPE__timg__SetImagingSettingsResponse
 #define SOAP_TYPE__timg__SetImagingSettingsResponse (1198)
 /* timg:SetImagingSettingsResponse */
-class SOAP_CMAC _timg__SetImagingSettingsResponse
+class ONVIFLIB_API _timg__SetImagingSettingsResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -23823,7 +23824,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetOptions
 #define SOAP_TYPE__timg__GetOptions (1199)
 /* timg:GetOptions */
-class SOAP_CMAC _timg__GetOptions
+class ONVIFLIB_API _timg__GetOptions
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23844,7 +23845,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetOptionsResponse
 #define SOAP_TYPE__timg__GetOptionsResponse (1200)
 /* timg:GetOptionsResponse */
-class SOAP_CMAC _timg__GetOptionsResponse
+class ONVIFLIB_API _timg__GetOptionsResponse
 {
 public:
 	tt__ImagingOptions20* ImagingOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ImagingOptions20 */
@@ -23865,7 +23866,7 @@ public:
 #ifndef SOAP_TYPE__timg__Move
 #define SOAP_TYPE__timg__Move (1201)
 /* timg:Move */
-class SOAP_CMAC _timg__Move
+class ONVIFLIB_API _timg__Move
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23887,7 +23888,7 @@ public:
 #ifndef SOAP_TYPE__timg__MoveResponse
 #define SOAP_TYPE__timg__MoveResponse (1202)
 /* timg:MoveResponse */
-class SOAP_CMAC _timg__MoveResponse
+class ONVIFLIB_API _timg__MoveResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -23907,7 +23908,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetMoveOptions
 #define SOAP_TYPE__timg__GetMoveOptions (1203)
 /* timg:GetMoveOptions */
-class SOAP_CMAC _timg__GetMoveOptions
+class ONVIFLIB_API _timg__GetMoveOptions
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23928,7 +23929,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetMoveOptionsResponse
 #define SOAP_TYPE__timg__GetMoveOptionsResponse (1204)
 /* timg:GetMoveOptionsResponse */
-class SOAP_CMAC _timg__GetMoveOptionsResponse
+class ONVIFLIB_API _timg__GetMoveOptionsResponse
 {
 public:
 	tt__MoveOptions20* MoveOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:MoveOptions20 */
@@ -23949,7 +23950,7 @@ public:
 #ifndef SOAP_TYPE__timg__Stop
 #define SOAP_TYPE__timg__Stop (1205)
 /* timg:Stop */
-class SOAP_CMAC _timg__Stop
+class ONVIFLIB_API _timg__Stop
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -23970,7 +23971,7 @@ public:
 #ifndef SOAP_TYPE__timg__StopResponse
 #define SOAP_TYPE__timg__StopResponse (1206)
 /* timg:StopResponse */
-class SOAP_CMAC _timg__StopResponse
+class ONVIFLIB_API _timg__StopResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -23990,7 +23991,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetStatus
 #define SOAP_TYPE__timg__GetStatus (1207)
 /* timg:GetStatus */
-class SOAP_CMAC _timg__GetStatus
+class ONVIFLIB_API _timg__GetStatus
 {
 public:
 	std::string VideoSourceToken;	/* required element of type tt:ReferenceToken */
@@ -24011,7 +24012,7 @@ public:
 #ifndef SOAP_TYPE__timg__GetStatusResponse
 #define SOAP_TYPE__timg__GetStatusResponse (1208)
 /* timg:GetStatusResponse */
-class SOAP_CMAC _timg__GetStatusResponse
+class ONVIFLIB_API _timg__GetStatusResponse
 {
 public:
 	tt__ImagingStatus20* Status;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ImagingStatus20 */
@@ -24032,7 +24033,7 @@ public:
 #ifndef SOAP_TYPE_tptz__Capabilities
 #define SOAP_TYPE_tptz__Capabilities (1209)
 /* tptz:Capabilities */
-class SOAP_CMAC tptz__Capabilities : public xsd__anyType
+class ONVIFLIB_API tptz__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -24056,7 +24057,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetServiceCapabilities
 #define SOAP_TYPE__tptz__GetServiceCapabilities (1210)
 /* tptz:GetServiceCapabilities */
-class SOAP_CMAC _tptz__GetServiceCapabilities
+class ONVIFLIB_API _tptz__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24076,7 +24077,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__tptz__GetServiceCapabilitiesResponse (1211)
 /* tptz:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _tptz__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _tptz__GetServiceCapabilitiesResponse
 {
 public:
 	tptz__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tptz:Capabilities */
@@ -24097,7 +24098,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetNodes
 #define SOAP_TYPE__tptz__GetNodes (1212)
 /* tptz:GetNodes */
-class SOAP_CMAC _tptz__GetNodes
+class ONVIFLIB_API _tptz__GetNodes
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24117,7 +24118,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetNodesResponse
 #define SOAP_TYPE__tptz__GetNodesResponse (1213)
 /* tptz:GetNodesResponse */
-class SOAP_CMAC _tptz__GetNodesResponse
+class ONVIFLIB_API _tptz__GetNodesResponse
 {
 public:
 	std::vector<class tt__PTZNode* >PTZNode;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:PTZNode */
@@ -24138,7 +24139,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetNode
 #define SOAP_TYPE__tptz__GetNode (1214)
 /* tptz:GetNode */
-class SOAP_CMAC _tptz__GetNode
+class ONVIFLIB_API _tptz__GetNode
 {
 public:
 	std::string NodeToken;	/* required element of type tt:ReferenceToken */
@@ -24159,7 +24160,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetNodeResponse
 #define SOAP_TYPE__tptz__GetNodeResponse (1215)
 /* tptz:GetNodeResponse */
-class SOAP_CMAC _tptz__GetNodeResponse
+class ONVIFLIB_API _tptz__GetNodeResponse
 {
 public:
 	tt__PTZNode* PTZNode;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PTZNode */
@@ -24180,7 +24181,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetConfigurations
 #define SOAP_TYPE__tptz__GetConfigurations (1216)
 /* tptz:GetConfigurations */
-class SOAP_CMAC _tptz__GetConfigurations
+class ONVIFLIB_API _tptz__GetConfigurations
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24200,7 +24201,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetConfigurationsResponse
 #define SOAP_TYPE__tptz__GetConfigurationsResponse (1217)
 /* tptz:GetConfigurationsResponse */
-class SOAP_CMAC _tptz__GetConfigurationsResponse
+class ONVIFLIB_API _tptz__GetConfigurationsResponse
 {
 public:
 	std::vector<tt__PTZConfiguration* >PTZConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:PTZConfiguration */
@@ -24221,7 +24222,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetConfiguration
 #define SOAP_TYPE__tptz__GetConfiguration (1218)
 /* tptz:GetConfiguration */
-class SOAP_CMAC _tptz__GetConfiguration
+class ONVIFLIB_API _tptz__GetConfiguration
 {
 public:
 	std::string PTZConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -24242,7 +24243,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetConfigurationResponse
 #define SOAP_TYPE__tptz__GetConfigurationResponse (1219)
 /* tptz:GetConfigurationResponse */
-class SOAP_CMAC _tptz__GetConfigurationResponse
+class ONVIFLIB_API _tptz__GetConfigurationResponse
 {
 public:
 	tt__PTZConfiguration* PTZConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PTZConfiguration */
@@ -24263,7 +24264,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SetConfiguration
 #define SOAP_TYPE__tptz__SetConfiguration (1220)
 /* tptz:SetConfiguration */
-class SOAP_CMAC _tptz__SetConfiguration
+class ONVIFLIB_API _tptz__SetConfiguration
 {
 public:
 	tt__PTZConfiguration* PTZConfiguration;	/* required element of type tt:PTZConfiguration */
@@ -24285,7 +24286,7 @@ public:
 #ifndef SOAP_TYPE___tptz__SetConfigurationResponse_sequence
 #define SOAP_TYPE___tptz__SetConfigurationResponse_sequence (2160)
 /* Operation wrapper: */
-class SOAP_CMAC __tptz__SetConfigurationResponse_sequence
+class ONVIFLIB_API __tptz__SetConfigurationResponse_sequence
 {
 public:
 	virtual int soap_type() const { return 2160; } /* = unique type id SOAP_TYPE___tptz__SetConfigurationResponse_sequence */
@@ -24303,7 +24304,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SetConfigurationResponse
 #define SOAP_TYPE__tptz__SetConfigurationResponse (1221)
 /* tptz:SetConfigurationResponse */
-class SOAP_CMAC _tptz__SetConfigurationResponse
+class ONVIFLIB_API _tptz__SetConfigurationResponse
 {
 public:
 	std::vector<__tptz__SetConfigurationResponse_sequence >__SetConfigurationResponse_sequence;	/* SOAP 1.2 RPC return element (when namespace qualified) */
@@ -24324,7 +24325,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetConfigurationOptions
 #define SOAP_TYPE__tptz__GetConfigurationOptions (1222)
 /* tptz:GetConfigurationOptions */
-class SOAP_CMAC _tptz__GetConfigurationOptions
+class ONVIFLIB_API _tptz__GetConfigurationOptions
 {
 public:
 	std::string ConfigurationToken;	/* required element of type tt:ReferenceToken */
@@ -24345,7 +24346,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetConfigurationOptionsResponse
 #define SOAP_TYPE__tptz__GetConfigurationOptionsResponse (1223)
 /* tptz:GetConfigurationOptionsResponse */
-class SOAP_CMAC _tptz__GetConfigurationOptionsResponse
+class ONVIFLIB_API _tptz__GetConfigurationOptionsResponse
 {
 public:
 	tt__PTZConfigurationOptions* PTZConfigurationOptions;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PTZConfigurationOptions */
@@ -24366,7 +24367,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SendAuxiliaryCommand
 #define SOAP_TYPE__tptz__SendAuxiliaryCommand (1224)
 /* tptz:SendAuxiliaryCommand */
-class SOAP_CMAC _tptz__SendAuxiliaryCommand
+class ONVIFLIB_API _tptz__SendAuxiliaryCommand
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24388,7 +24389,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SendAuxiliaryCommandResponse
 #define SOAP_TYPE__tptz__SendAuxiliaryCommandResponse (1225)
 /* tptz:SendAuxiliaryCommandResponse */
-class SOAP_CMAC _tptz__SendAuxiliaryCommandResponse
+class ONVIFLIB_API _tptz__SendAuxiliaryCommandResponse
 {
 public:
 	std::string AuxiliaryResponse;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:AuxiliaryData */
@@ -24409,7 +24410,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresets
 #define SOAP_TYPE__tptz__GetPresets (1226)
 /* tptz:GetPresets */
-class SOAP_CMAC _tptz__GetPresets
+class ONVIFLIB_API _tptz__GetPresets
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24430,7 +24431,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresetsResponse
 #define SOAP_TYPE__tptz__GetPresetsResponse (1227)
 /* tptz:GetPresetsResponse */
-class SOAP_CMAC _tptz__GetPresetsResponse
+class ONVIFLIB_API _tptz__GetPresetsResponse
 {
 public:
 	std::vector<tt__PTZPreset* >Preset;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:PTZPreset */
@@ -24451,7 +24452,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SetPreset
 #define SOAP_TYPE__tptz__SetPreset (1228)
 /* tptz:SetPreset */
-class SOAP_CMAC _tptz__SetPreset
+class ONVIFLIB_API _tptz__SetPreset
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24474,7 +24475,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SetPresetResponse
 #define SOAP_TYPE__tptz__SetPresetResponse (1229)
 /* tptz:SetPresetResponse */
-class SOAP_CMAC _tptz__SetPresetResponse
+class ONVIFLIB_API _tptz__SetPresetResponse
 {
 public:
 	std::string PresetToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ReferenceToken */
@@ -24495,7 +24496,7 @@ public:
 #ifndef SOAP_TYPE__tptz__RemovePreset
 #define SOAP_TYPE__tptz__RemovePreset (1230)
 /* tptz:RemovePreset */
-class SOAP_CMAC _tptz__RemovePreset
+class ONVIFLIB_API _tptz__RemovePreset
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24517,7 +24518,7 @@ public:
 #ifndef SOAP_TYPE__tptz__RemovePresetResponse
 #define SOAP_TYPE__tptz__RemovePresetResponse (1231)
 /* tptz:RemovePresetResponse */
-class SOAP_CMAC _tptz__RemovePresetResponse
+class ONVIFLIB_API _tptz__RemovePresetResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24537,7 +24538,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GotoPreset
 #define SOAP_TYPE__tptz__GotoPreset (1232)
 /* tptz:GotoPreset */
-class SOAP_CMAC _tptz__GotoPreset
+class ONVIFLIB_API _tptz__GotoPreset
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24560,7 +24561,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GotoPresetResponse
 #define SOAP_TYPE__tptz__GotoPresetResponse (1233)
 /* tptz:GotoPresetResponse */
-class SOAP_CMAC _tptz__GotoPresetResponse
+class ONVIFLIB_API _tptz__GotoPresetResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24580,7 +24581,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetStatus
 #define SOAP_TYPE__tptz__GetStatus (1234)
 /* tptz:GetStatus */
-class SOAP_CMAC _tptz__GetStatus
+class ONVIFLIB_API _tptz__GetStatus
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24601,7 +24602,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetStatusResponse
 #define SOAP_TYPE__tptz__GetStatusResponse (1235)
 /* tptz:GetStatusResponse */
-class SOAP_CMAC _tptz__GetStatusResponse
+class ONVIFLIB_API _tptz__GetStatusResponse
 {
 public:
 	tt__PTZStatus* PTZStatus;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PTZStatus */
@@ -24622,7 +24623,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GotoHomePosition
 #define SOAP_TYPE__tptz__GotoHomePosition (1236)
 /* tptz:GotoHomePosition */
-class SOAP_CMAC _tptz__GotoHomePosition
+class ONVIFLIB_API _tptz__GotoHomePosition
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24644,7 +24645,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GotoHomePositionResponse
 #define SOAP_TYPE__tptz__GotoHomePositionResponse (1237)
 /* tptz:GotoHomePositionResponse */
-class SOAP_CMAC _tptz__GotoHomePositionResponse
+class ONVIFLIB_API _tptz__GotoHomePositionResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24664,7 +24665,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SetHomePosition
 #define SOAP_TYPE__tptz__SetHomePosition (1238)
 /* tptz:SetHomePosition */
-class SOAP_CMAC _tptz__SetHomePosition
+class ONVIFLIB_API _tptz__SetHomePosition
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24685,7 +24686,7 @@ public:
 #ifndef SOAP_TYPE__tptz__SetHomePositionResponse
 #define SOAP_TYPE__tptz__SetHomePositionResponse (1239)
 /* tptz:SetHomePositionResponse */
-class SOAP_CMAC _tptz__SetHomePositionResponse
+class ONVIFLIB_API _tptz__SetHomePositionResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24705,7 +24706,7 @@ public:
 #ifndef SOAP_TYPE__tptz__ContinuousMove
 #define SOAP_TYPE__tptz__ContinuousMove (1240)
 /* tptz:ContinuousMove */
-class SOAP_CMAC _tptz__ContinuousMove
+class ONVIFLIB_API _tptz__ContinuousMove
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24728,7 +24729,7 @@ public:
 #ifndef SOAP_TYPE__tptz__ContinuousMoveResponse
 #define SOAP_TYPE__tptz__ContinuousMoveResponse (1241)
 /* tptz:ContinuousMoveResponse */
-class SOAP_CMAC _tptz__ContinuousMoveResponse
+class ONVIFLIB_API _tptz__ContinuousMoveResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24748,7 +24749,7 @@ public:
 #ifndef SOAP_TYPE__tptz__RelativeMove
 #define SOAP_TYPE__tptz__RelativeMove (1242)
 /* tptz:RelativeMove */
-class SOAP_CMAC _tptz__RelativeMove
+class ONVIFLIB_API _tptz__RelativeMove
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24771,7 +24772,7 @@ public:
 #ifndef SOAP_TYPE__tptz__RelativeMoveResponse
 #define SOAP_TYPE__tptz__RelativeMoveResponse (1243)
 /* tptz:RelativeMoveResponse */
-class SOAP_CMAC _tptz__RelativeMoveResponse
+class ONVIFLIB_API _tptz__RelativeMoveResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24791,7 +24792,7 @@ public:
 #ifndef SOAP_TYPE__tptz__AbsoluteMove
 #define SOAP_TYPE__tptz__AbsoluteMove (1244)
 /* tptz:AbsoluteMove */
-class SOAP_CMAC _tptz__AbsoluteMove
+class ONVIFLIB_API _tptz__AbsoluteMove
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24814,7 +24815,7 @@ public:
 #ifndef SOAP_TYPE__tptz__AbsoluteMoveResponse
 #define SOAP_TYPE__tptz__AbsoluteMoveResponse (1245)
 /* tptz:AbsoluteMoveResponse */
-class SOAP_CMAC _tptz__AbsoluteMoveResponse
+class ONVIFLIB_API _tptz__AbsoluteMoveResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24834,7 +24835,7 @@ public:
 #ifndef SOAP_TYPE__tptz__Stop
 #define SOAP_TYPE__tptz__Stop (1246)
 /* tptz:Stop */
-class SOAP_CMAC _tptz__Stop
+class ONVIFLIB_API _tptz__Stop
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24857,7 +24858,7 @@ public:
 #ifndef SOAP_TYPE__tptz__StopResponse
 #define SOAP_TYPE__tptz__StopResponse (1247)
 /* tptz:StopResponse */
-class SOAP_CMAC _tptz__StopResponse
+class ONVIFLIB_API _tptz__StopResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -24877,7 +24878,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresetTours
 #define SOAP_TYPE__tptz__GetPresetTours (1248)
 /* tptz:GetPresetTours */
-class SOAP_CMAC _tptz__GetPresetTours
+class ONVIFLIB_API _tptz__GetPresetTours
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24898,7 +24899,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresetToursResponse
 #define SOAP_TYPE__tptz__GetPresetToursResponse (1249)
 /* tptz:GetPresetToursResponse */
-class SOAP_CMAC _tptz__GetPresetToursResponse
+class ONVIFLIB_API _tptz__GetPresetToursResponse
 {
 public:
 	std::vector<tt__PresetTour* >PresetTour;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:PresetTour */
@@ -24919,7 +24920,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresetTour
 #define SOAP_TYPE__tptz__GetPresetTour (1250)
 /* tptz:GetPresetTour */
-class SOAP_CMAC _tptz__GetPresetTour
+class ONVIFLIB_API _tptz__GetPresetTour
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24941,7 +24942,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresetTourResponse
 #define SOAP_TYPE__tptz__GetPresetTourResponse (1251)
 /* tptz:GetPresetTourResponse */
-class SOAP_CMAC _tptz__GetPresetTourResponse
+class ONVIFLIB_API _tptz__GetPresetTourResponse
 {
 public:
 	tt__PresetTour* PresetTour;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PresetTour */
@@ -24962,7 +24963,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresetTourOptions
 #define SOAP_TYPE__tptz__GetPresetTourOptions (1252)
 /* tptz:GetPresetTourOptions */
-class SOAP_CMAC _tptz__GetPresetTourOptions
+class ONVIFLIB_API _tptz__GetPresetTourOptions
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -24984,7 +24985,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetPresetTourOptionsResponse
 #define SOAP_TYPE__tptz__GetPresetTourOptionsResponse (1253)
 /* tptz:GetPresetTourOptionsResponse */
-class SOAP_CMAC _tptz__GetPresetTourOptionsResponse
+class ONVIFLIB_API _tptz__GetPresetTourOptionsResponse
 {
 public:
 	tt__PTZPresetTourOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:PTZPresetTourOptions */
@@ -25005,7 +25006,7 @@ public:
 #ifndef SOAP_TYPE__tptz__CreatePresetTour
 #define SOAP_TYPE__tptz__CreatePresetTour (1254)
 /* tptz:CreatePresetTour */
-class SOAP_CMAC _tptz__CreatePresetTour
+class ONVIFLIB_API _tptz__CreatePresetTour
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -25026,7 +25027,7 @@ public:
 #ifndef SOAP_TYPE__tptz__CreatePresetTourResponse
 #define SOAP_TYPE__tptz__CreatePresetTourResponse (1255)
 /* tptz:CreatePresetTourResponse */
-class SOAP_CMAC _tptz__CreatePresetTourResponse
+class ONVIFLIB_API _tptz__CreatePresetTourResponse
 {
 public:
 	std::string PresetTourToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ReferenceToken */
@@ -25047,7 +25048,7 @@ public:
 #ifndef SOAP_TYPE__tptz__ModifyPresetTour
 #define SOAP_TYPE__tptz__ModifyPresetTour (1256)
 /* tptz:ModifyPresetTour */
-class SOAP_CMAC _tptz__ModifyPresetTour
+class ONVIFLIB_API _tptz__ModifyPresetTour
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -25069,7 +25070,7 @@ public:
 #ifndef SOAP_TYPE__tptz__ModifyPresetTourResponse
 #define SOAP_TYPE__tptz__ModifyPresetTourResponse (1257)
 /* tptz:ModifyPresetTourResponse */
-class SOAP_CMAC _tptz__ModifyPresetTourResponse
+class ONVIFLIB_API _tptz__ModifyPresetTourResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25089,7 +25090,7 @@ public:
 #ifndef SOAP_TYPE__tptz__OperatePresetTour
 #define SOAP_TYPE__tptz__OperatePresetTour (1258)
 /* tptz:OperatePresetTour */
-class SOAP_CMAC _tptz__OperatePresetTour
+class ONVIFLIB_API _tptz__OperatePresetTour
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -25112,7 +25113,7 @@ public:
 #ifndef SOAP_TYPE__tptz__OperatePresetTourResponse
 #define SOAP_TYPE__tptz__OperatePresetTourResponse (1259)
 /* tptz:OperatePresetTourResponse */
-class SOAP_CMAC _tptz__OperatePresetTourResponse
+class ONVIFLIB_API _tptz__OperatePresetTourResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25132,7 +25133,7 @@ public:
 #ifndef SOAP_TYPE__tptz__RemovePresetTour
 #define SOAP_TYPE__tptz__RemovePresetTour (1260)
 /* tptz:RemovePresetTour */
-class SOAP_CMAC _tptz__RemovePresetTour
+class ONVIFLIB_API _tptz__RemovePresetTour
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -25154,7 +25155,7 @@ public:
 #ifndef SOAP_TYPE__tptz__RemovePresetTourResponse
 #define SOAP_TYPE__tptz__RemovePresetTourResponse (1261)
 /* tptz:RemovePresetTourResponse */
-class SOAP_CMAC _tptz__RemovePresetTourResponse
+class ONVIFLIB_API _tptz__RemovePresetTourResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25174,7 +25175,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetCompatibleConfigurations
 #define SOAP_TYPE__tptz__GetCompatibleConfigurations (1262)
 /* tptz:GetCompatibleConfigurations */
-class SOAP_CMAC _tptz__GetCompatibleConfigurations
+class ONVIFLIB_API _tptz__GetCompatibleConfigurations
 {
 public:
 	std::string ProfileToken;	/* required element of type tt:ReferenceToken */
@@ -25195,7 +25196,7 @@ public:
 #ifndef SOAP_TYPE__tptz__GetCompatibleConfigurationsResponse
 #define SOAP_TYPE__tptz__GetCompatibleConfigurationsResponse (1263)
 /* tptz:GetCompatibleConfigurationsResponse */
-class SOAP_CMAC _tptz__GetCompatibleConfigurationsResponse
+class ONVIFLIB_API _tptz__GetCompatibleConfigurationsResponse
 {
 public:
 	std::vector<tt__PTZConfiguration* >PTZConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:PTZConfiguration */
@@ -25216,7 +25217,7 @@ public:
 #ifndef SOAP_TYPE_trv__Capabilities
 #define SOAP_TYPE_trv__Capabilities (1264)
 /* trv:Capabilities */
-class SOAP_CMAC trv__Capabilities : public xsd__anyType
+class ONVIFLIB_API trv__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -25242,7 +25243,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetServiceCapabilities
 #define SOAP_TYPE__trv__GetServiceCapabilities (1265)
 /* trv:GetServiceCapabilities */
-class SOAP_CMAC _trv__GetServiceCapabilities
+class ONVIFLIB_API _trv__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25262,7 +25263,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__trv__GetServiceCapabilitiesResponse (1266)
 /* trv:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _trv__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _trv__GetServiceCapabilitiesResponse
 {
 public:
 	trv__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type trv:Capabilities */
@@ -25283,7 +25284,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetReceivers
 #define SOAP_TYPE__trv__GetReceivers (1267)
 /* trv:GetReceivers */
-class SOAP_CMAC _trv__GetReceivers
+class ONVIFLIB_API _trv__GetReceivers
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25303,7 +25304,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetReceiversResponse
 #define SOAP_TYPE__trv__GetReceiversResponse (1268)
 /* trv:GetReceiversResponse */
-class SOAP_CMAC _trv__GetReceiversResponse
+class ONVIFLIB_API _trv__GetReceiversResponse
 {
 public:
 	std::vector<tt__Receiver* >Receivers;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:Receiver */
@@ -25324,7 +25325,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetReceiver
 #define SOAP_TYPE__trv__GetReceiver (1269)
 /* trv:GetReceiver */
-class SOAP_CMAC _trv__GetReceiver
+class ONVIFLIB_API _trv__GetReceiver
 {
 public:
 	std::string ReceiverToken;	/* required element of type tt:ReferenceToken */
@@ -25345,7 +25346,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetReceiverResponse
 #define SOAP_TYPE__trv__GetReceiverResponse (1270)
 /* trv:GetReceiverResponse */
-class SOAP_CMAC _trv__GetReceiverResponse
+class ONVIFLIB_API _trv__GetReceiverResponse
 {
 public:
 	tt__Receiver* Receiver;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Receiver */
@@ -25366,7 +25367,7 @@ public:
 #ifndef SOAP_TYPE__trv__CreateReceiver
 #define SOAP_TYPE__trv__CreateReceiver (1271)
 /* trv:CreateReceiver */
-class SOAP_CMAC _trv__CreateReceiver
+class ONVIFLIB_API _trv__CreateReceiver
 {
 public:
 	tt__ReceiverConfiguration* Configuration;	/* required element of type tt:ReceiverConfiguration */
@@ -25387,7 +25388,7 @@ public:
 #ifndef SOAP_TYPE__trv__CreateReceiverResponse
 #define SOAP_TYPE__trv__CreateReceiverResponse (1272)
 /* trv:CreateReceiverResponse */
-class SOAP_CMAC _trv__CreateReceiverResponse
+class ONVIFLIB_API _trv__CreateReceiverResponse
 {
 public:
 	tt__Receiver* Receiver;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:Receiver */
@@ -25408,7 +25409,7 @@ public:
 #ifndef SOAP_TYPE__trv__DeleteReceiver
 #define SOAP_TYPE__trv__DeleteReceiver (1273)
 /* trv:DeleteReceiver */
-class SOAP_CMAC _trv__DeleteReceiver
+class ONVIFLIB_API _trv__DeleteReceiver
 {
 public:
 	std::string ReceiverToken;	/* required element of type tt:ReferenceToken */
@@ -25429,7 +25430,7 @@ public:
 #ifndef SOAP_TYPE__trv__DeleteReceiverResponse
 #define SOAP_TYPE__trv__DeleteReceiverResponse (1274)
 /* trv:DeleteReceiverResponse */
-class SOAP_CMAC _trv__DeleteReceiverResponse
+class ONVIFLIB_API _trv__DeleteReceiverResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25449,7 +25450,7 @@ public:
 #ifndef SOAP_TYPE__trv__ConfigureReceiver
 #define SOAP_TYPE__trv__ConfigureReceiver (1275)
 /* trv:ConfigureReceiver */
-class SOAP_CMAC _trv__ConfigureReceiver
+class ONVIFLIB_API _trv__ConfigureReceiver
 {
 public:
 	std::string ReceiverToken;	/* required element of type tt:ReferenceToken */
@@ -25471,7 +25472,7 @@ public:
 #ifndef SOAP_TYPE__trv__ConfigureReceiverResponse
 #define SOAP_TYPE__trv__ConfigureReceiverResponse (1276)
 /* trv:ConfigureReceiverResponse */
-class SOAP_CMAC _trv__ConfigureReceiverResponse
+class ONVIFLIB_API _trv__ConfigureReceiverResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25491,7 +25492,7 @@ public:
 #ifndef SOAP_TYPE__trv__SetReceiverMode
 #define SOAP_TYPE__trv__SetReceiverMode (1277)
 /* trv:SetReceiverMode */
-class SOAP_CMAC _trv__SetReceiverMode
+class ONVIFLIB_API _trv__SetReceiverMode
 {
 public:
 	std::string ReceiverToken;	/* required element of type tt:ReferenceToken */
@@ -25513,7 +25514,7 @@ public:
 #ifndef SOAP_TYPE__trv__SetReceiverModeResponse
 #define SOAP_TYPE__trv__SetReceiverModeResponse (1278)
 /* trv:SetReceiverModeResponse */
-class SOAP_CMAC _trv__SetReceiverModeResponse
+class ONVIFLIB_API _trv__SetReceiverModeResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25533,7 +25534,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetReceiverState
 #define SOAP_TYPE__trv__GetReceiverState (1279)
 /* trv:GetReceiverState */
-class SOAP_CMAC _trv__GetReceiverState
+class ONVIFLIB_API _trv__GetReceiverState
 {
 public:
 	std::string ReceiverToken;	/* required element of type tt:ReferenceToken */
@@ -25554,7 +25555,7 @@ public:
 #ifndef SOAP_TYPE__trv__GetReceiverStateResponse
 #define SOAP_TYPE__trv__GetReceiverStateResponse (1280)
 /* trv:GetReceiverStateResponse */
-class SOAP_CMAC _trv__GetReceiverStateResponse
+class ONVIFLIB_API _trv__GetReceiverStateResponse
 {
 public:
 	tt__ReceiverStateInformation* ReceiverState;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ReceiverStateInformation */
@@ -25575,7 +25576,7 @@ public:
 #ifndef SOAP_TYPE_trc__Capabilities
 #define SOAP_TYPE_trc__Capabilities (1281)
 /* trc:Capabilities */
-class SOAP_CMAC trc__Capabilities : public xsd__anyType
+class ONVIFLIB_API trc__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -25604,7 +25605,7 @@ public:
 #ifndef SOAP_TYPE_trc__RecordingOptions
 #define SOAP_TYPE_trc__RecordingOptions (1282)
 /* trc:RecordingOptions */
-class SOAP_CMAC trc__RecordingOptions : public xsd__anyType
+class ONVIFLIB_API trc__RecordingOptions : public xsd__anyType
 {
 public:
 	class trc__JobOptions* Job;	/* required element of type trc:JobOptions */
@@ -25626,7 +25627,7 @@ public:
 #ifndef SOAP_TYPE_trc__JobOptions
 #define SOAP_TYPE_trc__JobOptions (1283)
 /* Primitive trc:JobOptions schema type: */
-class SOAP_CMAC trc__JobOptions : public xsd__anyType
+class ONVIFLIB_API trc__JobOptions : public xsd__anyType
 {
 public:
 	int* Spare;	/* optional attribute */
@@ -25648,7 +25649,7 @@ public:
 #ifndef SOAP_TYPE_trc__TrackOptions
 #define SOAP_TYPE_trc__TrackOptions (1284)
 /* Primitive trc:TrackOptions schema type: */
-class SOAP_CMAC trc__TrackOptions : public xsd__anyType
+class ONVIFLIB_API trc__TrackOptions : public xsd__anyType
 {
 public:
 	int* SpareTotal;	/* optional attribute */
@@ -25672,7 +25673,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetServiceCapabilities
 #define SOAP_TYPE__trc__GetServiceCapabilities (1285)
 /* trc:GetServiceCapabilities */
-class SOAP_CMAC _trc__GetServiceCapabilities
+class ONVIFLIB_API _trc__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25692,7 +25693,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__trc__GetServiceCapabilitiesResponse (1286)
 /* trc:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _trc__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _trc__GetServiceCapabilitiesResponse
 {
 public:
 	trc__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type trc:Capabilities */
@@ -25713,7 +25714,7 @@ public:
 #ifndef SOAP_TYPE__trc__CreateRecording
 #define SOAP_TYPE__trc__CreateRecording (1287)
 /* trc:CreateRecording */
-class SOAP_CMAC _trc__CreateRecording
+class ONVIFLIB_API _trc__CreateRecording
 {
 public:
 	tt__RecordingConfiguration* RecordingConfiguration;	/* required element of type tt:RecordingConfiguration */
@@ -25734,7 +25735,7 @@ public:
 #ifndef SOAP_TYPE__trc__CreateRecordingResponse
 #define SOAP_TYPE__trc__CreateRecordingResponse (1288)
 /* trc:CreateRecordingResponse */
-class SOAP_CMAC _trc__CreateRecordingResponse
+class ONVIFLIB_API _trc__CreateRecordingResponse
 {
 public:
 	std::string RecordingToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingReference */
@@ -25755,7 +25756,7 @@ public:
 #ifndef SOAP_TYPE__trc__DeleteRecording
 #define SOAP_TYPE__trc__DeleteRecording (1289)
 /* trc:DeleteRecording */
-class SOAP_CMAC _trc__DeleteRecording
+class ONVIFLIB_API _trc__DeleteRecording
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -25776,7 +25777,7 @@ public:
 #ifndef SOAP_TYPE__trc__DeleteRecordingResponse
 #define SOAP_TYPE__trc__DeleteRecordingResponse (1290)
 /* trc:DeleteRecordingResponse */
-class SOAP_CMAC _trc__DeleteRecordingResponse
+class ONVIFLIB_API _trc__DeleteRecordingResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25796,7 +25797,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordings
 #define SOAP_TYPE__trc__GetRecordings (1291)
 /* trc:GetRecordings */
-class SOAP_CMAC _trc__GetRecordings
+class ONVIFLIB_API _trc__GetRecordings
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25816,7 +25817,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingsResponse
 #define SOAP_TYPE__trc__GetRecordingsResponse (1292)
 /* trc:GetRecordingsResponse */
-class SOAP_CMAC _trc__GetRecordingsResponse
+class ONVIFLIB_API _trc__GetRecordingsResponse
 {
 public:
 	std::vector<tt__GetRecordingsResponseItem* >RecordingItem;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:GetRecordingsResponseItem */
@@ -25837,7 +25838,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetRecordingConfiguration
 #define SOAP_TYPE__trc__SetRecordingConfiguration (1293)
 /* trc:SetRecordingConfiguration */
-class SOAP_CMAC _trc__SetRecordingConfiguration
+class ONVIFLIB_API _trc__SetRecordingConfiguration
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -25859,7 +25860,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetRecordingConfigurationResponse
 #define SOAP_TYPE__trc__SetRecordingConfigurationResponse (1294)
 /* trc:SetRecordingConfigurationResponse */
-class SOAP_CMAC _trc__SetRecordingConfigurationResponse
+class ONVIFLIB_API _trc__SetRecordingConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -25879,7 +25880,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingConfiguration
 #define SOAP_TYPE__trc__GetRecordingConfiguration (1295)
 /* trc:GetRecordingConfiguration */
-class SOAP_CMAC _trc__GetRecordingConfiguration
+class ONVIFLIB_API _trc__GetRecordingConfiguration
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -25900,7 +25901,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingConfigurationResponse
 #define SOAP_TYPE__trc__GetRecordingConfigurationResponse (1296)
 /* trc:GetRecordingConfigurationResponse */
-class SOAP_CMAC _trc__GetRecordingConfigurationResponse
+class ONVIFLIB_API _trc__GetRecordingConfigurationResponse
 {
 public:
 	tt__RecordingConfiguration* RecordingConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingConfiguration */
@@ -25921,7 +25922,7 @@ public:
 #ifndef SOAP_TYPE__trc__CreateTrack
 #define SOAP_TYPE__trc__CreateTrack (1297)
 /* trc:CreateTrack */
-class SOAP_CMAC _trc__CreateTrack
+class ONVIFLIB_API _trc__CreateTrack
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -25943,7 +25944,7 @@ public:
 #ifndef SOAP_TYPE__trc__CreateTrackResponse
 #define SOAP_TYPE__trc__CreateTrackResponse (1298)
 /* trc:CreateTrackResponse */
-class SOAP_CMAC _trc__CreateTrackResponse
+class ONVIFLIB_API _trc__CreateTrackResponse
 {
 public:
 	std::string TrackToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:TrackReference */
@@ -25964,7 +25965,7 @@ public:
 #ifndef SOAP_TYPE__trc__DeleteTrack
 #define SOAP_TYPE__trc__DeleteTrack (1299)
 /* trc:DeleteTrack */
-class SOAP_CMAC _trc__DeleteTrack
+class ONVIFLIB_API _trc__DeleteTrack
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -25986,7 +25987,7 @@ public:
 #ifndef SOAP_TYPE__trc__DeleteTrackResponse
 #define SOAP_TYPE__trc__DeleteTrackResponse (1300)
 /* trc:DeleteTrackResponse */
-class SOAP_CMAC _trc__DeleteTrackResponse
+class ONVIFLIB_API _trc__DeleteTrackResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -26006,7 +26007,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetTrackConfiguration
 #define SOAP_TYPE__trc__GetTrackConfiguration (1301)
 /* trc:GetTrackConfiguration */
-class SOAP_CMAC _trc__GetTrackConfiguration
+class ONVIFLIB_API _trc__GetTrackConfiguration
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -26028,7 +26029,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetTrackConfigurationResponse
 #define SOAP_TYPE__trc__GetTrackConfigurationResponse (1302)
 /* trc:GetTrackConfigurationResponse */
-class SOAP_CMAC _trc__GetTrackConfigurationResponse
+class ONVIFLIB_API _trc__GetTrackConfigurationResponse
 {
 public:
 	tt__TrackConfiguration* TrackConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:TrackConfiguration */
@@ -26049,7 +26050,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetTrackConfiguration
 #define SOAP_TYPE__trc__SetTrackConfiguration (1303)
 /* trc:SetTrackConfiguration */
-class SOAP_CMAC _trc__SetTrackConfiguration
+class ONVIFLIB_API _trc__SetTrackConfiguration
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -26072,7 +26073,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetTrackConfigurationResponse
 #define SOAP_TYPE__trc__SetTrackConfigurationResponse (1304)
 /* trc:SetTrackConfigurationResponse */
-class SOAP_CMAC _trc__SetTrackConfigurationResponse
+class ONVIFLIB_API _trc__SetTrackConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -26092,7 +26093,7 @@ public:
 #ifndef SOAP_TYPE__trc__CreateRecordingJob
 #define SOAP_TYPE__trc__CreateRecordingJob (1305)
 /* trc:CreateRecordingJob */
-class SOAP_CMAC _trc__CreateRecordingJob
+class ONVIFLIB_API _trc__CreateRecordingJob
 {
 public:
 	tt__RecordingJobConfiguration* JobConfiguration;	/* required element of type tt:RecordingJobConfiguration */
@@ -26113,7 +26114,7 @@ public:
 #ifndef SOAP_TYPE__trc__CreateRecordingJobResponse
 #define SOAP_TYPE__trc__CreateRecordingJobResponse (1306)
 /* trc:CreateRecordingJobResponse */
-class SOAP_CMAC _trc__CreateRecordingJobResponse
+class ONVIFLIB_API _trc__CreateRecordingJobResponse
 {
 public:
 	std::string JobToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingJobReference */
@@ -26135,7 +26136,7 @@ public:
 #ifndef SOAP_TYPE__trc__DeleteRecordingJob
 #define SOAP_TYPE__trc__DeleteRecordingJob (1307)
 /* trc:DeleteRecordingJob */
-class SOAP_CMAC _trc__DeleteRecordingJob
+class ONVIFLIB_API _trc__DeleteRecordingJob
 {
 public:
 	std::string JobToken;	/* required element of type tt:RecordingJobReference */
@@ -26156,7 +26157,7 @@ public:
 #ifndef SOAP_TYPE__trc__DeleteRecordingJobResponse
 #define SOAP_TYPE__trc__DeleteRecordingJobResponse (1308)
 /* trc:DeleteRecordingJobResponse */
-class SOAP_CMAC _trc__DeleteRecordingJobResponse
+class ONVIFLIB_API _trc__DeleteRecordingJobResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -26176,7 +26177,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingJobs
 #define SOAP_TYPE__trc__GetRecordingJobs (1309)
 /* trc:GetRecordingJobs */
-class SOAP_CMAC _trc__GetRecordingJobs
+class ONVIFLIB_API _trc__GetRecordingJobs
 {
 public:
 	struct soap* soap;	/* transient */
@@ -26196,7 +26197,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingJobsResponse
 #define SOAP_TYPE__trc__GetRecordingJobsResponse (1310)
 /* trc:GetRecordingJobsResponse */
-class SOAP_CMAC _trc__GetRecordingJobsResponse
+class ONVIFLIB_API _trc__GetRecordingJobsResponse
 {
 public:
 	std::vector<tt__GetRecordingJobsResponseItem* >JobItem;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:GetRecordingJobsResponseItem */
@@ -26217,7 +26218,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetRecordingJobConfiguration
 #define SOAP_TYPE__trc__SetRecordingJobConfiguration (1311)
 /* trc:SetRecordingJobConfiguration */
-class SOAP_CMAC _trc__SetRecordingJobConfiguration
+class ONVIFLIB_API _trc__SetRecordingJobConfiguration
 {
 public:
 	std::string JobToken;	/* required element of type tt:RecordingJobReference */
@@ -26239,7 +26240,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetRecordingJobConfigurationResponse
 #define SOAP_TYPE__trc__SetRecordingJobConfigurationResponse (1312)
 /* trc:SetRecordingJobConfigurationResponse */
-class SOAP_CMAC _trc__SetRecordingJobConfigurationResponse
+class ONVIFLIB_API _trc__SetRecordingJobConfigurationResponse
 {
 public:
 	tt__RecordingJobConfiguration* JobConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingJobConfiguration */
@@ -26260,7 +26261,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingJobConfiguration
 #define SOAP_TYPE__trc__GetRecordingJobConfiguration (1313)
 /* trc:GetRecordingJobConfiguration */
-class SOAP_CMAC _trc__GetRecordingJobConfiguration
+class ONVIFLIB_API _trc__GetRecordingJobConfiguration
 {
 public:
 	std::string JobToken;	/* required element of type tt:RecordingJobReference */
@@ -26281,7 +26282,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingJobConfigurationResponse
 #define SOAP_TYPE__trc__GetRecordingJobConfigurationResponse (1314)
 /* trc:GetRecordingJobConfigurationResponse */
-class SOAP_CMAC _trc__GetRecordingJobConfigurationResponse
+class ONVIFLIB_API _trc__GetRecordingJobConfigurationResponse
 {
 public:
 	tt__RecordingJobConfiguration* JobConfiguration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingJobConfiguration */
@@ -26302,7 +26303,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetRecordingJobMode
 #define SOAP_TYPE__trc__SetRecordingJobMode (1315)
 /* trc:SetRecordingJobMode */
-class SOAP_CMAC _trc__SetRecordingJobMode
+class ONVIFLIB_API _trc__SetRecordingJobMode
 {
 public:
 	std::string JobToken;	/* required element of type tt:RecordingJobReference */
@@ -26324,7 +26325,7 @@ public:
 #ifndef SOAP_TYPE__trc__SetRecordingJobModeResponse
 #define SOAP_TYPE__trc__SetRecordingJobModeResponse (1316)
 /* trc:SetRecordingJobModeResponse */
-class SOAP_CMAC _trc__SetRecordingJobModeResponse
+class ONVIFLIB_API _trc__SetRecordingJobModeResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -26344,7 +26345,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingJobState
 #define SOAP_TYPE__trc__GetRecordingJobState (1317)
 /* trc:GetRecordingJobState */
-class SOAP_CMAC _trc__GetRecordingJobState
+class ONVIFLIB_API _trc__GetRecordingJobState
 {
 public:
 	std::string JobToken;	/* required element of type tt:RecordingJobReference */
@@ -26365,7 +26366,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingJobStateResponse
 #define SOAP_TYPE__trc__GetRecordingJobStateResponse (1318)
 /* trc:GetRecordingJobStateResponse */
-class SOAP_CMAC _trc__GetRecordingJobStateResponse
+class ONVIFLIB_API _trc__GetRecordingJobStateResponse
 {
 public:
 	tt__RecordingJobStateInformation* State;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingJobStateInformation */
@@ -26386,7 +26387,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingOptions
 #define SOAP_TYPE__trc__GetRecordingOptions (1319)
 /* trc:GetRecordingOptions */
-class SOAP_CMAC _trc__GetRecordingOptions
+class ONVIFLIB_API _trc__GetRecordingOptions
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -26407,7 +26408,7 @@ public:
 #ifndef SOAP_TYPE__trc__GetRecordingOptionsResponse
 #define SOAP_TYPE__trc__GetRecordingOptionsResponse (1320)
 /* trc:GetRecordingOptionsResponse */
-class SOAP_CMAC _trc__GetRecordingOptionsResponse
+class ONVIFLIB_API _trc__GetRecordingOptionsResponse
 {
 public:
 	trc__RecordingOptions* Options;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type trc:RecordingOptions */
@@ -26428,7 +26429,7 @@ public:
 #ifndef SOAP_TYPE_tse__Capabilities
 #define SOAP_TYPE_tse__Capabilities (1321)
 /* tse:Capabilities */
-class SOAP_CMAC tse__Capabilities : public xsd__anyType
+class ONVIFLIB_API tse__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -26451,7 +26452,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetServiceCapabilities
 #define SOAP_TYPE__tse__GetServiceCapabilities (1322)
 /* tse:GetServiceCapabilities */
-class SOAP_CMAC _tse__GetServiceCapabilities
+class ONVIFLIB_API _tse__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -26471,7 +26472,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__tse__GetServiceCapabilitiesResponse (1323)
 /* tse:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _tse__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _tse__GetServiceCapabilitiesResponse
 {
 public:
 	tse__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tse:Capabilities */
@@ -26492,7 +26493,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetRecordingSummary
 #define SOAP_TYPE__tse__GetRecordingSummary (1324)
 /* tse:GetRecordingSummary */
-class SOAP_CMAC _tse__GetRecordingSummary
+class ONVIFLIB_API _tse__GetRecordingSummary
 {
 public:
 	struct soap* soap;	/* transient */
@@ -26512,7 +26513,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetRecordingSummaryResponse
 #define SOAP_TYPE__tse__GetRecordingSummaryResponse (1325)
 /* tse:GetRecordingSummaryResponse */
-class SOAP_CMAC _tse__GetRecordingSummaryResponse
+class ONVIFLIB_API _tse__GetRecordingSummaryResponse
 {
 public:
 	tt__RecordingSummary* Summary;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingSummary */
@@ -26533,7 +26534,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetRecordingInformation
 #define SOAP_TYPE__tse__GetRecordingInformation (1326)
 /* tse:GetRecordingInformation */
-class SOAP_CMAC _tse__GetRecordingInformation
+class ONVIFLIB_API _tse__GetRecordingInformation
 {
 public:
 	std::string RecordingToken;	/* required element of type tt:RecordingReference */
@@ -26554,7 +26555,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetRecordingInformationResponse
 #define SOAP_TYPE__tse__GetRecordingInformationResponse (1327)
 /* tse:GetRecordingInformationResponse */
-class SOAP_CMAC _tse__GetRecordingInformationResponse
+class ONVIFLIB_API _tse__GetRecordingInformationResponse
 {
 public:
 	tt__RecordingInformation* RecordingInformation;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:RecordingInformation */
@@ -26575,7 +26576,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetMediaAttributes
 #define SOAP_TYPE__tse__GetMediaAttributes (1328)
 /* tse:GetMediaAttributes */
-class SOAP_CMAC _tse__GetMediaAttributes
+class ONVIFLIB_API _tse__GetMediaAttributes
 {
 public:
 	std::vector<std::string >RecordingTokens;	/* optional element of type tt:RecordingReference */
@@ -26597,7 +26598,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetMediaAttributesResponse
 #define SOAP_TYPE__tse__GetMediaAttributesResponse (1329)
 /* tse:GetMediaAttributesResponse */
-class SOAP_CMAC _tse__GetMediaAttributesResponse
+class ONVIFLIB_API _tse__GetMediaAttributesResponse
 {
 public:
 	std::vector<tt__MediaAttributes* >MediaAttributes;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type tt:MediaAttributes */
@@ -26618,7 +26619,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindRecordings
 #define SOAP_TYPE__tse__FindRecordings (1330)
 /* tse:FindRecordings */
-class SOAP_CMAC _tse__FindRecordings
+class ONVIFLIB_API _tse__FindRecordings
 {
 public:
 	tt__SearchScope* Scope;	/* required element of type tt:SearchScope */
@@ -26641,7 +26642,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindRecordingsResponse
 #define SOAP_TYPE__tse__FindRecordingsResponse (1331)
 /* tse:FindRecordingsResponse */
-class SOAP_CMAC _tse__FindRecordingsResponse
+class ONVIFLIB_API _tse__FindRecordingsResponse
 {
 public:
 	std::string SearchToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:JobToken */
@@ -26662,7 +26663,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetRecordingSearchResults
 #define SOAP_TYPE__tse__GetRecordingSearchResults (1332)
 /* tse:GetRecordingSearchResults */
-class SOAP_CMAC _tse__GetRecordingSearchResults
+class ONVIFLIB_API _tse__GetRecordingSearchResults
 {
 public:
 	std::string SearchToken;	/* required element of type tt:JobToken */
@@ -26686,7 +26687,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetRecordingSearchResultsResponse
 #define SOAP_TYPE__tse__GetRecordingSearchResultsResponse (1333)
 /* tse:GetRecordingSearchResultsResponse */
-class SOAP_CMAC _tse__GetRecordingSearchResultsResponse
+class ONVIFLIB_API _tse__GetRecordingSearchResultsResponse
 {
 public:
 	tt__FindRecordingResultList* ResultList;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:FindRecordingResultList */
@@ -26707,7 +26708,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindEvents
 #define SOAP_TYPE__tse__FindEvents (1334)
 /* tse:FindEvents */
-class SOAP_CMAC _tse__FindEvents
+class ONVIFLIB_API _tse__FindEvents
 {
 public:
 	time_t StartPoint;	/* required element of type xsd:dateTime */
@@ -26734,7 +26735,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindEventsResponse
 #define SOAP_TYPE__tse__FindEventsResponse (1335)
 /* tse:FindEventsResponse */
-class SOAP_CMAC _tse__FindEventsResponse
+class ONVIFLIB_API _tse__FindEventsResponse
 {
 public:
 	std::string SearchToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:JobToken */
@@ -26755,7 +26756,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetEventSearchResults
 #define SOAP_TYPE__tse__GetEventSearchResults (1336)
 /* tse:GetEventSearchResults */
-class SOAP_CMAC _tse__GetEventSearchResults
+class ONVIFLIB_API _tse__GetEventSearchResults
 {
 public:
 	std::string SearchToken;	/* required element of type tt:JobToken */
@@ -26779,7 +26780,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetEventSearchResultsResponse
 #define SOAP_TYPE__tse__GetEventSearchResultsResponse (1337)
 /* tse:GetEventSearchResultsResponse */
-class SOAP_CMAC _tse__GetEventSearchResultsResponse
+class ONVIFLIB_API _tse__GetEventSearchResultsResponse
 {
 public:
 	tt__FindEventResultList* ResultList;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:FindEventResultList */
@@ -26800,7 +26801,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindPTZPosition
 #define SOAP_TYPE__tse__FindPTZPosition (1338)
 /* tse:FindPTZPosition */
-class SOAP_CMAC _tse__FindPTZPosition
+class ONVIFLIB_API _tse__FindPTZPosition
 {
 public:
 	time_t StartPoint;	/* required element of type xsd:dateTime */
@@ -26826,7 +26827,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindPTZPositionResponse
 #define SOAP_TYPE__tse__FindPTZPositionResponse (1339)
 /* tse:FindPTZPositionResponse */
-class SOAP_CMAC _tse__FindPTZPositionResponse
+class ONVIFLIB_API _tse__FindPTZPositionResponse
 {
 public:
 	std::string SearchToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:JobToken */
@@ -26847,7 +26848,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetPTZPositionSearchResults
 #define SOAP_TYPE__tse__GetPTZPositionSearchResults (1340)
 /* tse:GetPTZPositionSearchResults */
-class SOAP_CMAC _tse__GetPTZPositionSearchResults
+class ONVIFLIB_API _tse__GetPTZPositionSearchResults
 {
 public:
 	std::string SearchToken;	/* required element of type tt:JobToken */
@@ -26871,7 +26872,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetPTZPositionSearchResultsResponse
 #define SOAP_TYPE__tse__GetPTZPositionSearchResultsResponse (1341)
 /* tse:GetPTZPositionSearchResultsResponse */
-class SOAP_CMAC _tse__GetPTZPositionSearchResultsResponse
+class ONVIFLIB_API _tse__GetPTZPositionSearchResultsResponse
 {
 public:
 	tt__FindPTZPositionResultList* ResultList;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:FindPTZPositionResultList */
@@ -26892,7 +26893,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindMetadata
 #define SOAP_TYPE__tse__FindMetadata (1342)
 /* tse:FindMetadata */
-class SOAP_CMAC _tse__FindMetadata
+class ONVIFLIB_API _tse__FindMetadata
 {
 public:
 	time_t StartPoint;	/* required element of type xsd:dateTime */
@@ -26918,7 +26919,7 @@ public:
 #ifndef SOAP_TYPE__tse__FindMetadataResponse
 #define SOAP_TYPE__tse__FindMetadataResponse (1343)
 /* tse:FindMetadataResponse */
-class SOAP_CMAC _tse__FindMetadataResponse
+class ONVIFLIB_API _tse__FindMetadataResponse
 {
 public:
 	std::string SearchToken;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:JobToken */
@@ -26939,7 +26940,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetMetadataSearchResults
 #define SOAP_TYPE__tse__GetMetadataSearchResults (1344)
 /* tse:GetMetadataSearchResults */
-class SOAP_CMAC _tse__GetMetadataSearchResults
+class ONVIFLIB_API _tse__GetMetadataSearchResults
 {
 public:
 	std::string SearchToken;	/* required element of type tt:JobToken */
@@ -26963,7 +26964,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetMetadataSearchResultsResponse
 #define SOAP_TYPE__tse__GetMetadataSearchResultsResponse (1345)
 /* tse:GetMetadataSearchResultsResponse */
-class SOAP_CMAC _tse__GetMetadataSearchResultsResponse
+class ONVIFLIB_API _tse__GetMetadataSearchResultsResponse
 {
 public:
 	tt__FindMetadataResultList* ResultList;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:FindMetadataResultList */
@@ -26984,7 +26985,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetSearchState
 #define SOAP_TYPE__tse__GetSearchState (1346)
 /* tse:GetSearchState */
-class SOAP_CMAC _tse__GetSearchState
+class ONVIFLIB_API _tse__GetSearchState
 {
 public:
 	std::string SearchToken;	/* required element of type tt:JobToken */
@@ -27005,7 +27006,7 @@ public:
 #ifndef SOAP_TYPE__tse__GetSearchStateResponse
 #define SOAP_TYPE__tse__GetSearchStateResponse (1347)
 /* tse:GetSearchStateResponse */
-class SOAP_CMAC _tse__GetSearchStateResponse
+class ONVIFLIB_API _tse__GetSearchStateResponse
 {
 public:
 	enum tt__SearchState State;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:SearchState */
@@ -27026,7 +27027,7 @@ public:
 #ifndef SOAP_TYPE__tse__EndSearch
 #define SOAP_TYPE__tse__EndSearch (1348)
 /* tse:EndSearch */
-class SOAP_CMAC _tse__EndSearch
+class ONVIFLIB_API _tse__EndSearch
 {
 public:
 	std::string SearchToken;	/* required element of type tt:JobToken */
@@ -27047,7 +27048,7 @@ public:
 #ifndef SOAP_TYPE__tse__EndSearchResponse
 #define SOAP_TYPE__tse__EndSearchResponse (1349)
 /* tse:EndSearchResponse */
-class SOAP_CMAC _tse__EndSearchResponse
+class ONVIFLIB_API _tse__EndSearchResponse
 {
 public:
 	time_t Endpoint;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:dateTime */
@@ -27068,7 +27069,7 @@ public:
 #ifndef SOAP_TYPE_trp__Capabilities
 #define SOAP_TYPE_trp__Capabilities (1350)
 /* trp:Capabilities */
-class SOAP_CMAC trp__Capabilities : public xsd__anyType
+class ONVIFLIB_API trp__Capabilities : public xsd__anyType
 {
 public:
 	std::vector<char* >__any;
@@ -27092,7 +27093,7 @@ public:
 #ifndef SOAP_TYPE__trp__GetServiceCapabilities
 #define SOAP_TYPE__trp__GetServiceCapabilities (1351)
 /* trp:GetServiceCapabilities */
-class SOAP_CMAC _trp__GetServiceCapabilities
+class ONVIFLIB_API _trp__GetServiceCapabilities
 {
 public:
 	struct soap* soap;	/* transient */
@@ -27112,7 +27113,7 @@ public:
 #ifndef SOAP_TYPE__trp__GetServiceCapabilitiesResponse
 #define SOAP_TYPE__trp__GetServiceCapabilitiesResponse (1352)
 /* trp:GetServiceCapabilitiesResponse */
-class SOAP_CMAC _trp__GetServiceCapabilitiesResponse
+class ONVIFLIB_API _trp__GetServiceCapabilitiesResponse
 {
 public:
 	trp__Capabilities* Capabilities;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type trp:Capabilities */
@@ -27133,7 +27134,7 @@ public:
 #ifndef SOAP_TYPE__trp__GetReplayUri
 #define SOAP_TYPE__trp__GetReplayUri (1353)
 /* trp:GetReplayUri */
-class SOAP_CMAC _trp__GetReplayUri
+class ONVIFLIB_API _trp__GetReplayUri
 {
 public:
 	tt__StreamSetup* StreamSetup;	/* required element of type tt:StreamSetup */
@@ -27155,7 +27156,7 @@ public:
 #ifndef SOAP_TYPE__trp__GetReplayUriResponse
 #define SOAP_TYPE__trp__GetReplayUriResponse (1354)
 /* trp:GetReplayUriResponse */
-class SOAP_CMAC _trp__GetReplayUriResponse
+class ONVIFLIB_API _trp__GetReplayUriResponse
 {
 public:
 	std::string Uri;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:anyURI */
@@ -27176,7 +27177,7 @@ public:
 #ifndef SOAP_TYPE__trp__SetReplayConfiguration
 #define SOAP_TYPE__trp__SetReplayConfiguration (1355)
 /* trp:SetReplayConfiguration */
-class SOAP_CMAC _trp__SetReplayConfiguration
+class ONVIFLIB_API _trp__SetReplayConfiguration
 {
 public:
 	tt__ReplayConfiguration* Configuration;	/* required element of type tt:ReplayConfiguration */
@@ -27197,7 +27198,7 @@ public:
 #ifndef SOAP_TYPE__trp__SetReplayConfigurationResponse
 #define SOAP_TYPE__trp__SetReplayConfigurationResponse (1356)
 /* trp:SetReplayConfigurationResponse */
-class SOAP_CMAC _trp__SetReplayConfigurationResponse
+class ONVIFLIB_API _trp__SetReplayConfigurationResponse
 {
 public:
 	struct soap* soap;	/* transient */
@@ -27217,7 +27218,7 @@ public:
 #ifndef SOAP_TYPE__trp__GetReplayConfiguration
 #define SOAP_TYPE__trp__GetReplayConfiguration (1357)
 /* trp:GetReplayConfiguration */
-class SOAP_CMAC _trp__GetReplayConfiguration
+class ONVIFLIB_API _trp__GetReplayConfiguration
 {
 public:
 	struct soap* soap;	/* transient */
@@ -27237,7 +27238,7 @@ public:
 #ifndef SOAP_TYPE__trp__GetReplayConfigurationResponse
 #define SOAP_TYPE__trp__GetReplayConfigurationResponse (1358)
 /* trp:GetReplayConfigurationResponse */
-class SOAP_CMAC _trp__GetReplayConfigurationResponse
+class ONVIFLIB_API _trp__GetReplayConfigurationResponse
 {
 public:
 	tt__ReplayConfiguration* Configuration;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type tt:ReplayConfiguration */
@@ -27258,7 +27259,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSource
 #define SOAP_TYPE_tt__VideoSource (430)
 /* tt:VideoSource */
-class SOAP_CMAC tt__VideoSource : public tt__DeviceEntity
+class ONVIFLIB_API tt__VideoSource : public tt__DeviceEntity
 {
 public:
 	float Framerate;	/* required element of type xsd:float */
@@ -27282,7 +27283,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioSource
 #define SOAP_TYPE_tt__AudioSource (433)
 /* tt:AudioSource */
-class SOAP_CMAC tt__AudioSource : public tt__DeviceEntity
+class ONVIFLIB_API tt__AudioSource : public tt__DeviceEntity
 {
 public:
 	int Channels;	/* required element of type xsd:int */
@@ -27304,7 +27305,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoSourceConfiguration
 #define SOAP_TYPE_tt__VideoSourceConfiguration (438)
 /* tt:VideoSourceConfiguration */
-class SOAP_CMAC tt__VideoSourceConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__VideoSourceConfiguration : public tt__ConfigurationEntity
 {
 public:
 	std::string SourceToken;	/* required element of type tt:ReferenceToken */
@@ -27328,7 +27329,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoEncoderConfiguration
 #define SOAP_TYPE_tt__VideoEncoderConfiguration (448)
 /* tt:VideoEncoderConfiguration */
-class SOAP_CMAC tt__VideoEncoderConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__VideoEncoderConfiguration : public tt__ConfigurationEntity
 {
 public:
 	enum tt__VideoEncoding Encoding;	/* required element of type tt:VideoEncoding */
@@ -27357,7 +27358,7 @@ public:
 #ifndef SOAP_TYPE_tt__JpegOptions2
 #define SOAP_TYPE_tt__JpegOptions2 (457)
 /* tt:JpegOptions2 */
-class SOAP_CMAC tt__JpegOptions2 : public tt__JpegOptions
+class ONVIFLIB_API tt__JpegOptions2 : public tt__JpegOptions
 {
 public:
 	tt__IntRange* BitrateRange;	/* required element of type tt:IntRange */
@@ -27379,7 +27380,7 @@ public:
 #ifndef SOAP_TYPE_tt__Mpeg4Options2
 #define SOAP_TYPE_tt__Mpeg4Options2 (459)
 /* tt:Mpeg4Options2 */
-class SOAP_CMAC tt__Mpeg4Options2 : public tt__Mpeg4Options
+class ONVIFLIB_API tt__Mpeg4Options2 : public tt__Mpeg4Options
 {
 public:
 	tt__IntRange* BitrateRange;	/* required element of type tt:IntRange */
@@ -27401,7 +27402,7 @@ public:
 #ifndef SOAP_TYPE_tt__H264Options2
 #define SOAP_TYPE_tt__H264Options2 (461)
 /* tt:H264Options2 */
-class SOAP_CMAC tt__H264Options2 : public tt__H264Options
+class ONVIFLIB_API tt__H264Options2 : public tt__H264Options
 {
 public:
 	tt__IntRange* BitrateRange;	/* required element of type tt:IntRange */
@@ -27423,7 +27424,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioSourceConfiguration
 #define SOAP_TYPE_tt__AudioSourceConfiguration (462)
 /* tt:AudioSourceConfiguration */
-class SOAP_CMAC tt__AudioSourceConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__AudioSourceConfiguration : public tt__ConfigurationEntity
 {
 public:
 	std::string SourceToken;	/* required element of type tt:ReferenceToken */
@@ -27445,7 +27446,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioEncoderConfiguration
 #define SOAP_TYPE_tt__AudioEncoderConfiguration (465)
 /* tt:AudioEncoderConfiguration */
-class SOAP_CMAC tt__AudioEncoderConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__AudioEncoderConfiguration : public tt__ConfigurationEntity
 {
 public:
 	enum tt__AudioEncoding Encoding;	/* required element of type tt:AudioEncoding */
@@ -27471,7 +27472,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoAnalyticsConfiguration
 #define SOAP_TYPE_tt__VideoAnalyticsConfiguration (468)
 /* tt:VideoAnalyticsConfiguration */
-class SOAP_CMAC tt__VideoAnalyticsConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__VideoAnalyticsConfiguration : public tt__ConfigurationEntity
 {
 public:
 	tt__AnalyticsEngineConfiguration* AnalyticsEngineConfiguration;	/* required element of type tt:AnalyticsEngineConfiguration */
@@ -27494,7 +27495,7 @@ public:
 #ifndef SOAP_TYPE_tt__MetadataConfiguration
 #define SOAP_TYPE_tt__MetadataConfiguration (469)
 /* tt:MetadataConfiguration */
-class SOAP_CMAC tt__MetadataConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__MetadataConfiguration : public tt__ConfigurationEntity
 {
 public:
 	tt__PTZFilter* PTZStatus;	/* optional element of type tt:PTZFilter */
@@ -27522,7 +27523,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoOutput
 #define SOAP_TYPE_tt__VideoOutput (476)
 /* tt:VideoOutput */
-class SOAP_CMAC tt__VideoOutput : public tt__DeviceEntity
+class ONVIFLIB_API tt__VideoOutput : public tt__DeviceEntity
 {
 public:
 	tt__Layout* Layout;	/* required element of type tt:Layout */
@@ -27547,7 +27548,7 @@ public:
 #ifndef SOAP_TYPE_tt__VideoOutputConfiguration
 #define SOAP_TYPE_tt__VideoOutputConfiguration (478)
 /* tt:VideoOutputConfiguration */
-class SOAP_CMAC tt__VideoOutputConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__VideoOutputConfiguration : public tt__ConfigurationEntity
 {
 public:
 	std::string OutputToken;	/* required element of type tt:ReferenceToken */
@@ -27569,7 +27570,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioOutput
 #define SOAP_TYPE_tt__AudioOutput (485)
 /* tt:AudioOutput */
-class SOAP_CMAC tt__AudioOutput : public tt__DeviceEntity
+class ONVIFLIB_API tt__AudioOutput : public tt__DeviceEntity
 {
 public:
 	std::vector<char* >__any;
@@ -27590,7 +27591,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioOutputConfiguration
 #define SOAP_TYPE_tt__AudioOutputConfiguration (486)
 /* tt:AudioOutputConfiguration */
-class SOAP_CMAC tt__AudioOutputConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__AudioOutputConfiguration : public tt__ConfigurationEntity
 {
 public:
 	std::string OutputToken;	/* required element of type tt:ReferenceToken */
@@ -27614,7 +27615,7 @@ public:
 #ifndef SOAP_TYPE_tt__AudioDecoderConfiguration
 #define SOAP_TYPE_tt__AudioDecoderConfiguration (488)
 /* tt:AudioDecoderConfiguration */
-class SOAP_CMAC tt__AudioDecoderConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__AudioDecoderConfiguration : public tt__ConfigurationEntity
 {
 public:
 	std::vector<char* >__any;
@@ -27635,7 +27636,7 @@ public:
 #ifndef SOAP_TYPE_tt__NetworkInterface
 #define SOAP_TYPE_tt__NetworkInterface (499)
 /* tt:NetworkInterface */
-class SOAP_CMAC tt__NetworkInterface : public tt__DeviceEntity
+class ONVIFLIB_API tt__NetworkInterface : public tt__DeviceEntity
 {
 public:
 	bool Enabled;	/* required element of type xsd:boolean */
@@ -27661,7 +27662,7 @@ public:
 #ifndef SOAP_TYPE_tt__CertificateUsage
 #define SOAP_TYPE_tt__CertificateUsage (603)
 /* Primitive tt:CertificateUsage schema type: */
-class SOAP_CMAC tt__CertificateUsage : public xsd__anyType
+class ONVIFLIB_API tt__CertificateUsage : public xsd__anyType
 {
 public:
 	std::string __item;
@@ -27682,7 +27683,7 @@ public:
 #ifndef SOAP_TYPE_tt__RelayOutput
 #define SOAP_TYPE_tt__RelayOutput (612)
 /* tt:RelayOutput */
-class SOAP_CMAC tt__RelayOutput : public tt__DeviceEntity
+class ONVIFLIB_API tt__RelayOutput : public tt__DeviceEntity
 {
 public:
 	tt__RelayOutputSettings* Properties;	/* required element of type tt:RelayOutputSettings */
@@ -27704,7 +27705,7 @@ public:
 #ifndef SOAP_TYPE_tt__DigitalInput
 #define SOAP_TYPE_tt__DigitalInput (613)
 /* tt:DigitalInput */
-class SOAP_CMAC tt__DigitalInput : public tt__DeviceEntity
+class ONVIFLIB_API tt__DigitalInput : public tt__DeviceEntity
 {
 public:
 	std::vector<char* >__any;
@@ -27725,7 +27726,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZNode
 #define SOAP_TYPE_tt__PTZNode (614)
 /* tt:PTZNode */
-class SOAP_CMAC tt__PTZNode : public tt__DeviceEntity
+class ONVIFLIB_API tt__PTZNode : public tt__DeviceEntity
 {
 public:
 	std::string* Name;	/* optional element of type tt:Name */
@@ -27752,7 +27753,7 @@ public:
 #ifndef SOAP_TYPE_tt__PTZConfiguration
 #define SOAP_TYPE_tt__PTZConfiguration (619)
 /* tt:PTZConfiguration */
-class SOAP_CMAC tt__PTZConfiguration : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__PTZConfiguration : public tt__ConfigurationEntity
 {
 public:
 	std::string NodeToken;	/* required element of type tt:ReferenceToken */
@@ -27784,7 +27785,7 @@ public:
 #ifndef SOAP_TYPE_tt__Object
 #define SOAP_TYPE_tt__Object (745)
 /* tt:Object */
-class SOAP_CMAC tt__Object : public tt__ObjectId
+class ONVIFLIB_API tt__Object : public tt__ObjectId
 {
 public:
 	tt__Appearance* Appearance;	/* optional element of type tt:Appearance */
@@ -27807,7 +27808,7 @@ public:
 #ifndef SOAP_TYPE_tt__EventFilter
 #define SOAP_TYPE_tt__EventFilter (808)
 /* tt:EventFilter */
-class SOAP_CMAC tt__EventFilter : public wsnt__FilterType
+class ONVIFLIB_API tt__EventFilter : public wsnt__FilterType
 {
 public:
 	char* __anyAttribute;	/* optional attribute */
@@ -27827,7 +27828,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsEngine
 #define SOAP_TYPE_tt__AnalyticsEngine (844)
 /* tt:AnalyticsEngine */
-class SOAP_CMAC tt__AnalyticsEngine : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__AnalyticsEngine : public tt__ConfigurationEntity
 {
 public:
 	tt__AnalyticsDeviceEngineConfiguration* AnalyticsEngineConfiguration;	/* required element of type tt:AnalyticsDeviceEngineConfiguration */
@@ -27849,7 +27850,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsEngineInput
 #define SOAP_TYPE_tt__AnalyticsEngineInput (850)
 /* tt:AnalyticsEngineInput */
-class SOAP_CMAC tt__AnalyticsEngineInput : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__AnalyticsEngineInput : public tt__ConfigurationEntity
 {
 public:
 	tt__SourceIdentification* SourceIdentification;	/* required element of type tt:SourceIdentification */
@@ -27873,7 +27874,7 @@ public:
 #ifndef SOAP_TYPE_tt__AnalyticsEngineControl
 #define SOAP_TYPE_tt__AnalyticsEngineControl (855)
 /* tt:AnalyticsEngineControl */
-class SOAP_CMAC tt__AnalyticsEngineControl : public tt__ConfigurationEntity
+class ONVIFLIB_API tt__AnalyticsEngineControl : public tt__ConfigurationEntity
 {
 public:
 	std::string EngineToken;	/* required element of type tt:ReferenceToken */
@@ -27901,7 +27902,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDConfiguration
 #define SOAP_TYPE_tt__OSDConfiguration (879)
 /* tt:OSDConfiguration */
-class SOAP_CMAC tt__OSDConfiguration : public tt__DeviceEntity
+class ONVIFLIB_API tt__OSDConfiguration : public tt__DeviceEntity
 {
 public:
 	class tt__OSDReference* VideoSourceConfigurationToken;	/* required element of type tt:OSDReference */
@@ -27927,7 +27928,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__SubscribeCreationFailedFaultType
 #define SOAP_TYPE_wsnt__SubscribeCreationFailedFaultType (890)
 /* wsnt:SubscribeCreationFailedFaultType */
-class SOAP_CMAC wsnt__SubscribeCreationFailedFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__SubscribeCreationFailedFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 890; } /* = unique type id SOAP_TYPE_wsnt__SubscribeCreationFailedFaultType */
@@ -27945,7 +27946,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__InvalidFilterFaultType
 #define SOAP_TYPE_wsnt__InvalidFilterFaultType (891)
 /* wsnt:InvalidFilterFaultType */
-class SOAP_CMAC wsnt__InvalidFilterFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__InvalidFilterFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	std::vector<std::string >UnknownFilter;	/* required element of type xsd:QName */
@@ -27965,7 +27966,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__TopicExpressionDialectUnknownFaultType
 #define SOAP_TYPE_wsnt__TopicExpressionDialectUnknownFaultType (892)
 /* wsnt:TopicExpressionDialectUnknownFaultType */
-class SOAP_CMAC wsnt__TopicExpressionDialectUnknownFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__TopicExpressionDialectUnknownFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 892; } /* = unique type id SOAP_TYPE_wsnt__TopicExpressionDialectUnknownFaultType */
@@ -27983,7 +27984,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__InvalidTopicExpressionFaultType
 #define SOAP_TYPE_wsnt__InvalidTopicExpressionFaultType (893)
 /* wsnt:InvalidTopicExpressionFaultType */
-class SOAP_CMAC wsnt__InvalidTopicExpressionFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__InvalidTopicExpressionFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 893; } /* = unique type id SOAP_TYPE_wsnt__InvalidTopicExpressionFaultType */
@@ -28001,7 +28002,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__TopicNotSupportedFaultType
 #define SOAP_TYPE_wsnt__TopicNotSupportedFaultType (894)
 /* wsnt:TopicNotSupportedFaultType */
-class SOAP_CMAC wsnt__TopicNotSupportedFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__TopicNotSupportedFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 894; } /* = unique type id SOAP_TYPE_wsnt__TopicNotSupportedFaultType */
@@ -28019,7 +28020,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__MultipleTopicsSpecifiedFaultType
 #define SOAP_TYPE_wsnt__MultipleTopicsSpecifiedFaultType (895)
 /* wsnt:MultipleTopicsSpecifiedFaultType */
-class SOAP_CMAC wsnt__MultipleTopicsSpecifiedFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__MultipleTopicsSpecifiedFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 895; } /* = unique type id SOAP_TYPE_wsnt__MultipleTopicsSpecifiedFaultType */
@@ -28037,7 +28038,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__InvalidProducerPropertiesExpressionFaultType
 #define SOAP_TYPE_wsnt__InvalidProducerPropertiesExpressionFaultType (896)
 /* wsnt:InvalidProducerPropertiesExpressionFaultType */
-class SOAP_CMAC wsnt__InvalidProducerPropertiesExpressionFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__InvalidProducerPropertiesExpressionFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 896; } /* = unique type id SOAP_TYPE_wsnt__InvalidProducerPropertiesExpressionFaultType */
@@ -28055,7 +28056,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__InvalidMessageContentExpressionFaultType
 #define SOAP_TYPE_wsnt__InvalidMessageContentExpressionFaultType (897)
 /* wsnt:InvalidMessageContentExpressionFaultType */
-class SOAP_CMAC wsnt__InvalidMessageContentExpressionFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__InvalidMessageContentExpressionFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 897; } /* = unique type id SOAP_TYPE_wsnt__InvalidMessageContentExpressionFaultType */
@@ -28073,7 +28074,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnrecognizedPolicyRequestFaultType
 #define SOAP_TYPE_wsnt__UnrecognizedPolicyRequestFaultType (898)
 /* wsnt:UnrecognizedPolicyRequestFaultType */
-class SOAP_CMAC wsnt__UnrecognizedPolicyRequestFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnrecognizedPolicyRequestFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	std::vector<std::string >UnrecognizedPolicy;	/* optional element of type xsd:QName */
@@ -28093,7 +28094,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnsupportedPolicyRequestFaultType
 #define SOAP_TYPE_wsnt__UnsupportedPolicyRequestFaultType (899)
 /* wsnt:UnsupportedPolicyRequestFaultType */
-class SOAP_CMAC wsnt__UnsupportedPolicyRequestFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnsupportedPolicyRequestFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	std::vector<std::string >UnsupportedPolicy;	/* optional element of type xsd:QName */
@@ -28113,7 +28114,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__NotifyMessageNotSupportedFaultType
 #define SOAP_TYPE_wsnt__NotifyMessageNotSupportedFaultType (900)
 /* wsnt:NotifyMessageNotSupportedFaultType */
-class SOAP_CMAC wsnt__NotifyMessageNotSupportedFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__NotifyMessageNotSupportedFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 900; } /* = unique type id SOAP_TYPE_wsnt__NotifyMessageNotSupportedFaultType */
@@ -28131,7 +28132,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnacceptableInitialTerminationTimeFaultType
 #define SOAP_TYPE_wsnt__UnacceptableInitialTerminationTimeFaultType (901)
 /* wsnt:UnacceptableInitialTerminationTimeFaultType */
-class SOAP_CMAC wsnt__UnacceptableInitialTerminationTimeFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnacceptableInitialTerminationTimeFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	time_t MinimumTime;	/* required element of type xsd:dateTime */
@@ -28152,7 +28153,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__NoCurrentMessageOnTopicFaultType
 #define SOAP_TYPE_wsnt__NoCurrentMessageOnTopicFaultType (902)
 /* wsnt:NoCurrentMessageOnTopicFaultType */
-class SOAP_CMAC wsnt__NoCurrentMessageOnTopicFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__NoCurrentMessageOnTopicFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 902; } /* = unique type id SOAP_TYPE_wsnt__NoCurrentMessageOnTopicFaultType */
@@ -28170,7 +28171,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnableToGetMessagesFaultType
 #define SOAP_TYPE_wsnt__UnableToGetMessagesFaultType (903)
 /* wsnt:UnableToGetMessagesFaultType */
-class SOAP_CMAC wsnt__UnableToGetMessagesFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnableToGetMessagesFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 903; } /* = unique type id SOAP_TYPE_wsnt__UnableToGetMessagesFaultType */
@@ -28188,7 +28189,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnableToDestroyPullPointFaultType
 #define SOAP_TYPE_wsnt__UnableToDestroyPullPointFaultType (904)
 /* wsnt:UnableToDestroyPullPointFaultType */
-class SOAP_CMAC wsnt__UnableToDestroyPullPointFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnableToDestroyPullPointFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 904; } /* = unique type id SOAP_TYPE_wsnt__UnableToDestroyPullPointFaultType */
@@ -28206,7 +28207,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnableToCreatePullPointFaultType
 #define SOAP_TYPE_wsnt__UnableToCreatePullPointFaultType (905)
 /* wsnt:UnableToCreatePullPointFaultType */
-class SOAP_CMAC wsnt__UnableToCreatePullPointFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnableToCreatePullPointFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 905; } /* = unique type id SOAP_TYPE_wsnt__UnableToCreatePullPointFaultType */
@@ -28224,7 +28225,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnacceptableTerminationTimeFaultType
 #define SOAP_TYPE_wsnt__UnacceptableTerminationTimeFaultType (906)
 /* wsnt:UnacceptableTerminationTimeFaultType */
-class SOAP_CMAC wsnt__UnacceptableTerminationTimeFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnacceptableTerminationTimeFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	time_t MinimumTime;	/* required element of type xsd:dateTime */
@@ -28245,7 +28246,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__UnableToDestroySubscriptionFaultType
 #define SOAP_TYPE_wsnt__UnableToDestroySubscriptionFaultType (907)
 /* wsnt:UnableToDestroySubscriptionFaultType */
-class SOAP_CMAC wsnt__UnableToDestroySubscriptionFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__UnableToDestroySubscriptionFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 907; } /* = unique type id SOAP_TYPE_wsnt__UnableToDestroySubscriptionFaultType */
@@ -28263,7 +28264,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__PauseFailedFaultType
 #define SOAP_TYPE_wsnt__PauseFailedFaultType (908)
 /* wsnt:PauseFailedFaultType */
-class SOAP_CMAC wsnt__PauseFailedFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__PauseFailedFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 908; } /* = unique type id SOAP_TYPE_wsnt__PauseFailedFaultType */
@@ -28281,7 +28282,7 @@ public:
 #ifndef SOAP_TYPE_wsnt__ResumeFailedFaultType
 #define SOAP_TYPE_wsnt__ResumeFailedFaultType (909)
 /* wsnt:ResumeFailedFaultType */
-class SOAP_CMAC wsnt__ResumeFailedFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsnt__ResumeFailedFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 909; } /* = unique type id SOAP_TYPE_wsnt__ResumeFailedFaultType */
@@ -28299,7 +28300,7 @@ public:
 #ifndef SOAP_TYPE__wstop__TopicNamespaceType_Topic
 #define SOAP_TYPE__wstop__TopicNamespaceType_Topic (2232)
 /* wstop:TopicNamespaceType-Topic */
-class SOAP_CMAC _wstop__TopicNamespaceType_Topic
+class ONVIFLIB_API _wstop__TopicNamespaceType_Topic
 {
 public:
 	wstop__Documentation* documentation;	/* optional element of type wstop:Documentation */
@@ -28327,7 +28328,7 @@ public:
 #ifndef SOAP_TYPE_wstop__TopicNamespaceType
 #define SOAP_TYPE_wstop__TopicNamespaceType (936)
 /* wstop:TopicNamespaceType */
-class SOAP_CMAC wstop__TopicNamespaceType : public wstop__ExtensibleDocumented
+class ONVIFLIB_API wstop__TopicNamespaceType : public wstop__ExtensibleDocumented
 {
 public:
 	std::vector<_wstop__TopicNamespaceType_Topic >* Topic;	/* optional element of type wstop:TopicNamespaceType-Topic */
@@ -28351,7 +28352,7 @@ public:
 #ifndef SOAP_TYPE_wstop__TopicType
 #define SOAP_TYPE_wstop__TopicType (937)
 /* wstop:TopicType */
-class SOAP_CMAC wstop__TopicType : public wstop__ExtensibleDocumented
+class ONVIFLIB_API wstop__TopicType : public wstop__ExtensibleDocumented
 {
 public:
 	wstop__QueryExpressionType* MessagePattern;	/* optional element of type wstop:QueryExpressionType */
@@ -28376,7 +28377,7 @@ public:
 #ifndef SOAP_TYPE_wstop__TopicSetType
 #define SOAP_TYPE_wstop__TopicSetType (938)
 /* wstop:TopicSetType */
-class SOAP_CMAC wstop__TopicSetType : public wstop__ExtensibleDocumented
+class ONVIFLIB_API wstop__TopicSetType : public wstop__ExtensibleDocumented
 {
 public:
 	std::vector<char* >__any;
@@ -28396,7 +28397,7 @@ public:
 #ifndef SOAP_TYPE_wsrfr__ResourceUnknownFaultType
 #define SOAP_TYPE_wsrfr__ResourceUnknownFaultType (954)
 /* wsrfr:ResourceUnknownFaultType */
-class SOAP_CMAC wsrfr__ResourceUnknownFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsrfr__ResourceUnknownFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 954; } /* = unique type id SOAP_TYPE_wsrfr__ResourceUnknownFaultType */
@@ -28414,7 +28415,7 @@ public:
 #ifndef SOAP_TYPE_wsrfr__ResourceUnavailableFaultType
 #define SOAP_TYPE_wsrfr__ResourceUnavailableFaultType (955)
 /* wsrfr:ResourceUnavailableFaultType */
-class SOAP_CMAC wsrfr__ResourceUnavailableFaultType : public wsrfbf__BaseFaultType
+class ONVIFLIB_API wsrfr__ResourceUnavailableFaultType : public wsrfbf__BaseFaultType
 {
 public:
 	virtual int soap_type() const { return 955; } /* = unique type id SOAP_TYPE_wsrfr__ResourceUnavailableFaultType */
@@ -28432,7 +28433,7 @@ public:
 #ifndef SOAP_TYPE_tmd__SerialPort
 #define SOAP_TYPE_tmd__SerialPort (981)
 /* tmd:SerialPort */
-class SOAP_CMAC tmd__SerialPort : public tt__DeviceEntity
+class ONVIFLIB_API tmd__SerialPort : public tt__DeviceEntity
 {
 public:
 	std::vector<char* >__any;
@@ -28453,7 +28454,7 @@ public:
 #ifndef SOAP_TYPE_tt__OSDReference
 #define SOAP_TYPE_tt__OSDReference (863)
 /* Primitive tt:OSDReference schema type: */
-class SOAP_CMAC tt__OSDReference : public xsd__anyType
+class ONVIFLIB_API tt__OSDReference : public xsd__anyType
 {
 public:
 	std::string __item;

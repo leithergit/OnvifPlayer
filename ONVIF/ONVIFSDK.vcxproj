@@ -21,7 +21,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -71,10 +71,19 @@
       <Command>echo copy  $(TargetPath)  $(SolutionDir)public\ONVIFSDK 
 copy /y $(TargetPath)  $(SolutionDir)public\ONVIFSDK 
 echo copy $(TargetDir)$(TargetName).lib  $(SolutionDir)public\ONVIFSDK 
-copy /y $(TargetDir)$(TargetName).lib  $(SolutionDir)public\ONVIFSDK 
+copy /y $(TargetDir)$(TargetName).lib  $(SolutionDir)public\ONVIFSDK
+ 
 echo copy $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK 
 copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK 
-</Command>
+
+echo copy $(ProjectDir)Include\onvifclientptz.h $(SolutionDir)public\Include
+copy /y $(ProjectDir)Include\onvifclientptz.h $(SolutionDir)public\Include
+
+echo copy $(ProjectDir)Include\onvifclientmedia.h $(SolutionDir)public\Include
+copy /y $(ProjectDir)Include\onvifclientmedia.h $(SolutionDir)public\Include
+
+echo copy $(ProjectDir)Include\OnvifClientImage.h $(SolutionDir)public\Include
+copy /y $(ProjectDir)Include\OnvifClientImage.h $(SolutionDir)public\Include</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -121,8 +130,11 @@ copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK
     <ClInclude Include="gsoap\runtime\threads.h" />
     <ClInclude Include="gsoap\runtime\wsaapi.h" />
     <ClInclude Include="gsoap\runtime\wsseapi.h" />
+    <ClInclude Include="include\Export.h" />
     <ClInclude Include="include\onvifclientdevice.h" />
+    <ClInclude Include="include\OnvifClientImage.h" />
     <ClInclude Include="include\onvifclientmedia.h" />
+    <ClInclude Include="include\onvifclientptz.h" />
     <ClInclude Include="onvifgen\soapDeviceBindingProxy.h" />
     <ClInclude Include="onvifgen\soapDeviceIOBindingProxy.h" />
     <ClInclude Include="onvifgen\soapDisplayBindingProxy.h" />
@@ -138,7 +150,6 @@ copy /y $(ProjectDir)ONVIFSDK\ONVIFSDK.h $(SolutionDir)public\ONVIFSDK
     <ClInclude Include="onvifgen\soapSearchBindingProxy.h" />
     <ClInclude Include="onvifgen\soapStub.h" />
     <ClInclude Include="onvifgen\soapwsddProxy.h" />
-    <ClInclude Include="ONVIFSDK\OnvifClientImage.h" />
     <ClInclude Include="ONVIFSDK\ONVIFSDK.h" />
     <ClInclude Include="ONVIFSDK\resource.h" />
     <ClInclude Include="ONVIFSDK\SocketUtils.h" />

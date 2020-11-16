@@ -15,7 +15,7 @@ class OnvifClientImage :public ImagingBindingProxy
 public:
 	Declare_ClassName(OnvifClientImage);
 
-	OnvifClientImage(OnvifClientDevice& device, http_da_info* pHttpInfo = nullptr);
+	OnvifClientImage(OnvifClientDevice& device);
 	~OnvifClientImage();
 	/// Web service operation 'GetServiceCapabilities' (returns error code or SOAP_OK)
 	virtual	int GetServiceCapabilities(_timg__GetServiceCapabilitiesResponse* timg__GetServiceCapabilitiesResponse);
@@ -43,8 +43,9 @@ public:
 
 private:
 	OnvifClientDevice& m_Device;
-	//ImagingBindingProxy ImagingProxy;
-	http_da_info* httpinfo = nullptr;
+	http_da_info httpinfo ;
+	bool bHttpda;
 	const char *httpuserid = nullptr;
 	const char *httppasswd = nullptr;
+	std::string m_strUrl;
 };

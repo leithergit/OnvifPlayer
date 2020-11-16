@@ -1,50 +1,31 @@
 ﻿#include "stdafx.h"
 #include "onvifclientptz.h"
 
-OnvifClientPTZ::OnvifClientPTZ(OnvifClientDevice& device, http_da_info* pHttpInfo)
-	: m_Device(device),
-	ptzProxy(SOAP_C_UTFSTRING)
+OnvifClientPTZ::OnvifClientPTZ(OnvifClientDevice& device )
+	: m_Device(device)
+	, PTZBindingProxy(SOAP_C_UTFSTRING)
+	/*, httpinfo(device.GetHttpDa())
+	, bHttpda(device.HttpdaEnabled())*/
 {
-	string strPTZUrl;
 	bool bHasCapabilities = false;
-	if (!m_Device.GetPTZUrl(strPTZUrl))
+	if (!m_Device.GetPTZUrl(m_strUrl))
 	{
-		if (m_Device.GetCapabilities() == SOAP_OK)
-			bHasCapabilities = true;
+		bHasCapabilities = false;
 	}
 	else
 		bHasCapabilities = true;
 	if (bHasCapabilities)
 	{
-		// Enable http digest authentication in PTZ
-		/*if (!pHttpInfo && m_Device.GetHttpDa())
-		{
-			pHttpInfo = m_Device.GetHttpDa();
-			Soap_Trace("%s Inherit httpinfo from Device or Media Object!\n", __FUNCTION__);
-		}
-
-		if (pHttpInfo)
-		{
-			bool bDigestAuth = true;
-			soap_register_plugin_arg(&ptzProxy, http_da, &bDigestAuth);
-
-			httpinfo = new http_da_info;
-			memcpy(httpinfo, pHttpInfo, sizeof(http_da_info));
-		}*/
 		if (Initialize() != SOAP_OK)
 			throw std::exception("Initialize PTZ failed,the specified device may not support PTZ!");
 	}
 	else
-		throw std::exception("The Failed in Getting Capabilities from device!");
+		throw std::exception("The specified device may not support PTZ!");
 }
 
 OnvifClientPTZ::~OnvifClientPTZ()
 {
-	if (httpinfo)
-	{
-		http_da_release(&ptzProxy, httpinfo);
-		delete httpinfo;
-	}
+	http_da_release(this, &httpinfo);
 }
 
 int  OnvifClientPTZ::Initialize()
@@ -88,7 +69,7 @@ int  OnvifClientPTZ::Stop(_tptz__StopResponse& StopResponse, bool PanTilt, bool 
 	StopReq.PanTilt = &PanTilt;
 	StopReq.ProfileToken = profileToken;
 	StopReq.Zoom = &Zoom;
-	HttpCall(ptzProxy, Stop(&StopReq, &StopResponse), nResult);
+	HttpdaCall(this, __super::Stop(&StopReq, &StopResponse), nResult);
 }
 
 int  OnvifClientPTZ::AbsoluteMove(_tptz__AbsoluteMoveResponse& AbsoluteMoveResponse, tt__PTZSpeed& Speed, tt__PTZVector& position, string profileToken)
@@ -103,7 +84,7 @@ int  OnvifClientPTZ::AbsoluteMove(_tptz__AbsoluteMoveResponse& AbsoluteMoveRespo
 	AbsoluteMoveReq.Position = &position;
 	AbsoluteMoveReq.Speed = &Speed;
 
-	HttpCall(ptzProxy, AbsoluteMove(&AbsoluteMoveReq, &AbsoluteMoveResponse), nResult);
+	HttpdaCall(this, __super::AbsoluteMove(&AbsoluteMoveReq, &AbsoluteMoveResponse), nResult);
 }
 
 int  OnvifClientPTZ::RelativeMove(_tptz__RelativeMoveResponse& relMoveResponse, tt__PTZVector& Translation, tt__PTZSpeed& Speed, string profileToken)
@@ -112,7 +93,7 @@ int  OnvifClientPTZ::RelativeMove(_tptz__RelativeMoveResponse& relMoveResponse, 
 	relMoveReq.ProfileToken = profileToken;
 	relMoveReq.Translation = &Translation;
 	relMoveReq.Speed = &Speed;
-	HttpCall(ptzProxy, RelativeMove(&relMoveReq, &relMoveResponse), nResult);
+	HttpdaCall(this, __super::RelativeMove(&relMoveReq, &relMoveResponse), nResult);
 }
 
 
@@ -120,17 +101,16 @@ int  OnvifClientPTZ::GetPresets(_tptz__GetPresetsResponse& tptz__GetPresetsRespo
 {
 	_tptz__GetPresets GetPresetsReq;
 	GetPresetsReq.ProfileToken = profileToken;
-	HttpCall(ptzProxy, GetPresets(&GetPresetsReq, &tptz__GetPresetsResponse), nResult);
+	HttpdaCall(this, __super::GetPresets(&GetPresetsReq, &tptz__GetPresetsResponse), nResult);
 }
 
 int  OnvifClientPTZ::GotoPreset(string strPresetToken, _tptz__GotoPresetResponse& tptz__GotoPresetResponse, string profileToken)
 {
-
 	_tptz__GotoPreset GotoPresetReq;
 	GotoPresetReq.ProfileToken = profileToken;
 	GotoPresetReq.PresetToken = strPresetToken;
 
-	HttpCall(ptzProxy, GotoPreset(&GotoPresetReq, &tptz__GotoPresetResponse), nResult);
+	HttpdaCall(this, __super::GotoPreset(&GotoPresetReq, &tptz__GotoPresetResponse), nResult);
 }
 
 int  OnvifClientPTZ::SetPreset(string* pstrPrsetName, string* pstrPresetToken, _tptz__SetPresetResponse& tptz__SetPresetResponse, string profileToken)
@@ -140,7 +120,7 @@ int  OnvifClientPTZ::SetPreset(string* pstrPrsetName, string* pstrPresetToken, _
 	tptz__SetPreset.PresetName = pstrPrsetName;
 	tptz__SetPreset.PresetToken = pstrPresetToken;
 
-	HttpCall(ptzProxy, SetPreset(&tptz__SetPreset, &tptz__SetPresetResponse), nResult);
+	HttpdaCall(this, __super::SetPreset(&tptz__SetPreset, &tptz__SetPresetResponse), nResult);
 }
 
 int  OnvifClientPTZ::RemovePreset(string strPresetToken, _tptz__RemovePresetResponse& tptz__SetPresetResponse, string profileToken)
@@ -149,7 +129,7 @@ int  OnvifClientPTZ::RemovePreset(string strPresetToken, _tptz__RemovePresetResp
 	tptz__RemovePreset.PresetToken = strPresetToken;
 	tptz__RemovePreset.ProfileToken = profileToken;
 	_tptz__RemovePresetResponse tptz__RemovePresetResponse;
-	HttpCall(ptzProxy, RemovePreset(&tptz__RemovePreset, &tptz__SetPresetResponse), nResult);
+	HttpdaCall(this, __super::RemovePreset(&tptz__RemovePreset, &tptz__SetPresetResponse), nResult);
 }
 
 int  OnvifClientPTZ::GotoHomePosition(_tptz__GotoHomePositionResponse& HomePositionResponse, string profileToken)
@@ -157,7 +137,7 @@ int  OnvifClientPTZ::GotoHomePosition(_tptz__GotoHomePositionResponse& HomePosit
 	_tptz__GotoHomePosition  HomePosition;
 	HomePosition.ProfileToken = profileToken;
 
-	HttpCall(ptzProxy, GotoHomePosition(&HomePosition, &HomePositionResponse), nResult);
+	HttpdaCall(this, __super::GotoHomePosition(&HomePosition, &HomePositionResponse), nResult);
 }
 
 int  OnvifClientPTZ::ContinuousMove(_tptz__ContinuousMoveResponse& ContMoveResponse, tt__PTZSpeed& Speed, LONG64& Timeout, string profileToken)
@@ -173,7 +153,7 @@ int  OnvifClientPTZ::ContinuousMove(_tptz__ContinuousMoveResponse& ContMoveRespo
 	ContMoveReq.Velocity = &Speed;
 	ContMoveReq.Timeout = &Timeout;
 
-	HttpCall(ptzProxy, ContinuousMove(&ContMoveReq, &ContMoveResponse), nResult);
+	HttpdaCall(this, __super::ContinuousMove(&ContMoveReq, &ContMoveResponse), nResult);
 }
 
 int  OnvifClientPTZ::SetConfiguration(_tptz__SetConfigurationResponse& SetConfigurationResponse, tt__PTZConfiguration& PTZConfiguration, bool ForcePersist)
@@ -182,14 +162,14 @@ int  OnvifClientPTZ::SetConfiguration(_tptz__SetConfigurationResponse& SetConfig
 	SetConfigurationReq.PTZConfiguration = &PTZConfiguration;
 	SetConfigurationReq.ForcePersistence = ForcePersist;
 
-	HttpCall(ptzProxy, SetConfiguration(&SetConfigurationReq, &SetConfigurationResponse), nResult);
+	HttpdaCall(this, __super::SetConfiguration(&SetConfigurationReq, &SetConfigurationResponse), nResult);
 }
 
 int  OnvifClientPTZ::GetServiceCapabilities(_tptz__GetServiceCapabilitiesResponse& ServiceCapResponse)
 {
 	_tptz__GetServiceCapabilities ServiceCapReq;
 
-	HttpCall(ptzProxy, GetServiceCapabilities(&ServiceCapReq, &ServiceCapResponse), nResult);
+	HttpdaCall(this, __super::GetServiceCapabilities(&ServiceCapReq, &ServiceCapResponse), nResult);
 }
 
 int  OnvifClientPTZ::GetStatus(_tptz__GetStatusResponse& StatusResponse, string profileToken)
@@ -197,7 +177,7 @@ int  OnvifClientPTZ::GetStatus(_tptz__GetStatusResponse& StatusResponse, string 
 	_tptz__GetStatus StatusReq;
 	StatusReq.ProfileToken = profileToken;
 
-	HttpCall(ptzProxy, GetStatus(&StatusReq, &StatusResponse), nResult);
+	HttpdaCall(this, __super::GetStatus(&StatusReq, &StatusResponse), nResult);
 }
 
 int  OnvifClientPTZ::GetNode(_tptz__GetNodeResponse& GetNodeResponse, string nodeToken)
@@ -205,14 +185,14 @@ int  OnvifClientPTZ::GetNode(_tptz__GetNodeResponse& GetNodeResponse, string nod
 	_tptz__GetNode GetNodeReq;
 	GetNodeReq.NodeToken = nodeToken;
 
-	HttpCall(ptzProxy, GetNode(&GetNodeReq, &GetNodeResponse), nResult);
+	HttpdaCall(this, __super::GetNode(&GetNodeReq, &GetNodeResponse), nResult);
 }
 
 int  OnvifClientPTZ::GetNodes(_tptz__GetNodesResponse& GetNodesResponse)
 {
 	_tptz__GetNodes GetNodesReq;
 
-	HttpCall(ptzProxy, GetNodes(&GetNodesReq, &GetNodesResponse), nResult);
+	HttpdaCall(this, __super::GetNodes(&GetNodesReq, &GetNodesResponse), nResult);
 }
 
 int  OnvifClientPTZ::GetConfigurations(_tptz__GetConfigurationsResponse& configurationsResp)
@@ -226,45 +206,43 @@ int  OnvifClientPTZ::GetConfigurations(_tptz__GetConfigurationsResponse& configu
 		return SOAP_ERR;
 	}
 	_tptz__GetConfigurations	configurationsReq;
-	ptzProxy.userid = soap_strdup(nullptr, strUser.c_str());
-	ptzProxy.passwd = soap_strdup(nullptr, strPass.c_str());
-	ptzProxy.soap_endpoint = strUrl.c_str();
-	if (httpinfo)
-		http_da_restore(&ptzProxy, httpinfo);
-	/*soap_wsse_add_Security(&ptzProxy);
-	soap_wsse_add_UsernameTokenDigest(&ptzProxy, "Id",	strUser.c_str(), strPass.c_str());*/
-	int nResult = ptzProxy.GetConfigurations(&configurationsReq, &configurationsResp);
+	userid = soap_strdup(nullptr, strUser.c_str());
+	passwd = soap_strdup(nullptr, strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	if (bHttpda)
+		http_da_restore(this, &httpinfo);
+	/*soap_wsse_add_Security(&this);
+	soap_wsse_add_UsernameTokenDigest(&this, "Id",	strUser.c_str(), strPass.c_str());*/
+	int nResult = __super::GetConfigurations(&configurationsReq, &configurationsResp);
 	if (nResult != SOAP_OK &&
-		ptzProxy.status == 401)
+		status == 401)
 	{
 		// 重新认证
-		ptzProxy.userid = soap_strdup(nullptr, strUser.c_str());
-		ptzProxy.passwd = soap_strdup(nullptr, strPass.c_str());
+		userid = soap_strdup(nullptr, strUser.c_str());
+		passwd = soap_strdup(nullptr, strPass.c_str());
 		// 能过Auth Digest 一般不需要wsse认证？
-		if (!httpinfo)
+		if (!bHttpda)
 		{
-			soap_register_plugin(&ptzProxy, http_da);
-			httpinfo = new http_da_info;
-			http_da_save(&ptzProxy, httpinfo, ptzProxy.authrealm, ptzProxy.userid, ptzProxy.passwd);
+			soap_register_plugin(this, http_da);
+			http_da_save(this, &httpinfo, authrealm, userid, passwd);
 		}
 		else
 		{
-			http_da_restore(&ptzProxy, httpinfo);
-			//http_da_updatenonce(&mediaProxy);
+			http_da_restore(this, &httpinfo);
 		}
-		return ptzProxy.GetConfigurations(&configurationsReq, &configurationsResp);
+		return __super::GetConfigurations(&configurationsReq, &configurationsResp);
 	}
 	else
 		return nResult;
 	//_tptz__GetConfigurations	configurationsReq;
-	//HttpCall(ptzProxy, GetConfigurations(&configurationsReq, &configurationsResp), nResult);
+	//HttpdaCall(this, GetConfigurations(&configurationsReq, &configurationsResp), nResult);
 }
 
 int  OnvifClientPTZ::GetConfiguration(_tptz__GetConfigurationResponse& configurationResp)
 {
 	_tptz__GetConfiguration	configurationReq;
 
-	HttpCall(ptzProxy, GetConfiguration(&configurationReq, &configurationResp), nResult);
+	HttpdaCall(this, __super::GetConfiguration(&configurationReq, &configurationResp), nResult);
 }
 
 int  OnvifClientPTZ::GetConfigurationOptions(_tptz__GetConfigurationOptionsResponse& configOptions, string configToken)
@@ -272,5 +250,5 @@ int  OnvifClientPTZ::GetConfigurationOptions(_tptz__GetConfigurationOptionsRespo
 	_tptz__GetConfigurationOptions	configurationOptionsReq;
 	configurationOptionsReq.ConfigurationToken = configToken;
 
-	HttpCall(ptzProxy, GetConfigurationOptions(&configurationOptionsReq, &configOptions), nResult);
+	HttpdaCall(this, __super::GetConfigurationOptions(&configurationOptionsReq, &configOptions), nResult);
 }

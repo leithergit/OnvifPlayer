@@ -9,13 +9,12 @@
 #include "rtspPlayer.h"
 #include <QToolTip>
 #include "CPresetDlg.h"
-
+#include "../Public/ONVIFSDK/ONVIFSDK.h"
 #pragma comment(lib,"./ipcplaysdk/x86/debug/ipcplaysdk.lib")
 #pragma comment(lib,"./libcurl/libcurl.lib")
 #pragma comment(lib,"./debug/RTSP.lib")
 
 #ifdef _ONVIF_STATIC
-#include "../Public/ONVIFSDK/onvifLIB.h"
 #ifdef _DEBUG
 #pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/libeay32MTd.lib")
 #pragma comment(lib,"../Public/3rdparty/openssl-1.0.1g/lib/ssleay32MTd.lib")
@@ -26,7 +25,6 @@
 #pragma comment(lib,"../Public/ONVIFSDK/ONVIFLIB.lib")
 #endif
 #else
-#include "../Public/ONVIFSDK/ONVIFSDK.h"
 #ifdef _DEBUG
 #pragma comment(lib,"../Public/ONVIFSDK/ONVIFSDKD.lib")
 #else
@@ -872,7 +870,7 @@ void rtspPlayer::on_ButtonAdd_clicked()
 */
 	long nFistIP = ntohl(inet_addr(strFirstIP.c_str()));
 	long nLastIP = ntohl(inet_addr(strLastIP.c_str()));
-	int nCameraType = ui.comboBoxCameraType->currentIndex();
+
 	QString strDefaultURL = "rtsp://root:pass@%s/axis-media/media.amp?camera=1&videocodec=h264";
 	switch (nCameraType)
 	{

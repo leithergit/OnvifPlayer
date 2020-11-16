@@ -185,11 +185,8 @@ bool CONVIFClient::CreatePTZClient()
 		return false;
 
 	m_strPTZUrl = _strdup(strPTZUrl.c_str());
-	http_da_info* pHttpInfo = nullptr;
-	if (m_pMedia)
-		pHttpInfo = m_pMedia->GetHttpDa();
 
-	OnvifClientPTZ* pPTZ = new OnvifClientPTZ(*m_pOnvifDevice, pHttpInfo);
+	OnvifClientPTZ* pPTZ = new OnvifClientPTZ(*m_pOnvifDevice);
 
 	if (!pPTZ)
 		return false;
@@ -198,7 +195,8 @@ bool CONVIFClient::CreatePTZClient()
 	return true;
 }
 
-int CONVIFClient::GetVideoSourceConfigure(char *szVideoSourceToken, _trt__GetVideoSourceConfigurationResponse &GetVideoSourceConfigResponse)
+
+int CONVIFClient::GetVideoSourceConfigure(char* szVideoSourceToken, _trt__GetVideoSourceConfigurationResponse& GetVideoSourceConfigResponse)
 {
 	if (m_pMedia)
 	{
@@ -219,9 +217,6 @@ bool CONVIFClient::CreateImageClient()
 		return false;
 
 	m_strPTZUrl = _strdup(strPTZUrl.c_str());
-	http_da_info* pHttpInfo = nullptr;
-	if (m_pMedia)
-		pHttpInfo = m_pMedia->GetHttpDa();
 
 	OnvifClientImage* pImage = new OnvifClientImage(*m_pOnvifDevice, pHttpInfo);
 

@@ -20,7 +20,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -50,11 +50,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>./Include;./ipcplaysdk;./libcurl;./MulMonitor;./ONVIFSDK;./ONVIFSDK/include;./ONVIFSDK/gsoap/runtime;./ONVIFSDK/onvifgen;./ONVIFSDK/3rdparty/openssl-1.0.1g/include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./Include;./ipcplaysdk;./libcurl;./MulMonitor;../public/include;../public/gsoap/runtime;../public/onvifgen;../public/3rdparty/openssl-1.0.1g/include;./;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>MARKUP_STL;_STD_SMARTPTR;WITH_OPENSSL;WITH_DOM;WITH_PURE_VIRTUAL;_ONVIF_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>.\ONVIFSDK\openssl-1.0.1g\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\public\ONVIFSDK\openssl-1.0.1g\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
@@ -124,9 +124,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Public\ONVIFSDK\ONVIFSDK.h" />
     <ClInclude Include="CameraConnection.h" />
     <ClInclude Include="ONVIFSDK\onvifgen\soapStub.h" />
-    <ClInclude Include="ONVIFSDK\ONVIFLib.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="CPresetDlg.h" />
     <ClInclude Include="Include\Markup.h" />

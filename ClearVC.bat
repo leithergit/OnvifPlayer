@@ -12,7 +12,7 @@ del *.ncb /f /s /q
 del *.plg /f /s /q 
 del *.ilk /f /s /q 
 ::del *.exe /f /s /q 
-del *.lib /f /s /q 
+::del *.lib /f /s /q 
 del *.nlb /f /s /q 
 del *.sdf /f /s /q 
 del *.exp /f /s /q 

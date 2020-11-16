@@ -2,8 +2,11 @@
 #include "onvifclientdevice.h"
 
 OnvifClientDevice::OnvifClientDevice(string strIP, string strUser, string strPass, unsigned short nPort)
-	:m_strDevIP(strIP), m_strUser(strUser),
-	m_strPass(strPass), m_hasGetCap(false), DeviceBindingProxy(SOAP_C_UTFSTRING)
+	:m_strDevIP(strIP), m_strUser(strUser)
+	, m_strPass(strPass), m_hasGetCap(false)
+	, DeviceBindingProxy(SOAP_C_UTFSTRING)
+	//,ImagingBindingProxy(*this)
+	//,MediaBindingProxy(*this)
 {
 	char szURL[1024] = { 0 };
 	if (nPort == 80)
@@ -24,11 +27,7 @@ OnvifClientDevice::OnvifClientDevice(string strIP, string strUser, string strPas
 
 OnvifClientDevice::~OnvifClientDevice()
 {
-	if (httpinfo)
-	{
-		http_da_release(this, httpinfo);
-		delete httpinfo;
-	}
+	http_da_release(this, &httpinfo);
 }
 
 void OnvifClientDevice::SaveCapabilities(_tds__GetCapabilitiesResponse& cap)
@@ -94,12 +93,12 @@ void OnvifClientDevice::SaveCapabilities(_tds__GetCapabilitiesResponse& cap)
 
 int OnvifClientDevice::GetCapabilities(_tds__GetCapabilitiesResponse& cap)
 {
-	deviceBindProxy.soap_endpoint = m_strUrl.c_str();
+	soap_endpoint = m_strUrl.c_str();
 	_tds__GetCapabilities capabilities;
 	capabilities.Category.push_back(tt__CapabilityCategory__All);
-	if (httpinfo)
-		http_da_restore(&deviceBindProxy, httpinfo);
-	int nResult = deviceBindProxy.GetCapabilities(&capabilities, &cap);
+	if (bHttpda)
+		http_da_restore(this, &httpinfo);
+	int nResult = __super::GetCapabilities(&capabilities, &cap);
 	if (SOAP_OK == nResult)
 	{
 		if (cap.Capabilities)
@@ -112,33 +111,33 @@ int OnvifClientDevice::GetCapabilities(_tds__GetCapabilitiesResponse& cap)
 	}
 	else
 	{
-		if (400 == deviceBindProxy.status)
+		if (400 == status)
 		{
 			// bad http request ,retry  in basic authenticate
-			soap_wsse_add_Security(&deviceBindProxy);
-			soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, nullptr, m_strUser.c_str(), m_strPass.c_str());
-			deviceBindProxy.userid = soap_strdup(nullptr, m_strUser.c_str());
-			deviceBindProxy.passwd = soap_strdup(nullptr, m_strPass.c_str());
-			nResult = deviceBindProxy.GetCapabilities(&capabilities, &cap);
+			soap_wsse_add_Security(this);
+			soap_wsse_add_UsernameTokenDigest(this, nullptr, m_strUser.c_str(), m_strPass.c_str());
+			userid = soap_strdup(nullptr, m_strUser.c_str());
+			passwd = soap_strdup(nullptr, m_strPass.c_str());
+			nResult = __super::GetCapabilities(&capabilities, &cap);
 			if (SOAP_OK == nResult && cap.Capabilities != nullptr)
 			{
 				SaveCapabilities(cap);
 				return nResult;
 			}
 		}
-		if (401 == deviceBindProxy.status)
+		if (401 == status)
 		{
 			// retry in digest authenticate
-			httpinfo = new http_da_info;
-			soap_register_plugin(&deviceBindProxy, http_da);
-			soap_wsse_add_Security(&deviceBindProxy);
-			soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, nullptr, m_strUser.c_str(), m_strPass.c_str());
-			deviceBindProxy.userid = soap_strdup(nullptr, m_strUser.c_str());
-			deviceBindProxy.passwd = soap_strdup(nullptr, m_strUser.c_str());
-			http_da_save(&deviceBindProxy, httpinfo, deviceBindProxy.authrealm, deviceBindProxy.userid, deviceBindProxy.passwd);
-			nResult = deviceBindProxy.GetCapabilities(&capabilities, &cap);
-			if (SOAP_OK == nResult || cap.Capabilities == nullptr)
-				return nResult;
+			soap_register_plugin(this, http_da);
+
+			userid = m_strUser.c_str();
+			passwd = m_strUser.c_str();
+			http_da_save(this, &httpinfo, authrealm, userid, passwd);
+			nResult = __super::GetCapabilities(&capabilities, &cap);
+			if (SOAP_OK == nResult && !cap.Capabilities)
+				SaveCapabilities(cap);
+
+			return nResult;
 		}
 	}
 	return SOAP_ERR;
@@ -255,17 +254,24 @@ int OnvifClientDevice::GetDeviceInformation(_tds__GetDeviceInformationResponse& 
 
 	//string strUrl;
 
-	deviceBindProxy.soap_endpoint = m_strUrl.c_str();
+	soap_endpoint = m_strUrl.c_str();
 
-	return deviceBindProxy.GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
+	return __super::GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
+}
+
+int OnvifClientDevice::GetSystemSupportInformation(_tds__GetSystemSupportInformationResponse& Response)
+{
+	_tds__GetSystemSupportInformation Request;
+	soap_endpoint = m_strUrl.c_str();
+	return __super::GetSystemSupportInformation(&Request, &Response);
 }
 
 int OnvifClientDevice::GetSystemDateAndTime(_tds__GetSystemDateAndTimeResponse& SystemDateAndTimeResponse)
 {
 	_tds__GetSystemDateAndTime SystemDateAndTime;
 
-	deviceBindProxy.soap_endpoint = m_strUrl.c_str();
-	return deviceBindProxy.GetSystemDateAndTime(&SystemDateAndTime, &SystemDateAndTimeResponse);
+	soap_endpoint = m_strUrl.c_str();
+	return __super::GetSystemDateAndTime(&SystemDateAndTime, &SystemDateAndTimeResponse);
 }
 
 int OnvifClientDevice::SetSystemDateAndTime(_tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse, tt__SetDateTimeType& DateTimeType, bool DayLightSavings, tt__TimeZone& Timezone, tt__DateTime& UTCDateTime)
@@ -285,10 +291,10 @@ int OnvifClientDevice::SetSystemDateAndTime(_tds__SetSystemDateAndTimeResponse& 
 		return SOAP_ERR;
 	}
 
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
-	return deviceBindProxy.SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+	return __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
 }
 
 int OnvifClientDevice::GetHostname(_tds__GetHostnameResponse& GetHostnameResponse)
@@ -301,13 +307,13 @@ int OnvifClientDevice::GetHostname(_tds__GetHostnameResponse& GetHostnameRespons
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__GetHostname GetHostnameReq;
 
-	return deviceBindProxy.GetHostname(&GetHostnameReq, &GetHostnameResponse);
+	return __super::GetHostname(&GetHostnameReq, &GetHostnameResponse);
 }
 
 int OnvifClientDevice::SetHostname(_tds__SetHostnameResponse& SetHostnameResponse, string Name)
@@ -320,13 +326,13 @@ int OnvifClientDevice::SetHostname(_tds__SetHostnameResponse& SetHostnameRespons
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SetHostname SetHostnameReq;
 	SetHostnameReq.Name = Name;
-	return deviceBindProxy.SetHostname(&SetHostnameReq, &SetHostnameResponse);
+	return __super::SetHostname(&SetHostnameReq, &SetHostnameResponse);
 }
 
 int OnvifClientDevice::GetDNS(_tds__GetDNSResponse& GetDNSResponse)
@@ -339,12 +345,12 @@ int OnvifClientDevice::GetDNS(_tds__GetDNSResponse& GetDNSResponse)
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__GetDNS GetDNSReq;
-	return deviceBindProxy.GetDNS(&GetDNSReq, &GetDNSResponse);
+	return __super::GetDNS(&GetDNSReq, &GetDNSResponse);
 }
 
 int OnvifClientDevice::SetDNS(_tds__SetDNSResponse& SetDNSResponse, bool FromDHCP, vector<string, allocator<string>> SearchDomain, vector<tt__IPAddress*, allocator<tt__IPAddress*>>& DNSManual)
@@ -357,15 +363,15 @@ int OnvifClientDevice::SetDNS(_tds__SetDNSResponse& SetDNSResponse, bool FromDHC
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SetDNS SetDNSReq;
 	SetDNSReq.FromDHCP = FromDHCP;
 	SetDNSReq.SearchDomain = SearchDomain;
 	SetDNSReq.DNSManual = DNSManual;
-	return deviceBindProxy.SetDNS(&SetDNSReq, &SetDNSResponse);
+	return __super::SetDNS(&SetDNSReq, &SetDNSResponse);
 }
 
 int OnvifClientDevice::GetNTP(_tds__GetNTPResponse& GetNTPResponse)
@@ -378,15 +384,15 @@ int OnvifClientDevice::GetNTP(_tds__GetNTPResponse& GetNTPResponse)
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__GetNTP GetNTPReq;
-	return deviceBindProxy.GetNTP(&GetNTPReq, &GetNTPResponse);
+	return __super::GetNTP(&GetNTPReq, &GetNTPResponse);
 }
 
-int OnvifClientDevice::SetNTP(_tds__SetNTPResponse& SetNTPResponse, bool FromDHCP, vector<tt__NetworkHost*, allocator<tt__NetworkHost*>>& NTPManual)
+int OnvifClientDevice::SetNTP(_tds__SetNTPResponse& SetNTPResponse, bool FromDHCP, std::vector<tt__NetworkHost* >& NTPManual)
 {
 	string strUrl;
 	string strUser;
@@ -396,14 +402,14 @@ int OnvifClientDevice::SetNTP(_tds__SetNTPResponse& SetNTPResponse, bool FromDHC
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SetNTP SetNTPReq;
 	SetNTPReq.FromDHCP = FromDHCP;
 	SetNTPReq.NTPManual = NTPManual;
-	return deviceBindProxy.SetNTP(&SetNTPReq, &SetNTPResponse);
+	return __super::SetNTP(&SetNTPReq, &SetNTPResponse);
 }
 
 int OnvifClientDevice::GetDynamicDNS(_tds__GetDynamicDNSResponse& GetDynamicDNSResponse)
@@ -416,12 +422,12 @@ int OnvifClientDevice::GetDynamicDNS(_tds__GetDynamicDNSResponse& GetDynamicDNSR
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__GetDynamicDNS GetDynamicDNSReq;
-	return deviceBindProxy.GetDynamicDNS(&GetDynamicDNSReq, &GetDynamicDNSResponse);
+	return __super::GetDynamicDNS(&GetDynamicDNSReq, &GetDynamicDNSResponse);
 }
 
 int OnvifClientDevice::SetDynamicDNS(_tds__SetDynamicDNSResponse& SetDynamicDNSResponse, tt__DynamicDNSType& Type, tt__DNSName& Name, LONG64& durationTTL)
@@ -434,15 +440,15 @@ int OnvifClientDevice::SetDynamicDNS(_tds__SetDynamicDNSResponse& SetDynamicDNSR
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SetDynamicDNS SetDynamicDNSReq;
 	SetDynamicDNSReq.Name = &Name;
 	SetDynamicDNSReq.TTL = &durationTTL;
 	SetDynamicDNSReq.Type = Type;
-	return deviceBindProxy.SetDynamicDNS(&SetDynamicDNSReq, &SetDynamicDNSResponse);
+	return __super::SetDynamicDNS(&SetDynamicDNSReq, &SetDynamicDNSResponse);
 }
 
 int OnvifClientDevice::GetNetworkInterfaces(_tds__GetNetworkInterfacesResponse& GetNetworkInterfacesResponse)
@@ -455,12 +461,12 @@ int OnvifClientDevice::GetNetworkInterfaces(_tds__GetNetworkInterfacesResponse& 
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__GetNetworkInterfaces GetNetworkInterfacesReq;
-	return deviceBindProxy.GetNetworkInterfaces(&GetNetworkInterfacesReq, &GetNetworkInterfacesResponse);
+	return __super::GetNetworkInterfaces(&GetNetworkInterfacesReq, &GetNetworkInterfacesResponse);
 }
 
 int OnvifClientDevice::SetNetworkInterfaces(_tds__SetNetworkInterfacesResponse& SetNetworkInterfacesResponse, string InterfaceToken, tt__NetworkInterfaceSetConfiguration& NetworkInterface)
@@ -473,14 +479,14 @@ int OnvifClientDevice::SetNetworkInterfaces(_tds__SetNetworkInterfacesResponse& 
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SetNetworkInterfaces SetNetworkInterfacesReq;
 	SetNetworkInterfacesReq.InterfaceToken = InterfaceToken;
 	SetNetworkInterfacesReq.NetworkInterface = &NetworkInterface;
-	return deviceBindProxy.SetNetworkInterfaces(&SetNetworkInterfacesReq, &SetNetworkInterfacesResponse);
+	return __super::SetNetworkInterfaces(&SetNetworkInterfacesReq, &SetNetworkInterfacesResponse);
 }
 
 int OnvifClientDevice::GetNetworkProtocols(_tds__GetNetworkProtocolsResponse& GetNetworkProtocolsResponse)
@@ -493,12 +499,12 @@ int OnvifClientDevice::GetNetworkProtocols(_tds__GetNetworkProtocolsResponse& Ge
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__GetNetworkProtocols GetNetworkProtocolsReq;
-	return deviceBindProxy.GetNetworkProtocols(&GetNetworkProtocolsReq, &GetNetworkProtocolsResponse);
+	return __super::GetNetworkProtocols(&GetNetworkProtocolsReq, &GetNetworkProtocolsResponse);
 }
 
 int OnvifClientDevice::SetNetworkProtocols(_tds__SetNetworkProtocolsResponse& SetNetworkProtocolsResponse, vector<tt__NetworkProtocol*, allocator<tt__NetworkProtocol*>>& NetworkProtocols)
@@ -511,13 +517,13 @@ int OnvifClientDevice::SetNetworkProtocols(_tds__SetNetworkProtocolsResponse& Se
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SetNetworkProtocols SetNetworkProtocolsReq;
 	SetNetworkProtocolsReq.NetworkProtocols = NetworkProtocols;
-	return deviceBindProxy.SetNetworkProtocols(&SetNetworkProtocolsReq, &SetNetworkProtocolsResponse);
+	return __super::SetNetworkProtocols(&SetNetworkProtocolsReq, &SetNetworkProtocolsResponse);
 }
 
 int OnvifClientDevice::GetNetworkDefaultGateway(_tds__GetNetworkDefaultGatewayResponse& GetNetworkDefaultGatewayResponse)
@@ -530,12 +536,12 @@ int OnvifClientDevice::GetNetworkDefaultGateway(_tds__GetNetworkDefaultGatewayRe
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__GetNetworkDefaultGateway GetNetworkDefaultGatewayReq;
-	return deviceBindProxy.GetNetworkDefaultGateway(&GetNetworkDefaultGatewayReq, &GetNetworkDefaultGatewayResponse);
+	return __super::GetNetworkDefaultGateway(&GetNetworkDefaultGatewayReq, &GetNetworkDefaultGatewayResponse);
 }
 
 int OnvifClientDevice::SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayResponse& SetNetworkDefaultGatewayResponse, vector<string, allocator<string>>& IPv4, vector<string, allocator<string>>& IPv6)
@@ -548,14 +554,14 @@ int OnvifClientDevice::SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayRe
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SetNetworkDefaultGateway SetNetworkDefaultGatewayReq;
 	SetNetworkDefaultGatewayReq.IPv4Address = IPv4;
 	SetNetworkDefaultGatewayReq.IPv6Address = IPv6;
-	return deviceBindProxy.SetNetworkDefaultGateway(&SetNetworkDefaultGatewayReq, &SetNetworkDefaultGatewayResponse);
+	return __super::SetNetworkDefaultGateway(&SetNetworkDefaultGatewayReq, &SetNetworkDefaultGatewayResponse);
 }
 
 int OnvifClientDevice::SystemReboot(_tds__SystemRebootResponse& SystemRebootResponse)
@@ -568,12 +574,12 @@ int OnvifClientDevice::SystemReboot(_tds__SystemRebootResponse& SystemRebootResp
 	{
 		return SOAP_ERR;
 	}
-	deviceBindProxy.soap_endpoint = strUrl.c_str();
-	soap_wsse_add_Security(&deviceBindProxy);
-	soap_wsse_add_UsernameTokenDigest(&deviceBindProxy, "Id", strUser.c_str(), strPass.c_str());
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
 
 	_tds__SystemReboot SystemRebootReq;
-	return deviceBindProxy.SystemReboot(&SystemRebootReq, &SystemRebootResponse);
+	return __super::SystemReboot(&SystemRebootReq, &SystemRebootResponse);
 }
 
 int OnvifClientDevice::SynchronizeDateAndTimeWithCamera(string& strUrl, string& strUser, string& strPass, _tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse)
@@ -594,8 +600,8 @@ int OnvifClientDevice::SynchronizeDateAndTimeWithCamera(string& strUrl, string& 
 	cout << "current time: " << diffhold << endl << "difference calced here: " << difference << endl;
 
 	//Doing some soap work
-	soap_wsse_add_Security(&deviceBindProxy);
-	LocalAddUsernameTokenDigest(&deviceBindProxy, cam_pc_offset);
+	soap_wsse_add_Security(this);
+	LocalAddUsernameTokenDigest(this, cam_pc_offset);
 
 	// creating and setting parameter for the set date and time request
 	_tds__SetSystemDateAndTime SetDateTimeReq;
@@ -613,7 +619,7 @@ int OnvifClientDevice::SynchronizeDateAndTimeWithCamera(string& strUrl, string& 
 	UTCDateTime->Date = &thisDate;	UTCDateTime->Time = &thisTime;
 	SetDateTimeReq.UTCDateTime = UTCDateTime;
 
-	return deviceBindProxy.SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+	return __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
 }
 
 int OnvifClientDevice::SynchronizeDateAndTimeWithCamera(_tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse)
@@ -725,11 +731,15 @@ int OnvifClientDevice::LocalAddUsernameTokenDigest(struct soap* soapOff, double 
 	return SOAP_OK;
 }
 
-http_da_info* OnvifClientDevice::GetHttpDa()
+http_da_info& OnvifClientDevice::GetHttpDa()
 {
 	return httpinfo;
 }
 
+bool& OnvifClientDevice::HttpdaEnabled()
+{
+	return bHttpda;
+}
 const char* OnvifClientDevice::GetDevIP()
 {
 	if (m_strDevIP.size())

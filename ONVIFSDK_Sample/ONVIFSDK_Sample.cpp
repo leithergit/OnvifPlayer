@@ -75,7 +75,7 @@ struct Camera
 	std::string strPass;
 };
 
-void OutputProfiles(CONVIFClient *pClient)
+void OutputProfiles(CONVIFClient* pClient)
 {
 	int nIndex = 0;
 	for (auto it = pClient->m_Profiles->Profiles.begin(); it != pClient->m_Profiles->Profiles.end(); it++)
@@ -131,7 +131,7 @@ void OutputProfiles(CONVIFClient *pClient)
 	}
 }
 
-void OutputMediaUrl(CONVIFClient *pClient,const char *IP)
+void OutputMediaUrl(CONVIFClient* pClient, const char* IP)
 {
 	// get the default Mediastram URL
 	const char* szMediaUrl = pClient->GetMediaStreamUrl(0);
@@ -141,7 +141,7 @@ void OutputMediaUrl(CONVIFClient *pClient,const char *IP)
 		cout << "Camera " << IP << " Stream URL[0]  = " << szMediaUrl << endl;
 }
 
-void GetVideoSourceConfiguration(CONVIFClient *pClient, const char *IP)
+void GetVideoSourceConfiguration(CONVIFClient* pClient, const char* IP)
 {
 	//_trt__GetVideoSourceConfigurationResponse GetVideoSourceConfigResponse;
 	//char *szToken = (char *)pClient->m_Profiles->Profiles[0]->VideoSourceConfiguration->token.c_str();
@@ -154,7 +154,7 @@ void GetVideoSourceConfiguration(CONVIFClient *pClient, const char *IP)
 	//	cout << "Failed in GetVideoSourceConfigure from Camera " << IP <<"." << endl;
 	//}
 }
-void GetAllPresets(CONVIFClient *pClient,const char *IP)
+void GetAllPresets(CONVIFClient* pClient, const char* IP)
 {
 	if (!pClient->CreatePTZClient())
 	{
@@ -193,7 +193,7 @@ void GetAllPresets(CONVIFClient *pClient,const char *IP)
 	}
 }
 
-void Add_RemovePreset(CONVIFClient *pClient, const char *IP)
+void Add_RemovePreset(CONVIFClient* pClient, const char* IP)
 {
 	if (!pClient->CreatePTZClient())
 	{
@@ -215,7 +215,7 @@ void Add_RemovePreset(CONVIFClient *pClient, const char *IP)
 		cout << "Failed in  removing Preset AAAA for Camera " << IP << endl;
 }
 
-void PTZMoveTest(CONVIFClient *pClient, const char *IP)
+void PTZMoveTest(CONVIFClient* pClient, const char* IP)
 {
 	if (!pClient->CreatePTZClient())
 	{
@@ -257,7 +257,7 @@ void PTZMoveTest(CONVIFClient *pClient, const char *IP)
 			cout << "Camera " << IP << " Failed in AbsoluteMove,it May not support the sepecified PTZ Operation!" << endl;
 }
 
-void GetPtzStatus(CONVIFClient *pClient, const char *IP)
+void GetPtzStatus(CONVIFClient* pClient, const char* IP)
 {
 	if (!pClient->CreatePTZClient())
 	{
@@ -273,23 +273,28 @@ void GetPtzStatus(CONVIFClient *pClient, const char *IP)
 		cout << "Camera " << IP << " Failed in  GetStatus!" << endl;
 }
 
-void GetImageCapabilities(CONVIFClient *pClient, const char *IP)
+void GetImageCapabilities(CONVIFClient* pClient, const char* IP)
 {
-	Image_Capabilities ic;
-	int nResult = pClient->GetImageCapabilities(ic);
+	timg__Capabilities* ic = nullptr;
+	int nResult = pClient->GetImageCapabilities(&ic);
 
 	if (nResult == SOAP_OK)
 	{
 		// 是否有图像稳定系统，如防防抖功能
-		cout << "ImageStabilization = " << *ic.pBoolImageStabilization << endl;
-		cout << "Image Capabilities Items size = " << ic.vecAny.size() << endl;
+		cout << "ImageStabilization = " << *ic->ImageStabilization << endl;
+		cout << "Image Capabilities Items size = " << ic->__any.size() << endl;
 		int nIndex = 0;
-		for each (auto var in ic.vecAny)
+		for each (auto var in ic->__any)
 			cout << "Item[" << nIndex << "] = " << var << endl;
+		FreeSoap(ic->soap);
+	}
+	else
+	{
+		cout << "The Camera " << IP << "May not support ImageCapabilities!" << endl;
 	}
 }
 
-void GetImageSettings(CONVIFClient *pClient, const char *IP)
+void GetImageSettings(CONVIFClient* pClient, const char* IP)
 {
 	cout << "***********Now we will test ONVIF Image Setting Test**************" << endl;
 	char* szExposureMode[] = { "AUTO", "MANUAL" };
@@ -300,262 +305,258 @@ void GetImageSettings(CONVIFClient *pClient, const char *IP)
 	char* szWideDynamicMode[] = { "WideDynamicMode__OFF", "WideDynamicMode__ON" };
 	char* szWhiteBalanceMode[] = { "WhiteBalanceMode__AUTO", "WhiteBalanceMode__MANUAL" };
 	char* szImageStabilizationMode[] = { "ImageStabilizationMode__OFF", "ImageStabilizationMode__ON", "ImageStabilizationMode__AUTO", "ImageStabilizationMode__Extended" };
-#ifdef _ONVIF_STATIC
-	//pClient->CreateImageClient();
-	//OnvifClientImage* pOnvifImage = (OnvifClientImage*)pClient->GetImagePtr();
-	//_timg__GetServiceCapabilitiesResponse ImageCapabilitiesResponse;
-	//int nResult = pOnvifImage->GetServiceCapabilities(&ImageCapabilitiesResponse);
-
-	//if (nResult == SOAP_OK && ImageCapabilitiesResponse.Capabilities)
-	//{
-	//	// 是否有图像稳定系统，如防防抖功能
-	//	cout << "ImageStabilization = " << ImageCapabilitiesResponse.Capabilities->ImageStabilization << endl;
-
-	//	cout << "Image Capabilities Items size = " << ImageCapabilitiesResponse.Capabilities->__any.size() << endl;
-	//	int nIndex = 0;
-	//	for each (auto var in ImageCapabilitiesResponse.Capabilities->__any)
-	//		cout << "Item[" << nIndex << "] = " << var << endl;
-	//}
-
-	//std::string strVideoSourceToken = pClient->m_Profiles->Profiles[0]->VideoSourceConfiguration->SourceToken;
-	//_timg__GetImagingSettings timg__GetImagingSettings;
-	//timg__GetImagingSettings.VideoSourceToken = strVideoSourceToken;
-	//_timg__GetImagingSettingsResponse ImagingSettingsResponse;
-
-	//nResult = pOnvifImage->GetImagingSettings(&timg__GetImagingSettings, &ImagingSettingsResponse);
-	//if (nResult == SOAP_OK && pIS)
-	//{
-	//	if (pIS->BacklightCompensation)
-	//	{
-	//		cout << "Backlight Compensation Level = " << pIS->BacklightCompensation->Level << endl;
-	//		cout << "BacklightCompensation Mode = " << szBacklightCompensationMode[pIS->BacklightCompensation->Mode];
-	//	}
-	//	else
-	//		cout << "Setting BacklightCompensation is not supported!" << endl;
-
-	//	if (pIS->Brightness)
-	//		cout << "Setting Brightness = " << *(pIS->Brightness) << endl;
-	//	else
-	//		cout << "Setting Brightness it not supported!" << endl;
-
-	//	if (pIS->ColorSaturation)
-	//		cout << "ColorSaturation = " << *(pIS->ColorSaturation) << endl;
-	//	else
-	//		cout << "Setting ColorSaturation is not supported!" << endl;
-
-	//	if (pIS->Contrast)
-	//		cout << "Contrast = " << *(pIS->Contrast) << endl;
-	//	else
-	//		cout << "Setting Contrast is not supported!" << endl;
-
-	//	if (pIS->Exposure)
-	//	{
-	//		tt__Exposure20* Exposure = pIS->Exposure;
-	//		tt__Rectangle* Window = Exposure->Window;
-
-	//		cout << "ExposureMode = " << szExposureMode[pIS->Exposure->Mode] << endl;
-
-	//		if (Exposure->Priority)
-	//		{
-	//			cout << "ExposurePriority=" << szExposurePriority[*(Exposure->Priority)] << endl;
-	//		}
-	//		if (Exposure->Window)
-	//		{
-	//			cout << "Exposure Window :left = " << *Window->left << endl;
-	//			cout << "Exposure Window :top = " << *Window->top << endl;
-	//			cout << "Exposure Window :right = " << *Window->right << endl;
-	//			cout << "Exposure Window :bottom = " << *Window->bottom << endl;
-	//		}
-
-	//		cout << "ExposureMode=" << szExposureMode[Exposure->Mode] << endl;
-
-	//		if (Exposure->ExposureTime)
-	//			cout << "ExposureTime = " << *(Exposure->ExposureTime) << endl;
-
-	//		if (Exposure->MinExposureTime)
-	//			cout << "MinExposureTime = " << *(Exposure->MinExposureTime) << endl;
-
-	//		if (Exposure->MaxExposureTime)
-	//			cout << "MaxExposureTime = " << *(Exposure->MaxExposureTime) << endl;
-
-	//		if (Exposure->Gain)
-	//			cout << "ExposureGain = " << *(Exposure->Gain) << endl;
-
-	//		if (Exposure->MaxGain)
-	//			cout << "ExposureMaxGain = " << *(Exposure->MaxGain) << endl;
-
-	//		if (Exposure->MinGain)
-	//			cout << "ExposureMinGain = " << *(Exposure->MinGain) << endl;
-
-	//		if (Exposure->MaxGain)
-	//			cout << "ExposureMaxIris = " << *(Exposure->MaxGain) << endl;
-
-	//		if (Exposure->Iris)
-	//			cout << "ExposureIris = " << *(Exposure->Iris) << endl;
-
-	//		if (Exposure->MaxIris)
-	//			cout << "ExposureMaxIris = " << *(Exposure->MaxIris) << endl;
-
-	//		if (Exposure->MinIris)
-	//			cout << "ExposureMaxIris = " << *(Exposure->MinIris) << endl;
-	//	}
-	//	else
-	//		cout << "Setting Exposure is not supported!" << endl;
-	//}
-
-	//_timg__SetImagingSettings timg__SetImagingSettings;
-	//timg__SetImagingSettings.VideoSourceToken = strVideoSourceToken;
-	//timg__SetImagingSettings.ForcePersistence = false;		// 是否永久保存，若为true,则目标设置备重启后也会继续生效，否则重启后失效
-	//timg__SetImagingSettings.ImagingSettings = pIS;
-	//_timg__SetImagingSettingsResponse timg__SetImagingSettingsResponse;
-	//nResult = pOnvifImage->SetImagingSettings(&timg__SetImagingSettings, &timg__SetImagingSettingsResponse);
-	//if (nResult == SOAP_OK)
-	//	cout << "Succeed in Setimage Settings!" << endl;
-	//else
-	//	cout << "Failed in Setimage Settings!" << endl;
 
 
-	//_timg__GetOptions ImageOptions;
-	//ImageOptions.VideoSourceToken = strVideoSourceToken;
-	//_timg__GetOptionsResponse ImageOptionsResponse;
-	//nResult = pOnvifImage->GetOptions(&ImageOptions, &ImageOptionsResponse);
-	//if (nResult == SOAP_OK)
-	//{
-	//	if (ImageOptionsResponse.ImagingOptions)
-	//	{
-	//		tt__ImagingOptions20* ImagingOptions = ImageOptionsResponse.ImagingOptions;
-	//		if (ImagingOptions->BacklightCompensation)
-	//		{
-	//			if (ImagingOptions->BacklightCompensation->Level)
-	//			{
-	//				if (ImagingOptions->BacklightCompensation->Level->__item)
-	//					cout << "BacklightCompensation Level Range Item:" << ImagingOptions->BacklightCompensation->Level->__item << endl;
+	timg__Capabilities* pCapabilities = nullptr;
+	int nResult = pClient->GetImageCapabilities(&pCapabilities);
 
-	//				cout << "ImagingOptions BacklightCompensation Level = [" << ImagingOptions->BacklightCompensation->Level->Min
-	//					<< ","
-	//					<< ImagingOptions->BacklightCompensation->Level->Max << "]" << endl;
-	//				int nIndex = 0;
-	//				for each (auto var in ImagingOptions->BacklightCompensation->Mode)
-	//					cout << "BacklightCompensation Mode[" << nIndex++ << "] = " << szBacklightCompensationMode[var] << endl;
-	//			}
+	if (nResult == SOAP_OK && pCapabilities)
+	{
+		// 是否有图像稳定系统，如防防抖功能
+		cout << "ImageStabilization = " << pCapabilities->ImageStabilization << endl;
 
-	//		}
-	//		else
-	//			cout << "Setting BacklightCompensation is not supported!" << endl;
+		cout << "Image Capabilities Items size = " << pCapabilities->__any.size() << endl;
+		int nIndex = 0;
+		for each (auto var in pCapabilities->__any)
+			cout << "Item[" << nIndex << "] = " << var << endl;
+		FreeSoap(pCapabilities->soap);
+	}
 
-	//		if (ImagingOptions->Brightness)
-	//			cout << "Brightness  = [" << ImagingOptions->Brightness->Min << "," << ImagingOptions->Brightness->Max << "]" << endl;
+	std::string strVideoSourceToken = pClient->m_Profiles->Profiles[0]->VideoSourceConfiguration->SourceToken;
 
-	//		if (ImagingOptions->ColorSaturation)
-	//			cout << "ColorSaturation  = [" << ImagingOptions->ColorSaturation->Min << "," << ImagingOptions->ColorSaturation->Max << "]" << endl;
 
-	//		if (ImagingOptions->Contrast)
-	//			cout << "Contrast = [" << ImagingOptions->Contrast->Min << "," << ImagingOptions->Contrast->Max << "]" << endl;
+	tt__ImagingSettings20* pIS = nullptr;
 
-	//		if (ImagingOptions->Exposure)
-	//		{
+	nResult = pClient->GetImageSettings(strVideoSourceToken.c_str(), &pIS);
+	if (nResult == SOAP_OK && pIS)
+	{
+		if (pIS->BacklightCompensation)
+		{
+			cout << "Backlight Compensation Level = " << pIS->BacklightCompensation->Level << endl;
+			cout << "BacklightCompensation Mode = " << szBacklightCompensationMode[pIS->BacklightCompensation->Mode];
+		}
+		else
+			cout << "Setting BacklightCompensation is not supported!" << endl;
 
-	//			tt__ExposureOptions20* Exposure = ImagingOptions->Exposure;
-	//			if (Exposure->ExposureTime)
-	//				cout << "ExposureTime Item " << Exposure->ExposureTime->__item << " = [" << Exposure->ExposureTime->Min << "," << Exposure->ExposureTime->Max << "]" << endl;
+		if (pIS->Brightness)
+			cout << "Setting Brightness = " << *(pIS->Brightness) << endl;
+		else
+			cout << "Setting Brightness it not supported!" << endl;
 
-	//			if (Exposure->MinExposureTime)
-	//				cout << "MinExposureTime Item " << Exposure->MinExposureTime->__item << " = [" << Exposure->MinExposureTime->Min << "," << Exposure->MinExposureTime->Max << "]" << endl;
+		if (pIS->ColorSaturation)
+			cout << "ColorSaturation = " << *(pIS->ColorSaturation) << endl;
+		else
+			cout << "Setting ColorSaturation is not supported!" << endl;
 
-	//			if (Exposure->MaxExposureTime)
-	//				cout << "MaxExposureTime Item " << Exposure->MaxExposureTime->__item << " = [" << Exposure->MaxExposureTime->Min << "," << Exposure->MaxExposureTime->Max << "]" << endl;
+		if (pIS->Contrast)
+			cout << "Contrast = " << *(pIS->Contrast) << endl;
+		else
+			cout << "Setting Contrast is not supported!" << endl;
 
-	//			if (Exposure->Gain)
-	//				cout << "Gain Item " << Exposure->Gain->__item << " = [" << Exposure->Gain->Min << "," << Exposure->Gain->Max << "]" << endl;
+		if (pIS->Exposure)
+		{
+			tt__Exposure20* Exposure = pIS->Exposure;
+			tt__Rectangle* Window = Exposure->Window;
 
-	//			if (Exposure->MinGain)
-	//				cout << "MinGain Item " << Exposure->MinGain->__item << " = [" << Exposure->MinGain->Min << "," << Exposure->MinGain->Max << "]" << endl;
+			cout << "ExposureMode = " << szExposureMode[pIS->Exposure->Mode] << endl;
 
-	//			if (Exposure->MaxGain)
-	//				cout << "MaxGain Item " << Exposure->MaxGain->__item << " = [" << Exposure->MaxGain->Min << "," << Exposure->MaxGain->Max << "]" << endl;
+			if (Exposure->Priority)
+			{
+				cout << "ExposurePriority=" << szExposurePriority[*(Exposure->Priority)] << endl;
+			}
+			if (Exposure->Window)
+			{
+				cout << "Exposure Window :left = " << *Window->left << endl;
+				cout << "Exposure Window :top = " << *Window->top << endl;
+				cout << "Exposure Window :right = " << *Window->right << endl;
+				cout << "Exposure Window :bottom = " << *Window->bottom << endl;
+			}
 
-	//			if (Exposure->Iris)
-	//				cout << "Iris Item " << Exposure->Iris->__item << " = [" << Exposure->Iris->Min << "," << Exposure->Iris->Max << "]" << endl;
+			cout << "ExposureMode=" << szExposureMode[Exposure->Mode] << endl;
 
-	//			if (Exposure->MinIris)
-	//				cout << "MinIris Item " << Exposure->MinIris->__item << " = [" << Exposure->MinIris->Min << "," << Exposure->MinIris->Max << "]" << endl;
+			if (Exposure->ExposureTime)
+				cout << "ExposureTime = " << *(Exposure->ExposureTime) << endl;
 
-	//			if (Exposure->MaxIris)
-	//				cout << "MaxIris Item " << Exposure->MaxIris->__item << " = [" << Exposure->MaxIris->Min << "," << Exposure->MaxIris->Max << "]" << endl;
-	//			nIndex = 0;
-	//			for each (auto var in Exposure->Mode)
-	//				cout << "Exposure Mode[" << nIndex++ << "] = " << szExposureMode[var] << endl;
+			if (Exposure->MinExposureTime)
+				cout << "MinExposureTime = " << *(Exposure->MinExposureTime) << endl;
 
-	//			nIndex = 0;
-	//			for each (auto var in Exposure->Priority)
-	//				cout << "Exposure Priority[" << nIndex++ << "] = " << szExposurePriority[var] << endl;
-	//		}
-	//		else
-	//		{
-	//			cout << "Exposure option is not supported!" << endl;
-	//		}
-	//		if (ImagingOptions->Focus)
-	//		{
-	//			nIndex = 0;
-	//			for each (auto var in ImagingOptions->Focus->AutoFocusModes)
-	//				cout << "ImagingOptions Focus AutoFocusModes[" << nIndex++ << "] = " << szAutoFocusMode[var] << endl;
-	//			if (ImagingOptions->Focus->DefaultSpeed)
-	//				cout << "ImagingOptions Focus DefaultSpeed = [" << ImagingOptions->Focus->DefaultSpeed->Min << "," << ImagingOptions->Focus->DefaultSpeed->Max << "]" << endl;
+			if (Exposure->MaxExposureTime)
+				cout << "MaxExposureTime = " << *(Exposure->MaxExposureTime) << endl;
 
-	//			if (ImagingOptions->Focus->NearLimit)
-	//				cout << "ImagingOptions Focus NearLimit = [" << ImagingOptions->Focus->NearLimit->Min << "," << ImagingOptions->Focus->NearLimit->Max << "]" << endl;
-	//			if (ImagingOptions->Focus->FarLimit)
-	//				cout << "ImagingOptions Focus FarLimit = [" << ImagingOptions->Focus->FarLimit->Min << "," << ImagingOptions->Focus->FarLimit->Max << "]" << endl;
-	//			nIndex = 0;
-	//			if (ImagingOptions->Focus->Extension)
-	//				for each (auto var in ImagingOptions->Focus->Extension->__any)
-	//					cout << "ImagingOptions->Focus->Extension [" << nIndex << "] = " << var << endl;
+			if (Exposure->Gain)
+				cout << "ExposureGain = " << *(Exposure->Gain) << endl;
 
-	//		}
+			if (Exposure->MaxGain)
+				cout << "ExposureMaxGain = " << *(Exposure->MaxGain) << endl;
 
-	//		nIndex = 0;
-	//		for each (auto var in ImagingOptions->IrCutFilterModes)
-	//			cout << "IrCutFilterMode[" << nIndex++ << "] = " << szIrCutFilterMode[var] << endl;
+			if (Exposure->MinGain)
+				cout << "ExposureMinGain = " << *(Exposure->MinGain) << endl;
 
-	//		if (ImagingOptions->Sharpness)
-	//			cout << "Sharpness  = [" << ImagingOptions->Sharpness->Min << "," << ImagingOptions->Sharpness->Max << "]" << endl;
+			if (Exposure->MaxGain)
+				cout << "ExposureMaxIris = " << *(Exposure->MaxGain) << endl;
 
-	//		if (ImagingOptions->WideDynamicRange)
-	//		{
-	//			nIndex = 0;
-	//			for each (auto var  in ImagingOptions->WideDynamicRange->Mode)
-	//				cout << "WideDynamicRange [" << nIndex++ << "] = " << szWideDynamicMode[var] << endl;
-	//			if (ImagingOptions->WideDynamicRange->Level)
-	//				cout << "WideDynamicRange Level  = [" << ImagingOptions->WideDynamicRange->Level->Min << "," << ImagingOptions->WideDynamicRange->Level->Max << "]" << endl;
-	//		}
+			if (Exposure->Iris)
+				cout << "ExposureIris = " << *(Exposure->Iris) << endl;
 
-	//		if (ImagingOptions->WhiteBalance)
-	//		{
-	//			nIndex = 0;
-	//			for each (auto var in ImagingOptions->WhiteBalance->Mode)
-	//				cout << "WhiteBalanceMode[" << nIndex << "] = " << szWhiteBalanceMode[var] << endl;
-	//			if (ImagingOptions->WhiteBalance->YrGain)
-	//				cout << "WideDynamicRange YrGain  = [" << ImagingOptions->WhiteBalance->YrGain->Min << "," << ImagingOptions->WhiteBalance->YrGain->Max << "]" << endl;
-	//			if (ImagingOptions->WhiteBalance->YbGain)
-	//				cout << "WideDynamicRange YbGain  = [" << ImagingOptions->WhiteBalance->YbGain->Min << "," << ImagingOptions->WhiteBalance->YbGain->Max << "]" << endl;
-	//		}
+			if (Exposure->MaxIris)
+				cout << "ExposureMaxIris = " << *(Exposure->MaxIris) << endl;
 
-	//		if (ImagingOptions->Extension)
-	//		{
-	//			if (ImagingOptions->Extension->ImageStabilization)
-	//			{
-	//				nIndex = 0;
-	//				for each (auto var in ImagingOptions->Extension->ImageStabilization->Mode)
-	//					cout << "ImageStabilization Mode[" << nIndex << "]" << szImageStabilizationMode[var] << endl;
-	//				if (ImagingOptions->Extension->ImageStabilization->Level)
-	//					cout << "ImageStabilization Level = [" << ImagingOptions->Extension->ImageStabilization->Level->Min << "," << ImagingOptions->Extension->ImageStabilization->Level->Max << "]" << endl;
-	//			}
-	//		}
-	//	}
-	//	else
-	//		cout << "Setting ImagingOptions is not supported!" << endl;
+			if (Exposure->MinIris)
+				cout << "ExposureMaxIris = " << *(Exposure->MinIris) << endl;
+			FreeSoap(pIS->soap);
+		}
+		else
+			cout << "Setting Exposure is not supported!" << endl;
+	}
 
-	//}
+	nResult = pClient->SetImageSettings(strVideoSourceToken.c_str(), *pIS, false);
+	if (nResult == SOAP_OK)
+		cout << "Succeed in Setimage Settings!" << endl;
+	else
+		cout << "Failed in Setimage Settings!" << endl;
+
+
+	tt__ImagingOptions20* ImagingOptions;
+
+	nResult = pClient->GetImageOpstions(strVideoSourceToken.c_str(), &ImagingOptions);
+	int nIndex = 0;
+	if (nResult == SOAP_OK)
+	{
+		if (ImagingOptions)
+		{
+			if (ImagingOptions->BacklightCompensation)
+			{
+				if (ImagingOptions->BacklightCompensation->Level)
+				{
+					if (ImagingOptions->BacklightCompensation->Level->__item)
+						cout << "BacklightCompensation Level Range Item:" << ImagingOptions->BacklightCompensation->Level->__item << endl;
+
+					cout << "ImagingOptions BacklightCompensation Level = [" << ImagingOptions->BacklightCompensation->Level->Min
+						<< ","
+						<< ImagingOptions->BacklightCompensation->Level->Max << "]" << endl;
+					int nIndex = 0;
+					for each (auto var in ImagingOptions->BacklightCompensation->Mode)
+						cout << "BacklightCompensation Mode[" << nIndex++ << "] = " << szBacklightCompensationMode[var] << endl;
+				}
+
+			}
+			else
+				cout << "Setting BacklightCompensation is not supported!" << endl;
+
+			if (ImagingOptions->Brightness)
+				cout << "Brightness  = [" << ImagingOptions->Brightness->Min << "," << ImagingOptions->Brightness->Max << "]" << endl;
+
+			if (ImagingOptions->ColorSaturation)
+				cout << "ColorSaturation  = [" << ImagingOptions->ColorSaturation->Min << "," << ImagingOptions->ColorSaturation->Max << "]" << endl;
+
+			if (ImagingOptions->Contrast)
+				cout << "Contrast = [" << ImagingOptions->Contrast->Min << "," << ImagingOptions->Contrast->Max << "]" << endl;
+
+			if (ImagingOptions->Exposure)
+			{
+
+				tt__ExposureOptions20* Exposure = ImagingOptions->Exposure;
+				if (Exposure->ExposureTime)
+					cout << "ExposureTime Item " << Exposure->ExposureTime->__item << " = [" << Exposure->ExposureTime->Min << "," << Exposure->ExposureTime->Max << "]" << endl;
+
+				if (Exposure->MinExposureTime)
+					cout << "MinExposureTime Item " << Exposure->MinExposureTime->__item << " = [" << Exposure->MinExposureTime->Min << "," << Exposure->MinExposureTime->Max << "]" << endl;
+
+				if (Exposure->MaxExposureTime)
+					cout << "MaxExposureTime Item " << Exposure->MaxExposureTime->__item << " = [" << Exposure->MaxExposureTime->Min << "," << Exposure->MaxExposureTime->Max << "]" << endl;
+
+				if (Exposure->Gain)
+					cout << "Gain Item " << Exposure->Gain->__item << " = [" << Exposure->Gain->Min << "," << Exposure->Gain->Max << "]" << endl;
+
+				if (Exposure->MinGain)
+					cout << "MinGain Item " << Exposure->MinGain->__item << " = [" << Exposure->MinGain->Min << "," << Exposure->MinGain->Max << "]" << endl;
+
+				if (Exposure->MaxGain)
+					cout << "MaxGain Item " << Exposure->MaxGain->__item << " = [" << Exposure->MaxGain->Min << "," << Exposure->MaxGain->Max << "]" << endl;
+
+				if (Exposure->Iris)
+					cout << "Iris Item " << Exposure->Iris->__item << " = [" << Exposure->Iris->Min << "," << Exposure->Iris->Max << "]" << endl;
+
+				if (Exposure->MinIris)
+					cout << "MinIris Item " << Exposure->MinIris->__item << " = [" << Exposure->MinIris->Min << "," << Exposure->MinIris->Max << "]" << endl;
+
+				if (Exposure->MaxIris)
+					cout << "MaxIris Item " << Exposure->MaxIris->__item << " = [" << Exposure->MaxIris->Min << "," << Exposure->MaxIris->Max << "]" << endl;
+				nIndex = 0;
+				for each (auto var in Exposure->Mode)
+					cout << "Exposure Mode[" << nIndex++ << "] = " << szExposureMode[var] << endl;
+
+				nIndex = 0;
+				for each (auto var in Exposure->Priority)
+					cout << "Exposure Priority[" << nIndex++ << "] = " << szExposurePriority[var] << endl;
+			}
+			else
+			{
+				cout << "Exposure option is not supported!" << endl;
+			}
+			if (ImagingOptions->Focus)
+			{
+				nIndex = 0;
+				for each (auto var in ImagingOptions->Focus->AutoFocusModes)
+					cout << "ImagingOptions Focus AutoFocusModes[" << nIndex++ << "] = " << szAutoFocusMode[var] << endl;
+				if (ImagingOptions->Focus->DefaultSpeed)
+					cout << "ImagingOptions Focus DefaultSpeed = [" << ImagingOptions->Focus->DefaultSpeed->Min << "," << ImagingOptions->Focus->DefaultSpeed->Max << "]" << endl;
+
+				if (ImagingOptions->Focus->NearLimit)
+					cout << "ImagingOptions Focus NearLimit = [" << ImagingOptions->Focus->NearLimit->Min << "," << ImagingOptions->Focus->NearLimit->Max << "]" << endl;
+				if (ImagingOptions->Focus->FarLimit)
+					cout << "ImagingOptions Focus FarLimit = [" << ImagingOptions->Focus->FarLimit->Min << "," << ImagingOptions->Focus->FarLimit->Max << "]" << endl;
+				nIndex = 0;
+				if (ImagingOptions->Focus->Extension)
+					for each (auto var in ImagingOptions->Focus->Extension->__any)
+						cout << "ImagingOptions->Focus->Extension [" << nIndex << "] = " << var << endl;
+
+			}
+
+			nIndex = 0;
+			for each (auto var in ImagingOptions->IrCutFilterModes)
+				cout << "IrCutFilterMode[" << nIndex++ << "] = " << szIrCutFilterMode[var] << endl;
+
+			if (ImagingOptions->Sharpness)
+				cout << "Sharpness  = [" << ImagingOptions->Sharpness->Min << "," << ImagingOptions->Sharpness->Max << "]" << endl;
+
+			if (ImagingOptions->WideDynamicRange)
+			{
+				nIndex = 0;
+				for each (auto var  in ImagingOptions->WideDynamicRange->Mode)
+					cout << "WideDynamicRange [" << nIndex++ << "] = " << szWideDynamicMode[var] << endl;
+				if (ImagingOptions->WideDynamicRange->Level)
+					cout << "WideDynamicRange Level  = [" << ImagingOptions->WideDynamicRange->Level->Min << "," << ImagingOptions->WideDynamicRange->Level->Max << "]" << endl;
+			}
+
+			if (ImagingOptions->WhiteBalance)
+			{
+				nIndex = 0;
+				for each (auto var in ImagingOptions->WhiteBalance->Mode)
+					cout << "WhiteBalanceMode[" << nIndex << "] = " << szWhiteBalanceMode[var] << endl;
+				if (ImagingOptions->WhiteBalance->YrGain)
+					cout << "WideDynamicRange YrGain  = [" << ImagingOptions->WhiteBalance->YrGain->Min << "," << ImagingOptions->WhiteBalance->YrGain->Max << "]" << endl;
+				if (ImagingOptions->WhiteBalance->YbGain)
+					cout << "WideDynamicRange YbGain  = [" << ImagingOptions->WhiteBalance->YbGain->Min << "," << ImagingOptions->WhiteBalance->YbGain->Max << "]" << endl;
+			}
+
+			if (ImagingOptions->Extension)
+			{
+				if (ImagingOptions->Extension->ImageStabilization)
+				{
+					nIndex = 0;
+					for each (auto var in ImagingOptions->Extension->ImageStabilization->Mode)
+						cout << "ImageStabilization Mode[" << nIndex << "]" << szImageStabilizationMode[var] << endl;
+					if (ImagingOptions->Extension->ImageStabilization->Level)
+						cout << "ImageStabilization Level = [" << ImagingOptions->Extension->ImageStabilization->Level->Min << "," << ImagingOptions->Extension->ImageStabilization->Level->Max << "]" << endl;
+				}
+			}
+			FreeSoap(ImagingOptions->soap);
+		}
+		else
+			cout << "Setting ImagingOptions is not supported!" << endl;
+
+	}
 
 	//_timg__GetMoveOptions MoveOptions;
 	//MoveOptions.VideoSourceToken = strVideoSourceToken;
@@ -603,149 +604,475 @@ void GetImageSettings(CONVIFClient *pClient, const char *IP)
 	//		cout << "Move options is not supported!" << endl;
 	//}
 
-	//_timg__GetStatus timg__GetStatus;
-	//timg__GetStatus.VideoSourceToken = strVideoSourceToken;
-	//_timg__GetStatusResponse StatusResponse;
-	//nResult = pOnvifImage->GetStatus(&timg__GetStatus, &StatusResponse);
-	//char* szMoveStatus[] = { "IDLE", "MOVING", "UNKNOWN" };
+	tt__ImagingStatus20* Status = nullptr;
+	nResult = pClient->GetImageStatus(strVideoSourceToken.c_str(), &Status);
+	char* szMoveStatus[] = { "IDLE", "MOVING", "UNKNOWN" };
 
-	//if (nResult == SOAP_OK)
-	//{
-	//	if (StatusResponse.Status)
-	//	{
-	//		if (StatusResponse.Status->FocusStatus20)
-	//		{
-	//			cout << "FocusStatus Position = " << StatusResponse.Status->FocusStatus20->Position << endl;
-	//			cout << "FocusStatus MoveStatus = " << szMoveStatus[StatusResponse.Status->FocusStatus20->MoveStatus] << endl;
-	//			if (StatusResponse.Status->FocusStatus20->Extension)
-	//			{
-	//				nIndex = 0;
-	//				for each (auto var in StatusResponse.Status->FocusStatus20->Extension->__any)
-	//					cout << "Status->FocusStatus20->Extension[" << nIndex++ << "] = " << var << endl;
-	//			}
-	//			else
-	//				cout << "FocusStatus Extension is not supported!" << endl;
-	//			if (StatusResponse.Status->FocusStatus20->Error)
-	//				cout << "FocusStatus Error" << StatusResponse.Status->FocusStatus20->Error << endl;
-	//			if (StatusResponse.Status->FocusStatus20->__anyAttribute)
-	//				cout << "FocusStatus0 anyAttribute" << StatusResponse.Status->FocusStatus20->__anyAttribute << endl;
-	//		}
-	//		else
-	//			cout << "Status FocusStatus it not supported!" << endl;
-	//	}
-	//}
-
-	//_timg__Move MoveReq;
-	//MoveReq.VideoSourceToken = strVideoSourceToken;
-	//MoveReq.Focus->
-	//	_timg__MoveResponse MoveResponse;
-	//nResult = pOnvifImage->Move(&MoveReq, &MoveResponse);
-
-	//_timg__Stop timg__Stop;
-	//_timg__StopResponse timg__StopResponse;
-	//nResult = pOnvifImage->Stop(&timg__Stop, &timg__StopResponse);
-#else
-	std::string strVideoSourceToken = pClient->m_Profiles->Profiles[0]->VideoSourceConfiguration->SourceToken;
-	ImagingSettings* pIS = nullptr;
-
-	int nResult = pClient->GetImageSetting(strVideoSourceToken.c_str(), &pIS);
-	return;
-	if (nResult == SOAP_OK && pIS)
+	if (nResult == SOAP_OK)
 	{
-		if (pIS->pBacklightCompensation)
+		if (Status)
 		{
-			cout << "Backlight Compensation Level = " << pIS->pBacklightCompensation->pFloatLevel << endl;
-			cout << "BacklightCompensation Mode = " << szBacklightCompensationMode[pIS->pBacklightCompensation->enumMode];
-		}
-		else
-			cout << "Setting BacklightCompensation is not supported!" << endl;
-
-		if (pIS->pFloatBrightness)
-			cout << "Setting Brightness = " << *(pIS->pFloatBrightness) << endl;
-		else
-			cout << "Setting Brightness it not supported!" << endl;
-
-		if (pIS->pFloatColorSaturation)
-			cout << "ColorSaturation = " << *(pIS->pFloatColorSaturation) << endl;
-		else
-			cout << "Setting ColorSaturation is not supported!" << endl;
-
-		if (pIS->pFloatContrast)
-			cout << "Contrast = " << *(pIS->pFloatContrast) << endl;
-		else
-			cout << "Setting Contrast is not supported!" << endl;
-
-		if (pIS->pExposure)
-		{
-			Exposure* pExposure = pIS->pExposure;
-			RangeRectangle* pWindow = pExposure->pRangeWindow;
-
-			cout << "ExposureMode = " << szExposureMode[pIS->pExposure->enumMode] << endl;
-
-			if (pExposure->pEnumPriority)
+			if (Status->FocusStatus20)
 			{
-				cout << "ExposurePriority=" << szExposurePriority[*(pExposure->pEnumPriority)] << endl;
+				cout << "FocusStatus Position = " << Status->FocusStatus20->Position << endl;
+				cout << "FocusStatus MoveStatus = " << szMoveStatus[Status->FocusStatus20->MoveStatus] << endl;
+				if (Status->FocusStatus20->Extension)
+				{
+					nIndex = 0;
+					for each (auto var in Status->FocusStatus20->Extension->__any)
+						cout << "Status->FocusStatus20->Extension[" << nIndex++ << "] = " << var << endl;
+				}
+				else
+					cout << "FocusStatus Extension is not supported!" << endl;
+				if (Status->FocusStatus20->Error)
+					cout << "FocusStatus Error" << Status->FocusStatus20->Error << endl;
+				if (Status->FocusStatus20->__anyAttribute)
+					cout << "FocusStatus0 anyAttribute" << Status->FocusStatus20->__anyAttribute << endl;
 			}
-			if (pWindow)
-			{
-				cout << "Exposure Window :left = " << *pWindow->pFloatLeft << endl;
-				cout << "Exposure Window :top = " << *pWindow->pFloatTop << endl;
-				cout << "Exposure Window :right = " << *pWindow->pFloatRight << endl;
-				cout << "Exposure Window :bottom = " << *pWindow->pFloatBottom << endl;
-			}
-
-			cout << "ExposureMode=" << szExposureMode[pExposure->enumMode] << endl;
-
-			if (pExposure->pFloatExposureTime)
-				cout << "ExposureTime = " << *(pExposure->pFloatExposureTime) << endl;
-
-			if (pExposure->pFloatMinExposureTime)
-				cout << "MinExposureTime = " << *(pExposure->pFloatMinExposureTime) << endl;
-
-			if (pExposure->pFloatMaxExposureTime)
-				cout << "MaxExposureTime = " << *(pExposure->pFloatMaxExposureTime) << endl;
-
-			if (pExposure->pFloatGain)
-				cout << "ExposureGain = " << *(pExposure->pFloatGain) << endl;
-
-			if (pExposure->pFloatMaxGain)
-				cout << "ExposureMaxGain = " << *(pExposure->pFloatMaxGain) << endl;
-
-			if (pExposure->pFloatMinGain)
-				cout << "ExposureMinGain = " << *(pExposure->pFloatMinGain) << endl;
-
-			if (pExposure->pFloatMaxGain)
-				cout << "ExposureMaxIris = " << *(pExposure->pFloatMaxGain) << endl;
-
-			if (pExposure->pFloatIris)
-				cout << "ExposureIris = " << *(pExposure->pFloatIris) << endl;
-
-			if (pExposure->pFloatMaxIris)
-				cout << "ExposureMaxIris = " << *(pExposure->pFloatMaxIris) << endl;
-
-			if (pExposure->pFloatMinIris)
-				cout << "ExposureMaxIris = " << *(pExposure->pFloatMinIris) << endl;
+			else
+				cout << "Status FocusStatus it not supported!" << endl;
+			FreeSoap(Status->soap);
 		}
-		else
-			cout << "Setting Exposure is not supported!" << endl;
 	}
-	//_timg__SetImagingSettings timg__SetImagingSettings;
-	//timg__SetImagingSettings.VideoSourceToken = strVideoSourceToken;
-	//timg__SetImagingSettings.ForcePersistence = false;		// 是否永久保存，若为true,则目标设置备重启后也会继续生效，否则重启后失效
-	//timg__SetImagingSettings.ImagingSettings = pIS;
-	//_timg__SetImagingSettingsResponse timg__SetImagingSettingsResponse;
-	//nResult = pOnvifImage->SetImagingSettings(&timg__SetImagingSettings, &timg__SetImagingSettingsResponse);
-	//if (nResult == SOAP_OK)
-	//	cout << "Succeed in Setimage Settings!" << endl;
-	//else
-	//	cout << "Failed in Setimage Settings!" << endl;
-#endif
 }
-int Menu()
+
+void GetDevServices(CONVIFClient* pClient, const char* IP)
+{
+	_tds__GetServicesResponse Response;
+	int nResult = pClient->GetDevServices(Response, true);
+	if (SOAP_OK == nResult)
+	{
+		for each (auto var in Response.Service)
+		{
+			cout << "Namespace = " << var->Namespace << endl;
+			cout << "XAddr = " << var->XAddr << endl;
+			if (var->Version)
+				cout << "Version:" << var->Version->Major << "." << var->Version->Minor << endl;
+			if (var->Capabilities && var->Capabilities->__any)
+			{
+				cout << "Additional Information:" << var->Capabilities->__any << endl;
+			}
+		}
+	}
+	else
+	{
+		cout << "Failed in Getting Device Serices of " << IP << ", Return Code : " << nResult << endl;
+	}
+}
+
+#define  OutputBoolean(D,x)  cout << #x <<":"<< (D.x == true ? "True" : "False") << endl;
+#define  OutputVariant(D,x)  cout << #x <<":"<< D.x <<endl;
+
+#define  OutputBooleanPtrOfPtr(D,x) if (D->x) cout << #x <<":"<< (*(D->x) == true ? "True" : "False") << endl;
+#define  OutputVariantPtrOfPtr(D,x) if (D->x) cout << #x <<":"<< (*(D->x)) <<endl;
+
+#define  OutputBooleanPtr(D,x) if (D.x) cout << #x <<":"<< (*(D.x) == true ? "True" : "False") << endl;
+#define  OutputVariantPtr(D,x) if (D.x) cout << #x <<":"<< (*(D.x)) <<endl;
+
+void GetDevCapbilities(CONVIFClient* pClient, const char* IP)
+{
+	_tds__GetServiceCapabilitiesResponse Response;
+	int nResult = pClient->GetDevServiceCapabilities(Response);
+	if (SOAP_OK == nResult)
+	{
+		if (Response.Capabilities)
+		{
+			tds__DeviceServiceCapabilities* pCab = Response.Capabilities;
+			if (pCab->System)
+			{
+				OutputBooleanPtrOfPtr(pCab->System, DiscoveryBye);
+				OutputBooleanPtrOfPtr(pCab->System, RemoteDiscovery);
+				OutputBooleanPtrOfPtr(pCab->System, SystemBackup);
+				OutputBooleanPtrOfPtr(pCab->System, SystemLogging);
+				OutputBooleanPtrOfPtr(pCab->System, FirmwareUpgrade);
+				OutputBooleanPtrOfPtr(pCab->System, HttpFirmwareUpgrade);
+				OutputBooleanPtrOfPtr(pCab->System, HttpSystemBackup);
+				OutputBooleanPtrOfPtr(pCab->System, HttpSystemLogging);
+				OutputBooleanPtrOfPtr(pCab->System, HttpSupportInformation);
+				OutputVariantPtrOfPtr(pCab->System, __anyAttribute);
+			}
+			if (pCab->Network)
+			{
+				OutputBooleanPtrOfPtr(pCab->Network, IPFilter);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Network, ZeroConfiguration);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Network, IPVersion6);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Network, DynDNS);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Network, Dot11Configuration);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Network, HostnameFromDHCP);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Network, DHCPv6);	/* optional attribute */
+
+				OutputVariantPtrOfPtr(pCab->Network, Dot1XConfigurations);	/* optional attribute */
+				OutputVariantPtrOfPtr(pCab->Network, NTP);	/* optional attribute */
+				OutputVariantPtrOfPtr(pCab->Network, __anyAttribute);	/* optional attribute */
+			}
+			if (pCab->Security)
+			{
+				OutputBooleanPtrOfPtr(pCab->Security, TLS1_x002e0);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, TLS1_x002e1);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, TLS1_x002e2);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, OnboardKeyGeneration);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, AccessPolicyConfig);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, DefaultAccessPolicy);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, Dot1X);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, RemoteUserHandling);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, X_x002e509Token);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, SAMLToken);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, KerberosToken);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, UsernameToken);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, HttpDigest);	/* optional attribute */
+				OutputBooleanPtrOfPtr(pCab->Security, RELToken);	/* optional attribute */
+
+				OutputVariantPtrOfPtr(pCab->Security, SupportedEAPMethods);	/* optional attribute */
+				OutputVariantPtrOfPtr(pCab->Security, MaxUsers);	/* optional attribute */
+				OutputVariantPtrOfPtr(pCab->Security, __anyAttribute);	/* optional attribute */
+			}
+			if (pCab->Misc)
+			{
+				OutputVariantPtrOfPtr(pCab->Misc, AuxiliaryCommands);
+				OutputVariantPtrOfPtr(pCab->Misc, __anyAttribute);
+			}
+		}
+	}
+	else
+		cout << "Failed in Getting Device ServiceCapabilities of " << IP << " , Return Code : " << nResult << endl;
+}
+
+void GetDevInformation(CONVIFClient* pClient, const char* IP)
+{
+	_tds__GetDeviceInformationResponse Response;
+	int nResult = pClient->GetDeviceInformation(Response);
+	if (SOAP_OK == nResult)
+	{
+		OutputVariant(Response, Manufacturer);
+		OutputVariant(Response, Model);	/* required element of type xsd:string */
+		OutputVariant(Response, FirmwareVersion);	/* required element of type xsd:string */
+		OutputVariant(Response, SerialNumber);	/* required element of type xsd:string */
+		OutputVariant(Response, HardwareId);	/* required element of type xsd:string */
+	}
+	else
+		cout << "Faled in Getting Device information of" << IP << ",Return Code:" << nResult << endl;
+}
+
+void GetSystemSupportInformation(CONVIFClient* pClient, const char* IP)
+{
+	_tds__GetSystemSupportInformationResponse Response;
+	int nResult = pClient->GetSystemSupportInformation(Response);
+	if (SOAP_OK == nResult)
+	{
+		if (Response.SupportInformation)
+		{
+			cout << "System Support informatiion:" << endl;
+			if (Response.SupportInformation->Binary)
+			{
+				OutputVariantPtrOfPtr(Response.SupportInformation, String);
+				OutputVariantPtrOfPtr(Response.SupportInformation->Binary, xmime__contentType);
+
+				OutputVariantPtr(Response.SupportInformation->Binary->xop__Include, __ptr);
+				OutputVariant(Response.SupportInformation->Binary->xop__Include, __size);
+				OutputVariantPtr(Response.SupportInformation->Binary->xop__Include, id);
+				OutputVariantPtr(Response.SupportInformation->Binary->xop__Include, type);
+				OutputVariantPtr(Response.SupportInformation->Binary->xop__Include, options);
+			}
+		}
+	}
+	else
+		cout << "Failed in Getting System Support Information,Return Code:" << nResult << endl;
+}
+
+void GetSystemDateTime(CONVIFClient* pClient, const char* IP)
+{
+	_tds__GetSystemDateAndTimeResponse Response;
+	int nResult = pClient->GetSystemDateAndTime(Response);
+	if (SOAP_OK == nResult)
+	{
+		if (Response.SystemDateAndTime)
+		{
+			char* szDateTimeType[] = { "Manual","NTP" };
+			cout << "System date time:" << endl;
+			cout << "Datetime Type" << szDateTimeType[Response.SystemDateAndTime->DateTimeType] << endl;
+			cout << "DaylightSavings" << Response.SystemDateAndTime->DaylightSavings << endl;
+			if (Response.SystemDateAndTime->TimeZone)
+				cout << "Time Zone:" << Response.SystemDateAndTime->TimeZone->TZ << endl;
+			if (Response.SystemDateAndTime->UTCDateTime)
+			{
+				if (Response.SystemDateAndTime->UTCDateTime->Date)
+				{
+					cout << "UTC Date:" << Response.SystemDateAndTime->UTCDateTime->Date->Year << "-"
+						<< Response.SystemDateAndTime->UTCDateTime->Date->Month << "-"
+						<< Response.SystemDateAndTime->UTCDateTime->Date->Day << "-"
+						<< endl;
+				}
+				if (Response.SystemDateAndTime->UTCDateTime->Time)
+				{
+					cout << "UTC Time:" << Response.SystemDateAndTime->UTCDateTime->Time->Hour << ":"
+						<< Response.SystemDateAndTime->UTCDateTime->Time->Minute << ":"
+						<< Response.SystemDateAndTime->UTCDateTime->Time->Second << ":"
+						endl;
+				}
+			}
+			if (Response.SystemDateAndTime->LocalDateTime)
+			{
+				if (Response.SystemDateAndTime->LocalDateTime->Date)
+				{
+					cout << "UTC Date:" << Response.SystemDateAndTime->LocalDateTime->Date->Year << "-"
+						<< Response.SystemDateAndTime->LocalDateTime->Date->Month << "-"
+						<< Response.SystemDateAndTime->LocalDateTime->Date->Day << "-"
+						<< endl;
+				}
+				if (Response.SystemDateAndTime->LocalDateTime->Time)
+				{
+					cout << "UTC Time:" << Response.SystemDateAndTime->LocalDateTime->Time->Hour << ":"
+						<< Response.SystemDateAndTime->LocalDateTime->Time->Minute << ":"
+						<< Response.SystemDateAndTime->LocalDateTime->Time->Second << ":"
+						<< endl;
+				}
+			}
+			if (Response.SystemDateAndTime->Extension)
+			{
+				cout << "System Datetime Extension:" << endl;
+				for each (auto var in Response.SystemDateAndTime->Extension->__any)
+					cout << var << endl;
+			}
+		}
+	}
+	else
+		cout << "Failed in Getting System date and time of " << IP << ",Return code:" << nResult << endl;
+}
+
+void SetSystemDateTime(CONVIFClient* pClient, const char* IP)
+{
+	tt__SetDateTimeType DateTimeType = tt__SetDateTimeType::tt__SetDateTimeType__Manual;
+	bool DayLightSavings = false;
+	tt__TimeZone Timezone;
+	Timezone.TZ = "1";
+	tt__DateTime UTCDateTime;
+	_tds__GetSystemDateAndTimeResponse& Response1;
+	int nResult = pClient->GetSystemDateAndTime(Response1);
+	if (SOAP_OK == nResult)
+	{
+		_tds__SetSystemDateAndTimeResponse Response2;
+		nResult = pClient->SetSystemDateAndTime(Response1.SystemDateAndTime->DateTimeType,
+			Response1.SystemDateAndTime->DaylightSavings,
+			*(Response1.SystemDateAndTime->TimeZone),
+			*(Response1.SystemDateAndTime->UTCDateTime),
+			Response2);
+		if (SOAP_OK == nResult)
+			cout << "Succeed in Setting System date time for IP " << IP << endl;
+		else
+			cout << "Failed in Setting System date and time of " << IP << ",Return code:" << nResult << endl;
+	}
+	else
+		cout << "Failed in Getting System date and time of " << IP << ",Return code:" << nResult << endl;
+}
+
+void SetSysemFactoryDefault(CONVIFClient* pClient, const char* IP)
+{
+	enum tt__FactoryDefaultType nFactoryDefaultType = tt__FactoryDefaultType::tt__FactoryDefaultType__Soft;
+	_tds__SetSystemFactoryDefaultResponse Response;
+	int nResult = pClient->SetSystemFactoryDefault(nFactoryDefaultType, Response);
+	if (SOAP_OK == nResult)
+		cout << "Succeed in Setting SystemFactoryDefault for " << IP << endl;
+	else
+		cout << "Failed in Setting SystemFactoryDefault for " << IP << endl;
+}
+
+void SystemReboot(CONVIFClient* pClient, const char* IP)
+{
+	_tds__SystemRebootResponse Response;
+	int nResult = pClient->SystemReboot(Response);
+	if (SOAP_OK == nResult)
+		cout << "Succeed in Setting SystemFactoryDefault for " << IP << ".System Message:" << Response.Message << endl;
+	else
+		cout << "Failed in Setting SystemFactoryDefault for " << IP << endl;
+}
+
+void GetSystemLog(CONVIFClient* pClient, const char* IP)
+{
+	enum tt__SystemLogType nLogType = tt__SystemLogType::tt__SystemLogType__Access;
+	_tds__GetSystemLogResponse Response;
+	int nResult = pClient->GetSystemLog(nLogType, Response);
+	if (nResult == SOAP_OK)
+	{
+		if (Response.SystemLog)
+		{
+			cout << "Access log of " << IP << ":" << endl;
+			if (Response.SystemLog->String)
+				cout << "Log Message:" << Response.SystemLog->String << endl;
+			if (Response.SystemLog->Binary)
+			{
+				if (Response.SystemLog->Binary->xop__Include.type)
+					cout << "Type:" << Response.SystemLog->Binary->xop__Include.type << endl;
+				cout << "Size:" << Response.SystemLog->Binary->xop__Include.__size << endl;
+				if (Response.SystemLog->Binary->xop__Include.id)
+					cout << "id:" << Response.SystemLog->Binary->xop__Include.id << endl;
+				if (Response.SystemLog->Binary->xop__Include.options)
+					cout << "option:" << Response.SystemLog->Binary->xop__Include.options << endl;
+			}
+		}
+	}
+	else
+		cout << "Failed in Getting System log of " << IP << endl;
+
+	enum tt__SystemLogType nLogType = tt__SystemLogType::tt__SystemLogType__System;
+	int nResult = pClient->GetSystemLog(nLogType, Response);
+	if (nResult == SOAP_OK)
+	{
+		if (Response.SystemLog)
+		{
+			cout << "System log of " << IP << ":" << endl;
+			if (Response.SystemLog->String)
+				cout << "Log Message:" << Response.SystemLog->String << endl;
+			if (Response.SystemLog->Binary)
+			{
+				if (Response.SystemLog->Binary->xop__Include.type)
+					cout << "Type:" << Response.SystemLog->Binary->xop__Include.type << endl;
+				cout << "Size:" << Response.SystemLog->Binary->xop__Include.__size << endl;
+				if (Response.SystemLog->Binary->xop__Include.id)
+					cout << "id:" << Response.SystemLog->Binary->xop__Include.id << endl;
+				if (Response.SystemLog->Binary->xop__Include.options)
+					cout << "option:" << Response.SystemLog->Binary->xop__Include.options << endl;
+			}
+		}
+	}
+	else
+		cout << "Failed in Getting System log of " << IP << endl;
+}
+
+void GetNTP(CONVIFClient* pClient, const char* IP)
+{
+	_tds__GetNTPResponse Response;
+	int nResult = pClient->GetNTP(Response);
+	if (SOAP_OK == nResult)
+	{
+		char* szNetworkType = { "IPv4","IPv6","DNS" };
+		if (Response.NTPInformation)
+		{
+			cout << "From DHCP:" << Response.NTPInformation->FromDHCP ? "True" : "False" << endl;
+			if (Response.NTPInformation->FromDHCP)
+			{
+				if (Response.NTPInformation->NTPFromDHCP.size())
+					for each (auto var in Response.NTPInformation->NTPFromDHCP)
+					{
+						cout << szNetworkType[var->Type] << "=";
+						switch (var->Type)
+						{
+						case tt__NetworkHostType__IPv4:
+							if (var->IPv4Address)
+								cout << var->IPv4Address << endl;
+							break;
+						case tt__NetworkHostType__IPv6:
+							if (var->IPv6Address)
+								cout << var->IPv6Address << endl;
+							break;
+						case tt__NetworkHostType__DNS:
+							if (var->DNSname)
+								cout << var->DNSname << endl;
+							break;
+						default:
+							break;
+						}
+						if (var->Extension &&
+							var->Extension->__any.size())
+						{
+							cout << "Network Extension" << endl;
+							for each (auto var1 in var->Extension->__any)
+								cout << var1 << endl;
+						}
+					}
+			}
+			else
+			{
+				if (Response.NTPInformation->NTPManual.size())
+					for each (auto var in Response.NTPInformation->NTPManual)
+					{
+						cout << szNetworkType[var->Type] << "=";
+						switch (var->Type)
+						{
+						case tt__NetworkHostType__IPv4:
+							if (var->IPv4Address)
+								cout << var->IPv4Address << endl;
+							break;
+						case tt__NetworkHostType__IPv6:
+							if (var->IPv6Address)
+								cout << var->IPv6Address << endl;
+							break;
+						case tt__NetworkHostType__DNS:
+							if (var->DNSname)
+								cout << var->DNSname << endl;
+							break;
+						default:
+							break;
+						}
+						if (var->Extension &&
+							var->Extension->__any.size())
+						{
+							cout << "Network Extension" << endl;
+							for each (auto var1 in var->Extension->__any)
+								cout << var1 << endl;
+						}
+					}
+			}
+		}
+	}
+	else
+		cout << "Failed in Gettint NTP of " << IP << endl;
+}
+
+void GetScopes(CONVIFClient* pClient, const char* IP)
+{
+	char* szScopeDefinition = { "Fixed","Configurable" };
+	_tds__GetScopesResponse Response;
+	int nResult = pClient->GetScopes(Response);
+	if (SOAP_OK == nResult)
+	{
+		if (Response.Scopes.size())
+		{
+			for each (auto var in Response.Scopes)
+			{
+				cout << "Scope Item:" << var->ScopeItem << ":" << szScopeDefinition[var->ScopeDef] << endl;
+			}
+		}
+	}
+	else
+		cout << "Failed in Gettting Scopes of " << IP << endl;
+}
+enum MenuItem
+{
+	Menu_Device,
+	Menu_GetProfiles,
+	Menu_GetMediaUrl,
+	Menu_ListAllPrests,
+	Menu_PTZMoveTest,
+	Menu_AddandRemovePreset,
+	Menu_GetPTZStatus,
+	Menu_GetImageCapbilites,
+	Menu_GetImggeSetting,
+	Menu_Exit
+};
+
+enum DevMenu
+{
+	Get_Device_Services,
+	Get_Device_Capabilites,
+	Get_Device_information,
+	Get_SystemSupport_Information,
+	Get_System_DateTime,
+	Set_System_DateTime,
+	Set_System_Factory_Default,
+	System_Reboot,
+	Get_System_Log,
+	Get_NTP,
+	Set_NTP,
+	Get_Scopes,
+	Return_Mainmenu
+};
+
+MenuItem Menu()
 {
 	int nItem = 1;
 	int nSelectedItem = -1;
 	cout << "Please Selece a item to excute:" << endl;
+	cout << "\t" << nItem++ << ".Device Menu" << endl;
 	cout << "\t" << nItem++ << ".Get Profiles" << endl;
 	cout << "\t" << nItem++ << ".Get Media Url" << endl;
 	cout << "\t" << nItem++ << ".List All Presets" << endl;
@@ -754,11 +1081,37 @@ int Menu()
 	cout << "\t" << nItem++ << ".Get Current PTZ Status" << endl;
 	cout << "\t" << nItem++ << ".Get Image Capabilities" << endl;
 	cout << "\t" << nItem++ << ".Get Image Settings" << endl;
+	//cout << "\t" << nItem++ << ".Get Snapshot Url" << endl;
 	cout << "\t" << nItem++ << ".Exit" << endl;
 	cout << "\t" << "Please input a Item:";
 	cin >> nSelectedItem;
-	return nSelectedItem;
+	return (MenuItem)nSelectedItem;
 }
+
+DevMenu MenuDev()
+{
+	int nItem = 1;
+	int nSelectedItem = -1;
+	cout << "Please Selece a item to excute:" << endl;
+	cout << "\t" << nItem++ << ".Get Device Services" << endl;
+	cout << "\t" << nItem++ << ".Get Device Capabilites" << endl;
+	cout << "\t" << nItem++ << ".Get Device information" << endl;
+	cout << "\t" << nItem++ << ".Get SystemSupport Information" << endl;
+	cout << "\t" << nItem++ << ".Get System Date And Time" << endl;
+	cout << "\t" << nItem++ << ".Set System Date And Time" << endl;
+	cout << "\t" << nItem++ << ".Set System Factory Default" << endl;
+	cout << "\t" << nItem++ << ".System Reboot" << endl;
+	cout << "\t" << nItem++ << ".Get System Log" << endl;
+	cout << "\t" << nItem++ << ".Get NTP" << endl;
+	cout << "\t" << nItem++ << ".Set NTP" << endl;
+	cout << "\t" << nItem++ << ".Get Scopes" << endl;
+	//cout << "\t" << nItem++ << ".Get Snapshot Url" << endl;
+	cout << "\t" << nItem++ << ".Return to Main Menu" << endl;
+	cout << "\t" << "Please input a Item:";
+	cin >> nSelectedItem;
+	return (DevMenu)nSelectedItem;
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Camera CameraArray[] = {
@@ -772,9 +1125,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		//{ "192.168.10.10", "root", "pass" },
 		//{ "192.168.10.15", "root", "pass" },
 		//{ "192.168.10.194", "root", "pass" },
-		//{ "192.168.2.11", "root", "pass" }
+		{ "192.168.2.11", "root", "pass" }
 		//{ "192.168.2.17", "root", "pass" },
-		{ "192.168.20.227", "root", "Pass1234" },
+		//{ "192.168.20.227", "root", "Pass1234" },
 		//{ "192.168.10.42", "root", "pass" },
 		//{ "192.168.10.44", "root", "pass" }
 	};
@@ -796,8 +1149,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	const char* IP = CameraArray[nCameraIdx].strIP.c_str();
 	const char* user = CameraArray[nCameraIdx].strUser.c_str();
 	const char* pass = CameraArray[nCameraIdx].strPass.c_str();
-	
-	do 
+
+	do
 	{
 		try
 		{
@@ -815,52 +1168,136 @@ int _tmain(int argc, _TCHAR* argv[])
 				cout << "Failed in SetDefaultProfile from Camera:" << IP << endl;
 				break;;
 			}
-			
+
 			bool bLoop = true;
 			while (bLoop)
 			{
-				int nMenuItem = Menu();
-				switch (nMenuItem)
+				MenuItem nItem = Menu();
+				switch (nItem)
 				{
-				case 1:		// Get Profiles;
+				case Menu_Device:
+				{
+					try
+					{
+						bool bLoopDev = true;
+						while (bLoopDev)
+						{
+							DevMenu nDevItem = MenuDev();
+							switch (nDevItem)
+							{
+							case Get_Device_Services:
+							{
+								GetDevServices(pClient, IP);
+								break;
+							}
+							case Get_Device_Capabilites:
+							{
+								GetDevCapbilities(pClient, IP);
+								break;
+							}
+							case Get_Device_information:
+							{
+								GetDevInformation(pClient, IP);
+								break;
+							}
+							case Get_SystemSupport_Information:
+							{
+								GetSystemSupportInformation(pClient, IP);
+								break;
+							}
+							case Get_System_DateTime:
+							{
+								GetSystemDateTime(pClient, IP);
+								break;
+							}
+							case Set_System_DateTime:
+							{
+								SetSystemDateTime(pClient, IP);
+								break;
+							};
+							case Set_System_Factory_Default:
+							{
+								SetSysemFactoryDefault(pClient, IP);
+								break;
+							};
+							case System_Reboot:
+							{
+								SystemReboot(pClient, IP);
+								break;
+							};
+							case Get_System_Log:
+							{
+								GetSystemLog(pClient, IP);
+								break;
+							};
+							case Get_NTP:
+							{
+								GetNTP(pClient, IP);
+								break;
+							};
+							case Set_NTP:
+							{
+								break;
+							};
+							case Get_Scopes:
+							{
+								GetScopes(pClient, IP);
+								break;
+							};
+							case Return_Mainmenu:
+								bLoopDev = false;
+								break;
+							default:
+								break;
+							}
+						}
+					}
+					catch (std::exception e)
+					{
+						cout << "Camera[" << IP << "] Catch a excpetion:" << e.what() << endl;
+					}
+				}
+				break;
+				case Menu_GetProfiles:
 					OutputProfiles(pClient);
 					system("pause");
 					system("cls");
 					break;
-				case 2:		// Get Media Url;
+				case Menu_GetMediaUrl:
 					OutputMediaUrl(pClient, IP);
 					system("pause");
 					system("cls");
 					break;
-				case 3:		// List Presets;
+				case Menu_ListAllPrests:
 					GetAllPresets(pClient, IP);
 					system("pause");
 					system("cls");
 					break;
-				case 4:
+				case Menu_PTZMoveTest:
 					PTZMoveTest(pClient, IP);
 					system("pause");
 					system("cls");
 					break;
-				case 5:		// Add a Preset and then Remove it
+				case Menu_AddandRemovePreset:
 					Add_RemovePreset(pClient, IP);
 					system("pause");
 					system("cls");
 					break;
-				case 6:		// Get Current PTZ Status;
+				case Menu_GetPTZStatus:
 					GetPtzStatus(pClient, IP);
 					system("pause");
 					system("cls");
 					break;
-				case 7:		// Get Image Capabilities;
+					break;
+				case Menu_GetImageCapbilites:
 					GetImageCapabilities(pClient, IP);
 					system("pause");
 					system("cls");
 					break;
-				case 8:
+				case Menu_GetImggeSetting:
 					GetImageSettings(pClient, IP);
 					break;
-				case 9:
+				case Menu_Exit:
 					bLoop = false;
 					break;
 				default:
@@ -876,7 +1313,6 @@ int _tmain(int argc, _TCHAR* argv[])
 			cout << "Camera[" << IP << "] Catch a excpetion:" << e.what() << endl;
 		}
 	} while (0);
-	
 
 	system("pause");
 	return 0;

@@ -88,7 +88,7 @@
     <ClInclude Include="ONVIFSDK\onvifgen\soapStub.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ONVIFSDK\ONVIFLib.h">
+    <ClInclude Include="..\Public\ONVIFSDK\ONVIFSDK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

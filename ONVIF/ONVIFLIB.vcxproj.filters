@@ -30,9 +30,6 @@
     <ClInclude Include="ONVIFSDK\HttpDaDefine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ONVIFSDK\ONVIFLib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="gsoap\runtime\duration.h">
       <Filter>gsoap</Filter>
     </ClInclude>
@@ -129,6 +126,12 @@
     <ClInclude Include="include\OnvifClientImage.h">
       <Filter>Export</Filter>
     </ClInclude>
+    <ClInclude Include="include\Export.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="ONVIFSDK\ONVIFSDK.h">
+      <Filter>Export</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ONVIFSDK\ONVIFClientDevice.cpp">
@@ -218,11 +221,11 @@
     <ClCompile Include="ONVIFSDK\OnvifClientImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ONVIFSDK\ONVIFLib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="onvifgen\nsmap.cpp">
       <Filter>onvifgen</Filter>
+    </ClCompile>
+    <ClCompile Include="ONVIFSDK\ONVIFSDK.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
