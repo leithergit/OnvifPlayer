@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "onvifclientptz.h"
 
-OnvifClientPTZ::OnvifClientPTZ(OnvifClientDevice& device )
+OnvifClientPTZ::OnvifClientPTZ(OnvifClientDevice& device)
 	: m_Device(device)
 	, PTZBindingProxy(SOAP_C_UTFSTRING)
 	/*, httpinfo(device.GetHttpDa())
@@ -177,7 +177,69 @@ int  OnvifClientPTZ::GetStatus(_tptz__GetStatusResponse& StatusResponse, string 
 	_tptz__GetStatus StatusReq;
 	StatusReq.ProfileToken = profileToken;
 
-	HttpdaCall(this, __super::GetStatus(&StatusReq, &StatusResponse), nResult);
+	int nResult = 0;
+	string strUser;
+	string strPass;
+	soap_endpoint = m_strUrl.c_str();
+	if (m_Device.GetUserPasswd(strUser, strPass) == false)
+	{
+		Soap_Trace("%s %s:%s Error in Getting Url or User/Passsword.\n", m_Device.GetDevIP(), strClassName.c_str(), "GetImagingSettings");
+		return SOAP_ERR;
+	}
+
+	userid = strUser.c_str();
+	passwd = strPass.c_str();
+	if (m_Device.m_bHttpDigest)
+	{
+		if (bHttpda)
+			http_da_restore(this, &httpinfo);
+
+		nResult = __super::GetStatus(&StatusReq, &StatusResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			if (bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				bHttpda = true;
+			}
+			nResult = __super::GetStatus(&StatusReq, &StatusResponse);
+		}
+	}
+	else if (m_Device.m_bUsernameToken)
+	{
+		soap_wsse_add_Security(this);
+		soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
+		nResult = __super::GetStatus(&StatusReq, &StatusResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			soap_wsse_delete_Security(this);
+			if (bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				bHttpda = true;
+			}
+			nResult = __super::GetStatus(&StatusReq, &StatusResponse);
+		}
+	}
+	else
+		nResult = __super::GetStatus(&StatusReq, &StatusResponse);
+
+	if (nResult != SOAP_OK)
+		Soap_Trace("%s %s:%s  Result = %d\tSoap Status = %d.\n", m_Device.GetDevIP(), strClassName.c_str(), "GetImagingSettings", nResult, status);
+
+	return nResult;
+
+	//HttpdaCall(this, __super::GetStatus(&StatusReq, &StatusResponse), nResult);
 }
 
 int  OnvifClientPTZ::GetNode(_tptz__GetNodeResponse& GetNodeResponse, string nodeToken)
@@ -206,8 +268,8 @@ int  OnvifClientPTZ::GetConfigurations(_tptz__GetConfigurationsResponse& configu
 		return SOAP_ERR;
 	}
 	_tptz__GetConfigurations	configurationsReq;
-	userid = soap_strdup(nullptr, strUser.c_str());
-	passwd = soap_strdup(nullptr, strPass.c_str());
+	userid = strUser.c_str();
+	passwd = strPass.c_str();
 	soap_endpoint = strUrl.c_str();
 	if (bHttpda)
 		http_da_restore(this, &httpinfo);

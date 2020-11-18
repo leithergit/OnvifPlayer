@@ -153,6 +153,12 @@ void CONVIFClient::CreateOnvifClient()
 		throw std::exception("Get Device Capabilities Failed.");
 	}
 
+	_tds__GetServiceCapabilitiesResponse ServiceCapRes;
+	if (pOnvifDev->GetServiceCapabilites(ServiceCapRes) != SOAP_OK)
+	{
+		delete pOnvifDev;
+		throw std::exception("Get Device Capabilities Failed.");
+	}
 	OnvifClientMedia* pMedia = new OnvifClientMedia(*pOnvifDev);
 	if (!pMedia)
 	{
@@ -192,6 +198,7 @@ int CONVIFClient::GetDeviceInformation(_tds__GetDeviceInformationResponse& Respo
 {
 	if (!m_pOnvifDevice)
 		return -1;
+
 	return m_pOnvifDevice->GetDeviceInformation(Response);
 }
 
@@ -224,7 +231,7 @@ int CONVIFClient::SetSystemFactoryDefault(enum tt__FactoryDefaultType nFactoryDe
 		return -1;
 	_tds__SetSystemFactoryDefault Request;
 	Request.FactoryDefault = nFactoryDefaultType;
-	return m_pOnvifDevice->SetSystemFactoryDefault(&Request, &Response);
+	return m_pOnvifDevice->SetSystemFactoryDefault(Request, Response);
 }
 
 int CONVIFClient::SystemReboot(_tds__SystemRebootResponse& Response)
@@ -240,7 +247,8 @@ int CONVIFClient::GetSystemLog(enum tt__SystemLogType nLogType, _tds__GetSystemL
 		return -1;
 	_tds__GetSystemLog Request;
 	Request.LogType = nLogType;
-	return m_pOnvifDevice->GetSystemLog(&Request, &Response);
+
+	return m_pOnvifDevice->GetSystemLog(Request, Response);
 }
 
 int CONVIFClient::GetNTP(_tds__GetNTPResponse& Response)
@@ -263,7 +271,7 @@ int CONVIFClient::GetScopes(_tds__GetScopesResponse& Response)
 		return -1;
 
 	_tds__GetScopes  Request;
-	return m_pOnvifDevice->GetScopes(&Request, &Response);
+	return m_pOnvifDevice->GetScopes(Request, Response);
 }
 
 bool CONVIFClient::CreatePTZClient()
@@ -307,6 +315,7 @@ bool CONVIFClient::CreateImageClient()
 
 	return true;
 }
+
 bool  CONVIFClient::GetPresets()
 {
 	if (!m_pPTZClient)

@@ -639,13 +639,13 @@ void GetImageSettings(CONVIFClient* pClient, const char* IP)
 void GetDevServices(CONVIFClient* pClient, const char* IP)
 {
 	_tds__GetServicesResponse Response;
-	int nResult = pClient->GetDevServices(Response, true);
+	int nResult = pClient->GetDevServices(Response, false);
 	if (SOAP_OK == nResult)
 	{
 		for each (auto var in Response.Service)
 		{
-			cout << "Namespace = " << var->Namespace << endl;
-			cout << "XAddr = " << var->XAddr << endl;
+			cout << "Namespace = " << var->Namespace << "\t";
+			cout << "XAddr = " << var->XAddr << "\t";
 			if (var->Version)
 				cout << "Version:" << var->Version->Major << "." << var->Version->Minor << endl;
 			if (var->Capabilities && var->Capabilities->__any)
@@ -680,6 +680,7 @@ void GetDevCapbilities(CONVIFClient* pClient, const char* IP)
 			tds__DeviceServiceCapabilities* pCab = Response.Capabilities;
 			if (pCab->System)
 			{
+				cout << "**********System capbilities**********" << endl;
 				OutputBooleanPtrOfPtr(pCab->System, DiscoveryBye);
 				OutputBooleanPtrOfPtr(pCab->System, RemoteDiscovery);
 				OutputBooleanPtrOfPtr(pCab->System, SystemBackup);
@@ -693,6 +694,7 @@ void GetDevCapbilities(CONVIFClient* pClient, const char* IP)
 			}
 			if (pCab->Network)
 			{
+				cout << "**********Network capbilities**********" << endl;
 				OutputBooleanPtrOfPtr(pCab->Network, IPFilter);	/* optional attribute */
 				OutputBooleanPtrOfPtr(pCab->Network, ZeroConfiguration);	/* optional attribute */
 				OutputBooleanPtrOfPtr(pCab->Network, IPVersion6);	/* optional attribute */
@@ -707,6 +709,7 @@ void GetDevCapbilities(CONVIFClient* pClient, const char* IP)
 			}
 			if (pCab->Security)
 			{
+				cout << "**********Security capbilities**********" << endl;
 				OutputBooleanPtrOfPtr(pCab->Security, TLS1_x002e0);	/* optional attribute */
 				OutputBooleanPtrOfPtr(pCab->Security, TLS1_x002e1);	/* optional attribute */
 				OutputBooleanPtrOfPtr(pCab->Security, TLS1_x002e2);	/* optional attribute */
@@ -728,6 +731,7 @@ void GetDevCapbilities(CONVIFClient* pClient, const char* IP)
 			}
 			if (pCab->Misc)
 			{
+				cout << "**********Misc capbilities**********" << endl;
 				OutputVariantPtrOfPtr(pCab->Misc, AuxiliaryCommands);
 				OutputVariantPtrOfPtr(pCab->Misc, __anyAttribute);
 			}
@@ -807,7 +811,7 @@ void GetSystemDateTime(CONVIFClient* pClient, const char* IP)
 					cout << "UTC Time:" << Response.SystemDateAndTime->UTCDateTime->Time->Hour << ":"
 						<< Response.SystemDateAndTime->UTCDateTime->Time->Minute << ":"
 						<< Response.SystemDateAndTime->UTCDateTime->Time->Second << ":"
-						endl;
+						<< endl;
 				}
 			}
 			if (Response.SystemDateAndTime->LocalDateTime)
@@ -846,7 +850,7 @@ void SetSystemDateTime(CONVIFClient* pClient, const char* IP)
 	tt__TimeZone Timezone;
 	Timezone.TZ = "1";
 	tt__DateTime UTCDateTime;
-	_tds__GetSystemDateAndTimeResponse& Response1;
+	_tds__GetSystemDateAndTimeResponse Response1;
 	int nResult = pClient->GetSystemDateAndTime(Response1);
 	if (SOAP_OK == nResult)
 	{
@@ -913,8 +917,8 @@ void GetSystemLog(CONVIFClient* pClient, const char* IP)
 	else
 		cout << "Failed in Getting System log of " << IP << endl;
 
-	enum tt__SystemLogType nLogType = tt__SystemLogType::tt__SystemLogType__System;
-	int nResult = pClient->GetSystemLog(nLogType, Response);
+	nLogType = tt__SystemLogType::tt__SystemLogType__System;
+	nResult = pClient->GetSystemLog(nLogType, Response);
 	if (nResult == SOAP_OK)
 	{
 		if (Response.SystemLog)
@@ -944,10 +948,10 @@ void GetNTP(CONVIFClient* pClient, const char* IP)
 	int nResult = pClient->GetNTP(Response);
 	if (SOAP_OK == nResult)
 	{
-		char* szNetworkType = { "IPv4","IPv6","DNS" };
+		char* szNetworkType[] = { "IPv4","IPv6","DNS" };
 		if (Response.NTPInformation)
 		{
-			cout << "From DHCP:" << Response.NTPInformation->FromDHCP ? "True" : "False" << endl;
+			cout << "From DHCP:" << (Response.NTPInformation->FromDHCP ? "True" : "False") << endl;
 			if (Response.NTPInformation->FromDHCP)
 			{
 				if (Response.NTPInformation->NTPFromDHCP.size())
@@ -1020,7 +1024,7 @@ void GetNTP(CONVIFClient* pClient, const char* IP)
 
 void GetScopes(CONVIFClient* pClient, const char* IP)
 {
-	char* szScopeDefinition = { "Fixed","Configurable" };
+	char* szScopeDefinition[] = { "Fixed","Configurable" };
 	_tds__GetScopesResponse Response;
 	int nResult = pClient->GetScopes(Response);
 	if (SOAP_OK == nResult)
@@ -1038,7 +1042,7 @@ void GetScopes(CONVIFClient* pClient, const char* IP)
 }
 enum MenuItem
 {
-	Menu_Device,
+	Menu_Device = 1,
 	Menu_GetProfiles,
 	Menu_GetMediaUrl,
 	Menu_ListAllPrests,
@@ -1052,7 +1056,7 @@ enum MenuItem
 
 enum DevMenu
 {
-	Get_Device_Services,
+	Get_Device_Services = 1,
 	Get_Device_Capabilites,
 	Get_Device_information,
 	Get_SystemSupport_Information,
@@ -1112,6 +1116,114 @@ DevMenu MenuDev()
 	return (DevMenu)nSelectedItem;
 }
 
+void OnDevMenu(CONVIFClient* pClient, const char* IP)
+{
+	try
+	{
+		system("cls");
+		bool bLoopDev = true;
+		while (bLoopDev)
+		{
+			DevMenu nDevItem = MenuDev();
+			switch (nDevItem)
+			{
+			case Get_Device_Services:
+			{
+				GetDevServices(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			}
+			case Get_Device_Capabilites:
+			{
+				GetDevCapbilities(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			}
+			case Get_Device_information:
+			{
+				GetDevInformation(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			}
+			case Get_SystemSupport_Information:
+			{
+				GetSystemSupportInformation(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			}
+			case Get_System_DateTime:
+			{
+				GetSystemDateTime(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			}
+			case Set_System_DateTime:
+			{
+				SetSystemDateTime(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			};
+			case Set_System_Factory_Default:
+			{
+				SetSysemFactoryDefault(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			};
+			case System_Reboot:
+			{
+				SystemReboot(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			};
+			case Get_System_Log:
+			{
+				GetSystemLog(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			};
+			case Get_NTP:
+			{
+				GetNTP(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			};
+			case Set_NTP:
+			{
+				system("pause");
+				system("cls");
+				break;
+			};
+			case Get_Scopes:
+			{
+				GetScopes(pClient, IP);
+				system("pause");
+				system("cls");
+				break;
+			};
+			case Return_Mainmenu:
+				bLoopDev = false;
+				system("cls");
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	catch (std::exception e)
+	{
+		cout << "Camera[" << IP << "] Catch a excpetion:" << e.what() << endl;
+	}
+}
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Camera CameraArray[] = {
@@ -1125,9 +1237,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		//{ "192.168.10.10", "root", "pass" },
 		//{ "192.168.10.15", "root", "pass" },
 		//{ "192.168.10.194", "root", "pass" },
-		{ "192.168.2.11", "root", "pass" }
+		//{ "192.168.2.11", "root", "pass" }
 		//{ "192.168.2.17", "root", "pass" },
-		//{ "192.168.20.227", "root", "Pass1234" },
+		{ "192.168.20.227", "root", "Pass1234" },
+		//{ "192.168.20.228", "root", "Pass1234" },
 		//{ "192.168.10.42", "root", "pass" },
 		//{ "192.168.10.44", "root", "pass" }
 	};
@@ -1177,85 +1290,8 @@ int _tmain(int argc, _TCHAR* argv[])
 				{
 				case Menu_Device:
 				{
-					try
-					{
-						bool bLoopDev = true;
-						while (bLoopDev)
-						{
-							DevMenu nDevItem = MenuDev();
-							switch (nDevItem)
-							{
-							case Get_Device_Services:
-							{
-								GetDevServices(pClient, IP);
-								break;
-							}
-							case Get_Device_Capabilites:
-							{
-								GetDevCapbilities(pClient, IP);
-								break;
-							}
-							case Get_Device_information:
-							{
-								GetDevInformation(pClient, IP);
-								break;
-							}
-							case Get_SystemSupport_Information:
-							{
-								GetSystemSupportInformation(pClient, IP);
-								break;
-							}
-							case Get_System_DateTime:
-							{
-								GetSystemDateTime(pClient, IP);
-								break;
-							}
-							case Set_System_DateTime:
-							{
-								SetSystemDateTime(pClient, IP);
-								break;
-							};
-							case Set_System_Factory_Default:
-							{
-								SetSysemFactoryDefault(pClient, IP);
-								break;
-							};
-							case System_Reboot:
-							{
-								SystemReboot(pClient, IP);
-								break;
-							};
-							case Get_System_Log:
-							{
-								GetSystemLog(pClient, IP);
-								break;
-							};
-							case Get_NTP:
-							{
-								GetNTP(pClient, IP);
-								break;
-							};
-							case Set_NTP:
-							{
-								break;
-							};
-							case Get_Scopes:
-							{
-								GetScopes(pClient, IP);
-								break;
-							};
-							case Return_Mainmenu:
-								bLoopDev = false;
-								break;
-							default:
-								break;
-							}
-						}
-					}
-					catch (std::exception e)
-					{
-						cout << "Camera[" << IP << "] Catch a excpetion:" << e.what() << endl;
-					}
+					OnDevMenu(pClient, IP);
+					system("cls");
 				}
 				break;
 				case Menu_GetProfiles:

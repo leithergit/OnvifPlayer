@@ -91,19 +91,19 @@ void OnvifClientDevice::SaveCapabilities(_tds__GetCapabilitiesResponse& cap)
 	m_hasGetCap = TRUE;
 }
 
-int OnvifClientDevice::GetCapabilities(_tds__GetCapabilitiesResponse& cap)
+int OnvifClientDevice::GetCapabilities(_tds__GetCapabilitiesResponse& Response)
 {
 	soap_endpoint = m_strUrl.c_str();
-	_tds__GetCapabilities capabilities;
-	capabilities.Category.push_back(tt__CapabilityCategory__All);
-	if (bHttpda)
+	_tds__GetCapabilities Request;
+	Request.Category.push_back(tt__CapabilityCategory__All);
+	if (m_bHttpda)
 		http_da_restore(this, &httpinfo);
-	int nResult = __super::GetCapabilities(&capabilities, &cap);
+	int nResult = __super::GetCapabilities(&Request, &Response);
 	if (SOAP_OK == nResult)
 	{
-		if (cap.Capabilities)
+		if (Response.Capabilities)
 		{
-			SaveCapabilities(cap);
+			SaveCapabilities(Response);
 			return nResult;
 		}
 		else
@@ -118,10 +118,10 @@ int OnvifClientDevice::GetCapabilities(_tds__GetCapabilitiesResponse& cap)
 			soap_wsse_add_UsernameTokenDigest(this, nullptr, m_strUser.c_str(), m_strPass.c_str());
 			userid = soap_strdup(nullptr, m_strUser.c_str());
 			passwd = soap_strdup(nullptr, m_strPass.c_str());
-			nResult = __super::GetCapabilities(&capabilities, &cap);
-			if (SOAP_OK == nResult && cap.Capabilities != nullptr)
+			nResult = __super::GetCapabilities(&Request, &Response);
+			if (SOAP_OK == nResult && Response.Capabilities != nullptr)
 			{
-				SaveCapabilities(cap);
+				SaveCapabilities(Response);
 				return nResult;
 			}
 		}
@@ -133,9 +133,9 @@ int OnvifClientDevice::GetCapabilities(_tds__GetCapabilitiesResponse& cap)
 			userid = m_strUser.c_str();
 			passwd = m_strUser.c_str();
 			http_da_save(this, &httpinfo, authrealm, userid, passwd);
-			nResult = __super::GetCapabilities(&capabilities, &cap);
-			if (SOAP_OK == nResult && !cap.Capabilities)
-				SaveCapabilities(cap);
+			nResult = __super::GetCapabilities(&Request, &Response);
+			if (SOAP_OK == nResult && !Response.Capabilities)
+				SaveCapabilities(Response);
 
 			return nResult;
 		}
@@ -148,6 +148,43 @@ int OnvifClientDevice::GetCapabilities()
 {
 	_tds__GetCapabilitiesResponse cap;
 	return GetCapabilities(cap);
+}
+
+int OnvifClientDevice::GetServiceCapabilites(_tds__GetServiceCapabilitiesResponse& ServiceCapRes)
+{
+	_tds__GetServiceCapabilities ServiceCapReq;
+
+	int nResult = __super::GetServiceCapabilities(&ServiceCapReq, &ServiceCapRes);
+	if (nResult == SOAP_OK)
+	{
+		SaveServiceCapabilites(ServiceCapRes.Capabilities);
+	}
+	return nResult;
+}
+
+#define  Equalto(x,p) if (p) x = *p;
+void OnvifClientDevice::SaveServiceCapabilites(tds__DeviceServiceCapabilities* pCapabilities)
+{
+	if (!pCapabilities)
+		return;
+	if (!pCapabilities->Security)
+		return;
+	Equalto(m_bTLS1_x002e0, pCapabilities->Security->TLS1_x002e0);
+	Equalto(m_bTLS1_x002e1, pCapabilities->Security->TLS1_x002e1);
+	Equalto(m_bTLS1_x002e2, pCapabilities->Security->TLS1_x002e2);
+	Equalto(m_bOnboardKeyGeneration, pCapabilities->Security->OnboardKeyGeneration);
+	Equalto(m_bAccessPolicyConfig, pCapabilities->Security->AccessPolicyConfig);
+	Equalto(m_bDefaultAccessPolicy, pCapabilities->Security->DefaultAccessPolicy);
+	Equalto(m_bDot1X, pCapabilities->Security->Dot1X);
+	Equalto(m_bRemoteUserHandling, pCapabilities->Security->RemoteUserHandling);
+	Equalto(m_bX_x002e509Token, pCapabilities->Security->X_x002e509Token);
+	Equalto(m_bSAMLToken, pCapabilities->Security->SAMLToken);
+	Equalto(m_bKerberosToken, pCapabilities->Security->KerberosToken);
+	Equalto(m_bUsernameToken, pCapabilities->Security->UsernameToken);
+	Equalto(m_bHttpDigest, pCapabilities->Security->HttpDigest);
+	Equalto(m_bRELToken, pCapabilities->Security->RELToken);
+	Equalto(m_strSupportedEAPMethods, pCapabilities->Security->SupportedEAPMethods);
+	Equalto(m_nMaxUsers, pCapabilities->Security->MaxUsers);
 }
 
 bool OnvifClientDevice::GetMediaUrl(string& strUrl)
@@ -246,19 +283,139 @@ bool OnvifClientDevice::GetEventUrl(string& strUrl)
 	return true;
 }
 
-
 //Device Service Functions
 int OnvifClientDevice::GetDeviceInformation(_tds__GetDeviceInformationResponse& DeviceInformationResponse)
 {
+	int nResult = 0;
+	string strUrl;
+	string strUser;
+	string strPass;
+	if (!GetUserPasswd(strUser, strPass))
+	{
+		Soap_Trace("%s %s:%s Error in Getting Url or User/Passsword.\n", GetDevIP(), strClassName.c_str(), "GetImagingSettings");
+		return SOAP_ERR;
+	}
+	soap_endpoint = m_strUrl.c_str();;
+
+	userid = strUser.c_str();
+	passwd = strPass.c_str();
 	_tds__GetDeviceInformation DeviceInformationReq;
+	if (m_bHttpDigest)
+	{
+		if (m_bHttpda)
+			http_da_restore(this, &httpinfo);
 
-	//string strUrl;
+		nResult = __super::GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			if (m_bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				m_bHttpda = true;
+			}
+			nResult = __super::GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
+		}
+	}
+	else if (m_bUsernameToken)
+	{
+		soap_wsse_add_Security(this);
+		soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
+		nResult = __super::GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			soap_wsse_delete_Security(this);
+			if (m_bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				m_bHttpda = true;
+			}
+			nResult = __super::GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
+		}
+	}
+	else
+		nResult = __super::GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
 
-	soap_endpoint = m_strUrl.c_str();
+	if (nResult != SOAP_OK)
+		Soap_Trace("%s %s:%s  Result = %d\tSoap Status = %d.\n", GetDevIP(), strClassName.c_str(), "GetImagingSettings", nResult, status);
 
-	return __super::GetDeviceInformation(&DeviceInformationReq, &DeviceInformationResponse);
+	return nResult;
 }
 
+int OnvifClientDevice::GetSystemLog(_tds__GetSystemLog& tds__GetSystemLog, _tds__GetSystemLogResponse& tds__GetSystemLogResponse)
+{
+	int nResult = 0;
+	string strUrl;
+	string strUser;
+	string strPass;
+	if (!GetUserPasswd(strUser, strPass))
+	{
+		Soap_Trace("%s %s:%s Error in Getting Url or User/Passsword.\n", GetDevIP(), strClassName.c_str(), "GetImagingSettings");
+		return SOAP_ERR;
+	}
+	soap_endpoint = m_strUrl.c_str();;
+
+	userid = strUser.c_str();
+	passwd = strPass.c_str();
+	if (m_bHttpDigest)
+	{
+		if (m_bHttpda)
+			http_da_restore(this, &httpinfo);
+
+		nResult = __super::GetSystemLog(&tds__GetSystemLog, &tds__GetSystemLogResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			if (m_bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				m_bHttpda = true;
+			}
+			nResult = __super::GetSystemLog(&tds__GetSystemLog, &tds__GetSystemLogResponse);
+		}
+	}
+	else if (m_bUsernameToken)
+	{
+		soap_wsse_add_Security(this);
+		soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
+		nResult = __super::GetSystemLog(&tds__GetSystemLog, &tds__GetSystemLogResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			soap_wsse_delete_Security(this);
+			if (m_bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				m_bHttpda = true;
+			}
+			nResult = __super::GetSystemLog(&tds__GetSystemLog, &tds__GetSystemLogResponse);
+		}
+	}
+	else
+		nResult = __super::GetSystemLog(&tds__GetSystemLog, &tds__GetSystemLogResponse);
+
+	if (nResult != SOAP_OK)
+		Soap_Trace("%s %s:%s  Result = %d\tSoap Status = %d.\n", GetDevIP(), strClassName.c_str(), "GetImagingSettings", nResult, status);
+
+	return nResult;
+}
 int OnvifClientDevice::GetSystemSupportInformation(_tds__GetSystemSupportInformationResponse& Response)
 {
 	_tds__GetSystemSupportInformation Request;
@@ -277,24 +434,73 @@ int OnvifClientDevice::GetSystemDateAndTime(_tds__GetSystemDateAndTimeResponse& 
 int OnvifClientDevice::SetSystemDateAndTime(_tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse, tt__SetDateTimeType& DateTimeType, bool DayLightSavings, tt__TimeZone& Timezone, tt__DateTime& UTCDateTime)
 {
 	_tds__SetSystemDateAndTime SetDateTimeReq;
-	SetDateTimeReq.DateTimeType = (tt__SetDateTimeType)1;// DateTimeType;
+	SetDateTimeReq.DateTimeType = DateTimeType;// DateTimeType;
 	SetDateTimeReq.DaylightSavings = DayLightSavings;
 	SetDateTimeReq.TimeZone = &Timezone;
 	SetDateTimeReq.UTCDateTime = &UTCDateTime;
 
+	int nResult = 0;
 	string strUrl;
 	string strUser;
 	string strPass;
-	if (this->GetUserPasswd(strUser, strPass) == false
-		|| this->GetUrl(strUrl) == false)
+	if (!GetUserPasswd(strUser, strPass))
 	{
+		Soap_Trace("%s %s:%s Error in Getting Url or User/Passsword.\n", GetDevIP(), strClassName.c_str(), "GetImagingSettings");
 		return SOAP_ERR;
 	}
+	soap_endpoint = m_strUrl.c_str();;
 
-	soap_wsse_add_Security(this);
-	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
+	userid = strUser.c_str();
+	passwd = strPass.c_str();
+	if (m_bHttpDigest)
+	{
+		if (m_bHttpda)
+			http_da_restore(this, &httpinfo);
 
-	return __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+		nResult = __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			if (m_bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				m_bHttpda = true;
+			}
+			nResult = __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+		}
+	}
+	else if (m_bUsernameToken)
+	{
+		soap_wsse_add_Security(this);
+		soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
+		nResult = __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+		if (nResult == 401)
+		{
+			userid = strUser.c_str();
+			passwd = strPass.c_str();
+			soap_wsse_delete_Security(this);
+			if (m_bHttpda)
+				http_da_restore(this, &httpinfo);
+			else
+			{
+				soap_register_plugin(this, http_da);
+				http_da_save(this, &httpinfo, this->authrealm, userid, passwd);
+				m_bHttpda = true;
+			}
+			nResult = __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+		}
+	}
+	else
+		nResult = __super::SetSystemDateAndTime(&SetDateTimeReq, &SetSystemDateAndTimeResponse);
+
+	if (nResult != SOAP_OK)
+		Soap_Trace("%s %s:%s  Result = %d\tSoap Status = %d.\n", GetDevIP(), strClassName.c_str(), "GetImagingSettings", nResult, status);
+
+	return nResult;
 }
 
 int OnvifClientDevice::GetHostname(_tds__GetHostnameResponse& GetHostnameResponse)
@@ -582,6 +788,22 @@ int OnvifClientDevice::SystemReboot(_tds__SystemRebootResponse& SystemRebootResp
 	return __super::SystemReboot(&SystemRebootReq, &SystemRebootResponse);
 }
 
+int OnvifClientDevice::SetSystemFactoryDefault(_tds__SetSystemFactoryDefault& Request, _tds__SetSystemFactoryDefaultResponse& Response)
+{
+	string strUrl;
+	string strUser;
+	string strPass;
+	if (this->GetUserPasswd(strUser, strPass) == false
+		|| this->GetUrl(strUrl) == false)
+	{
+		return SOAP_ERR;
+	}
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
+
+	return __super::SetSystemFactoryDefault(&Request, &Response);
+}
 int OnvifClientDevice::SynchronizeDateAndTimeWithCamera(string& strUrl, string& strUser, string& strPass, _tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse)
 {
 	m_strUrl = strUrl;
@@ -641,6 +863,7 @@ bool OnvifClientDevice::GetUserPasswd(string& strUser, string& strPass)
 	strPass = m_strPass;
 	return true;
 }
+
 bool OnvifClientDevice::SetUrlUserPasswd(string& strUrl, string& strUser, string& strPass)
 {
 	m_strUrl = strUrl;
@@ -648,6 +871,7 @@ bool OnvifClientDevice::SetUrlUserPasswd(string& strUrl, string& strUser, string
 	m_strPass = strPass;
 	return true;
 }
+
 bool OnvifClientDevice::GetUrl(string& _strUrl)
 {
 	_strUrl = m_strUrl;
@@ -738,12 +962,42 @@ http_da_info& OnvifClientDevice::GetHttpDa()
 
 bool& OnvifClientDevice::HttpdaEnabled()
 {
-	return bHttpda;
+	return m_bHttpda;
 }
+
 const char* OnvifClientDevice::GetDevIP()
 {
 	if (m_strDevIP.size())
 		return m_strDevIP.c_str();
 	else
 		return nullptr;
+}
+
+int OnvifClientDevice::GetScopes(_tds__GetScopes& Request, _tds__GetScopesResponse& Response)
+{
+	string strUrl;
+	string strUser;
+	string strPass;
+	if (this->GetUserPasswd(strUser, strPass) == false
+		|| this->GetUrl(strUrl) == false)
+	{
+		return SOAP_ERR;
+	}
+	soap_endpoint = strUrl.c_str();
+	soap_wsse_add_Security(this);
+	soap_wsse_add_UsernameTokenDigest(this, "Id", strUser.c_str(), strPass.c_str());
+
+	return __super::GetScopes(&Request, &Response);
+}
+bool OnvifClientDevice::GetMessage(char* szMessageBuff, int nBufferSize)
+{
+	if (!szMessageBuff || nBufferSize)
+		return false;
+	if (this->labbuf && this->lablen)
+	{
+		strncpy_s(szMessageBuff, nBufferSize, this->labbuf, this->lablen);
+		return true;
+	}
+	else
+		return false;
 }

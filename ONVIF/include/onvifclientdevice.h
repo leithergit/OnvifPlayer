@@ -14,6 +14,10 @@
 #include "wsseapi.h"
 #include "httpdadefine.h"
 using namespace std;
+enum  DevFuncAuthentic
+{
+
+};
 class  OnvifClientDevice :public DeviceBindingProxy
 	/*,public PTZBindingProxy
 	 ,public ImagingBindingProxy
@@ -27,6 +31,10 @@ public:
 	void SaveCapabilities(_tds__GetCapabilitiesResponse& cap);
 
 	int GetCapabilities(_tds__GetCapabilitiesResponse& cap);
+
+	int GetServiceCapabilites(_tds__GetServiceCapabilitiesResponse& ServiceCapRes);
+
+	void SaveServiceCapabilites(tds__DeviceServiceCapabilities* pCapabilities);
 
 	int GetCapabilities();
 
@@ -45,6 +53,8 @@ public:
 	bool GetReplayUrl(string& strUrl);
 
 	bool GetEventUrl(string& strUrl);
+
+	int  GetSystemLog(_tds__GetSystemLog& tds__GetSystemLog, _tds__GetSystemLogResponse& tds__GetSystemLogResponse);
 
 	//Device Service Functions
 	int GetDeviceInformation(_tds__GetDeviceInformationResponse& Response);
@@ -85,6 +95,8 @@ public:
 
 	int SystemReboot(_tds__SystemRebootResponse& SystemRebootResponse);
 
+	int SetSystemFactoryDefault(_tds__SetSystemFactoryDefault& Request, _tds__SetSystemFactoryDefaultResponse& Response);
+
 	int SynchronizeDateAndTimeWithCamera(string& strUrl, string& strUser, string& strPass, _tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse);
 
 	int SynchronizeDateAndTimeWithCamera(_tds__SetSystemDateAndTimeResponse& SetSystemDateAndTimeResponse);
@@ -92,6 +104,8 @@ public:
 	bool GetUserPasswd(string& strUser, string& strPass);
 
 	bool SetUrlUserPasswd(string& strUrl, string& strUser, string& strPass);
+
+	int GetScopes(_tds__GetScopes& tds__GetScopes, _tds__GetScopesResponse& tds__GetScopesResponse);
 
 	bool GetUrl(string& _strUrl);
 	/* used to find time offset inside SynchronizeDateAndTimeWithCamera()  */
@@ -104,7 +118,24 @@ public:
 	http_da_info& GetHttpDa();
 	bool& HttpdaEnabled();
 	const char* GetDevIP();
-
+	bool GetMessage(char* szMessageBuff, int nBufferSize);
+	// ServiceCapabilites 
+	bool m_bTLS1_x002e0;	/* optional attribute */
+	bool m_bTLS1_x002e1;	/* optional attribute */
+	bool m_bTLS1_x002e2;	/* optional attribute */
+	bool m_bOnboardKeyGeneration;	/* optional attribute */
+	bool m_bAccessPolicyConfig;	/* optional attribute */
+	bool m_bDefaultAccessPolicy;	/* optional attribute */
+	bool m_bDot1X;	/* optional attribute */
+	bool m_bRemoteUserHandling;	/* optional attribute */
+	bool m_bX_x002e509Token;	/* optional attribute */
+	bool m_bSAMLToken;	/* optional attribute */
+	bool m_bKerberosToken;	/* optional attribute */
+	bool m_bUsernameToken;	/* optional attribute */
+	bool m_bHttpDigest;	/* optional attribute */
+	bool m_bRELToken;	/* optional attribute */
+	std::string m_strSupportedEAPMethods;	/* optional attribute */
+	int m_nMaxUsers;	/* optional attribute */
 private:
 	string m_strUrl;
 	string m_strUser;
@@ -112,7 +143,7 @@ private:
 	string m_strDevIP;
 	bool m_hasGetCap;
 	http_da_info httpinfo;
-	bool bHttpda = false;
+	bool m_bHttpda = false;
 	const char* httpuserid = nullptr;
 	const char* httppasswd = nullptr;
 	/* If the Device support blow service */
@@ -135,6 +166,7 @@ private:
 	string m_strReplay;
 	string m_strEvent;
 	//DeviceBindingProxy deviceBindProxy;
+
 };
 
 
