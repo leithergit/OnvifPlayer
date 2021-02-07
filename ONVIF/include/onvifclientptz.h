@@ -68,8 +68,6 @@ private:
 	OnvifClientDevice& m_Device;
 	http_da_info httpinfo;
 	bool bHttpda;
-	const char* httpuserid = nullptr;
-	const char* httppasswd = nullptr;
 	std::string m_strUrl;
 };
 

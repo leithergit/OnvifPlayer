@@ -12,7 +12,7 @@
 #include "../Public/ONVIFSDK/ONVIFSDK.h"
 #pragma comment(lib,"./ipcplaysdk/x86/debug/ipcplaysdk.lib")
 #pragma comment(lib,"./libcurl/libcurl.lib")
-#pragma comment(lib,"./debug/RTSP.lib")
+#pragma comment(lib,"../debug/RTSP.lib")
 
 #ifdef _ONVIF_STATIC
 #ifdef _DEBUG
@@ -872,7 +872,7 @@ void rtspPlayer::on_ButtonAdd_clicked()
 	long nLastIP = ntohl(inet_addr(strLastIP.c_str()));
 
 	QString strDefaultURL = "rtsp://root:pass@%s/axis-media/media.amp?camera=1&videocodec=h264";
-	switch (nCameraType)
+	/*switch (nCameraType)
 	{
 	case 0:
 	default:
@@ -890,7 +890,7 @@ void rtspPlayer::on_ButtonAdd_clicked()
 	case 4:
 		strDefaultURL = "rtsp://admin:admin@%1:554/live.sdp";
 		break;
-	}
+	}*/
 	int nCount = ui.tableWidgetCamera->rowCount();
 	if (!IsValidIPAddressA(strLastIP.c_str()))
 	{// The last IP iv invalid
